@@ -16,7 +16,5 @@ assignees: ''
 - [ ] `I should [observe an outcome]`
 - [ ] `(and I [observe another outcome])`
 
-## Acceptance Criteria
-
-`Scenario:`
-- [ ] `developer adds criteria here to test user story`
+## Additionally...
+- [ ] `add cypress testing as you go`
