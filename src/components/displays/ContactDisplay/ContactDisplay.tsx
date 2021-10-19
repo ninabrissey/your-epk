@@ -1,8 +1,17 @@
+import { useState, useEffect} from 'react'
+import { headerData } from "../../../utils/mockData";
+
 const ContactDisplay = () => {
 
   return (
     <section className='contact-display-container'>
-      <p>I am the contact displayed version</p>
+      <h2>Contact</h2>
+      <div>
+        <p>Name</p>
+        <p>Phone Number</p>
+        <p>Email Address</p>
+        <p>Company</p>
+      </div>
     </section>
   )
 }
