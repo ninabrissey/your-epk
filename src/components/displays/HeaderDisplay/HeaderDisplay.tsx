@@ -1,19 +1,32 @@
 import { useState, useEffect} from 'react'
-import { headerData } from "../../../utils/mockData";
+import { film, header } from "../../../utils/mockData";
+import ContactDisplay from '../ContactDisplay/ContactDisplay';
 
 const HeaderDisplay = () => {
-  const [data1, setHeaderData1] = useState(headerData)
+  const [filmData, setFilmData] = useState('')
+  const [headerData, setHeaderData] = useState(header)
 
-  // useEffect(() => {
-  //   setHeaderData1(headerData)
-  // }, [])
+  useEffect(() => {
+    setFilmData(film.title)
+    setHeaderData(header)
+  }, [])
 
-  console.log('headerData: ', data1)
+  console.log('headerData: ', headerData)
 
   return (
     <section className='header-display-container'>
-      <img src={data1.img} />
-      <p>I am the header displayed version</p>
+      <img 
+        className='header-img' 
+        src={headerData.img} 
+        alt={filmData}
+      />
+      <div className='header-info-container'>
+        <div>
+          <h1>{filmData}</h1>
+          <p>{headerData.description}</p>
+        </div>
+        <ContactDisplay />
+      </div>
     </section>
   )
 }
