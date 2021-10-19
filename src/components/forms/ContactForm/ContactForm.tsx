@@ -1,3 +1,6 @@
+import { useState, useEffect} from 'react'
+import { film, header } from "../../../utils/mockData";
+
 const ContactForm = () => {
 
   return (

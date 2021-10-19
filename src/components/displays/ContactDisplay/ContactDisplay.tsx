@@ -1,5 +1,5 @@
 import { useState, useEffect} from 'react'
-import { headerData } from "../../../utils/mockData";
+import { contact } from "../../../utils/mockData";
 
 const ContactDisplay = () => {
 
