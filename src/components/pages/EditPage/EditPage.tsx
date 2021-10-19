@@ -7,7 +7,8 @@ const EditPage = () => {
 
   return (
     <>
-      <HeaderDisplay />
+      {/* <HeaderDisplay /> */}
+      <HeaderForm />
     </>
   )
 }
