@@ -2,6 +2,10 @@ import { useState, useEffect} from 'react'
 import { film, header } from "../../../utils/mockData";
 import ContactForm from '../ContactForm/ContactForm';
 
+import TextField from '@mui/material/TextField';
+import FormControl from '@mui/material/FormControl';
+import Button from '@mui/material/Button';
+
 const HeaderForm = () => {
   const [filmData, setFilmData] = useState('')
 
@@ -12,13 +16,22 @@ const HeaderForm = () => {
   return (
     <section className='header-container'>
       {/* img goes here */}
-      <div>IMG GOES HERE</div>
+      <div className='header-img center-text'>IMG GOES HERE</div>
       {/* this is the film info area */}
-      <div>
+      <div className='header-info-container'>
         <h1>{filmData}</h1>
-        <input placeholder='description goes here' />
+        <FormControl sx={{ m: 1, minWidth: 120 }}>
+          <TextField
+            id="outlined-multiline-flexible"
+            label="Description"
+            multiline
+            minRows={4}
+            maxRows={4}
+          />
+          <Button variant="text">save</Button>
+        </FormControl>
+        <ContactForm />
       </div>
-      <ContactForm />
     </section>
   )
 }
