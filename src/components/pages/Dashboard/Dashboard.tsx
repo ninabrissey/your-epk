@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 // import postData from '../../../utils/apiCalls';
 import TitleForm from './TitleForm/TitleForm';
 import EPKContainer from './EPKContainer/EPKContainer';
-import { ThisIsData } from '../../../types';
+import { ThisIsData, UserData } from '../../../types';
+import { setupMaster } from 'cluster';
+import { userInfo } from 'os';
 
 // this will be used with the network request most likely
 // interface DashBoardProps {
@@ -29,20 +31,22 @@ const data = {
   }
 }
 
+const Dashboard = (dbprops: { id: number, name: string, setUser: any, user: UserData }) => {
 
-
-const Dashboard = () => {
-  const [check, setCheck] = useState({})
+  console.log('setUser method?', dbprops.user.first_name);
 
   useEffect(() => {
-    setCheck(data.attributes)
+    dbprops.setUser({
+      "email": "rachelmaria@gmail.com",
+      "first_name": "Nina",
+      "last_name": "Brissey"
+    })
   }, [])
-
-  console.log('check: ', check)
 
   return (
     <main>
       <h2>hey you</h2>
+      <h3>{dbprops.user.email}</h3>
       <TitleForm />
       <EPKContainer />
     </main>
