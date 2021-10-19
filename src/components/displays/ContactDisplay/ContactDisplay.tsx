@@ -1,8 +1,8 @@
 const ContactDisplay = () => {
 
   return (
-    <section className='contact-display'>
-      <p>I am the contact display </p>
+    <section className='contact-display-container'>
+      <p>I am the contact displayed version</p>
     </section>
   )
 }
