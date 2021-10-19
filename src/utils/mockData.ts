@@ -1,10 +1,10 @@
-export const filmData : {
+export const film : {
   title: string;
 } = {
   title: 'Amazing Grace'
 }
 
-export const headerData : {
+export const header : {
   img: string;
   description: string;
   } = {
@@ -12,7 +12,7 @@ export const headerData : {
   description: 'Grace, who is Ed\'s only hope, has been enabling her father\'s drinking for far too long. Ed, a Vietnam Veteran, is starting to unravel. Both must learn how to cope in this imperfect world.'
 }
 
-export const contactData : {
+export const contact : {
   name: string;
   phoneNumber: string;
   email: string;
