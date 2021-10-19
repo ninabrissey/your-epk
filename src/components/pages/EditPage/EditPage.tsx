@@ -8,7 +8,6 @@ const EditPage = () => {
   return (
     <>
       <HeaderDisplay />
-      <ContactDisplay />
     </>
   )
 }
