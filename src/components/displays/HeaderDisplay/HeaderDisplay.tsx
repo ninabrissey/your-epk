@@ -14,7 +14,7 @@ const HeaderDisplay = () => {
   console.log('headerData: ', headerData)
 
   return (
-    <section className='header-display-container'>
+    <section className='header-container'>
       <img 
         className='header-img' 
         src={headerData.img} 
