@@ -1,3 +1,15 @@
+export interface ThisIsUser {
+  id: number;
+  type: string;
+  attributes: UserData
+}
+
+export interface UserData {
+  email: string;
+  first_name: string;
+  last_name: string;
+}
+
 export interface ThisIsData {
   id: number;
   type: string;
