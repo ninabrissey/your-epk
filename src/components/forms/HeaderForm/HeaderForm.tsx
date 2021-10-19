@@ -3,11 +3,22 @@ import { film, header } from "../../../utils/mockData";
 import ContactForm from '../ContactForm/ContactForm';
 
 const HeaderForm = () => {
+  const [filmData, setFilmData] = useState('')
+
+  useEffect(() => {
+    setFilmData(film.title)
+  }, [])
 
   return (
-    <section className='header-form-container'>
-      <p>film title goes here</p>
-      <p>I am the header form</p>
+    <section className='header-container'>
+      {/* img goes here */}
+      <div>IMG GOES HERE</div>
+      {/* this is the film info area */}
+      <div>
+        <h1>{filmData}</h1>
+        <input placeholder='description goes here' />
+      </div>
+      <ContactForm />
     </section>
   )
 }
