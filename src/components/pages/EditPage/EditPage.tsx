@@ -7,7 +7,7 @@ import AwardPressForm from '../../forms/HeaderForm/AwardPressForm/AwardPressForm
 const EditPage = () => {
 const [film, setFilm] = useState({})
 // const [isEdittingHeader, setIsEdittingHeader] = useState(false)
-const [isEdittingAwardsPress, setIsEdittingAwardsPress] = useState<boolean>(false)
+const [isEdittingAwardsPress, setIsEdittingAwardsPress] = useState<boolean>(true)
 
 
 
