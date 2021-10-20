@@ -15,10 +15,10 @@ const ContactForm = () => {
   const handleSubmit = () => {
     let currentContact = {
       "user_id": 1,
-      "genre": name, 
-      "country": phoneNum, 
-      "website": email, 
-      "language": company
+      "contact_name": name, 
+      "contact_number": phoneNum, 
+      "contact_email": email, 
+      "company_name": company
     }
     patchData(currentContact, 14)
     console.log('currentContact: ', currentContact)
