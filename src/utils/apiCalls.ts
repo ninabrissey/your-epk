@@ -13,8 +13,8 @@ export const postData = () => {
     .catch(err => console.log(err))
 }
 
-export const patchData = (data : object) => {
-  return fetch('https://epk-be.herokuapp.com/api/v1/film_epk/14', {
+export const patchData = (data : object, filmID : number) => {
+  return fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${filmID}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'
