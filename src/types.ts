@@ -29,3 +29,9 @@ export interface Attributes {
   production_company: string;
   distribution: string
 }
+
+export interface Press {
+  name_of_publication: string;
+  description: string;
+  link: string
+}
