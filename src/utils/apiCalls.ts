@@ -19,7 +19,7 @@ export const patchData = (data : object, filmID : number) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({data})
+    body: JSON.stringify({film_epk: data})
   })
   .then(res => res.json())
   .then(data => console.log('PATCHED_DATA: ', data))
