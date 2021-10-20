@@ -1,5 +1,6 @@
 import { useState, useEffect} from 'react'
-import { film, header } from "../../../utils/mockData";
+import { film } from "../../../utils/mockData";
+import { patchData } from '../../../utils/apiCalls';
 import ContactForm from '../ContactForm/ContactForm';
 
 import TextField from '@mui/material/TextField';
@@ -7,11 +8,21 @@ import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
 const HeaderForm = () => {
-  const [filmData, setFilmData] = useState('')
+  const [filmTitle, setFilmTitle] = useState('')
+  const [headerDescription, setHeaderDescription] = useState('')
 
   useEffect(() => {
-    setFilmData(film.title)
+    setFilmTitle(film.title)
   }, [])
+
+  const handleSubmit = () => {
+    let currentDescription = {
+      "user_id": 1,
+      "header_description": headerDescription
+    }
+    patchData(currentDescription, 14)
+    console.log('currentDescription: ', currentDescription)
+  }
 
   return (
     <section className='header-container'>
@@ -19,7 +30,7 @@ const HeaderForm = () => {
       <div className='header-img center-text'>IMG GOES HERE</div>
       {/* this is the film info area */}
       <div className='header-info-container'>
-        <h1>{filmData}</h1>
+        <h1>{filmTitle}</h1>
         <FormControl sx={{ m: 1, minWidth: 120 }}>
           <TextField
             id="outlined-multiline-flexible"
@@ -27,8 +38,16 @@ const HeaderForm = () => {
             multiline
             minRows={4}
             maxRows={4}
+            type='text'
+            name='headerDescription'
+            value={headerDescription}
+            onChange={(e) => setHeaderDescription(e.target.value)}
           />
-          <Button variant="text">save</Button>
+          <Button 
+            variant="text"
+            onClick={handleSubmit}
+            >save
+          </Button>
         </FormControl>
         <ContactForm />
       </div>
@@ -53,4 +72,8 @@ export default HeaderForm;
     // -description is rendered from the form
 
 // the container that holds the title and description will also hold the contact component
+
+// IMG UPLOAD
+// user will have an input for a string value just like all other "text fields" 
+// then a save btn
 
