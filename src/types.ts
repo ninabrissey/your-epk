@@ -31,8 +31,17 @@ export interface Attributes {
 }
 
 export interface Press {
+  id: number;
+  film_epk_id: number;
   name_of_publication: string;
   description: string;
   link: string
 }
 
+export interface Award {
+  id: number;
+  film_epk_id: number;
+  name: string;
+  year: string;
+  type: string
+}
