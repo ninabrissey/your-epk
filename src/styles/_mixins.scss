@@ -1,0 +1,17 @@
+@mixin flexCenterRow {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flexCenterColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin gridDisplayCards {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
