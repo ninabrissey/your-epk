@@ -12,7 +12,6 @@ const ContactForm = () => {
   const [email, setEmail] = useState<string>('')
   const [company, setCompany] = useState<string>('')
 
-  // wrap this in film_epk ???
   const handleSubmit = () => {
     let currentContact = {
       contact_name: name, 
