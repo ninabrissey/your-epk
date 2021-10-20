@@ -8,9 +8,9 @@ import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
 const HeaderForm = () => {
-  const [filmTitle, setFilmTitle] = useState('')
-  const [headerDescription, setHeaderDescription] = useState('')
-  const [headerImg, setHeaderImg] = useState('')
+  const [filmTitle, setFilmTitle] = useState<string>('')
+  const [headerDescription, setHeaderDescription] = useState<string>('')
+  const [headerImg, setHeaderImg] = useState<string>('')
 
   useEffect(() => {
     setFilmTitle(film.title)
@@ -28,6 +28,7 @@ const HeaderForm = () => {
 
   return (
     <section className='header-container'>
+
       {/* this is the header img upload area */}
       <div className='header-img'>
       <FormControl sx={{ m: 1, minWidth: 480 }}>
@@ -46,6 +47,7 @@ const HeaderForm = () => {
           </Button>
         </FormControl>
       </div>
+
       {/* this is the header info area */}
       <div className='header-info-container'>
         <h1>{filmTitle}</h1>
@@ -69,6 +71,7 @@ const HeaderForm = () => {
         </FormControl>
         <ContactForm />
       </div>
+
     </section>
   )
 }
