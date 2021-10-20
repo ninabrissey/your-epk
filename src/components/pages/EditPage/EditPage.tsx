@@ -3,6 +3,7 @@ import { postData } from '../../../utils/apiCalls';
 import AwardPressDisplay from '../../displays/AwardPressDisplay/AwardPressDisplay';
 import AwardPressForm from '../../forms/HeaderForm/AwardPressForm/AwardPressForm';
 import {FilmEPK} from '../../../types'
+import "./EditPage.scss"
 
 interface EPProps { 
   setAwardsPress: any;
@@ -32,7 +33,7 @@ useEffect(() => {
 
 return (
 
-  <main>
+  <main className='edit-page'>
     {/* {isEdittingHeader && <HeaderForm />}
     {!isEdittingHeader && <HeaderDisplay />} */}
     {/* {isEdittingAwardsPress && <AwardPressForm {...props}/>} */}
