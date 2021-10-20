@@ -17,8 +17,8 @@ const HeaderForm = () => {
 
   const handleSubmit = () => {
     let currentDescription = {
-      "user_id": 1,
-      "header_description": headerDescription
+      user_id: 1,
+      header_description: headerDescription
     }
     patchData(currentDescription, 14)
     console.log('currentDescription: ', currentDescription)
