@@ -12,13 +12,13 @@ const ContactForm = () => {
   const [email, setEmail] = useState<string>('')
   const [company, setCompany] = useState<string>('')
 
+  // wrap this in film_epk ???
   const handleSubmit = () => {
     let currentContact = {
-      "user_id": 1,
-      "contact_name": name, 
-      "contact_number": phoneNum, 
-      "contact_email": email, 
-      "company_name": company
+      contact_name: name, 
+      contact_number: phoneNum, 
+      contact_email: email, 
+      company_name: company
     }
     patchData(currentContact, 14)
     console.log('currentContact: ', currentContact)
