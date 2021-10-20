@@ -35,3 +35,4 @@ export interface Press {
   description: string;
   link: string
 }
+
