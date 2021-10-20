@@ -1,15 +1,16 @@
 import TextField from '@mui/material/TextField';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 // import type {} from '@mui/lab/themeAugmentation';
-import '@mui/lab/themeAugmentation';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
+import {FilmEPK} from '../../../../types'
 import './AwardPressForm.scss'
 // import { createTheme, ThemeProvider } from '@mui/system';
 
-const AwardPressForm = () => {
+const AwardPressForm = (EditPageProps: {setAwardsPress: any;
+  filmEPK: FilmEPK; setFilm: any}) => {
   // const [select, setSelect] = React.useState('');
 
   // const handleChange = (event: SelectChangeEvent) => {
@@ -33,7 +34,8 @@ const AwardPressForm = () => {
   
   return (
     <section>
-      <FormControl style={{ height: '50vh'}} sx={{ m: 1, minWidth: 120 }}>
+      {EditPageProps.filmEPK.attributes !== undefined && <h2>{EditPageProps.filmEPK.attributes.movie_title}</h2>}
+      <FormControl sx={{ m: 1, minWidth: 120 }}>
         <div className="press-awards-form" >
         <InputLabel id="award-or-press">type</InputLabel>
        <Select
