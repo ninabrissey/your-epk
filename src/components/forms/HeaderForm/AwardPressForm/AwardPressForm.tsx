@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-// import type {} from '@mui/lab/themeAugmentation';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
@@ -12,10 +12,18 @@ import AwardPressDisplay from '../../../displays/AwardPressDisplay/AwardPressDis
 
 const AwardPressForm = (EditPageProps: {setAwardsPress: any;
   filmEPK: FilmEPK; setFilm: any}) => {
-  // const [select, setSelect] = React.useState('');
+  const [select, setSelect] = useState('');
+  const [publication, setPublication] = useState('');
+  const [link, setLink] = useState('');
+  const [quote, setQuote] = useState('');
+  
 
   // const handleChange = (event: SelectChangeEvent) => {
   //   setSelect(event.target.value);
+  // };
+
+  // const handleChange = (event: any) => {
+  //   setState({select: event.target.value});
   // };
 
   // const theme = createTheme({
@@ -44,15 +52,17 @@ const AwardPressForm = (EditPageProps: {setAwardsPress: any;
           style={{ width: '20%', minWidth: '85px', marginRight: '3%'}}
           labelId="award-or-press"
           id="award-or-press"
-          // onChange={handleChange}
           label="type"
+          name="Select"
+          value={select}
+          onChange={e => setSelect(e.target.value)}
         >
           <MenuItem value={'award'}>award</MenuItem>
           <MenuItem value={'press'}>press</MenuItem>
         </Select>
-      <TextField style={{ marginRight: '3%'}} id="outlined-basic" label="publication" variant="outlined" />
-      <TextField style={{ marginRight: '3%'}} id="outlined-basic" label="link" variant="outlined" />
-      <TextField style={{ marginRight: '3%'}} id="outlined-basic" label="quote" variant="outlined" />
+      <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="publication" label="publication" variant="outlined" value={publication} onChange={e => setPublication(e.target.value)}/>
+      <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="link" label="quote" variant="outlined" value={quote} onChange={e => setQuote(e.target.value)}/>
+      <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="quote" label="link" variant="outlined" value={link} onChange={e => setLink(e.target.value)}/>
       <Button style={{ background: '#ec5f27', height: '57px'}} variant="text">save</Button>
       </div>
       </FormControl>
