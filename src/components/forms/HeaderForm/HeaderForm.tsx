@@ -10,6 +10,7 @@ import Button from '@mui/material/Button';
 const HeaderForm = () => {
   const [filmTitle, setFilmTitle] = useState('')
   const [headerDescription, setHeaderDescription] = useState('')
+  const [headerImg, setHeaderImg] = useState('')
 
   useEffect(() => {
     setFilmTitle(film.title)
@@ -18,6 +19,7 @@ const HeaderForm = () => {
   const handleSubmit = () => {
     let currentDescription = {
       user_id: 1,
+      header_img: headerImg,
       header_description: headerDescription
     }
     patchData(currentDescription, 14)
@@ -26,9 +28,25 @@ const HeaderForm = () => {
 
   return (
     <section className='header-container'>
-      {/* img goes here */}
-      <div className='header-img center-text'>IMG GOES HERE</div>
-      {/* this is the film info area */}
+      {/* this is the header img upload area */}
+      <div className='header-img'>
+      <FormControl sx={{ m: 1, minWidth: 480 }}>
+          <TextField
+            id="outlined-multiline-flexible"
+            label="Img URL"
+            type='text'
+            name='headerImg'
+            value={headerImg}
+            onChange={(e) => setHeaderImg(e.target.value)}
+          />
+          <Button 
+            variant="text"
+            onClick={handleSubmit}
+            >save
+          </Button>
+        </FormControl>
+      </div>
+      {/* this is the header info area */}
       <div className='header-info-container'>
         <h1>{filmTitle}</h1>
         <FormControl sx={{ m: 1, minWidth: 120 }}>
