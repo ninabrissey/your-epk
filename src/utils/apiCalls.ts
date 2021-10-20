@@ -1,13 +1,10 @@
-export const postData = () => {
-  return fetch('https://epk-be.herokuapp.com/api/v1/sessions', {
+export const postData = (url: string, data: object) => {
+  return fetch(url, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({
-      email: "nbrissey@gmail.com",
-      password: "password"
-    }),
+    body: JSON.stringify(data),
   }).then(res => res.json())
     .then(data => console.log(data.data))
     .catch(err => console.log(err))
