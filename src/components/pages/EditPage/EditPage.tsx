@@ -1,24 +1,42 @@
-import {useState} from 'react'
-// import { postData } from '../../../utils/apiCalls';
+import {useEffect, useState} from 'react'
+import { postData } from '../../../utils/apiCalls';
 import AwardPressDisplay from '../../displays/AwardPressDisplay/AwardPressDisplay';
 import AwardPressForm from '../../forms/HeaderForm/AwardPressForm/AwardPressForm';
-// import postData from '../../../utils/apiCalls'; file path?
+import {FilmEPK} from '../../../types'
+
+interface EPProps { 
+  setAwardsPress: any;
+  filmEPK: FilmEPK;
+  setFilm: any
+}
 
 const EditPage = () => {
-const [film, setFilm] = useState({})
+const [film, setFilm] = useState<FilmEPK>({} as FilmEPK)
 // const [isEdittingHeader, setIsEdittingHeader] = useState(false)
 const [isEdittingAwardsPress, setIsEdittingAwardsPress] = useState<boolean>(true)
 
+const EditPageProps: EPProps = {
+setAwardsPress: setIsEdittingAwardsPress,
+filmEPK: film,
+setFilm: setFilm
+}
 
+useEffect(() => {
+  postData("https://epk-be.herokuapp.com/api/v1/film_epk", {
+    user_id: "1",
+    movie_title: "Racharia",
+   }).then(data => setFilm(data.data))
+   .catch(err => console.log(err))
+  }, [])
+  
 
-const props = { setIsEditting: setIsEdittingAwardsPress }
 return (
 
   <main>
     {/* {isEdittingHeader && <HeaderForm />}
     {!isEdittingHeader && <HeaderDisplay />} */}
     {/* {isEdittingAwardsPress && <AwardPressForm {...props}/>} */}
-    {isEdittingAwardsPress && <AwardPressForm />}
+    {isEdittingAwardsPress && <AwardPressForm {...EditPageProps}/>}
     {!isEdittingAwardsPress && <AwardPressDisplay />}  
   </main>
 )
