@@ -1,7 +1,7 @@
 export interface ThisIsUser {
   id: number;
   type: string;
-  attributes: UserData
+  attributes: UserData;
 }
 
 export interface UserData {
@@ -10,12 +10,11 @@ export interface UserData {
   last_name: string;
 }
 
-export interface ThisIsData {
+export interface FilmEPK {
   id: number;
   type: string;
-  attributes: Attributes
+  attributes: Attributes;
 }
-
 export interface Attributes {
   user_id: number;
   movie_title: string;
@@ -27,21 +26,25 @@ export interface Attributes {
   budget: number;
   website: string;
   production_company: string;
-  distribution: string
+  distribution: string;
+  awards: Award[];
+  press: Press[];
 }
 
-export interface Press {
+
+interface Press {
   id: number;
   film_epk_id: number;
   name_of_publication: string;
   description: string;
-  link: string
+  link: string;
 }
 
-export interface Award {
+interface Award {
   id: number;
   film_epk_id: number;
   name: string;
   year: string;
-  type: string
+  type: string;
 }
+
