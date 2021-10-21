@@ -5,21 +5,15 @@ import AwardPressForm from '../../forms/HeaderForm/AwardPressForm/AwardPressForm
 import {FilmEPK} from '../../../types'
 import "./EditPage.scss"
 
-interface EPProps { 
-  setAwardsPress: any;
+interface FilmProps { 
   filmEPK: FilmEPK;
-  setFilm: any
 }
 
 const EditPage = () => {
 const [film, setFilm] = useState<FilmEPK>({} as FilmEPK)
-// const [isEdittingHeader, setIsEdittingHeader] = useState(false)
-const [isEdittingAwardsPress, setIsEdittingAwardsPress] = useState<boolean>(true)
 
-const EditPageProps: EPProps = {
-setAwardsPress: setIsEdittingAwardsPress,
+const Film: FilmProps = {
 filmEPK: film,
-setFilm: setFilm
 }
 
 useEffect(() => {
@@ -37,8 +31,8 @@ return (
     {/* {isEdittingHeader && <HeaderForm />}
     {!isEdittingHeader && <HeaderDisplay />} */}
     {/* {isEdittingAwardsPress && <AwardPressForm {...props}/>} */}
-    {isEdittingAwardsPress && <AwardPressForm {...EditPageProps}/>}
-    {!isEdittingAwardsPress && <AwardPressDisplay />}  
+    {/* {isEdittingAwardsPress && <AwardPressForm {...Film}/>}
+    {!isEdittingAwardsPress && <AwardPressDisplay />}   */}
   </main>
 )
 
