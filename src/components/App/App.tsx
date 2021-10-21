@@ -12,14 +12,16 @@ interface DBProps {
   user: UserData
 }
 
+const userId: number = 1;
+
 function App() {
   const [currUser, setCurrUser] = useState<UserData>({} as UserData);
 
   const DashBoardProps: DBProps = { id: 1, name: 'Test', setUser: setCurrUser, user: currUser }
 
   useEffect(() => {
-    // return fetch('')
-    //   .then(data => setUser(data.data.attributes))
+    // fetch(`https://epk-be.herokuapp.com/api/v1/users/${userId}`)
+    //   .then((data: any) => setCurrUser(data.data.attributes)) //
     setCurrUser({
       "email": "nbrissey@gmail.com",
       "first_name": "Nina",
