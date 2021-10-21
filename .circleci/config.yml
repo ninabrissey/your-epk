@@ -8,5 +8,6 @@ workflows:
   build:
     jobs:
       - cypress/run
-      - heroku/deploy-via-git
+        start: npm start
+      # - heroku/deploy-via-git
 # testing on this file
