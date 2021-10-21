@@ -1,7 +1,5 @@
 import {useEffect, useState} from 'react'
 import { postData } from '../../../utils/apiCalls';
-import AwardPressDisplay from '../../displays/AwardPressDisplay/AwardPressDisplay';
-import AwardPressForm from '../../forms/HeaderForm/AwardPressForm/AwardPressForm';
 import {FilmEPK} from '../../../types'
 import "./EditPage.scss"
 
@@ -26,21 +24,15 @@ useEffect(() => {
   
 
 return (
-
   <main className='edit-page'>
-    {/* {isEdittingHeader && <HeaderForm />}
-    {!isEdittingHeader && <HeaderDisplay />} */}
-    {/* {isEdittingAwardsPress && <AwardPressForm {...props}/>} */}
-    {/* {isEdittingAwardsPress && <AwardPressForm {...Film}/>}
-    {!isEdittingAwardsPress && <AwardPressDisplay />}   */}
   </main>
 )
 
 // const postFilmInfo = (filminfo) => {
 // postData(filmInfo)
 // the response will update state
-// This will be passed to back up to the edit page
-// We will thne put the response in state
+// This will be passed back up to the edit page
+// We will then put the response in state
 //   }
 }
 
