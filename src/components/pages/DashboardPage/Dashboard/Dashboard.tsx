@@ -6,25 +6,34 @@ import { UserData } from '../../../../types';
 import { setupMaster } from 'cluster';
 import { userInfo } from 'os';
 
-const Dashboard = (dbprops: { id: number, name: string, setUser: any, user: UserData }) => {
+interface IDashboard {
+  films: object[],
+  id: number,
+  setAllFilms: React.Dispatch<React.SetStateAction<object[]>>,
+  allFilms: object[]
+}
 
-  console.log('setUser method?', dbprops.user.first_name);
+const Dashboard = (userProps: { id: number, name: string, setUser: any, user: UserData }) => {
+  const [allFilms, setAllFilms] = useState<object[]>([]);
+
+  const dashboardProps: IDashboard = {
+    films: allFilms,
+    id: userProps.id,
+    setAllFilms: setAllFilms,
+    allFilms: allFilms
+  }
 
   useEffect(() => {
-
-
-    // dbprops.setUser({
-    //   "email": "rachelmaria@gmail.com",
-    //   "first_name": "Nina",
-    //   "last_name": "Brissey"
-    // })
+    // fetch all existing titles and set to state
   }, [])
+
+  // pass all Films to  
 
   return (
     <main>
       <h2>hey you</h2>
-      <h3>{dbprops.user.email}</h3>
-      <TitleForm {...dbprops} />
+      <h3>{`${userProps.user.first_name} ${userProps.user.last_name}`}</h3>
+      <TitleForm {...dashboardProps} />
       <EPKContainer />
     </main>
   )
