@@ -9,5 +9,15 @@ export const postData = (url: string, data: object) => {
     .catch(err => console.log(err))
 }
 
-
-
+export const patchData = (data : object, filmID : number) => {
+  return fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${filmID}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({film_epk: data})
+  })
+  .then(res => res.json())
+  .then(data => console.log('PATCHED_DATA: ', data))
+  .catch(err => console.log('ERROR_IN_PATCH: ', err))
+}

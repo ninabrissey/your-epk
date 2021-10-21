@@ -1,4 +1,6 @@
 @import './reset';
+@import '../components/displays/HeaderDisplay/HeaderDisplay.scss';
+@import '../components/forms/HeaderForm/HeaderForm.scss';
 
 body {
   margin: 0;
@@ -10,11 +12,7 @@ body {
   background-color: #fefcf5;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 a {
   text-decoration: none;
 }
+
