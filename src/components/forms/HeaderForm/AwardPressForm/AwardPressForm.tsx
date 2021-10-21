@@ -70,4 +70,10 @@ const AwardPressForm = (Film: {
   )
 }
 
+// notes for container 
+  // {isEdittingAwardsPress && <AwardPressForm {...Film}/>}
+  //   {!isEdittingAwardsPress && <AwardPressDisplay />} 
+//   import AwardPressDisplay from '../../displays/AwardPressDisplay/AwardPressDisplay';
+// import AwardPressForm from '../../forms/HeaderForm/AwardPressForm/AwardPressForm';
+
 export default AwardPressForm
