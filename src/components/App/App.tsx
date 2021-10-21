@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     // return fetch('')
-    //   .then(data => setUser(data.data.attributes))
+    // .then(data => setUser(data.data.attributes))
     setCurrUser({
       "email": "nbrissey@gmail.com",
       "first_name": "Nina",
@@ -31,19 +31,19 @@ function App() {
   return (
     <div className="App">
 
-      {/* <Switch>
+      <Switch>
         <Route exact path='/' >
-          {a login page will go here}
+          {/* {a login page will go here} */}
           <h1>You're on the / page</h1>
         </Route>
         <Route exact path={`/${currUser.first_name}-${currUser.last_name}`}>
           <Dashboard {...DashBoardProps} />
         </Route>
-        <Route exact path='/edit-page'> */}
+        <Route exact path='/edit-page'>
           <EditPage />
-          {/* <h2>This is the edit page</h2>
+          <h2>This is the edit page</h2>
         </Route>
-      </Switch> */}
+      </Switch>
     </div>
   );
 }
