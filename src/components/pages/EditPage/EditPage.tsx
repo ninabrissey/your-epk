@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react'
 import { postData } from '../../../utils/apiCalls';
 import {FilmEPK} from '../../../types'
 import "./EditPage.scss"
+import AwardsPressContainer from '../../AwardsPress/AwardsPressContainer';
+import HeaderContainer from '../../Header/HeaderContainer';
 
 interface FilmProps { 
   filmEPK: FilmEPK;
@@ -25,6 +27,8 @@ useEffect(() => {
 
 return (
   <main className='edit-page'>
+    <HeaderContainer />
+    <AwardsPressContainer {...Film}/>
   </main>
 )
 
