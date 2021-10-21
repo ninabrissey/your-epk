@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 // import postData from '../../../utils/apiCalls';
 import TitleForm from './TitleForm/TitleForm';
 import EPKContainer from './EPKContainer/EPKContainer';
-import { ThisIsData, UserData } from '../../../types';
+import { UserData } from '../../../types';
 import { setupMaster } from 'cluster';
 import { userInfo } from 'os';
 

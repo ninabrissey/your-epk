@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     // return fetch('')
-    //   .then(data => setUser(data.data.attributes))
+    // .then(data => setUser(data.data.attributes))
     setCurrUser({
       "email": "nbrissey@gmail.com",
       "first_name": "Nina",
