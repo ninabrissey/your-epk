@@ -38,7 +38,7 @@ function App() {
           {/* {a login page will go here} */}
           <h1>You're on the / page</h1>
         </Route>
-        <Route exact path={`/${currUser.first_name}-${currUser.last_name}`}>
+        <Route exact path={`/dashboard/${userId}`}>
           <Dashboard {...DashBoardProps} />
         </Route>
         <Route exact path='/edit-page'>
@@ -51,3 +51,6 @@ function App() {
 }
 
 export default App;
+
+
+// `/${currUser.first_name}-${currUser.last_name}`
