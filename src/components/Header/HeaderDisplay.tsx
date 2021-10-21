@@ -1,6 +1,6 @@
 import { useState, useEffect} from 'react'
-import { film, header } from "../../../utils/mockData";
-import ContactDisplay from '../ContactDisplay/ContactDisplay';
+import { film, header } from "../../utils/mockData";
+import ContactDisplay from '../Contact/ContactDisplay';
 
 const HeaderDisplay = () => {
   const [filmData, setFilmData] = useState('')

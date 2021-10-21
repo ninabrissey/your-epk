@@ -5,9 +5,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
-import {FilmEPK} from '../../../../types'
+import {FilmEPK} from '../../types'
 import './AwardPressForm.scss'
-import AwardPressDisplay from '../../../displays/AwardPressDisplay/AwardPressDisplay';
+import AwardPressDisplay from './AwardPressDisplay';
 // import { createTheme, ThemeProvider } from '@mui/system';
 
 const AwardPressForm = (Film: {

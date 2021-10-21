@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import { TestComponent } from '../../TestComponent';
-import Dashboard from '../pages/Dashboard/Dashboard';
+import Dashboard from '../pages/DashboardPage/Dashboard/Dashboard';
 import EditPage from '../pages/EditPage/EditPage';
 import { Route, Switch } from 'react-router-dom';
 import { ThisIsUser, UserData } from '../../types'

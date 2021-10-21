@@ -1,7 +1,7 @@
 import { useState, useEffect} from 'react'
-import { film } from "../../../utils/mockData";
-import { patchData } from '../../../utils/apiCalls';
-import ContactForm from '../ContactForm/ContactForm';
+import { film } from "../../utils/mockData";
+import { patchData } from '../../utils/apiCalls';
+import ContactForm from '../Contact/ContactForm';
 
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
