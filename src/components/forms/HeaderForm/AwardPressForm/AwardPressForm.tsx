@@ -10,8 +10,8 @@ import './AwardPressForm.scss'
 import AwardPressDisplay from '../../../displays/AwardPressDisplay/AwardPressDisplay';
 // import { createTheme, ThemeProvider } from '@mui/system';
 
-const AwardPressForm = (EditPageProps: {setAwardsPress: any;
-  filmEPK: FilmEPK; setFilm: any}) => {
+const AwardPressForm = (Film: {
+  filmEPK: FilmEPK; }) => {
   const [select, setSelect] = useState('');
   const [publication, setPublication] = useState('');
   const [link, setLink] = useState('');
@@ -43,7 +43,7 @@ const AwardPressForm = (EditPageProps: {setAwardsPress: any;
   
   return (
     <section>
-      {EditPageProps.filmEPK.attributes !== undefined && <h2>{EditPageProps.filmEPK.attributes.movie_title}</h2>}
+      {Film.filmEPK.attributes !== undefined && <h2>{Film.filmEPK.attributes.movie_title}</h2>}
       <AwardPressDisplay />
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <div className="press-awards-form" >
