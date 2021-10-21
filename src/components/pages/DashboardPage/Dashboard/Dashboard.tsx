@@ -24,7 +24,12 @@ const Dashboard = (userProps: { id: number, name: string, setUser: any, user: Us
   }
 
   useEffect(() => {
-    // fetch all existing titles and set to state
+    fetch(`https://epk-be.herokuapp.com/api/v1/users/${userProps.id}`)
+      .then(res => res.json())
+      .then((data: any) => {
+        setAllFilms(data.included)
+      })
+      .catch(err => console.log(err))
   }, [])
 
   // pass all Films to  
