@@ -3,11 +3,9 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
   cypress: cypress-io/cypress@1.29.0
-  heroku: circleci/heroku@1.2.6
+
 workflows:
   build:
     jobs:
       - cypress/run:
         start: npm start
-      # - heroku/deploy-via-git
-# testing on this file
