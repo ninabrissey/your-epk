@@ -1,5 +1,3 @@
-import React from 'react'
-
 const PressCard = () => {
   const presses =  [{
     name_of_publication: "TIMES OF SAN DIEGO",
