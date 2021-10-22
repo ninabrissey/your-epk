@@ -6,25 +6,16 @@ import { UserData } from '../../../../types';
 import { setupMaster } from 'cluster';
 import { userInfo } from 'os';
 
-interface IDashboard {
-  films: object[],
+interface IUser {
   id: number,
-  setAllFilms: React.Dispatch<React.SetStateAction<object[]>>,
-  allFilms: object[]
+  currUser: UserData
 }
 
-const Dashboard = (userProps: { id: number, name: string, setUser: any, user: UserData }) => {
+const Dashboard = ({ id, currUser }: IUser) => {
   const [allFilms, setAllFilms] = useState<object[]>([]);
 
-  const dashboardProps: IDashboard = {
-    films: allFilms,
-    id: userProps.id,
-    setAllFilms: setAllFilms,
-    allFilms: allFilms
-  }
-
   useEffect(() => {
-    fetch(`https://epk-be.herokuapp.com/api/v1/users/${userProps.id}`)
+    fetch(`https://epk-be.herokuapp.com/api/v1/users/${id}`)
       .then(res => res.json())
       .then((data: any) => {
         setAllFilms(data.included)
@@ -37,8 +28,8 @@ const Dashboard = (userProps: { id: number, name: string, setUser: any, user: Us
   return (
     <main>
       <h2>hey you</h2>
-      <h3>{`${userProps.user.first_name} ${userProps.user.last_name}`}</h3>
-      <TitleForm {...dashboardProps} />
+      <h3>{`${currUser.first_name} ${currUser.last_name}`}</h3>
+      <TitleForm allFilms={allFilms} id={id} setAllFilms={setAllFilms} />
       <EPKContainer />
     </main>
   )
