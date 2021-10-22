@@ -13,16 +13,16 @@ interface FilmProps {
 const EditPage = ({ epk_id }: any) => {
   const [film, setFilm] = useState<FilmEPK>({} as FilmEPK)
 
-useEffect(() => {
-  getUser(1)
-    .then((data: any) => setFilm(data.included[0]))
-    .catch(err => console.log(err))
-  }, [])
+// useEffect(() => {
+//   getUser(1)
+//     .then((data: any) => setFilm(data.included[0].attributes))
+//     // .then((data: any) => console.log(data.included[0].attributes))
+//     .catch(err => console.log(err))
+//     console.log(film)
+//   }, [])
   
-  const addFilmInfo: (filmInfo: object, id: number) => void = (filmInfo: object, id: number) => {
-    patchData(filmInfo, id)
-    .then((data: any) => setFilm(data.included[0]))
-    .catch(err => console.log(err))
+  const addFilmInfo = (filmInfo: object) => {
+    patchData(filmInfo, 77).then(data => setFilm(data))
   }
 
   return (
