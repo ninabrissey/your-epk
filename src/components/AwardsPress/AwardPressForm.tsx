@@ -5,27 +5,31 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
-import {FilmEPK} from '../../types'
 import './AwardPressForm.scss'
-import AwardPressDisplay from './AwardPressDisplay';
 // import { createTheme, ThemeProvider } from '@mui/system';
 
-const AwardPressForm = (Film: {
-  filmEPK: FilmEPK; }) => {
+const AwardPressForm = ({addFilmInfo}: any) => {
   const [select, setSelect] = useState('');
   const [publication, setPublication] = useState('');
   const [link, setLink] = useState('');
   const [quote, setQuote] = useState('');
+
+  const newAward = {
+      awards: {
+        name: publication,
+        year: link,
+        award_type: quote
+      }
+    }
+
+  // const newPress = {
+  //   presses: {
+  //     publication: publication,
+  //     link: link,
+  //     quote: quote
+  //   }
+  // }
   
-
-  // const handleChange = (event: SelectChangeEvent) => {
-  //   setSelect(event.target.value);
-  // };
-
-  // const handleChange = (event: any) => {
-  //   setState({select: event.target.value});
-  // };
-
   // const theme = createTheme({
   //   components: {
   //     // Name of the component
@@ -43,8 +47,6 @@ const AwardPressForm = (Film: {
   
   return (
     <section>
-      {Film.filmEPK.attributes !== undefined && <h2>{Film.filmEPK.attributes.movie_title}</h2>}
-      <AwardPressDisplay />
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <div className="press-awards-form" >
         <InputLabel id="award-or-press">type</InputLabel>
@@ -63,17 +65,12 @@ const AwardPressForm = (Film: {
       <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="publication" label="publication" variant="outlined" value={publication} onChange={e => setPublication(e.target.value)}/>
       <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="link" label="quote" variant="outlined" value={quote} onChange={e => setQuote(e.target.value)}/>
       <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="quote" label="link" variant="outlined" value={link} onChange={e => setLink(e.target.value)}/>
-      <Button style={{ background: '#ec5f27', height: '57px'}} variant="text">save</Button>
+      <Button style={{ background: '#ec5f27', height: '57px'}} variant="text"
+      onClick={() => addFilmInfo(newAward)}>save</Button>
       </div>
       </FormControl>
     </section>
   )
 }
-
-// notes for container 
-  // {isEdittingAwardsPress && <AwardPressForm {...Film}/>}
-  //   {!isEdittingAwardsPress && <AwardPressDisplay />} 
-//   import AwardPressDisplay from '../../displays/AwardPressDisplay/AwardPressDisplay';
-// import AwardPressForm from '../../forms/HeaderForm/AwardPressForm/AwardPressForm';
 
 export default AwardPressForm
