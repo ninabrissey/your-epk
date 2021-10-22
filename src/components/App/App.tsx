@@ -30,7 +30,7 @@ function App() {
           <h1>You're on the / page</h1>
         </Route>
         <Route exact path={`/dashboard/${userId}`}>
-          {/* <Dashboard currUser={currUser} id={userId} /> */}
+          <Dashboard currUser={currUser} id={userId} />
         </Route>
         <Route exact path='/edit/:epk_id' render={({ match }) =>
           <EditPage epk_id={match.params.epk_id} />
