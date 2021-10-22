@@ -36,4 +36,5 @@ export const patchData = (data : object, filmID : number) => {
 
 export const getUser = (userID: number) => {
   return fetch(`https://epk-be.herokuapp.com/api/v1/users/${userID}`)
+  .then(res => res.json())
 }
