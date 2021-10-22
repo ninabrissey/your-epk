@@ -23,7 +23,13 @@ const HeaderForm = ({ addFilmInfo }: any) => {
       header_description: headerDescription
     }
     addFilmInfo(currentDescription, 77)
+    clearForm()
     console.log('currentDescription: ', currentDescription)
+  }
+
+  const clearForm = () => {
+    setHeaderDescription('')
+    setHeaderImg('')
   }
 
   return (

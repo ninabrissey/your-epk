@@ -20,7 +20,15 @@ const ContactForm = ({ addFilmInfo }: any) => {
       production_company: company
     }
     addFilmInfo(currentContact, 77)
+    clearForm()
     console.log('currentContact: ', currentContact)
+  }
+
+  const clearForm = () => {
+    setName('')
+    setPhoneNum('')
+    setEmail('')
+    setCompany('')
   }
 
   return (
