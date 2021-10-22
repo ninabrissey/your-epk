@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-const ContactForm = () => {
+const ContactForm = ({ addFilmInfo }: any) => {
   const [name, setName] = useState<string>('')
   const [phoneNum, setPhoneNum] = useState<string>('')
   const [email, setEmail] = useState<string>('')
@@ -19,7 +19,7 @@ const ContactForm = () => {
       contact_email: email, 
       production_company: company
     }
-    patchData(currentContact, 77)
+    addFilmInfo(currentContact, 77)
     console.log('currentContact: ', currentContact)
   }
 

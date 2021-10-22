@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-const HeaderForm = () => {
+const HeaderForm = ({ addFilmInfo }: any) => {
   const [filmTitle, setFilmTitle] = useState<string>('')
   const [headerDescription, setHeaderDescription] = useState<string>('')
   const [headerImg, setHeaderImg] = useState<string>('')
@@ -22,14 +22,12 @@ const HeaderForm = () => {
       header_img: headerImg,
       header_description: headerDescription
     }
-    patchData(currentDescription, 77)
+    addFilmInfo(currentDescription, 77)
     console.log('currentDescription: ', currentDescription)
   }
 
   return (
     <section>
-       {/* className='header-container'> */}
-
       {/* this is the header img upload area */}
       <div className='header-img'>
         <FormControl sx={{ m: 1, minWidth: 480 }}>
@@ -70,9 +68,8 @@ const HeaderForm = () => {
             >save
           </Button>
         </FormControl>
-        <ContactForm />
+        <ContactForm addFilmInfo={addFilmInfo} />
       </div>
-
     </section>
   )
 }
