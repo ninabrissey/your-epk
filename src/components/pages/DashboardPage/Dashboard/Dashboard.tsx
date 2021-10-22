@@ -6,26 +6,29 @@ import { UserData } from '../../../../types';
 import { setupMaster } from 'cluster';
 import { userInfo } from 'os';
 
-const Dashboard = (dbprops: { id: number, name: string, setUser: any, user: UserData }) => {
+interface IUser {
+  id: number,
+  currUser: UserData
+}
 
-  console.log('setUser method?', dbprops.user.first_name);
+const Dashboard = ({ id, currUser }: IUser) => {
+  const [allFilms, setAllFilms] = useState<object[]>([]);
 
   useEffect(() => {
-
-
-    // dbprops.setUser({
-    //   "email": "rachelmaria@gmail.com",
-    //   "first_name": "Nina",
-    //   "last_name": "Brissey"
-    // })
+    fetch(`https://epk-be.herokuapp.com/api/v1/users/${id}`)
+      .then(res => res.json())
+      .then((data: any) => {
+        setAllFilms(data.included)
+      })
+      .catch(err => console.log(err))
   }, [])
 
   return (
     <main>
       <h2>hey you</h2>
-      <h3>{dbprops.user.email}</h3>
-      <TitleForm {...dbprops} />
-      <EPKContainer />
+      <h3>{`${currUser.first_name} ${currUser.last_name}`}</h3>
+      <TitleForm allFilms={allFilms} id={id} setAllFilms={setAllFilms} />
+      <EPKContainer allFilms={allFilms} />
     </main>
   )
 }
