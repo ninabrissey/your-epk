@@ -17,9 +17,9 @@ const ContactForm = () => {
       contact_name: name, 
       contact_number: phoneNum, 
       contact_email: email, 
-      company_name: company
+      production_company: company
     }
-    patchData(currentContact, 14)
+    patchData(currentContact, 77)
     console.log('currentContact: ', currentContact)
   }
 

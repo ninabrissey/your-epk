@@ -22,7 +22,7 @@ const HeaderForm = () => {
       header_img: headerImg,
       header_description: headerDescription
     }
-    patchData(currentDescription, 14)
+    patchData(currentDescription, 77)
     console.log('currentDescription: ', currentDescription)
   }
 
@@ -32,7 +32,7 @@ const HeaderForm = () => {
 
       {/* this is the header img upload area */}
       <div className='header-img'>
-      <FormControl sx={{ m: 1, minWidth: 480 }}>
+        <FormControl sx={{ m: 1, minWidth: 480 }}>
           <TextField
             id="outlined-multiline-flexible"
             label="Img URL"
