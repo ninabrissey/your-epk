@@ -36,7 +36,6 @@ const ContactForm = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        {console.log('name: ', name)}
         <TextField 
           id="outlined-basic" 
           label="Phone Number" 
