@@ -5,6 +5,7 @@ import "./EditPage.scss"
 import AwardsPressContainer from '../../AwardsPress/AwardsPressContainer';
 import HeaderContainer from '../../Header/HeaderContainer';
 import TrailerContainer from '../../Trailer/TrailerContainer';
+import FilmPosterContainer from '../../FilmPoster/FilmPosterContainer';
 
 interface FilmProps { 
   filmEPK: FilmEPK;
@@ -25,29 +26,14 @@ const EditPage = ({ epk_id }: any) => {
     patchData(filmInfo, 77).then(data => setFilm(data))
   }
 
-  // useEffect(() => {
-  //   postData("https://epk-be.herokuapp.com/api/v1/film_epk", {
-  //     user_id: "1",
-  //     movie_title: "Racharia",
-  //   }).then(data => setFilm(data.data))
-  //     .catch(err => console.log(err))
-  // }, [])
-  
-
-return (
-  <main className='edit-page'>
-    <HeaderContainer />
-    <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo}/>
-    <TrailerContainer />
-  </main>
-)
-
-// const postFilmInfo = (filminfo) => {
-// postData(filmInfo)
-// the response will update state
-// This will be passed back up to the edit page
-// We will then put the response in state
-//   }
+  return (
+    <main className='edit-page'>
+      <HeaderContainer/>
+      <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo}/>
+      <TrailerContainer />
+      <FilmPosterContainer />
+    </main>
+  )
 }
 
 export default EditPage;
