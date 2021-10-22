@@ -3,10 +3,10 @@ import TrailerDisplay from './TrailerDisplay';
 
 const TrailerContainer = () => {
   return (
-    <div className='trailer-container'>
-      <TrailerForm />
-      {/* <TrailerDisplay /> */}
-    </div>
+    <section className='trailer-container'>
+      {/* <TrailerForm /> */}
+      <TrailerDisplay />
+    </section>
   )
 }
 
