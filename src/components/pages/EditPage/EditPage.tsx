@@ -1,43 +1,36 @@
 import {useEffect, useState} from 'react'
-import { postData } from '../../../utils/apiCalls';
 import {FilmEPK} from '../../../types'
+import { getUser, patchData } from '../../../utils/apiCalls';
 import "./EditPage.scss"
 import AwardsPressContainer from '../../AwardsPress/AwardsPressContainer';
 import HeaderContainer from '../../Header/HeaderContainer';
 
-interface FilmProps { 
-  filmEPK: FilmEPK;
-}
+// interface FilmProps { 
+//   filmEPK: FilmEPK;
+// }
 
 const EditPage = () => {
 const [film, setFilm] = useState<FilmEPK>({} as FilmEPK)
 
-const Film: FilmProps = {
-filmEPK: film,
-}
-
 useEffect(() => {
-  postData("https://epk-be.herokuapp.com/api/v1/film_epk", {
-    user_id: "1",
-    movie_title: "Racharia",
-   }).then(data => setFilm(data.data))
-   .catch(err => console.log(err))
+  getUser(1)
+    .then((data: any) => setFilm(data.included[0]))
+    .catch(err => console.log(err))
   }, [])
   
+  const addFilmInfo: (filmInfo: object, id: number) => void = (filmInfo: object, id: number) => {
+    patchData(filmInfo, id)
+    .then((data: any) => setFilm(data.included[0]))
+    .catch(err => console.log(err))
+  }
 
 return (
   <main className='edit-page'>
-    <HeaderContainer />
-    <AwardsPressContainer {...Film}/>
+    <HeaderContainer/>
+    <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo}/>
   </main>
 )
 
-// const postFilmInfo = (filminfo) => {
-// postData(filmInfo)
-// the response will update state
-// This will be passed back up to the edit page
-// We will then put the response in state
-//   }
 }
 
 
