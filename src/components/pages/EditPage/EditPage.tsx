@@ -5,7 +5,6 @@ import "./EditPage.scss"
 import AwardsPressContainer from '../../AwardsPress/AwardsPressContainer';
 import HeaderContainer from '../../Header/HeaderContainer';
 import TrailerContainer from '../../Trailer/TrailerContainer';
-import HeaderContainer from '../../Header/HeaderContainer';
 
 interface FilmProps { 
   filmEPK: FilmEPK;
