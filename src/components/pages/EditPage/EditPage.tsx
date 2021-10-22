@@ -28,7 +28,7 @@ const EditPage = ({ epk_id }: any) => {
 
   return (
     <main className='edit-page'>
-      <HeaderContainer/>
+      <HeaderContainer addFilmInfo={addFilmInfo}/>
       <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo}/>
       <TrailerContainer />
       <FilmPosterContainer />
