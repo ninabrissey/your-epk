@@ -7,7 +7,7 @@ interface IFilms {
 const EPKContainer = ({ allFilms }: IFilms) => {
   const allTitles: any[] = allFilms.map((film: any) => {
     return (
-      <EPKCard title={film.attributes.movie_title} />
+      <EPKCard title={film.attributes.movie_title} epk_id={film.id} />
     )
   })
 
