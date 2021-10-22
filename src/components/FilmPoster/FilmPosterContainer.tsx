@@ -3,9 +3,9 @@ import FilmPosterDisplay from '../FilmPoster/FilmPosterDisplay';
 
 const FilmPosterContainer = () => {
   return (
-    <div>
-      {/* <FilmPosterForm /> */}
-      <FilmPosterDisplay />
+    <div className='film-poster-container'>
+      <FilmPosterForm />
+      {/* <FilmPosterDisplay /> */}
     </div>
   )
 }
