@@ -1,11 +1,14 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
 .header-container {
-  height: 65vh;
+  height: $header-height;
   width: 100%;
   background-color: lavender;
 }
 
 .header-img {
-  height: 65vh;
+  height: $header-height;
   width: 100%;
   object-fit: cover;
   z-index: 0;
@@ -13,14 +16,12 @@
 }
 
 .header-info-container {
-  background-color: #ffffff;
-  height: 65vh;
+  height: $header-height;
   width: 23%;
   z-index: 5;
   position: absolute;
   top: 0;
   left: 69%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  @include flexColumnJustify(space-evenly);
+  background-color: #ffffff;
 }
