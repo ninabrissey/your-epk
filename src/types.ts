@@ -28,7 +28,7 @@ export interface Attributes {
   production_company: string;
   distribution: string;
   awards: Award[];
-  press: Press[];
+  presses: Press[];
 }
 
 export interface Press {
