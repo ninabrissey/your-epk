@@ -3,6 +3,7 @@ interface ITrailer {
   trailer: string
 }
 
+// need to check if line 16 is passing props correctly
 const TrailerDisplay = ({trailerURL}: ITrailer) => {
 
   return (
