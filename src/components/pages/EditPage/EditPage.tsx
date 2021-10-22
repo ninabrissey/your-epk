@@ -3,6 +3,7 @@ import { postData } from '../../../utils/apiCalls';
 import { FilmEPK } from '../../../types'
 import "./EditPage.scss"
 import TrailerContainer from '../../Trailer/TrailerContainer';
+import FilmPosterContainer from '../../FilmPoster/FilmPosterContainer';
 
 interface FilmProps {
   filmEPK: FilmEPK;
@@ -27,6 +28,7 @@ const EditPage = ({ epk_id }: any) => {
   return (
     <main className='edit-page'>
       <TrailerContainer />
+      <FilmPosterContainer />
     </main>
   )
 
