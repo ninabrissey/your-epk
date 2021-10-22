@@ -22,6 +22,6 @@
   position: absolute;
   top: 0;
   left: 69%;
-  @include flexColumnJustify(space-evenly);
   background-color: #ffffff;
+  @include flexColumnJustify(space-evenly);
 }
