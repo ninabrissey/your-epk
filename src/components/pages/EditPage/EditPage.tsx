@@ -20,7 +20,7 @@ const EditPage = ({ epk_id }: any) => {
     getUser(1)
       .then((data: any) => {
         setFilm(data.included[0].attributes)
-        setTitle(data.included[0].attributes.movie_title)
+        setTitle(formatTitle(data.included[0].attributes.movie_title))
         console.log('film', data.included[0].attributes.movie_title)
       })
       // .then((data: any) => console.log(data.included[0].attributes))
@@ -31,7 +31,9 @@ const EditPage = ({ epk_id }: any) => {
     patchData(filmInfo, 77).then(data => setFilm(data))
   }
 
-
+  const formatTitle = (title: string) => {
+    return title.split(' ').join('-')
+  }
 
   return (
     <main className='edit-page'>
