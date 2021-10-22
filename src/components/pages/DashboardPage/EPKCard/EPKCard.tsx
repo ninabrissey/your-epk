@@ -1,13 +1,18 @@
+import { Link } from 'react-router-dom';
+
 interface ITitle {
-  title: string
+  title: string,
+  epk_id: number
 }
 
-const EPKCard = ({ title }: ITitle) => {
+const EPKCard = ({ title, epk_id }: ITitle) => {
 
   return (
-    <article>
-      <p>{title}</p>
-    </article>
+    <Link to={`/edit/${epk_id}`}>
+      <article key={epk_id}>
+        <p>{title}</p>
+      </article>
+    </Link>
   )
 }
 
