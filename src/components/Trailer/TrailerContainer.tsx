@@ -3,7 +3,7 @@ import TrailerDisplay from './TrailerDisplay';
 
 const TrailerContainer = () => {
   return (
-    <div>
+    <div className='trailer-container'>
       <TrailerForm />
       {/* <TrailerDisplay /> */}
     </div>
