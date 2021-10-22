@@ -20,7 +20,7 @@ const TrailerForm = () => {
   }
 
   return (
-    <section>
+    <form>
         <FormControl sx={{ m: 1, minWidth: 480 }}>
           <TextField
             id="outlined-multiline-flexible"
@@ -36,7 +36,7 @@ const TrailerForm = () => {
             >save
           </Button>
         </FormControl>
-    </section> 
+    </form> 
   )
 }
 
