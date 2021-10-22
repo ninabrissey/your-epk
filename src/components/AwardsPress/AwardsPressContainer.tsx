@@ -27,8 +27,8 @@ const [isEditting, setIsEditting] = useState(true)
       <Fab color="secondary" aria-label="edit">
         <EditIcon />
       </Fab>
-      {/* {(filmEPK.attributes.awards !== undefined && filmEPK.attributes.press !== undefined) && 
-      <AwardPressDisplay press={filmEPK.attributes.press} awards={filmEPK.attributes.awards} />} */}
+      {/* {(filmEPK.attributes.awards.length > 0 && filmEPK.attributes.presses.length > 0) && 
+      <AwardPressDisplay presses={filmEPK.attributes.presses} awards={filmEPK.attributes.awards} />} */}
       {isEditting && <AwardPressForm addFilmInfo={addFilmInfo} />}
       {/* {isEditting && <AwardPressForm  />} */}
     </div>
