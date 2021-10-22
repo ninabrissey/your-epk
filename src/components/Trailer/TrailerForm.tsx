@@ -20,7 +20,7 @@ const TrailerForm = () => {
   }
 
   return (
-    <section className='trailer-container'>
+    <section>
         <FormControl sx={{ m: 1, minWidth: 480 }}>
           <TextField
             id="outlined-multiline-flexible"
