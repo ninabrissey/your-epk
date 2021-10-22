@@ -23,8 +23,6 @@ const Dashboard = ({ id, currUser }: IUser) => {
       .catch(err => console.log(err))
   }, [])
 
-  // pass all Films to  
-
   return (
     <main>
       <h2>hey you</h2>
