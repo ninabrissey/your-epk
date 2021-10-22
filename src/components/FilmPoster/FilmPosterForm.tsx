@@ -7,6 +7,15 @@ import Button from '@mui/material/Button';
 const FilmPosterDisplay = () => {
   const [filmPoster, setFilmPoster] = useState<string>('')
 
+  const handleSubmit = () => {
+    // function to pass patch to edit page goes here
+    clearForm()
+  }
+
+  const clearForm = () => {
+    setFilmPoster('')
+  }
+
   return (
     <form>
       <p>I am the film poster form</p>
@@ -21,7 +30,7 @@ const FilmPosterDisplay = () => {
         />
         <Button 
           variant='text'
-          // onClick={}
+          onClick={() => handleSubmit()}
           >save
         </Button>
       </FormControl>
