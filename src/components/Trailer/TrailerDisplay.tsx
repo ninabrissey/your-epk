@@ -1,19 +1,21 @@
 
-interface ITrailer {
-  trailer: string
-}
+// interface ITrailer {
+//   trailer: string
+// }
 
-// need to check if line 16 is passing props correctly
-const TrailerDisplay = ({trailerURL}: ITrailer) => {
+
+// param= {trailer}: ITrailer
+// src={trailer}
+const TrailerDisplay = () => {
 
   return (
     <div className='trailer-container'>
       <iframe
-        className='trailer'
+      className='trailer'
         title='Embedded YouTube Video'
         width='750'
         height='438.46'
-        src={trailerURL.trailer}
+        src='video url goes here'
         frameBorder='0'
         allowFullScreen
       />
