@@ -1,8 +1,12 @@
-const EPKCard = () => {
+interface ITitle {
+  title: string
+}
 
-  return(
+const EPKCard = ({ title }: ITitle) => {
+
+  return (
     <article>
-      <p>this is an EPK card</p>
+      <p>{title}</p>
     </article>
   )
 }
