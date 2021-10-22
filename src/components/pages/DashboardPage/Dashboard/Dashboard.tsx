@@ -30,7 +30,7 @@ const Dashboard = ({ id, currUser }: IUser) => {
       <h2>hey you</h2>
       <h3>{`${currUser.first_name} ${currUser.last_name}`}</h3>
       <TitleForm allFilms={allFilms} id={id} setAllFilms={setAllFilms} />
-      <EPKContainer />
+      <EPKContainer allFilms={allFilms} />
     </main>
   )
 }
