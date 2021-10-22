@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { postData } from '../../../utils/apiCalls';
 import { FilmEPK } from '../../../types'
 import "./EditPage.scss"
+import TrailerContainer from '../../Trailer/TrailerContainer';
 
 interface FilmProps {
   filmEPK: FilmEPK;
@@ -25,6 +26,7 @@ const EditPage = ({ epk_id }: any) => {
 
   return (
     <main className='edit-page'>
+      <TrailerContainer />
     </main>
   )
 

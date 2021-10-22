@@ -1,5 +1,7 @@
 @import './reset';
 @import '../components/Header/HeaderDisplay.scss';
+@import '../components/Trailer/trailer.scss';
+
 
 body {
   margin: 0;
@@ -14,4 +16,3 @@ body {
 a {
   text-decoration: none;
 }
-

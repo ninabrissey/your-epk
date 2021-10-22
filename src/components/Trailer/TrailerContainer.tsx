@@ -1,10 +1,12 @@
-import React from 'react'
+import TrailerForm from './TrailerForm';
+import TrailerDisplay from './TrailerDisplay';
 
 const TrailerContainer = () => {
   return (
-    <div>
-      
-    </div>
+    <section className='trailer-container'>
+      <TrailerForm />
+      {/* <TrailerDisplay /> */}
+    </section>
   )
 }
 
