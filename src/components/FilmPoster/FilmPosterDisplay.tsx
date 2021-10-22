@@ -8,7 +8,7 @@ const FilmPosterDisplay = () => {
     <section>
       <p>I am the film poster display</p>
       <img 
-        src=''
+        // src={this will be whatever is passed as props}
         alt=''
       />
     </section>  
