@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import { getUser, patchData } from '../../../utils/apiCalls';
 import { FilmEPK } from '../../../types'
 import "./EditPage.scss"
@@ -25,13 +25,13 @@ const EditPage = ({ epk_id }: any) => {
     patchData(filmInfo, 77).then(data => setFilm(data))
   }
 
-  useEffect(() => {
-    postData("https://epk-be.herokuapp.com/api/v1/film_epk", {
-      user_id: "1",
-      movie_title: "Racharia",
-    }).then(data => setFilm(data.data))
-      .catch(err => console.log(err))
-  }, [])
+  // useEffect(() => {
+  //   postData("https://epk-be.herokuapp.com/api/v1/film_epk", {
+  //     user_id: "1",
+  //     movie_title: "Racharia",
+  //   }).then(data => setFilm(data.data))
+  //     .catch(err => console.log(err))
+  // }, [])
   
 
 return (
