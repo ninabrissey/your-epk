@@ -12,6 +12,7 @@ const TrailerForm = () => {
     let currentTrailer = {
       trailer: filmTrailer
     }
+    // send currentTrailer to editPage here
     clearForm()
   }
 
