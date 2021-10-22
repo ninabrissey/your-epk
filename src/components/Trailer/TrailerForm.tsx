@@ -12,6 +12,11 @@ const TrailerForm = () => {
     let currentTrailer = {
       trailer: filmTrailer
     }
+    clearForm()
+  }
+
+  const clearForm = () => {
+    setFilmTrailer('')
   }
 
   return (
