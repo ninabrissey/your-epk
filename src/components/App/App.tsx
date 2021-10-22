@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 // import { TestComponent } from '../../TestComponent';
 import Dashboard from '../pages/DashboardPage/Dashboard/Dashboard';
 import EditPage from '../pages/EditPage/EditPage';
-import { Route, Switch } from 'react-router-dom';
-import { ThisIsUser, UserData } from '../../types'
+import { Route, Switch, useParams } from 'react-router-dom';
+import { UserData } from '../../types'
 
 const userId: number = 1;
 
@@ -32,9 +32,9 @@ function App() {
         <Route exact path={`/dashboard/${userId}`}>
           <Dashboard currUser={currUser} id={userId} />
         </Route>
-        <Route exact path='/edit/:title'>
-          <EditPage />
-          <h2>This is the edit page</h2>
+        <Route exact path='/edit/:epk_id' render={({ match }) =>
+          <EditPage epk_id={match.params.epk_id} />
+        }>
         </Route>
       </Switch>
     </div>
