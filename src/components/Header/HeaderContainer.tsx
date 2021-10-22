@@ -4,8 +4,8 @@ import HeaderDisplay from './HeaderDisplay';
 const HeaderContainer = () => {
   return (
     <div className='header-container'>
-      {/* <HeaderForm /> */}
-      <HeaderDisplay />
+      <HeaderForm />
+      {/* <HeaderDisplay /> */}
     </div>
   )
 }
