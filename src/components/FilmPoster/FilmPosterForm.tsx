@@ -12,15 +12,15 @@ const FilmPosterDisplay = () => {
       <p>I am the film poster form</p>
       <FormControl sx={{ m: 1, minWidth: 340 }}>
           <TextField
-            id="outlined-multiline-flexible"
-            label="Img URL"
+            id='outlined-multiline-flexible'
+            label='Img URL'
             type='text'
             name='filmPoster'
             value={filmPoster}
             onChange={(e) => setFilmPoster(e.target.value)}
           />
           <Button 
-            variant="text"
+            variant='text'
             // onClick={}
             >save
           </Button>
