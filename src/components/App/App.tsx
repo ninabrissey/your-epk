@@ -43,7 +43,6 @@ function App() {
         </Route>
         <Route exact path='/edit-page'>
           <EditPage />
-          <h2>This is the edit page</h2>
         </Route>
       </Switch>
     </div>
