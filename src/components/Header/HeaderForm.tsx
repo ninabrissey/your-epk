@@ -27,7 +27,8 @@ const HeaderForm = () => {
   }
 
   return (
-    <section className='header-container'>
+    <section>
+       {/* className='header-container'> */}
 
       {/* this is the header img upload area */}
       <div className='header-img'>
