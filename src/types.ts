@@ -28,11 +28,10 @@ export interface Attributes {
   production_company: string;
   distribution: string;
   awards: Award[];
-  press: Press[];
+  presses: Press[];
 }
 
-
-interface Press {
+export interface Press {
   id: number;
   film_epk_id: number;
   name_of_publication: string;
@@ -40,7 +39,7 @@ interface Press {
   link: string;
 }
 
-interface Award {
+export interface Award {
   id: number;
   film_epk_id: number;
   name: string;
