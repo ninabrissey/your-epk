@@ -9,12 +9,12 @@
 const TrailerDisplay = () => {
 
   return (
-    <div className='trailer-container'>
+    <div>
       <iframe
       className='trailer'
         title='Embedded YouTube Video'
-        width='750'
-        height='438.46'
+        // width='750'
+        // height='438.46'
         src='video url goes here'
         frameBorder='0'
         allowFullScreen
