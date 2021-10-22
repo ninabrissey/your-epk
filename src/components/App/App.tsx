@@ -5,19 +5,10 @@ import EditPage from '../pages/EditPage/EditPage';
 import { Route, Switch } from 'react-router-dom';
 import { ThisIsUser, UserData } from '../../types'
 
-interface DBProps {
-  id: number,
-  name: string,
-  setUser: any,
-  user: UserData
-}
-
 const userId: number = 1;
 
 function App() {
   const [currUser, setCurrUser] = useState<UserData>({} as UserData);
-
-  const DashBoardProps: DBProps = { id: 1, name: 'Test', setUser: setCurrUser, user: currUser }
 
   useEffect(() => {
     // fetch(`https://epk-be.herokuapp.com/api/v1/users/${userId}`)
@@ -39,9 +30,9 @@ function App() {
           <h1>You're on the / page</h1>
         </Route>
         <Route exact path={`/dashboard/${userId}`}>
-          <Dashboard {...DashBoardProps} />
+          <Dashboard currUser={currUser} id={userId} />
         </Route>
-        <Route exact path='/edit-page'>
+        <Route exact path='/edit/:title'>
           <EditPage />
           <h2>This is the edit page</h2>
         </Route>
