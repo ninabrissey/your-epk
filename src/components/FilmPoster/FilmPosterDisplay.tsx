@@ -1,11 +1,11 @@
 interface IFilmPoster {
-  film
+  filmPoster: string
 }
 
 const FilmPosterDisplay = () => {
 
   return (
-    <section className='film-poster-container'>
+    <section>
       <p>I am the film poster display</p>
       <img 
         src=''
