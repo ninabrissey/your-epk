@@ -6,23 +6,25 @@ import { postData } from "../../../../utils/apiCalls";
 import { Link } from 'react-router-dom'
 
 
+interface IDashboard {
+  id: number,
+  setAllFilms: React.Dispatch<React.SetStateAction<object[]>>,
+  allFilms: object[]
+}
 
-const TitleForm = (dbprops: { id: number, name: string }) => {
+const TitleForm = ({ id, setAllFilms, allFilms }: IDashboard) => {
   const [title, setTitle] = useState('')
-  const [allTitles, setAllTitles] = useState<String[]>([]) //this is for the 
-
-  const formattedTitle: string = title.split(' ').join('-')
-
-  useEffect(() => {
-    //a fetch goes here and runs setAllTitles
-  }, [])
+  const endpointTitle: string = title.split(' ').join('-')
 
   const makeEPK = () => {
     if (title) {
       postData('https://epk-be.herokuapp.com/api/v1/film_epk', {
-        "user_id": dbprops.id,
+        "user_id": id,
         "movie_title": title,
-      }).then(data => console.log(data))
+      }).then(data => {
+        setAllFilms([...allFilms, data.data.attributes.movie_title])
+        console.log(allFilms)
+      })
     }
   }
 
@@ -37,13 +39,13 @@ const TitleForm = (dbprops: { id: number, name: string }) => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      {/* <Link to={`/${formattedTitle}-edit`}> */}
-      <Button
-        variant="text"
-        onClick={() => makeEPK()}
-      >save
-      </Button>
-      {/* </Link> */}
+      <Link to={`/edit/${endpointTitle}`}>
+        <Button
+          variant="text"
+          onClick={() => makeEPK()}
+        >save
+        </Button>
+      </Link>
     </FormControl>
   )
 }
