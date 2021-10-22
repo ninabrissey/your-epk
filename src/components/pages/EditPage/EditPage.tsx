@@ -5,6 +5,7 @@ import "./EditPage.scss"
 import AwardsPressContainer from '../../AwardsPress/AwardsPressContainer';
 import HeaderContainer from '../../Header/HeaderContainer';
 import TrailerContainer from '../../Trailer/TrailerContainer';
+import FilmPosterContainer from '../../FilmPoster/FilmPosterContainer';
 
 interface FilmProps {
   filmEPK: FilmEPK;
@@ -30,6 +31,7 @@ const EditPage = ({ epk_id }: any) => {
       <HeaderContainer/>
       <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo}/>
       <TrailerContainer />
+      <FilmPosterContainer />
     </main>
   )
 }
