@@ -14,13 +14,20 @@ const AwardPressForm = ({addFilmInfo}: any) => {
   const [link, setLink] = useState('');
   const [quote, setQuote] = useState('');
 
-  const newAward = {
-      awards: {
-        name: publication,
-        year: link,
-        award_type: quote
-      }
+  // const newAward = {
+  //     awards: {
+  //       name: publication,
+  //       year: link,
+  //       award_type: quote
+  //     }
+  //   }
+
+    const newAward = {
+        movie_title: publication,
+        genre: link,
+        country: quote
     }
+  
 
   // const newPress = {
   //   presses: {
