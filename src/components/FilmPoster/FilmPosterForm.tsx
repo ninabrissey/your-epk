@@ -23,7 +23,7 @@ const FilmPosterDisplay = () => {
         <TextField
           id='outlined-multiline-flexible'
           label='Img URL'
-          type='text'
+          type='file'
           name='filmPoster'
           value={filmPoster}
           onChange={(e) => setFilmPoster(e.target.value)}
