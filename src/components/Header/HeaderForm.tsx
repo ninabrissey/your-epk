@@ -1,6 +1,4 @@
 import { useState, useEffect} from 'react'
-import { film } from "../../utils/mockData";
-import { patchData } from '../../utils/apiCalls';
 import ContactForm from '../Contact/ContactForm';
 
 import TextField from '@mui/material/TextField';
@@ -13,7 +11,7 @@ const HeaderForm = ({ addFilmInfo }: any) => {
   const [headerImg, setHeaderImg] = useState<string>('')
 
   useEffect(() => {
-    setFilmTitle(film.title)
+    setFilmTitle('Work Please')
   }, [])
 
 
