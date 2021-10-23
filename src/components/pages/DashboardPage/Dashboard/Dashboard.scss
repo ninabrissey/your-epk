@@ -1,0 +1,7 @@
+@import '../../../../styles/mixins';
+
+.edit-main {
+  @include flexCenterColumn;
+  border: solid 2px red;
+}
+
