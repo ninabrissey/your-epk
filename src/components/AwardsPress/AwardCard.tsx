@@ -1,6 +1,10 @@
-import React from 'react'
+import { Award } from "../../types"
 
-const AwardCard = () => {
+interface IAwardCard {
+  award: Award
+}
+
+const AwardCard = ({ award } : IAwardCard) => {
   const awards =  [{
     name: "The Super Award",
     year: "1999",
@@ -9,9 +13,9 @@ const AwardCard = () => {
 
   return (
     <article>
-      <p>{awards[0].year}</p>
-      <p>{awards[0].award_type}</p>
-      <p>{awards[0].name}</p>
+      <p>{award.year}</p>
+      <p>{award.award_type}</p>
+      <p>{award.name}</p>
     </article>
   )
 }
