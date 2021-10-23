@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { FilmEPK } from '../../types';
 import HeaderForm from './HeaderForm';
 import HeaderDisplay from './HeaderDisplay';
+import Fab from '@mui/material/Fab';
+import EditIcon from '@mui/icons-material/Edit';
 
 interface IHeader {
   filmEPK: FilmEPK;
