@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getUser, patchData, findEPK, getEPK } from '../../../utils/apiCalls';
-import { FilmEPK } from '../../../types';
+import { FilmEPK, EPKData } from '../../../types';
 import { Link } from 'react-router-dom';
 import "./EditPage.scss";
 import AwardsPressContainer from '../../AwardsPress/AwardsPressContainer';
@@ -14,12 +14,10 @@ const EditPage = ({ epk_id }: any) => {
   const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
   const [title, setTitle] = useState('')
 
-  console.log('title', title)
-
   useEffect(() => {
     getEPK(epk_id)
-      .then(data => {
-        setFilm(data)
+      .then((data: EPKData) => {
+        setFilm(data.data)
         setTitle(formatTitle(data.data.attributes.movie_title))
       })
       .catch(err => console.log(err))
