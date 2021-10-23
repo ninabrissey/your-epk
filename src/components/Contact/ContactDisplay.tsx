@@ -1,7 +1,18 @@
-import { useState, useEffect} from 'react'
-import { contact } from "../../utils/mockData";
+import { useState, useEffect } from 'react';
+import { FilmEPK, Attributes } from '../../types';
 
-const ContactDisplay = () => {
+interface IContactDisplay {
+  filmEPK: FilmEPK;
+}
+
+const ContactDisplay = ({ filmEPK } : IContactDisplay) => {
+  const [currentEPK, setCurrentEPK] = useState<Attributes>({} as Attributes)
+
+  useEffect(() => {
+    setCurrentEPK(filmEPK.attributes)
+  }, [filmEPK])
+
+  console.log('currentEPK: ', currentEPK)
 
   return (
     <section className='contact-display-container'>
@@ -10,11 +21,12 @@ const ContactDisplay = () => {
         <p>Name</p>
         <p>Phone Number</p>
         <p>Email Address</p>
-        <p>Company</p>
+        <p></p>
       </div>
     </section>
   )
 }
+
 
 
 export default ContactDisplay;

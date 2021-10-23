@@ -1,4 +1,5 @@
-import { FilmEPK } from '../types'
+import { FilmEPK } from '../types';
+
 
 export const postData = (url: string, data: object) => {
   return fetch(url, {
@@ -35,13 +36,11 @@ export const patchData = (data: object, filmID: number) => {
     .then(res => res.json())
 }
 
-
 export const getUser = (userID: number) => {
   return fetch(`https://epk-be.herokuapp.com/api/v1/users/${userID}`)
-    .then(res => res.json())
+  .then(res => res.json())
 }
 
 export const findEPK = (usersEPKS: FilmEPK[], epkID: string) => {
   return usersEPKS.find(epk => epkID === epk.id)
 }
-

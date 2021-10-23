@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { getUser, patchData } from '../../../utils/apiCalls';
-import { FilmEPK, Attributes } from '../../../types';
+import { getUser, patchData, findEPK  } from '../../../utils/apiCalls';
+import { FilmEPK } from '../../../types';
 import { Link } from 'react-router-dom';
 import "./EditPage.scss";
 import AwardsPressContainer from '../../AwardsPress/AwardsPressContainer';
@@ -8,11 +8,7 @@ import HeaderContainer from '../../Header/HeaderContainer';
 import TrailerContainer from '../../Trailer/TrailerContainer';
 import FilmPosterContainer from '../../FilmPoster/FilmPosterContainer';
 import Navigation from '../../Navigation/Navigation';
-import { findEPK } from '../../../utils/apiCalls';
 
-interface FilmProps {
-  filmEPK: FilmEPK;
-}
 
 const EditPage = ({ epk_id }: any) => {
   const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
@@ -45,7 +41,7 @@ const EditPage = ({ epk_id }: any) => {
     <div>
       <Navigation onEdit={true} epk_id={epk_id} title={title} />
       <main className='edit-page'>
-        <HeaderContainer />
+        <HeaderContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         <TrailerContainer />
         <FilmPosterContainer />

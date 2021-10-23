@@ -1,12 +1,9 @@
 import { useState } from 'react'
-import { film, header } from "../../utils/mockData";
-import { patchData } from '../../utils/apiCalls';
-
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-const ContactForm = () => {
+const ContactForm = ({ addFilmInfo }: any) => {
   const [name, setName] = useState<string>('')
   const [phoneNum, setPhoneNum] = useState<string>('')
   const [email, setEmail] = useState<string>('')
@@ -17,10 +14,18 @@ const ContactForm = () => {
       contact_name: name, 
       contact_number: phoneNum, 
       contact_email: email, 
-      company_name: company
+      production_company: company
     }
-    patchData(currentContact, 14)
+    addFilmInfo(currentContact, 77)
+    clearForm()
     console.log('currentContact: ', currentContact)
+  }
+
+  const clearForm = () => {
+    setName('')
+    setPhoneNum('')
+    setEmail('')
+    setCompany('')
   }
 
   return (
@@ -36,7 +41,6 @@ const ContactForm = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        {console.log('name: ', name)}
         <TextField 
           id="outlined-basic" 
           label="Phone Number" 
