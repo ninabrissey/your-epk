@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-const SynopsisForm = ({ addFilmInfo }: any) => {
+const SynopsisForm = ({ addFilmInfo } : any) => {
   const [synopsis, setSynopsis] = useState('')
 
   const handleSubmit = () => {
