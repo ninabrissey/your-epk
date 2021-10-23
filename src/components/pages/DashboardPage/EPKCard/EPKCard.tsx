@@ -24,6 +24,7 @@ const EPKCard = ({ title, epk_id, setAllFilms, allFilms, key }: ITitle) => {
       <Link to={`/edit/${epk_id}`}>
         <article key={key}>
           <p>{title}</p>
+          <p>{epk_id}</p>
         </article>
       </Link>
       <button onClick={() => deleteEPK(epk_id)}>Delete</button>
