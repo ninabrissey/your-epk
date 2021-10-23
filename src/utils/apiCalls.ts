@@ -1,3 +1,5 @@
+import { FilmEPK } from "../types"
+
 export const postData = (url: string, data: object) => {
   return fetch(url, {
     method: 'POST',
@@ -5,7 +7,7 @@ export const postData = (url: string, data: object) => {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data),
-  }).then(res => res.json())
+  }).then(res => console.log(res.json()))
     .catch(err => console.log(err))
 }
 
@@ -37,4 +39,8 @@ export const patchData = (data : object, filmID : number) => {
 export const getUser = (userID: number) => {
   return fetch(`https://epk-be.herokuapp.com/api/v1/users/${userID}`)
   .then(res => res.json())
+}
+
+export const findEPK = (usersEPKS: FilmEPK[], epkID: string) => {
+  return usersEPKS.find(epk => epkID === epk.id)
 }
