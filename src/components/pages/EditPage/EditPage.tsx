@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import { getUser, patchData, findEPK } from '../../../utils/apiCalls';
+import { getEPK, patchData, postData } from '../../../utils/apiCalls';
 import { FilmEPK, Award, Press } from '../../../types'
 import { Link } from 'react-router-dom';
 import AwardsPressContainer from '../../AwardsPress/AwardsPressContainer';
@@ -20,15 +20,30 @@ const EditPage = ({ epk_id }: any) => {
   const [presses, setPress] = useState<Array<Press>>([])
 
 useEffect(() => {
-  getUser(1)
-    .then((data: any) => findEPK(data.included, epk_id.toString()))
+  getEPK(epk_id)
     .then((data: any) => {
-      setFilm(data)
-      setTitle(formatTitle(data.attributes.movie_title))
-      setAwards(data.attributes.awards)
-      setPress(data.attributes.press)
+      setFilm(data.data)
+      setTitle(formatTitle(data.data.attributes.movie_title))
+      // setAwards(data.included.awards)
+      // need to build out cleaner functions to got through and grab all 
+      // "awards", "press", "film_fam", "images"
+    
     })
     .catch(err => console.log(err))
+    console.log(film)
+  }, [])
+
+    
+  const newAward = {
+    award: {
+      film_epk_id: epk_id,
+      name: "hi",
+      award_type:"test",
+    } 
+  }
+  useEffect(() => {
+    postData('https://epk-be.herokuapp.com/api/v1/awards',newAward)
+    .then(data => console.log(data, 'awards post'))
   }, [])
 
   const addFilmInfo = (filmInfo: object) => {
@@ -44,8 +59,8 @@ useEffect(() => {
       <Navigation onEdit={true} epk_id={epk_id} title={title} />
       <main className='edit-page'>
         <HeaderContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-        <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-        <AwardsPressContainer awards={awards} presses={presses} addFilmInfo={addFilmInfo}/>
+        {/* <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo} /> */}
+        <AwardsPressContainer awards={awards} presses={presses} addFilmInfo={addFilmInfo} epk_id={epk_id} />
         <TrailerContainer />
         <FilmPosterContainer />
       </main>
