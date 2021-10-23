@@ -18,22 +18,23 @@ const AwardPressForm = ({addFilmInfo}: any) => {
   const [awardType, setAwardType] = useState('')
   const [awardYear, setAwardYear] = useState('')
   
-    const newAward = {
-        award: {
-          name: awardName,
-          film_epk_id: 80,
-          award_type: awardType,
-          year: awardYear
-      } 
+  const newAward = {
+    award: {
+      film_epk_id: 133,
+      name: awardName,
+      award_type: awardType,
+      year: awardYear
+    } 
   }
 
-  // const newPress = {
-  //   press: {
-  //     publication: publication,
-  //     link: link,
-  //     quote: quote
-  //   }
-  // }
+  const newPress = {
+    press: {
+      film_epk_id: 133,
+      publication: publication,
+      link: link,
+      quote: quote
+    }
+  }
   
   // const theme = createTheme({
   //   components: {
@@ -87,7 +88,7 @@ const AwardPressForm = ({addFilmInfo}: any) => {
           {/* <Button style={{ background: '#ec5f27', height: '57px'}} variant="text"
           onClick={() => addFilmInfo(newAward)}>save</Button> */}
           <Button style={{ background: '#ec5f27', margin: '1%'}} size="small"  variant="text"
-          onClick={() => postData('https://epk-be.herokuapp.com/api/v1/awards', newAward)}>save</Button>
+          onClick={() => postData('https://epk-be.herokuapp.com/api/v1/presses', newPress)}>save</Button>
         </>}
 
       </div>
