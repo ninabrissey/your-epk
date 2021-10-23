@@ -3,12 +3,13 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import { postData } from "../../../../utils/apiCalls";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { FilmEPK } from '../../../../types';
 
 
 interface IDashboard {
   id: number,
-  setAllFilms: React.Dispatch<React.SetStateAction<object[]>>,
+  setAllFilms: React.Dispatch<React.SetStateAction<FilmEPK[]>>,
   allFilms: object[]
 }
 
@@ -21,10 +22,7 @@ const TitleForm = ({ id, setAllFilms, allFilms }: IDashboard) => {
       postData('https://epk-be.herokuapp.com/api/v1/film_epk', {
         "user_id": id,
         "movie_title": title,
-      }).then(data => {
-        setAllFilms([...allFilms, data.data.attributes.movie_title])
-        console.log(allFilms)
-      })
+      }).catch(err => console.log(err))
     }
   }
 
