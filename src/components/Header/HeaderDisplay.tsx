@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react';
 import { FilmEPK } from '../../types';
-import { header } from "../../utils/mockData";
 import ContactDisplay from '../Contact/ContactDisplay';
 
 interface IHeaderDisplay {
@@ -8,8 +6,6 @@ interface IHeaderDisplay {
 }
 
 const HeaderDisplay = ({ filmEPK } : IHeaderDisplay) => {
-
-  console.log('filmEPK in Header Display: ', filmEPK)
 
   return (
     <section>
@@ -29,6 +25,5 @@ const HeaderDisplay = ({ filmEPK } : IHeaderDisplay) => {
   )
 }
 
-// filmEPK={filmEPK}
 
 export default HeaderDisplay;
