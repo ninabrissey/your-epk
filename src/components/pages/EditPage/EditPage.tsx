@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getUser, patchData, findEPK  } from '../../../utils/apiCalls';
+import { getUser, patchData, findEPK, getEPK } from '../../../utils/apiCalls';
 import { FilmEPK } from '../../../types';
 import { Link } from 'react-router-dom';
 import "./EditPage.scss";
@@ -17,14 +17,12 @@ const EditPage = ({ epk_id }: any) => {
   console.log('title', title)
 
   useEffect(() => {
-    getUser(1)
-      .then((data: any) => findEPK(data.included, epk_id.toString()))
-      .then((data: any) => {
+    getEPK(epk_id)
+      .then(data => {
         setFilm(data)
-        setTitle(formatTitle(data.attributes.movie_title))
+        setTitle(formatTitle(data.data.attributes.movie_title))
       })
       .catch(err => console.log(err))
-    console.log(film)
   }, [])
 
 
