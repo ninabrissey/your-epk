@@ -21,7 +21,8 @@ const FilmPosterDisplay = ({ addFilmInfo } : any) => {
       <FormControl sx={{ m: 1, minWidth: 340 }}>
         <TextField
           id='outlined-multiline-flexible'
-          label='Img URL'
+          aria-label='Img URL'
+          // label='Img URL'
           type='file'
           name='filmPoster'
           value={filmPoster}
