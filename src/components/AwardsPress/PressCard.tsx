@@ -1,4 +1,10 @@
-const PressCard = () => {
+import { Press } from "../../types"
+
+interface IPressCard {
+  press: Press
+}
+
+const PressCard = ({press} : IPressCard) => {
   const presses =  [{
     name_of_publication: "TIMES OF SAN DIEGO",
     description: "Amazing Grace,’ by first-time filmmaker Nina Brissey, leads with four nominations. The short tells the story of a Vietnam veteran dealing with alcoholism and PTSD and the daughter who struggles to care for him.",
