@@ -12,7 +12,7 @@ const AwardCard = ({ award } : IAwardCard) => {
   }]
 
   return (
-    <article>
+    <article className="award-press-card">
       <p>{award.year}</p>
       <p>{award.award_type}</p>
       <p>{award.name}</p>
