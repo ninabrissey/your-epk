@@ -6,6 +6,7 @@ const Navigation = ({ onEdit, epk_id, title }: any) => {
     <nav>
       <img src={logo} alt='Your EPK logo' />
       <Link to={`/dashboard/1`}>Home</Link>
+      {onEdit && <Link to={`/${epk_id}/${title}`}>Press Kit</Link>}
     </nav>
   );
 }
