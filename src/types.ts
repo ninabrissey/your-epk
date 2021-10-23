@@ -10,11 +10,16 @@ export interface UserData {
   last_name: string;
 }
 
+export interface EPKData {
+  data: FilmEPK
+}
+
 export interface FilmEPK {
   id: string | number;
   type: string;
   attributes: Attributes;
 }
+
 export interface Attributes {
   user_id: number;
   movie_title: string;
@@ -29,6 +34,9 @@ export interface Attributes {
   distribution: string;
   awards: Award[];
   presses: Press[];
+  synopsis: string;
+  movie_poster_url: string;
+  trailer: string;
 }
 
 export interface Press {
