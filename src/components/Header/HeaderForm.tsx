@@ -16,9 +16,15 @@ const HeaderForm = ({ addFilmInfo }: any) => {
     setFilmTitle(film.title)
   }, [])
 
+
+
+  // *** img needs to go through a different patch
+
+
+
+
   const handleSubmit = () => {
     let currentDescription = {
-      user_id: 1,
       header_img: headerImg,
       header_description: headerDescription
     }
@@ -34,7 +40,7 @@ const HeaderForm = ({ addFilmInfo }: any) => {
 
   return (
     <section>
-      {/* this is the header img upload area */}
+      <p>I am the header form container</p>
       <div className='header-img'>
         <FormControl sx={{ m: 1, minWidth: 480 }}>
           <TextField
