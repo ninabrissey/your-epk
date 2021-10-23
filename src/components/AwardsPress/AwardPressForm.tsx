@@ -59,7 +59,7 @@ const AwardPressForm = ({addFilmInfo}: any) => {
   //     },
   //   },
   // });
-  
+
   return (
     <section>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
