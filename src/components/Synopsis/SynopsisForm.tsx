@@ -8,7 +8,10 @@ const SynopsisForm = ({ addFilmInfo }: any) => {
   const [synopsis, setSynopsis] = useState('')
 
   const handleSubmit = () => {
-    addFilmInfo(synopsis, 133)
+    const currentSynopsis = {
+      synopsis: synopsis
+    }
+    addFilmInfo(currentSynopsis, 133)
     setSynopsis('')
   }
 
