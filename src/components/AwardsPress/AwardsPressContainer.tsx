@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { FilmEPK, Attributes, Award } from '../../types'
+import { FilmEPK, Attributes, Award, Press } from '../../types'
 import AwardPressDisplay from './AwardPressDisplay'
 import AwardPressForm from './AwardPressForm'
 import Fab from '@mui/material/Fab';
@@ -9,10 +9,11 @@ import { film } from '../../utils/mockData';
 
 interface APContainerProps {
   addFilmInfo: any;
-  awards: Award[] | undefined;
+  awards: Award[] | [];
+  presses: Press[] | [];
 }
 
-const AwardsPressContainer = ({awards, addFilmInfo}: APContainerProps) => {
+const AwardsPressContainer = ({awards, presses, addFilmInfo}: APContainerProps) => {
   // const AwardsPressContainer = ({filmEPK, addFilmInfo}: APContainerProps) => {
 const [isEditting, setIsEditting] = useState(true)
 // const [awards, setAwards] = useState<Award[] | undefined >()
@@ -25,7 +26,7 @@ return (
     {/* {awards !== undefined && 
     <AwardPressDisplay presses={presses} awards={awards} />} */}
      {awards !== undefined && 
-    <AwardPressDisplay awards={awards} />}
+    <AwardPressDisplay awards={awards} presses={presses} />}
     {isEditting && <AwardPressForm addFilmInfo={addFilmInfo} />}
   </div>
   )
