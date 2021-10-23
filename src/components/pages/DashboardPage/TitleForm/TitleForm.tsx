@@ -17,15 +17,16 @@ const TitleForm = ({ id, setAllFilms, allFilms }: IDashboard) => {
   const endpointTitle: string = title.split(' ').join('-')
 
   const makeEPK = () => {
-    if (title) {
-      postData('https://epk-be.herokuapp.com/api/v1/film_epk', {
-        "user_id": id,
-        "movie_title": title,
-      }).then(data => {
-        setAllFilms([...allFilms, data.data.attributes.movie_title])
-        console.log(allFilms)
-      })
-    }
+    // if (title) {
+    //   postData('https://epk-be.herokuapp.com/api/v1/film_epk', {
+    //     "user_id": id,
+    //     "movie_title": title,
+    //   }).then(data => {
+    //     setAllFilms([...allFilms, data.data.attributes.movie_title])
+    //     console.log(allFilms)
+    //   })
+    // }
+    // comment back in before pushing
   }
 
   return (
