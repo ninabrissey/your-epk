@@ -1,7 +1,4 @@
 import { useState } from 'react'
-import { film, header } from "../../utils/mockData";
-import { patchData } from '../../utils/apiCalls';
-
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
