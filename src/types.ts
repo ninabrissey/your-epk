@@ -11,7 +11,7 @@ export interface UserData {
 }
 
 export interface FilmEPK {
-  id: number;
+  id: string | number;
   type: string;
   attributes: Attributes;
 }
