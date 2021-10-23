@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getUser, patchData, findEPK  } from '../../../utils/apiCalls';
+import { getUser, patchData, getEPK  } from '../../../utils/apiCalls';
 import { FilmEPK } from '../../../types';
 import { Link } from 'react-router-dom';
 import "./EditPage.scss";
@@ -11,6 +11,10 @@ import Navigation from '../../Navigation/Navigation';
 import SynopsisContainer from '../../Synopsis/SynopsisContainer';
 import SynopsisForm from '../../Synopsis/SynopsisForm';
 
+const getData = () => {
+  return fetch('https://epk-be.herokuapp.com/api/v1/film_epk/133')
+}
+
 
 const EditPage = ({ epk_id }: any) => {
   const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
@@ -19,17 +23,21 @@ const EditPage = ({ epk_id }: any) => {
   console.log('title', title)
 
   useEffect(() => {
-    getUser(1)
-      .then((data: any) => findEPK(data.included, epk_id.toString()))
+    getEPK(epk_id)
       .then((data: any) => {
         setFilm(data)
         setTitle(formatTitle(data.attributes.movie_title))
       })
       .catch(err => console.log(err))
     console.log(film)
-  }, [])
 
-
+    getData()
+      .then(res => res.json())
+      .then(data => setFilm(data))
+    }, [])
+    
+    
+    console.log('EPK: ', film)
 
   const addFilmInfo = (filmInfo: object) => {
     patchData(filmInfo, 77).then(data => setFilm(data))
@@ -47,7 +55,7 @@ const EditPage = ({ epk_id }: any) => {
         <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         <TrailerContainer />
         <FilmPosterContainer />
-        <SynopsisContainer />
+        <SynopsisContainer filmEPK={film} addFilmInfo={addFilmInfo} />
       </main>
     </div>
   )
