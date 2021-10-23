@@ -3,12 +3,13 @@ import { FilmEPK, Attributes } from '../../../../types'
 
 interface ITitle {
   title: string,
-  epk_id: number
+  epk_id: number,
   setAllFilms: React.Dispatch<React.SetStateAction<FilmEPK[]>>
-  allFilms: FilmEPK[]
+  allFilms: FilmEPK[],
+  key: number
 }
 
-const EPKCard = ({ title, epk_id, setAllFilms, allFilms }: ITitle) => {
+const EPKCard = ({ title, epk_id, setAllFilms, allFilms, key }: ITitle) => {
   const deleteEPK = (id: number) => {
     fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${id}`, {
       method: 'DELETE'
@@ -21,7 +22,7 @@ const EPKCard = ({ title, epk_id, setAllFilms, allFilms }: ITitle) => {
   return (
     <div>
       <Link to={`/edit/${epk_id}`}>
-        <article key={epk_id}>
+        <article key={key}>
           <p>{title}</p>
         </article>
       </Link>
