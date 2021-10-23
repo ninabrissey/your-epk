@@ -35,6 +35,8 @@ export interface Attributes {
   awards: Award[];
   presses: Press[];
   synopsis: string;
+  movie_poster_url: string;
+  trailer: string;
 }
 
 export interface Press {

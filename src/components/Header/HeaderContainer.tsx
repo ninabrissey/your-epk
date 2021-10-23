@@ -17,8 +17,8 @@ const HeaderContainer = ({ filmEPK, addFilmInfo } : IHeader) => {
 
   return (
     <div className='header-container'>
-      {isEditing && <HeaderForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} />}
-      {!isEditing && <HeaderDisplay filmEPK={filmEPK} />}
+      {!isEditing && <HeaderForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} />}
+      {isEditing && <HeaderDisplay filmEPK={filmEPK} />}
     </div>
   )
 }

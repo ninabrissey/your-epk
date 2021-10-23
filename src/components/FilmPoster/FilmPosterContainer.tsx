@@ -1,11 +1,22 @@
+import { useState } from 'react';
+import { FilmEPK } from '../../types';
 import FilmPosterForm from '../FilmPoster/FilmPosterForm';
 import FilmPosterDisplay from '../FilmPoster/FilmPosterDisplay';
+import Fab from '@mui/material/Fab';
+import EditIcon from '@mui/icons-material/Edit';
 
-const FilmPosterContainer = () => {
-  return (
+interface IFilmPoster {
+  filmEPK: FilmEPK;
+  addFilmInfo: any;
+}
+
+const FilmPosterContainer = ({ filmEPK, addFilmInfo} : IFilmPoster) => {
+  const [isEditing, setIsEditing] = useState<boolean>(true)
+
+  return (  
     <div className='film-poster-container'>
-      <FilmPosterForm />
-      {/* <FilmPosterDisplay /> */}
+      {isEditing && <FilmPosterForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} />}
+      {!isEditing && <FilmPosterDisplay filmEPK={filmEPK} />}
     </div>
   )
 }
