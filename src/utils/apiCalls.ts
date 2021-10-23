@@ -45,8 +45,3 @@ export const getEPK = (epkID: string) => {
   return fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${epkID}`)
     .then(res => res.json())
 }
-
-export const getEPK = (epkID: string) => {
-  return fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${epkID}`)
-    .then(res => res.json())
-}
