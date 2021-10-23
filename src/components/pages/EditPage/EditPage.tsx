@@ -7,6 +7,7 @@ import AwardsPressContainer from '../../AwardsPress/AwardsPressContainer';
 import HeaderContainer from '../../Header/HeaderContainer';
 import TrailerContainer from '../../Trailer/TrailerContainer';
 import FilmPosterContainer from '../../FilmPoster/FilmPosterContainer';
+import { findEPK } from '../../../utils/apiCalls';
 
 interface FilmProps {
   filmEPK: FilmEPK;
@@ -16,16 +17,20 @@ const EditPage = ({ epk_id }: any) => {
   const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
   const [title, setTitle] = useState('')
 
+  console.log('title', title)
+
   useEffect(() => {
     getUser(1)
+      .then((data: any) => findEPK(data.included, epk_id.toString()))
       .then((data: any) => {
-        setFilm(data.included[0].attributes)
-        setTitle(formatTitle(data.included[0].attributes.movie_title))
-        console.log('film', data.included[0].attributes.movie_title)
+        setFilm(data)
+        setTitle(formatTitle(data.attributes.movie_title))
       })
-      // .then((data: any) => console.log(data.included[0].attributes))
       .catch(err => console.log(err))
+    console.log(film)
   }, [])
+
+
 
   const addFilmInfo = (filmInfo: object) => {
     patchData(filmInfo, 77).then(data => setFilm(data))
