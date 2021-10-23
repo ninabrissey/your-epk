@@ -34,7 +34,7 @@ useEffect(() => {
   return (
     <main className='edit-page'>
       <HeaderContainer/>
-      {/* <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo}/> */}
+    {/* <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo}/> */}
       <AwardsPressContainer awards={awards} presses={presses} addFilmInfo={addFilmInfo}/>
       <TrailerContainer />
       <FilmPosterContainer />
