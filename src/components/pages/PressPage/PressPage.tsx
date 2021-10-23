@@ -1,9 +1,8 @@
 
 
-const PressPage = ({ title }: any) => {
-  console.log(title)
+const PressPage = ({ title, epk_id }: any) => {
 
-  return (<p>{`You've reached press page for ${title}`}</p>)
+  return (<p>{`You've reached press page for ${title}, id# ${epk_id}`}</p>)
 }
 
 
