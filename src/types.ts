@@ -11,7 +11,7 @@ export interface UserData {
 }
 
 export interface FilmEPK {
-  id: number;
+  id: string | number;
   type: string;
   attributes: Attributes;
 }
@@ -44,6 +44,6 @@ export interface Award {
   film_epk_id: number;
   name: string;
   year: string;
-  type: string;
+  award_type: string;
 }
 
