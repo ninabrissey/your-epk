@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getUser, patchData } from '../../../utils/apiCalls';
+import { getUser, patchData, findEPK } from '../../../utils/apiCalls';
 import { FilmEPK } from '../../../types'
 import "./EditPage.scss"
 import AwardsPressContainer from '../../AwardsPress/AwardsPressContainer';
@@ -14,21 +14,22 @@ interface FilmProps {
 const EditPage = ({ epk_id }: any) => {
   const [film, setFilm] = useState<FilmEPK>({} as FilmEPK)
 
-// useEffect(() => {
-//   getUser(1)
-//     .then((data: any) => setFilm(data.included[0].attributes))
-//     // .then((data: any) => console.log(data.included[0].attributes))
-//     .catch(err => console.log(err))
-//     console.log(film)
-//   }, [])
-  
-  const addFilmInfo = (filmInfo: object) => {
-    patchData(filmInfo, 77).then(data => setFilm(data))
-  }
+  useEffect(() => {
+    getUser(1)
+      .then((data: any) => findEPK(data.included, '80'))
+      .then((data: any) => setFilm(data))
+      .catch(err => console.log(err))
+    }, [])
+    
+    const addFilmInfo = (filmInfo: object) => {
+      patchData(filmInfo, 80).then(data => setFilm(data))
+    }
+    
+    console.log('filmEPK in EditPage: ', film)
 
   return (
     <main className='edit-page'>
-      <HeaderContainer addFilmInfo={addFilmInfo}/>
+      <HeaderContainer filmEPK={film} addFilmInfo={addFilmInfo}/>
       <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo}/>
       <TrailerContainer />
       <FilmPosterContainer />
