@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-const TrailerForm = () => {
+const TrailerForm = ({ addFilmInfo } : any) => {
   const [filmTrailer, setFilmTrailer] = useState<string>('')
 
 
@@ -12,17 +12,13 @@ const TrailerForm = () => {
     let currentTrailer = {
       trailer: filmTrailer
     }
-    // send currentTrailer to editPage here
-    clearForm()
-  }
-
-  const clearForm = () => {
+    addFilmInfo(currentTrailer)
     setFilmTrailer('')
   }
 
   return (
     <form>
-            <p>I am the trailer form container</p>
+        <p>I am the trailer form container</p>
         <FormControl sx={{ m: 1, minWidth: 480 }}>
           <TextField
             id="outlined-multiline-flexible"

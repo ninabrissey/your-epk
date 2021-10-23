@@ -1,5 +1,8 @@
 import HeaderDisplay from "../../Header/HeaderDisplay";
 import AwardPressDisplay from "../../AwardsPress/AwardPressDisplay";
+import TrailerDisplay from "../../Trailer/TrailerDisplay";
+import FilmPosterDisplay from "../../FilmPoster/FilmPosterForm";
+import SynopsisDisplay from "../../Synopsis/SynopsisDisplay";
 import { FilmEPK, EPKData } from '../../../types';
 import { useEffect, useState } from 'react';
 import { getEPK } from "../../../utils/apiCalls";
@@ -22,7 +25,10 @@ const PressPage = ({ title, epk_id }: any) => {
     <div>
       {epk.id && <p>{`You've reached press page for ${epk.attributes.movie_title}, id# ${epk.attributes.synopsis}`}</p>}
       <p>{` id# ${epk_id}`}</p>
-      {/* <HeaderDisplay /> */}
+      <HeaderDisplay filmEPK={epk} />
+      <TrailerDisplay filmEPK={epk} />
+      <FilmPosterDisplay filmEPK={epk} />
+      <SynopsisDisplay filmEPK={epk} />
     </div>
   )
 }
