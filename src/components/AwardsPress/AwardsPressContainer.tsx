@@ -8,20 +8,14 @@ import { film } from '../../utils/mockData';
 // import { film } from '../../utils/mockData';
 
 interface APContainerProps {
-  filmEPK: FilmEPK;
   addFilmInfo: any;
   awards: Award[] | undefined;
 }
 
-const AwardsPressContainer = ({filmEPK, addFilmInfo}: APContainerProps) => {
-const [isEditting, setIsEditting] = useState(false)
-const [awards, setAwards] = useState<Award[] | undefined >()
-
-console.log(filmEPK)
-
-useEffect(() => {
-  setAwards(filmEPK.attributes.awards)
-}, [film])
+const AwardsPressContainer = ({awards, addFilmInfo}: APContainerProps) => {
+  // const AwardsPressContainer = ({filmEPK, addFilmInfo}: APContainerProps) => {
+const [isEditting, setIsEditting] = useState(true)
+// const [awards, setAwards] = useState<Award[] | undefined >()
 
 return (
   <div>
