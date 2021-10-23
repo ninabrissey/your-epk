@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 // import postData from '../../../utils/apiCalls';
 import TitleForm from '../TitleForm/TitleForm';
 import EPKContainer from '../EPKContainer/EPKContainer';
-import { UserData } from '../../../../types';
+import { UserData, FilmEPK } from '../../../../types';
 import { setupMaster } from 'cluster';
 import { userInfo } from 'os';
 
@@ -12,7 +12,7 @@ interface IUser {
 }
 
 const Dashboard = ({ id, currUser }: IUser) => {
-  const [allFilms, setAllFilms] = useState<object[]>([]);
+  const [allFilms, setAllFilms] = useState<FilmEPK[]>([]);
 
   useEffect(() => {
     fetch(`https://epk-be.herokuapp.com/api/v1/users/${id}`)
@@ -23,12 +23,14 @@ const Dashboard = ({ id, currUser }: IUser) => {
       .catch(err => console.log(err))
   }, [])
 
+
+
   return (
     <main>
       <h2>hey you</h2>
       <h3>{`${currUser.first_name} ${currUser.last_name}`}</h3>
       <TitleForm allFilms={allFilms} id={id} setAllFilms={setAllFilms} />
-      <EPKContainer allFilms={allFilms} />
+      <EPKContainer allFilms={allFilms} setAllFilms={setAllFilms} />
     </main>
   )
 }
