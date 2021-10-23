@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 // import postData from '../../../utils/apiCalls';
 import TitleForm from '../TitleForm/TitleForm';
 import EPKContainer from '../EPKContainer/EPKContainer';
+import Navigation from '../../../Navigation/Navigation';
 import { UserData, FilmEPK } from '../../../../types';
 import { setupMaster } from 'cluster';
 import { userInfo } from 'os';
@@ -26,12 +27,15 @@ const Dashboard = ({ id, currUser }: IUser) => {
 
 
   return (
-    <main>
-      <h2>hey you</h2>
-      <h3>{`${currUser.first_name} ${currUser.last_name}`}</h3>
-      <TitleForm allFilms={allFilms} id={id} setAllFilms={setAllFilms} />
-      <EPKContainer allFilms={allFilms} setAllFilms={setAllFilms} />
-    </main>
+    <div>
+      <Navigation />
+      <main>
+        <h2>hey you</h2>
+        <h3>{`${currUser.first_name} ${currUser.last_name}`}</h3>
+        <TitleForm allFilms={allFilms} id={id} setAllFilms={setAllFilms} />
+        <EPKContainer allFilms={allFilms} setAllFilms={setAllFilms} />
+      </main>
+    </div>
   )
 }
 
