@@ -1,7 +1,12 @@
-import { useState, useEffect} from 'react'
+import { useState, useEffect} from 'react';
+import { FilmEPK } from '../../types';
 import { contact } from "../../utils/mockData";
 
-const ContactDisplay = () => {
+interface IContactDisplay {
+  filmEPK: FilmEPK
+}
+
+const ContactDisplay = ({ filmEPK } : IContactDisplay) => {
 
   return (
     <section className='contact-display-container'>
