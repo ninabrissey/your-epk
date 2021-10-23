@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.header-container {
+  height: $header-height;
+  width: 100%;
+  background-color: lavender;
+}
+
+.header-img {
+  height: $header-height;
+  width: 100%;
+  object-fit: cover;
+  z-index: 0;
+  position: relative;
+}
+
+.header-info-container {
+  height: $header-height;
+  width: 23%;
+  z-index: 5;
+  position: absolute;
+  top: 15vh;
+  left: 69%;
+  background-color: #ffffff;
+  @include flexColumnJustify(space-evenly);
+}

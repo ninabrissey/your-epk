@@ -1,37 +1,46 @@
 import { useState, useEffect} from 'react'
-import { film } from "../../utils/mockData";
-import { patchData } from '../../utils/apiCalls';
 import ContactForm from '../Contact/ContactForm';
 
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-const HeaderForm = () => {
+const HeaderForm = ({ addFilmInfo }: any) => {
   const [filmTitle, setFilmTitle] = useState<string>('')
   const [headerDescription, setHeaderDescription] = useState<string>('')
   const [headerImg, setHeaderImg] = useState<string>('')
 
   useEffect(() => {
-    setFilmTitle(film.title)
+    setFilmTitle('Work Please')
   }, [])
+
+
+
+  // *** img needs to go through a different patch
+
+
+
 
   const handleSubmit = () => {
     let currentDescription = {
-      user_id: 1,
       header_img: headerImg,
       header_description: headerDescription
     }
-    patchData(currentDescription, 14)
+    addFilmInfo(currentDescription, 77)
+    clearForm()
     console.log('currentDescription: ', currentDescription)
   }
 
-  return (
-    <section className='header-container'>
+  const clearForm = () => {
+    setHeaderDescription('')
+    setHeaderImg('')
+  }
 
-      {/* this is the header img upload area */}
+  return (
+    <section>
+      <p>I am the header form container</p>
       <div className='header-img'>
-      <FormControl sx={{ m: 1, minWidth: 480 }}>
+        <FormControl sx={{ m: 1, minWidth: 480 }}>
           <TextField
             id="outlined-multiline-flexible"
             label="Img URL"
@@ -69,9 +78,8 @@ const HeaderForm = () => {
             >save
           </Button>
         </FormControl>
-        <ContactForm />
+        <ContactForm addFilmInfo={addFilmInfo} />
       </div>
-
     </section>
   )
 }
