@@ -19,8 +19,8 @@
   height: $header-height;
   width: 23%;
   z-index: 5;
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: 15vh;
   left: 69%;
   background-color: #ffffff;
   @include flexColumnJustify(space-evenly);
