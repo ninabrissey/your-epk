@@ -9,7 +9,14 @@ import { postData } from '../../utils/apiCalls';
 import './AwardPressForm.scss'
 // import { createTheme, ThemeProvider } from '@mui/system';
 
-const AwardPressForm = ({addFilmInfo}: any) => {
+interface IAwardPressForm {
+  addFilmInfo: any,
+  setIsEditting: any, 
+  isEditting: boolean
+  epk_id: string
+}
+
+const AwardPressForm = ({addFilmInfo, setIsEditting, isEditting, epk_id}: IAwardPressForm) => {
   const [select, setSelect] = useState('');
   const [publication, setPublication] = useState('');
   const [link, setLink] = useState('');
@@ -20,7 +27,7 @@ const AwardPressForm = ({addFilmInfo}: any) => {
   
   const newAward = {
     award: {
-      film_epk_id: 133,
+      film_epk_id: epk_id,
       name: awardName,
       award_type: awardType,
       year: awardYear
@@ -29,7 +36,7 @@ const AwardPressForm = ({addFilmInfo}: any) => {
 
   const newPress = {
     press: {
-      film_epk_id: 133,
+      film_epk_id: epk_id,
       publication: publication,
       link: link,
       quote: quote
@@ -60,7 +67,7 @@ const AwardPressForm = ({addFilmInfo}: any) => {
           style={{ width: '20%', minWidth: '85px', marginRight: '3%', padding: 0}}
           labelId="award-or-press"
           id="award-or-press"
-          label="type"
+          label="select type"
           name="Select"
           value={select}
           onChange={e => setSelect(e.target.value)}
@@ -70,26 +77,30 @@ const AwardPressForm = ({addFilmInfo}: any) => {
         </Select>
 
         {select === 'award' && <>
+          {/* <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="name" label="name" variant="outlined" value={awardName} onChange={e => setAwardName(e.target.value)} helperText="name required" required /> */}
+          <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="name" label="name" variant="outlined" value={awardName} onChange={e => setAwardName(e.target.value)} />
           <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="year" label="year" variant="outlined" value={awardYear} onChange={e => setAwardYear(e.target.value)}/>
-          <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="name" label="name" variant="outlined" value={awardName} onChange={e => setAwardName(e.target.value)}/>
-          <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="link" label="link" variant="outlined" value={awardType} onChange={e => setAwardType(e.target.value)}/>
+          <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="type" label="type" variant="outlined" value={awardType} onChange={e => setAwardType(e.target.value)}/>
           {/* <Button style={{ background: '#ec5f27', height: '57px'}} variant="text"
           onClick={() => addFilmInfo(newAward)}>save</Button> */}
-          <Button style={{ background: '#ec5f27', height: '57px'}} variant="text"
+          <Button style={{ background: '#ec5f27', height: '57px', marginRight: '3%'}} variant="text"
           onClick={() => postData('https://epk-be.herokuapp.com/api/v1/awards', newAward)}>save</Button>
 
         {/* NEED TO PASS THIS POSTDATA FUNCTION DOWN FROM THE EDIT PAGE */}
         </>}
 
         {select === 'press' && <>
-          <TextField style={{ margin: '1%', width: '150px'}} id="outlined-basic" name="publication" label="publication" variant="outlined" value={publication} size="small" onChange={e => setPublication(e.target.value)}/>
-          <TextField style={{ margin: '1%', width: '150px'}} id="outlined-basic" name="link" label="quote" variant="outlined" value={quote} size="small" onChange={e => setQuote(e.target.value)}/>
-          <TextField style={{ margin: '1%', width: '150px'}} id="outlined-basic" name="quote" label="link" variant="outlined" value={link} size="small" onChange={e => setLink(e.target.value)}/>
+          <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="publication" label="publication" variant="outlined" value={publication} onChange={e => setPublication(e.target.value)} helperText="publication required" required />
+          <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="quote" label="link" variant="outlined" value={link} onChange={e => setLink(e.target.value)} helperText="link required" required />
+          <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="link" label="quote" variant="outlined" value={quote} onChange={e => setQuote(e.target.value)}/>
           {/* <Button style={{ background: '#ec5f27', height: '57px'}} variant="text"
           onClick={() => addFilmInfo(newAward)}>save</Button> */}
-          <Button style={{ background: '#ec5f27', margin: '1%'}} size="small"  variant="text"
+          <Button style={{ background: '#ec5f27', height:'57px', marginRight: '3%'}} variant="text"
           onClick={() => postData('https://epk-be.herokuapp.com/api/v1/presses', newPress)}>save</Button>
         </>}
+
+        <Button style={{ background: '#ec5f27', height: '57px', width: '150px'}} variant="text"
+          onClick={() => setIsEditting(!isEditting)}>done editting</Button>
 
       </div>
       </FormControl>
