@@ -7,15 +7,12 @@ interface IContactDisplay {
 
 const ContactDisplay = ({ filmEPK } : IContactDisplay) => {
   const [currentEPK, setCurrentEPK] = useState<Attributes>({} as Attributes)
-  const [company, setCompany] = useState<Attributes>({} as Attributes)
 
   useEffect(() => {
     setCurrentEPK(filmEPK.attributes)
-    setCompany(filmEPK.attributes)
   }, [filmEPK])
 
   console.log('currentEPK: ', currentEPK)
-  console.log('company: ', company)
 
   return (
     <section className='contact-display-container'>
