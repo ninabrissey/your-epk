@@ -11,9 +11,10 @@ interface APContainerProps {
   addFilmInfo: any;
   awards: Award[] | [];
   presses: Press[] | [];
+  epk_id: string
 }
 
-const AwardsPressContainer = ({awards, presses, addFilmInfo}: APContainerProps) => {
+const AwardsPressContainer = ({awards, presses, addFilmInfo, epk_id}: APContainerProps) => {
   // const AwardsPressContainer = ({filmEPK, addFilmInfo}: APContainerProps) => {
 const [isEditting, setIsEditting] = useState(true)
 // const [awards, setAwards] = useState<Award[] | undefined >()
@@ -23,14 +24,9 @@ return (
     {!isEditting && <Fab color="secondary" aria-label="edit" onClick={() => setIsEditting(!isEditting)}>
       <EditIcon />
     </Fab>}
-    {isEditting && <Fab color="primary" aria-label="edit" onClick={() => setIsEditting(!isEditting)}>
-      <EditIcon />
-    </Fab>}
-    {/* {awards !== undefined && 
-    <AwardPressDisplay presses={presses} awards={awards} />} */}
-     {awards !== undefined && 
+    {awards !== undefined && 
     <AwardPressDisplay awards={awards} presses={presses} />}
-    {isEditting && <AwardPressForm addFilmInfo={addFilmInfo} />}
+    {isEditting && <AwardPressForm addFilmInfo={addFilmInfo} setIsEditting={setIsEditting} isEditting={isEditting} epk_id={epk_id}/>}
   </div>
   )
 }
