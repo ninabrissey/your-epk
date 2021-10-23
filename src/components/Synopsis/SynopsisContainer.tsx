@@ -15,8 +15,8 @@ const SynopsisContainer = ({ filmEPK, addFilmInfo } : ISynopsis) => {
 
   return (
     <div className='synopsis-container'>
-      {isEditing && <SynopsisForm filmEPK={filmEPK} addFilmInfo={addFilmInfo}/>}
-      {!isEditing && <SynopsisDisplay filmEPK={filmEPK} />}
+      {!isEditing && <SynopsisForm filmEPK={filmEPK} addFilmInfo={addFilmInfo}/>}
+      {isEditing && <SynopsisDisplay filmEPK={filmEPK} />}
     </div>
   )
 }
