@@ -10,13 +10,13 @@ interface ISynopsis {
   addFilmInfo: any;
 }
 
-const SynopsisContainer = ({ filmEPK, addFilmInfo } : any) => {
+const SynopsisContainer = ({ filmEPK, addFilmInfo } : ISynopsis) => {
   const [isEditing, setIsEditing] = useState<boolean>(true)
 
   return (
     <div className='synopsis-container'>
-      <SynopsisForm filmEPK={filmEPK} addFilmInfo={addFilmInfo}/>
-      {/* <SynopsisDisplay filmEPK={filmEPK} addFilmInfo={addFilmInfo}/> */}
+      {isEditing && <SynopsisForm filmEPK={filmEPK} addFilmInfo={addFilmInfo}/>}
+      {!isEditing && <SynopsisDisplay filmEPK={filmEPK} />}
     </div>
   )
 }
