@@ -4,7 +4,7 @@ interface ISynopsis {
   filmEPK: FilmEPK;
 }
 
-const SynopsisDisplay = () => {
+const SynopsisDisplay = ({ filmEPK } : ISynopsis) => {
 
   return (
     <section>
