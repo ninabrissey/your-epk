@@ -49,7 +49,6 @@ const EditPage = ({ epk_id }: any) => {
         <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         <TrailerContainer />
         <FilmPosterContainer />
-        <Link to={`/${epk_id}/${title}`}>Go to Film Page</Link>
       </main>
     </div>
   )
