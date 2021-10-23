@@ -5,6 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
+import { postData } from '../../utils/apiCalls';
 import './AwardPressForm.scss'
 // import { createTheme, ThemeProvider } from '@mui/system';
 
@@ -22,12 +23,19 @@ const AwardPressForm = ({addFilmInfo}: any) => {
   //     }
   //   }
 
-    const newAward = {
-        movie_title: publication,
-        genre: link,
-        country: quote
-    }
+    // const newAward = {
+    //     movie_title: publication,
+    //     genre: link,
+    //     country: quote
+    // }
   
+    const newAward = {
+        award: {
+          name: publication,
+          film_epk_id: 80,
+          award_type:link
+      } 
+  }
 
   // const newPress = {
   //   presses: {
@@ -72,8 +80,10 @@ const AwardPressForm = ({addFilmInfo}: any) => {
       <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="publication" label="publication" variant="outlined" value={publication} onChange={e => setPublication(e.target.value)}/>
       <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="link" label="quote" variant="outlined" value={quote} onChange={e => setQuote(e.target.value)}/>
       <TextField style={{ marginRight: '3%'}} id="outlined-basic" name="quote" label="link" variant="outlined" value={link} onChange={e => setLink(e.target.value)}/>
-      <Button style={{ background: '#ec5f27', height: '57px'}} variant="text"
-      onClick={() => addFilmInfo(newAward)}>save</Button>
+      {/* <Button style={{ background: '#ec5f27', height: '57px'}} variant="text"
+      onClick={() => addFilmInfo(newAward)}>save</Button> */}
+       <Button style={{ background: '#ec5f27', height: '57px'}} variant="text"
+      onClick={() => postData('https://epk-be.herokuapp.com/api/v1/awards', newAward)}>save</Button>
       </div>
       </FormControl>
     </section>
