@@ -7,6 +7,7 @@ import AwardsPressContainer from '../../AwardsPress/AwardsPressContainer';
 import HeaderContainer from '../../Header/HeaderContainer';
 import TrailerContainer from '../../Trailer/TrailerContainer';
 import FilmPosterContainer from '../../FilmPoster/FilmPosterContainer';
+import Navigation from '../../Navigation/Navigation';
 import { findEPK } from '../../../utils/apiCalls';
 
 interface FilmProps {
@@ -41,13 +42,16 @@ const EditPage = ({ epk_id }: any) => {
   }
 
   return (
-    <main className='edit-page'>
-      <HeaderContainer />
-      <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-      <TrailerContainer />
-      <FilmPosterContainer />
-      <Link to={`/${epk_id}/${title}`}>Go to Film Page</Link>
-    </main>
+    <div>
+      <Navigation onEdit={true} epk_id={epk_id} title={title} />
+      <main className='edit-page'>
+        <HeaderContainer />
+        <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+        <TrailerContainer />
+        <FilmPosterContainer />
+        <Link to={`/${epk_id}/${title}`}>Go to Film Page</Link>
+      </main>
+    </div>
   )
 }
 
