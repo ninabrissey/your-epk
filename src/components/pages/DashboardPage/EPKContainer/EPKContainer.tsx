@@ -1,4 +1,5 @@
 import EPKCard from "../EPKCard/EPKCard";
+import './EPKContainer.scss'
 import { FilmEPK } from '../../../../types';
 
 interface IFilms {
@@ -14,10 +15,11 @@ const EPKContainer = ({ allFilms, setAllFilms }: IFilms) => {
   })
 
   return (
-    <div>
-      <p>this is the EPK container, woot</p>
-      {allTitles}
-    </div>
+    <section className='titles'>
+      <div className='titles-container'>
+        {allTitles}
+      </div>
+    </section>
   )
 }
 
