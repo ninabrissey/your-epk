@@ -33,18 +33,18 @@ useEffect(() => {
     console.log(film)
   }, [])
 
-    
-  const newAward = {
-    award: {
-      film_epk_id: epk_id,
-      name: "hi",
-      award_type:"test",
-    } 
-  }
-  useEffect(() => {
-    postData('https://epk-be.herokuapp.com/api/v1/awards',newAward)
-    .then(data => console.log(data, 'awards post'))
-  }, [])
+  // test below for post to awards   
+  // const newAward = {
+  //   award: {
+  //     film_epk_id: epk_id,
+  //     name: "hi",
+  //     award_type:"test",
+  //   } 
+  // }
+  // useEffect(() => {
+  //   postData('https://epk-be.herokuapp.com/api/v1/awards',newAward)
+  //   .then(data => console.log(data, 'awards post'))
+  // }, [])
 
   const addFilmInfo = (filmInfo: object) => {
     patchData(filmInfo, 80).then(data => setFilm(data))
