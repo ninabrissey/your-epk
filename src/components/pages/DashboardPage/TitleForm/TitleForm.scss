@@ -1,0 +1,6 @@
+@import '../../../../styles/mixins';
+
+.title-input {
+  @include flexCenterColumn;
+  padding-bottom: 2em;
+}
