@@ -32,7 +32,6 @@ const Dashboard = ({ id, currUser }: IUser) => {
     <div>
       <Navigation />
       <main className='edit-main'>
-        <h2>{`Welcome, ${currUser.first_name} ${currUser.last_name}`}</h2>
         <TitleForm allFilms={allFilms} id={id} setAllFilms={setAllFilms} />
         <EPKContainer allFilms={allFilms} setAllFilms={setAllFilms} />
       </main>
