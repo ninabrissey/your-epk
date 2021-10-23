@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import { getUser, patchData, findEPK } from '../../../utils/apiCalls';
-import { FilmEPK, Award } from '../../../types'
+import { FilmEPK, Award, Press } from '../../../types'
 import "./EditPage.scss"
 import AwardsPressContainer from '../../AwardsPress/AwardsPressContainer';
 import HeaderContainer from '../../Header/HeaderContainer';
@@ -12,8 +12,9 @@ interface FilmProps {
 }
 
 const EditPage = ({ epk_id }: any) => {
-  const [film, setFilm] = useState<FilmEPK>({} as FilmEPK)
-  const [awards, setAwards] = useState<Array<Award>>([])
+  const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
+  const [awards, setAwards] = useState<Array<Award>>([]);
+  const [presses, setPress] = useState<Array<Press>>([])
 
 useEffect(() => {
   getUser(1)
@@ -21,6 +22,7 @@ useEffect(() => {
     .then((data: any) => {
       setFilm(data)
       setAwards(data.attributes.awards)
+      setPress(data.attributes.press)
     })
     .catch(err => console.log(err))
   }, [])
@@ -33,7 +35,7 @@ useEffect(() => {
     <main className='edit-page'>
       <HeaderContainer/>
       {/* <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo}/> */}
-      <AwardsPressContainer awards={awards} addFilmInfo={addFilmInfo}/>
+      <AwardsPressContainer awards={awards} presses={presses} addFilmInfo={addFilmInfo}/>
       <TrailerContainer />
       <FilmPosterContainer />
     </main>
