@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
-import { FilmEPK, Attributes } from '../../../../types'
+import { FilmEPK, Attributes } from '../../../../types';
+import './EPKCard.scss'
+import Button from '@mui/material/Button';
 
 interface ITitle {
   title: string,
@@ -20,14 +22,17 @@ const EPKCard = ({ title, epk_id, setAllFilms, allFilms, key }: ITitle) => {
   }
 
   return (
-    <div>
-      <Link to={`/edit/${epk_id}`}>
-        <article key={key}>
+    <article className='title-card' >
+      <Link to={`/edit/${epk_id}`} className='linked-title' >
+        <div key={epk_id} className='go-to-edit'>
           <p>{title}</p>
-        </article>
+        </div>
       </Link>
-      <button onClick={() => deleteEPK(epk_id)}>Delete</button>
-    </div>
+      {/* <button >Delete</button> */}
+      <Button variant="outlined" size="small" onClick={() => deleteEPK(epk_id)}>
+        Delete
+      </Button>
+    </article>
   )
 }
 

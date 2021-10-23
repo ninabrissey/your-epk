@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import { postData } from "../../../../utils/apiCalls";
 import { Link } from 'react-router-dom';
 import { FilmEPK } from '../../../../types';
+import './TitleForm.scss';
 
 
 interface IDashboard {
@@ -27,24 +28,27 @@ const TitleForm = ({ id, setAllFilms, allFilms }: IDashboard) => {
   }
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }}>
-      <TextField
-        id="outlined-basic"
-        label="Film Title"
-        variant="outlined"
-        type='text'
-        name='name'
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <Link to={`/edit/${endpointTitle}`}>
-        <Button
-          variant="text"
-          onClick={() => makeEPK()}
-        >save
-        </Button>
-      </Link>
-    </FormControl>
+    <div className='title-input'>
+      <FormControl sx={{ m: 1, minWidth: 120 }} >
+        <TextField
+          id="outlined-basic"
+          label="Film Title"
+          variant="outlined"
+          type='text'
+          // helperText='Must include title'
+          name='name'
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <Link to={`/edit/${endpointTitle}`}>
+          <Button
+            variant="text"
+            onClick={() => makeEPK()}
+          >Create New EPK
+          </Button>
+        </Link>
+      </FormControl>
+    </div>
   )
 }
 
