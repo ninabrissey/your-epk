@@ -8,11 +8,6 @@ import HeaderContainer from '../../Header/HeaderContainer';
 import TrailerContainer from '../../Trailer/TrailerContainer';
 import FilmPosterContainer from '../../FilmPoster/FilmPosterContainer';
 import Navigation from '../../Navigation/Navigation';
-import { findEPK } from '../../../utils/apiCalls';
-
-// interface FilmProps { 
-//   filmEPK: FilmEPK;
-// }
 
 
 const EditPage = ({ epk_id }: any) => {
