@@ -20,9 +20,12 @@ const [isEditting, setIsEditting] = useState(true)
 
 return (
   <div>
-    <Fab color="secondary" aria-label="edit">
+    {!isEditting && <Fab color="secondary" aria-label="edit" onClick={() => setIsEditting(!isEditting)}>
       <EditIcon />
-    </Fab>
+    </Fab>}
+    {isEditting && <Fab color="primary" aria-label="edit" onClick={() => setIsEditting(!isEditting)}>
+      <EditIcon />
+    </Fab>}
     {/* {awards !== undefined && 
     <AwardPressDisplay presses={presses} awards={awards} />} */}
      {awards !== undefined && 
