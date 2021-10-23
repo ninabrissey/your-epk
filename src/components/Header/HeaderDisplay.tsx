@@ -1,8 +1,8 @@
-import { FilmEPK } from '../../types';
+import { FilmEPK, Attributes } from '../../types';
 import ContactDisplay from '../Contact/ContactDisplay';
 
 interface IHeaderDisplay {
-  filmEPK: FilmEPK
+  filmEPK: FilmEPK;
 }
 
 const HeaderDisplay = ({ filmEPK } : IHeaderDisplay) => {
