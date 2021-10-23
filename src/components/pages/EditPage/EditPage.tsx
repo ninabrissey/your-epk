@@ -7,9 +7,10 @@ import HeaderContainer from '../../Header/HeaderContainer';
 import TrailerContainer from '../../Trailer/TrailerContainer';
 import FilmPosterContainer from '../../FilmPoster/FilmPosterContainer';
 
-interface FilmProps { 
-  filmEPK: FilmEPK;
-}
+// interface FilmProps { 
+//   filmEPK: FilmEPK;
+// }
+
 
 const EditPage = ({ epk_id }: any) => {
   const [film, setFilm] = useState<FilmEPK>({} as FilmEPK)
