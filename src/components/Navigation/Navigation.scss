@@ -1,0 +1,17 @@
+.navigation {
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
+}
+
+.logo {
+  height: 15vh;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 40vw;
+}
