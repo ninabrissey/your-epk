@@ -13,7 +13,6 @@ const HeaderDisplay = ({ filmEPK } : IHeaderDisplay) => {
 
   return (
     <section>
-      <p>I am the header display container</p>
       <img 
         className='header-img' 
         src='https://images.squarespace-cdn.com/content/v1/594ea6feccf210e3df36ce8d/1530550829458-1E1T99Y53C81CU09S9P3/Nina+Brissey+and+Robert+Craighead+Amazing+Grace+Film?format=1500w'
