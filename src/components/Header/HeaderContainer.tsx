@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FilmEPK } from '../../types';
 import HeaderForm from './HeaderForm';
 import HeaderDisplay from './HeaderDisplay';
@@ -17,8 +17,8 @@ const HeaderContainer = ({ filmEPK, addFilmInfo } : IHeader) => {
 
   return (
     <div className='header-container'>
-      {!isEditing && <HeaderForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} />}
-      {isEditing && <HeaderDisplay filmEPK={filmEPK} />}
+      {isEditing && <HeaderForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} />}
+      {!isEditing && <HeaderDisplay filmEPK={filmEPK} />}
     </div>
   )
 }
