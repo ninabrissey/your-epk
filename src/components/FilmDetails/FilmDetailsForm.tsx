@@ -16,7 +16,14 @@ const FilmDetailsForm = ({ addFilmInfo } : any) => {
 
   const handleSubmit = () => {
     const currentFilmDetails = {
-      genre: genre
+      genre: genre,
+      country: country,
+      release_year: releaseYear,
+      run_time: runtime,
+      language: language,
+      budget: budget,
+      website: website,
+      production_company: company
     }
     addFilmInfo(currentFilmDetails)
   }
