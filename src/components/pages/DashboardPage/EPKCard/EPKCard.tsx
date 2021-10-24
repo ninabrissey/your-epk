@@ -25,7 +25,7 @@ const EPKCard = ({ title, epk_id, setAllFilms, allFilms, key }: ITitle) => {
     <article className='title-card' >
       <Link to={`/edit/${epk_id}`} className='linked-title' >
         <div key={epk_id} className='go-to-edit'>
-          <p>{title}</p>
+          <p className='title-text'>{title}</p>
         </div>
       </Link>
       {/* <button >Delete</button> */}
@@ -35,6 +35,5 @@ const EPKCard = ({ title, epk_id, setAllFilms, allFilms, key }: ITitle) => {
     </article>
   )
 }
-
 
 export default EPKCard;

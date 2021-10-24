@@ -16,14 +16,17 @@ interface IDashboard {
 
 const TitleForm = ({ id, setAllFilms, allFilms }: IDashboard) => {
   const [title, setTitle] = useState('')
-  const endpointTitle: string = title.split(' ').join('-')
+  // const endpointTitle: string = title.split(' ').join('-')
+  // const [filmId, setFilmId] = useState<number>()
 
   const makeEPK = () => {
     if (title) {
       postData('https://epk-be.herokuapp.com/api/v1/film_epk', {
         "user_id": id,
         "movie_title": title,
-      }).catch(err => console.log(err))
+      })
+        .then(data => setAllFilms([data.data, ...allFilms]))
+        .catch(err => console.log(err))
     }
   }
 
@@ -31,22 +34,23 @@ const TitleForm = ({ id, setAllFilms, allFilms }: IDashboard) => {
     <div className='title-input'>
       <FormControl sx={{ m: 1, minWidth: 120 }} >
         <TextField
+          className='title-field'
           id="outlined-basic"
           label="Film Title"
           variant="outlined"
           type='text'
-          // helperText='Must include title'
+          helperText='Input title to create a new EPK'
           name='name'
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <Link to={`/edit/${endpointTitle}`}>
+        {title &&
           <Button
+            className='create-epk'
             variant="text"
             onClick={() => makeEPK()}
-          >Create New EPK
-          </Button>
-        </Link>
+          >Create
+          </Button>}
       </FormControl>
     </div>
   )
