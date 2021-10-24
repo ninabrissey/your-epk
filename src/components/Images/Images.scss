@@ -1,0 +1,23 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.image-display-container {
+  @include marginWidthContainers;
+  @include gridDisplayCards;
+  grid-template-columns: repeat(2, 1fr);
+  padding-top: 3%;
+}
+
+.image-card {
+  @include flexCenterColumn;
+  width: 500px;
+}
+
+.image-container {
+  width: 500px;
+}
+
+.image {
+  object-fit: cover;
+  width: 500px;
+}
