@@ -1,9 +1,14 @@
 import getUser from '../fixtures/getUser.json';
+import getEPK from '../fixtures/getEPK.json';
 
 describe('Dashboard', () => {
   beforeEach(() => {
     cy.fixture('getUser.json').then((userInfo) => {
       cy.intercept('https://epk-be.herokuapp.com/api/v1/users/1', userInfo)
+    })
+
+    cy.fixture('getEPK.json').then((epkInfo) => {
+      cy.intercept('https://epk-be.herokuapp.com/api/v1/film_epk', epkInfo)
     })
     
     cy.visit('http://localhost:3000/dashboard/1')
