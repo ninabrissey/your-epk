@@ -1,4 +1,10 @@
-const TaglinesDisplay = () => {
+import { FilmEPK } from '../../types';
+
+interface ITaglines {
+  filmEPK: FilmEPK;
+}
+
+const TaglinesDisplay = ({ filmEPK } : Taglines) => {
 
   return (
     <section>

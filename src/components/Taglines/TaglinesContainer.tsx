@@ -5,7 +5,12 @@ import TaglinesDisplay from '../Taglines/TaglinesDisplay';
 import Fab from '@mui/material/Fab';
 import EditIcon from '@mui/icons-material/Edit';
 
-const TaglinesContainer = () => {
+interface ITaglines {
+  filmEPK: FilmEPK;
+  addFilmInfo: any;
+}
+
+const TaglinesContainer = ({ filmEPK, addFilmInfo} : ITaglines) => {
   const [isEditing, setIsEditing] = useState<boolean>(true)
 
   return (
