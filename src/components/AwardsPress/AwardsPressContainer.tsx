@@ -15,7 +15,7 @@ interface APContainerProps {
 
 const AwardsPressContainer = ({awards, presses, addFilmInfo, epk_id}: APContainerProps) => {
   // const AwardsPressContainer = ({filmEPK, addFilmInfo}: APContainerProps) => {
-const [isEditting, setIsEditting] = useState(true)
+const [isEditting, setIsEditting] = useState(false)
 const [currentAwards, setAwards] = useState<Award[] | []>([])
 const [error, setError] = useState<any>('')
 const [loading, setLoading] = useState(false)
@@ -41,7 +41,7 @@ return (
   <div>
     {loading && <p>We are loading you information</p>}
     {error && <p>Something went wrong. Please refresh the page.</p>}
-    {(!isEditting && !error) && <Fab color="secondary" aria-label="edit" onClick={() => setIsEditting(!isEditting)}>
+    { (!isEditting && !error) && <Fab color="secondary" aria-label="edit" onClick={() => setIsEditting(!isEditting)}>
       <EditIcon />
     </Fab>}
     {awards !== undefined && 
