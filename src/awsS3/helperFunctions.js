@@ -1,5 +1,5 @@
 import CryptoJS from 'crypto-js';
-const fs = require('fs');
+import { stat } from 'fs';
 // Note that for larger files, you may want to hash them incrementally.
 // Taken from https://stackoverflow.com/questions/768268/
 
@@ -30,10 +30,10 @@ export const fileChecksum = async (file) => {
   return checksum;
 };
 
-export const bytesize = fs.stat(file, (err, fileStats) => {
-  if (err) {
-    console.log(err);
-  } else {
-    return fileStats.size;
-  }
-});
+// export const bytesize = stat(file, (err, fileStats) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     return fileStats.size;
+//   }
+// });
