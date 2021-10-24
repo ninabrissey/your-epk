@@ -1,4 +1,5 @@
-import { Press, Award } from '../../types';
+import { useState, useEffect } from 'react';
+import { FilmEPK, Press, Award } from '../../types';
 import PressCard from './PressCard';
 import AwardCard from './AwardCard';
 import './AwardPressDisplay.scss'
@@ -9,7 +10,14 @@ interface APProps {
 }
 
 const AwardPressDisplay = ({ awards, presses }: APProps) => {
+const [currentAwards, setAwards] = useState<any>()
+const [currentPress, setPress] = useState<any>()
 
+useEffect(() => {
+  setAwards(awards)
+  setPress(presses)
+}, [awards, presses])
+  
   let pressCards; 
   let awardCards;
 
