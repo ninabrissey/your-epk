@@ -16,7 +16,8 @@
   gap: 30px;
 }
 
-// HEADER
+
+// USED IN *HEADER, *FILM DETAILS,
 @mixin flexColumnJustify($placement) {
   display: flex;
   flex-direction: column;

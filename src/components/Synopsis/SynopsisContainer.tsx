@@ -18,7 +18,8 @@ const SynopsisContainer = ({ filmEPK, addFilmInfo } : ISynopsis) => {
       {!isEditing && 
         <Fab color='secondary' aria-label='edit'>
           <EditIcon />
-        </Fab>}
+        </Fab>
+      }
       {isEditing && <SynopsisForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} />}
       {!isEditing && <SynopsisDisplay filmEPK={filmEPK} />}
     </div>
