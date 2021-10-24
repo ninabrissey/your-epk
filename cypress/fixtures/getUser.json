@@ -1,0 +1,78 @@
+{
+  "data": {
+    "id": "1",
+    "type": "user",
+    "attributes": {
+      "email": "emailforuser@gmail.com",
+      "first_name": "Lady",
+      "last_name": "Floof"
+    },
+    "relationships": {
+      "film_epks": {
+        "data": [
+          {
+            "id": "1",
+            "type": "film_epk"
+          },
+          {
+            "id": "2",
+            "type": "film_epk"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "id": "1",
+      "type": "film_epk",
+      "attributes": {
+        "user_id": 1,
+        "movie_title": "The Adventures of Mini",
+        "genre": "Comedy",
+        "country": "U.S.",
+        "release_year": "2021",
+        "run_time": "90 minutes",
+        "language": "English, FLoofeese",
+        "budget": 0,
+        "website": "https://website.com",
+        "production_company": "Fun Times",
+        "distribution": "Distribution People",
+        "awards": []
+      }
+    },
+    {
+      "id": "2",
+      "type": "film_epk",
+      "attributes": {
+        "user_id": 1,
+        "movie_title": "Film That's Bueno",
+        "genre": "Documentary",
+        "country": "Mexico",
+        "release_year": "1999",
+        "run_time": "80 minutes",
+        "language": "Spanish",
+        "budget": 10000,
+        "website": "https://buenofilm.film",
+        "production_company": "Cool Guys",
+        "distribution": "Cool Distributors",
+        "awards": [
+          {
+            "id": 27,
+            "name": "The Super Award",
+            "year": "1999",
+            "award_type": "Shiny",
+            "film_epk_id": 2
+          },
+          {
+            "id": 28,
+            "name": "The Super Award",
+            "year": "2000",
+            "award_type": "Shiny",
+            "film_epk_id": 2
+          }
+        ]
+      }
+    }
+  ]
+}
