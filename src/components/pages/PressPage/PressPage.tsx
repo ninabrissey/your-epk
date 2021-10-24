@@ -1,7 +1,7 @@
 import HeaderDisplay from "../../Header/HeaderDisplay";
 import AwardPressDisplay from "../../AwardsPress/AwardPressDisplay";
 import TrailerDisplay from "../../Trailer/TrailerDisplay";
-import FilmPosterDisplay from "../../FilmPoster/FilmPosterForm";
+import FilmPosterDisplay from "../../FilmPoster/FilmPosterDisplay";
 import SynopsisDisplay from "../../Synopsis/SynopsisDisplay";
 import { FilmEPK, EPKData } from '../../../types';
 import { useEffect, useState } from 'react';
