@@ -42,6 +42,8 @@ export interface Attributes {
   trailer: string;
   tag_line: string;
   log_line: string;
+  header_description: string;
+  header_img: string;
 }
 
 export interface Press {
