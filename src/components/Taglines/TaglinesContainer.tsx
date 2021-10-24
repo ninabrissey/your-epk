@@ -14,9 +14,24 @@ const TaglinesContainer = ({ filmEPK, addFilmInfo} : ITaglines) => {
   const [isEditing, setIsEditing] = useState<boolean>(true)
 
   return (
-    <div>
-      <TaglinesForm />
-      <TaglinesDisplay />
+    <div className='taglines-container'>
+      {!isEditing && 
+        <Fab 
+          color='secondary' 
+          aria-label='edit'
+          onClick={() => setIsEditing(true)}
+        >
+          <EditIcon />
+        </Fab>
+      }
+
+      {isEditing && <TaglinesForm 
+        filmEPK={filmEPK} 
+        addFilmInfo={addFilmInfo} 
+        setIsEditing={setIsEditing}
+      />}
+
+      {!isEditing && <TaglinesDisplay filmEPK={filmEPK} />}
     </div>
   )
 }
