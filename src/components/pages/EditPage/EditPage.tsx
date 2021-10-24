@@ -26,7 +26,7 @@ const EditPage = ({ epk_id }: any) => {
   }, [])
 
 
-  console.log('filmEPK in editPage: ', film)
+  // console.log('filmEPK in editPage: ', film)
 
   const addFilmInfo = (filmInfo: object) => {
     patchData(filmInfo, 133).then(data => setFilm(data.data))
