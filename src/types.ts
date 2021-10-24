@@ -58,3 +58,9 @@ export interface Award {
   award_type: string;
 }
 
+export interface Image {
+  id: number;
+  film_epk_id: number;
+  description: string;
+  link: string;
+}
