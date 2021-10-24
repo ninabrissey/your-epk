@@ -39,6 +39,7 @@ const posterImageData = {
     postData('https://epk-be.herokuapp.com/api/v1/presigned_url', posterImageData)
     .then(data => {
       setPostRes(data)
+      console.log(data)
       return data
     })
     .then(data => {putData(
