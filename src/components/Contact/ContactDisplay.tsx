@@ -12,8 +12,8 @@ const ContactDisplay = ({ filmEPK } : IContactDisplay) => {
     setCurrentEPK(filmEPK.attributes)
   }, [filmEPK])
 
-  console.log('filmEPK in ContactDisplay: ', filmEPK)
-  console.log('currentEPK: ', currentEPK)
+  // console.log('filmEPK in ContactDisplay: ', filmEPK)
+  // console.log('currentEPK: ', currentEPK)
 
   return (
     <section className='contact-display-container'>

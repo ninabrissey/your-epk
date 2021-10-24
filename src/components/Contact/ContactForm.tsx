@@ -18,7 +18,7 @@ const ContactForm = ({ addFilmInfo }: any) => {
     }
     addFilmInfo(currentContact, 77)
     clearForm()
-    console.log('currentContact: ', currentContact)
+    // console.log('currentContact: ', currentContact)
   }
 
   const clearForm = () => {
