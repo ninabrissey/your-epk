@@ -1,17 +1,25 @@
-import React from 'react'
+import { Award } from "../../types"
+import laurel from './../../images/laurel.png'
+import './AwardPress.scss'
 
-const AwardCard = () => {
-  const awards =  [{
-    name: "The Super Award",
-    year: "1999",
-    award_type: "Shiny"
-  }]
+interface IAwardCard {
+  // award: Award
+  award: any,
+  style: any
+}
+
+const AwardCard = ({ award, style } : IAwardCard) => {
 
   return (
-    <article>
-      <p>{awards[0].year}</p>
-      <p>{awards[0].award_type}</p>
-      <p>{awards[0].name}</p>
+    <article style={style} className="award-press-card">
+      <div className="award-card-styling-div">
+        <img className="laurel" src={laurel} alt="laurels" />
+        <div className="award-text">
+          <p>{award.attributes.name}</p>
+          {award.attributes.award_type && <p>{award.attributes.award_type}</p>}
+          <p>{award.attributes.year}</p>
+        </div>
+      </div>
     </article>
   )
 }
