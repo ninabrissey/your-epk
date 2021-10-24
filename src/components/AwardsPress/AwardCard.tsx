@@ -1,7 +1,8 @@
 import { Award } from "../../types"
 
 interface IAwardCard {
-  award: Award
+  // award: Award
+  award: any
 }
 
 const AwardCard = ({ award } : IAwardCard) => {
@@ -13,9 +14,9 @@ const AwardCard = ({ award } : IAwardCard) => {
 
   return (
     <article className="award-press-card">
-      <p>{award.year}</p>
-      <p>{award.award_type}</p>
-      <p>{award.name}</p>
+      <p>{award.attributes.year}</p>
+      <p>{award.attributes.award_type}</p>
+      <p>{award.attributes.name}</p>
     </article>
   )
 }
