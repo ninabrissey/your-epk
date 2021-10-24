@@ -32,9 +32,9 @@ const HeaderForm = ({ addFilmInfo }: any) => {
 	};
 
 	return (
-		<section>
+		<section className="header-container">
 			<p>I am the header form container</p>
-			<div className="header-img">
+			<div className="header-img-form">
 				<FormControl sx={{ m: 1, minWidth: 480 }}>
 					<TextField
 						id="outlined-multiline-flexible"
