@@ -55,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.0.2",
     "cypress": "^8.6.0"
   }
 }
