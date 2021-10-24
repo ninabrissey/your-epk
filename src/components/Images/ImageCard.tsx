@@ -1,17 +1,19 @@
 import { Image } from '../../types';
 
 interface IImage {
-  image: Image,
-  key: number
+  image: Image;
+  key: number;
 }
 
-const ImageCard = ({key, image} : IImage) => {
-
+const ImageCard = ({ key, image }: IImage) => {
   return (
-    <article>
-      
+    <article className="image-card">
+      <div className="image-container">
+        <img className="image" src={image.link} />
+        <p>{image.description}</p>
+      </div>
     </article>
-  )
-}
+  );
+};
 
-export default ImageCard
+export default ImageCard;
