@@ -4,7 +4,7 @@ interface ITaglines {
   filmEPK: FilmEPK;
 }
 
-const TaglinesDisplay = ({ filmEPK } : Taglines) => {
+const TaglinesDisplay = ({ filmEPK } : ITaglines) => {
 
   return (
     <section>
