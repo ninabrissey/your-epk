@@ -1,4 +1,4 @@
-import { FilmEPK, Press, Award } from '../../types';
+import { Press, Award } from '../../types';
 import PressCard from './PressCard';
 import AwardCard from './AwardCard';
 import './AwardPressDisplay.scss'
@@ -9,7 +9,7 @@ interface APProps {
 }
 
 const AwardPressDisplay = ({ awards, presses }: APProps) => {
-  
+
   let pressCards; 
   let awardCards;
 
