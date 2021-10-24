@@ -31,13 +31,15 @@ const ContactForm = ({ addFilmInfo }: any) => {
 	};
 
 	return (
-		<section className="contact-form-container">
+		<section className="contact-container">
 			<h2>Contact</h2>
 			<FormControl sx={{ m: 1, minWidth: 120 }}>
 				<TextField
 					id="outlined-basic"
 					label="Name"
 					variant="outlined"
+					size="small"
+					margin="dense"
 					type="text"
 					name="name"
 					value={name}
@@ -47,6 +49,8 @@ const ContactForm = ({ addFilmInfo }: any) => {
 					id="outlined-basic"
 					label="Phone Number"
 					variant="outlined"
+					size="small"
+					margin="dense"
 					type="text"
 					name="phoneNum"
 					value={phoneNum}
@@ -56,6 +60,8 @@ const ContactForm = ({ addFilmInfo }: any) => {
 					id="outlined-basic"
 					label="Email"
 					variant="outlined"
+					size="small"
+					margin="dense"
 					type="text"
 					name="email"
 					value={email}
@@ -65,6 +71,8 @@ const ContactForm = ({ addFilmInfo }: any) => {
 					id="outlined-basic"
 					label="Company"
 					variant="outlined"
+					size="small"
+					margin="dense"
 					type="text"
 					name="company"
 					value={company}
@@ -74,6 +82,8 @@ const ContactForm = ({ addFilmInfo }: any) => {
 					id="outlined-basic"
 					label="Website"
 					variant="outlined"
+					size="small"
+					margin="dense"
 					type="text"
 					name="website"
 					value={website}
