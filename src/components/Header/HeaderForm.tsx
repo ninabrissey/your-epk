@@ -21,7 +21,7 @@ const HeaderForm = ({ addFilmInfo }: any) => {
 			header_img: headerImg,
 			header_description: headerDescription,
 		};
-		addFilmInfo(currentDescription, 133);
+		addFilmInfo(currentDescription);
 		clearForm();
 		// console.log('currentDescription: ', currentDescription)
 	};
