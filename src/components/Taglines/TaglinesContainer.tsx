@@ -14,7 +14,8 @@ const TaglinesContainer = ({ filmEPK, addFilmInfo} : ITaglines) => {
   const [isEditing, setIsEditing] = useState<boolean>(true)
 
   return (
-    <div className='taglines-container'>
+    <section className='taglines-container'>
+
       {!isEditing && 
         <Fab 
           color='secondary' 
@@ -31,8 +32,11 @@ const TaglinesContainer = ({ filmEPK, addFilmInfo} : ITaglines) => {
         setIsEditing={setIsEditing}
       />}
 
-      {!isEditing && <TaglinesDisplay filmEPK={filmEPK} />}
-    </div>
+      {!isEditing && <TaglinesDisplay 
+        filmEPK={filmEPK} 
+      />}
+
+    </section>
   )
 }
 
