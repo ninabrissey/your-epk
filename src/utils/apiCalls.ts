@@ -1,5 +1,4 @@
-import { FilmEPK } from '../types';
-
+import { FilmEPK } from "../types"
 
 export const postData = (url: string, data: object) => {
   return fetch(url, {
@@ -9,7 +8,6 @@ export const postData = (url: string, data: object) => {
     },
     body: JSON.stringify(data),
   }).then(res => res.json())
-    .catch(err => console.log(err))
 }
 
 // export const patchData = (data : object, filmID : number) => {
