@@ -19,7 +19,6 @@ const FilmDetailsDisplay = ({ filmEPK } : IFilmDetails) => {
         <p>{filmEPK.attributes.production_company}</p>
         <p>{filmEPK.attributes.website}</p>
       </div>}
-      {console.log('filmEPK in FILM DETAILS DISPLAY', filmEPK)}
     </section>
   )
 }
