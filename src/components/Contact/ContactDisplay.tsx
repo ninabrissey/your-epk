@@ -6,7 +6,7 @@ interface IContactDisplay {
 
 const ContactDisplay = ({ filmEPK }: IContactDisplay) => {
 	return (
-		<section className="contact-display-container">
+		<section className="contact-container">
 			<h2>Contact</h2>
 			{filmEPK?.attributes && (
 				<div>
