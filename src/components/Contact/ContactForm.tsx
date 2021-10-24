@@ -11,7 +11,7 @@ const ContactForm = ({ addFilmInfo }: any) => {
 	const [website, setWebsite] = useState<string>('');
 
 	const handleSubmit = () => {
-		let currentContact = {
+		const currentContact = {
 			contact_name: name,
 			contact_number: phoneNum,
 			contact_email: email,
