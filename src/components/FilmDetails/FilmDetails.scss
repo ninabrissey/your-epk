@@ -3,17 +3,15 @@
 
 
 .film-details-container {
-  height: 65vh;
+  height: $primary-height;
   width: 100%;
-  background-color: rgb(213, 156, 197);
+  background-color: $better-orange;
 }
 
 .film-details-form-1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
   height: 60vh;
+  @include flexColumnJustify(space-evenly);
+  align-items: center;
 
   button {
     width: 400px;
