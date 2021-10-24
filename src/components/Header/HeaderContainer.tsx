@@ -14,7 +14,7 @@ const HeaderContainer = ({ filmEPK, addFilmInfo }: IHeader) => {
 	const [isEditing, setIsEditing] = useState<boolean>(true);
 
 	return (
-		<div className="header-container">
+		<section className="header-container">
 			{!isEditing && (
 				<Fab color="secondary" aria-label="edit">
 					<EditIcon />
@@ -22,7 +22,7 @@ const HeaderContainer = ({ filmEPK, addFilmInfo }: IHeader) => {
 			)}
 			{isEditing && <HeaderForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} />}
 			{!isEditing && <HeaderDisplay filmEPK={filmEPK} />}
-		</div>
+		</section>
 	);
 };
 
