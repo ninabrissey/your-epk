@@ -12,6 +12,7 @@ export interface UserData {
 
 export interface EPKData {
   data: FilmEPK
+  included: any
 }
 
 export interface FilmEPK {
