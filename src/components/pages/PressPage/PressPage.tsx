@@ -4,6 +4,7 @@ import TrailerDisplay from '../../Trailer/TrailerDisplay';
 import FilmPosterDisplay from '../../FilmPoster/FilmPosterDisplay';
 import SynopsisDisplay from '../../Synopsis/SynopsisDisplay';
 import FilmDetailsDisplay from '../../FilmDetails/FilmDetailsDisplay';
+import TaglinesDisplay from '../../Taglines/TaglinesDisplay';
 import { FilmEPK, EPKData } from '../../../types';
 import { useEffect, useState } from 'react';
 import { getEPK } from '../../../utils/apiCalls';
@@ -33,6 +34,7 @@ const PressPage = ({ title, epk_id }: any) => {
         <FilmPosterDisplay filmEPK={epk} />
       </div>
       <FilmDetailsDisplay filmEPK={epk} />
+      <TaglinesDisplay filmEPK={epk} />
     </div>
   )
 }
