@@ -7,11 +7,12 @@ import HeaderContainer from '../../Header/HeaderContainer';
 import TrailerContainer from '../../Trailer/TrailerContainer';
 import FilmPosterContainer from '../../FilmPoster/FilmPosterContainer';
 import Navigation from '../../Navigation/Navigation';
+import { filterIncluded } from '../../../utils/cleanData';
 import "./EditPage.scss"
 
-interface FilmProps {
-  filmEPK: FilmEPK;
-}
+// interface FilmProps {
+//   filmEPK: FilmEPK;
+// }
 
 const EditPage = ({ epk_id }: any) => {
   const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
@@ -23,14 +24,15 @@ useEffect(() => {
   getEPK(epk_id)
     .then((data: any) => {
       setFilm(data.data)
-      setTitle(formatTitle(data.data.attributes.movie_title))
-      // setAwards(data.included.awards)
+      // console.log(data.data)
+      // setTitle(formatTitle(data.attributes.movie_title))
+      setAwards(filterIncluded(data.included, 'award'))
       // need to build out cleaner functions to got through and grab all 
       // "awards", "press", "film_fam", "images"
-    
     })
     .catch(err => console.log(err))
-    console.log(film)
+    console.log(film, 'film right here right now')
+    console.log(awards)
   }, [])
 
   // test below for post to awards   
