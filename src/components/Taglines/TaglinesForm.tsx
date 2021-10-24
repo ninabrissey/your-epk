@@ -19,9 +19,10 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing } : any ) => {
   }
 
   return (
-    <form>
+    <form className='taglines-form-wrapper'>
       <p>I am the taglines form</p>
-      <FormControl>
+      <div>
+      <FormControl sx={{ m: 1, minWidth: 400 }} >
         <TextField
           id="outlined-multiline-flexible"
           label="Tagline"
@@ -30,20 +31,23 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing } : any ) => {
           value={tagline}
           onChange={(e) => setTagline(e.target.value)}
         />
-        <TextField
-          id="outlined-multiline-flexible"
-          label="Logline"
-          type='text'
-          name='logline'
-          value={logline}
-          onChange={(e) => setLogline(e.target.value)}
-        />
+        </FormControl>
+        <FormControl sx={{ m: 1, minWidth: 400 }} >
+          <TextField
+            id="outlined-multiline-flexible"
+            label="Logline"
+            type='text'
+            name='logline'
+            value={logline}
+            onChange={(e) => setLogline(e.target.value)}
+          />
+        </FormControl>
+        </div>
         <Button 
           variant="text"
           onClick={handleSubmit}
           >save
         </Button>
-       </FormControl>
     </form>
   )
 }
