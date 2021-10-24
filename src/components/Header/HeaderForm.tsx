@@ -1,39 +1,33 @@
 import { useState, useEffect } from 'react';
+import { FilmEPK } from '../../types';
 import ContactForm from '../Contact/ContactForm';
-
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-const HeaderForm = ({ addFilmInfo }: any) => {
-	const [filmTitle, setFilmTitle] = useState<string>('');
+interface IHeader {
+	filmEPK: FilmEPK;
+	addFilmInfo: any;
+}
+
+const HeaderForm = ({ filmEPK, addFilmInfo }: IHeader) => {
 	const [headerDescription, setHeaderDescription] = useState<string>('');
 	const [headerImg, setHeaderImg] = useState<string>('');
 
-	useEffect(() => {
-		setFilmTitle('Work Please');
-	}, []);
-
-	// *** img needs to go through a different patch
-
-	const handleSubmit = () => {
-		let currentDescription = {
-			header_img: headerImg,
-			header_description: headerDescription,
-		};
-		addFilmInfo(currentDescription);
-		clearForm();
-		// console.log('currentDescription: ', currentDescription)
+	const handleImg = () => {
+		addFilmInfo({ header_img: headerImg });
+		setHeaderImg('');
 	};
 
-	const clearForm = () => {
+	const handleDescription = () => {
+		addFilmInfo({ header_description: headerDescription });
 		setHeaderDescription('');
-		setHeaderImg('');
 	};
 
 	return (
 		<section className="header-container">
-			<p>I am the header form container</p>
+			<p>HEADER FORM CONTAINER</p>
+
 			<div className="header-img-form">
 				<FormControl sx={{ m: 1, minWidth: 480 }}>
 					<TextField
@@ -44,15 +38,14 @@ const HeaderForm = ({ addFilmInfo }: any) => {
 						value={headerImg}
 						onChange={(e) => setHeaderImg(e.target.value)}
 					/>
-					<Button variant="text" onClick={handleSubmit}>
+					<Button variant="text" onClick={handleImg}>
 						save
 					</Button>
 				</FormControl>
 			</div>
 
-			{/* this is the header info area */}
 			<div className="header-info-container">
-				<h1>{filmTitle}</h1>
+				{filmEPK?.attributes && <h1>{filmEPK.attributes.movie_title}</h1>}
 				<FormControl sx={{ m: 1, minWidth: 120 }}>
 					<TextField
 						id="outlined-multiline-flexible"
@@ -65,10 +58,11 @@ const HeaderForm = ({ addFilmInfo }: any) => {
 						value={headerDescription}
 						onChange={(e) => setHeaderDescription(e.target.value)}
 					/>
-					<Button variant="text" onClick={handleSubmit}>
+					<Button variant="text" onClick={handleDescription}>
 						save
 					</Button>
 				</FormControl>
+
 				<ContactForm addFilmInfo={addFilmInfo} />
 			</div>
 		</section>
