@@ -17,6 +17,11 @@ const HeaderContainer = ({ filmEPK, addFilmInfo } : IHeader) => {
 
   return (
     <div className='header-container'>
+      {!isEditing && 
+        <Fab color='secondary' aria-label='edit'>
+          <EditIcon />
+        </Fab>
+      }
       {isEditing && <HeaderForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} />}
       {!isEditing && <HeaderDisplay filmEPK={filmEPK} />}
     </div>
