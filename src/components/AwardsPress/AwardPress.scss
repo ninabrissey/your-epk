@@ -3,14 +3,14 @@
 
 .award-press-display {
   @include gridDisplayCards;
-  width: 60vw;
+  @include marginWidthContainers;
 }
 
 .award-press-card {
   @include flexCenterColumn;
   justify-content: space-evenly;
-  height: 14rem;
-  width: 14rem;
+  height: 225px;
+  width: 225px;
   color: whitesmoke;
   background-color: $theme-color;
   padding: 10%;
@@ -25,7 +25,7 @@
 }
 
 .laurel {
-  width: 17rem;
+  width: 275px;
   z-index: 1;
   margin: 1vh;
   margin-bottom: -27vh;
