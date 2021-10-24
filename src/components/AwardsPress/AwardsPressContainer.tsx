@@ -18,14 +18,14 @@ const AwardsPressContainer = ({awards, presses, addFilmInfo, epk_id}: APContaine
 const [isEditting, setIsEditting] = useState(true)
 const [currentAwards, setAwards] = useState<Award[] | []>([])
 const [error, setError] = useState<any>('')
-const [loading, setLoading] = useState(true)
+const [loading, setLoading] = useState(false)
 
 const postAwardsPress = async (endpoint: any, newItem: any) => {
-  setLoading(true)
   setError('');
   try {
+    setLoading(true)
     const data = await postData(`https://epk-be.herokuapp.com/api/v1/${endpoint}`, newItem)
-    setAwards([...currentAwards, data])
+    setAwards([...currentAwards, data.data])
   } catch (error) {
     setError(error)
   }
@@ -45,7 +45,7 @@ return (
       <EditIcon />
     </Fab>}
     {awards !== undefined && 
-    <AwardPressDisplay awards={awards} presses={presses} />}
+    <AwardPressDisplay awards={currentAwards} presses={presses} />}
     {isEditting && <AwardPressForm addFilmInfo={addFilmInfo} postAwardsPress={postAwardsPress} setIsEditting={setIsEditting} isEditting={isEditting} epk_id={epk_id}/>}
   </div>
   )
