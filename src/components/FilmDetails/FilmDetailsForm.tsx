@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-const FilmDetailsForm = ({ addFilmInfo } : any) => {
+const FilmDetailsForm = ({ addFilmInfo, setIsEditing } : any) => {
   const [genre, setGenre] = useState<string>('')
   const [country, setCountry] = useState<string>('')
   const [releaseYear, setReleaseYear] = useState<string>('')
@@ -25,7 +25,9 @@ const FilmDetailsForm = ({ addFilmInfo } : any) => {
       production_company: company,
       website: website
     }
+    console.log('currentFilmDetails: ', currentFilmDetails)
     addFilmInfo(currentFilmDetails)
+    setIsEditing(false)
     clearForms()
   }
 

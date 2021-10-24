@@ -16,16 +16,27 @@ const FilmDetailsContainer = ({ filmEPK, addFilmInfo } : IFilmDetails ) => {
 
   return (
     <section className='film-details-container'>
+      
       {!isEditing && 
-        <Fab color='secondary' aria-label='edit'>
+        <Fab 
+          color='secondary' 
+          aria-label='edit'
+          onClick={() => setIsEditing(true)}
+        >
           <EditIcon />
         </Fab>
       }
+
       {isEditing && <FilmDetailsForm 
         filmEPK={filmEPK} 
         addFilmInfo={addFilmInfo} 
+        setIsEditing={setIsEditing}
       />}
-      {!isEditing && <FilmDetailsDisplay filmEPK={filmEPK}  />}
+
+      {!isEditing && <FilmDetailsDisplay 
+        filmEPK={filmEPK} 
+      />}
+
     </section>
   )
 }
