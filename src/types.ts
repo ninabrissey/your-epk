@@ -26,24 +26,36 @@ export interface FilmEPK {
 export interface Attributes {
   user_id: number;
   movie_title: string;
+
   genre: string;
   country: string;
   release_year: number;
   run_time: number;
   language: string;
   budget: number;
-  website: string;
   production_company: string;
   distribution: string;
+
   awards: Award[];
   presses: Press[];
+
   synopsis: string;
+
   movie_poster_url: string;
+
   trailer: string;
+
   tag_line: string;
   log_line: string;
+
   header_description: string;
   header_img: string;
+
+  contact_name: string;
+  contact_number: string;
+  contact_email: string;
+  company_name: string;
+  website: string;
 }
 
 export interface Press {
