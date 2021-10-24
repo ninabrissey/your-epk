@@ -15,7 +15,7 @@ const FilmDetailsContainer = ({ filmEPK, addFilmInfo } : IFilmDetails ) => {
   const [isEditing, setIsEditing] = useState<boolean>(true)
 
   return (
-    <section>
+    <section className='film-details-container'>
       {isEditing && <FilmDetailsForm 
         filmEPK={filmEPK} 
         addFilmInfo={addFilmInfo} 
