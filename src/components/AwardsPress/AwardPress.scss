@@ -9,7 +9,8 @@
 .award-press-card {
   @include flexCenterColumn;
   justify-content: space-evenly;
-  height: 215px;
+  height: 14rem;
+  width: 14rem;
   color: whitesmoke;
   background-color: $theme-color;
   padding: 10%;
@@ -17,4 +18,21 @@
   &:hover {
     background-color: $theme-dark;
   }
+}
+
+.award-card-styling-div {
+  margin-bottom: 12vh;
+}
+
+.laurel {
+  width: 17rem;
+  z-index: 1;
+  margin: 1vh;
+  margin-bottom: -27vh;
+}
+
+.award-text {
+  z-index: 2;
+  margin-top: 10vh;
+  font-size: 1.1rem;
 }
