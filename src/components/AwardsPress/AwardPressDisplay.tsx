@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { FilmEPK, Press, Award } from '../../types';
 import PressCard from './PressCard';
 import AwardCard from './AwardCard';
-import './AwardPressDisplay.scss'
+import './AwardPress.scss'
 
 interface APProps {
   presses: Press[],
@@ -27,8 +27,12 @@ useEffect(() => {
   })
 }
   if (awards !== undefined) {
-    awardCards = awards.map(award => {
-    return <AwardCard key={award.id} award={award}/>
+    awardCards = awards.map((award, i) => {
+    if (i % 2 === 0) {
+      return <AwardCard key={award.id} award={award} style={{background: '#FF904D'}}/>
+    } else {
+    return <AwardCard key={award.id} award={award} style={{background: '#F1EAE0', color:'#605E59'}}/>
+    }
   })
 }
 
