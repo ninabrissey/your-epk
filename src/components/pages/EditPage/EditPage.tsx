@@ -10,6 +10,7 @@ import { filterIncluded } from '../../../utils/cleanData';
 import "./EditPage.scss"
 import SynopsisContainer from '../../Synopsis/SynopsisContainer';
 import FilmDetailsContainer from '../../FilmDetails/FilmDetailsContainer';
+import TaglinesContainer from '../../Taglines/TaglinesContainer';
 
 // interface FilmProps {
 //   filmEPK: FilmEPK;
@@ -56,6 +57,7 @@ const EditPage = ({ epk_id }: any) => {
           <FilmPosterContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         </div>
         <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+        <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
       </main>
     </div>
   )
