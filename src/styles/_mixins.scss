@@ -13,9 +13,8 @@
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 30px;
 }
-
 
 // HEADER
 @mixin flexColumnJustify($placement) {
