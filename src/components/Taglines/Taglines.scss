@@ -1,0 +1,9 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+
+.taglines-container {
+  height: $primary-height;
+  width: 100%;
+  background-color: rgb(198, 162, 232);
+}
