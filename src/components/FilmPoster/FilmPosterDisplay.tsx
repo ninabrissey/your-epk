@@ -1,16 +1,18 @@
+import { FilmEPK } from '../../types';
+
 interface IFilmPoster {
-  filmPoster: string
+  filmEPK: FilmEPK;
 }
 
-const FilmPosterDisplay = () => {
+const FilmPosterDisplay = ({ filmEPK } : IFilmPoster) => {
 
   return (
     <section>
       <p>I am the film poster display</p>
-      <img 
-        // src={this will be whatever is passed as props}
+      {filmEPK.attributes !== undefined && <img 
+        src={filmEPK.attributes.movie_poster_url}
         alt=''
-      />
+      />}
     </section>  
   )
 }

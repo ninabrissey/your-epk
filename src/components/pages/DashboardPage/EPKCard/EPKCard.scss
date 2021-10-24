@@ -1,0 +1,25 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
+
+.title-card {
+  @include flexCenterColumn;
+  justify-content: space-evenly;
+  height: 215px;
+  color: whitesmoke;
+  background-color: #F1EAE0;
+  padding: 5%;
+  text-align: center;
+}
+
+.linked-title {
+  height: 80%;
+  width: 80%;
+  &:hover {
+    background-color: $theme-dark;
+  }
+}
+
+.go-to-edit {
+  @include flexCenterColumn;
+  padding: 10%;
+}

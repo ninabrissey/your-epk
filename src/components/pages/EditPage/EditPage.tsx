@@ -1,7 +1,6 @@
-import {useEffect, useState} from 'react'
-import { getEPK, patchData, postData } from '../../../utils/apiCalls';
-import { FilmEPK, Award, Press } from '../../../types'
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react'
+import { patchData, getEPK } from '../../../utils/apiCalls';
+import { FilmEPK, EPKData, Award, Press } from '../../../types';
 import AwardsPressContainer from '../../AwardsPress/AwardsPressContainer';
 import HeaderContainer from '../../Header/HeaderContainer';
 import TrailerContainer from '../../Trailer/TrailerContainer';
@@ -9,6 +8,7 @@ import FilmPosterContainer from '../../FilmPoster/FilmPosterContainer';
 import Navigation from '../../Navigation/Navigation';
 import { filterIncluded } from '../../../utils/cleanData';
 import "./EditPage.scss"
+import SynopsisContainer from '../../Synopsis/SynopsisContainer';
 
 // interface FilmProps {
 //   filmEPK: FilmEPK;
@@ -20,36 +20,22 @@ const EditPage = ({ epk_id }: any) => {
   const [awards, setAwards] = useState<Array<Award>>([]);
   const [presses, setPress] = useState<Array<Press>>([])
 
-useEffect(() => {
-  getEPK(epk_id)
-    .then((data: any) => {
-      setFilm(data.data)
-      // console.log(data.data)
-      // setTitle(formatTitle(data.attributes.movie_title))
-      setAwards(filterIncluded(data.included, 'award'))
-      // need to build out cleaner functions to got through and grab all 
-      // "awards", "press", "film_fam", "images"
-    })
-    .catch(err => console.log(err))
-    console.log(film, 'film right here right now')
-    console.log(awards)
+  useEffect(() => {
+    getEPK(epk_id)
+      .then((data: EPKData) => {
+        setFilm(data.data)
+        setTitle(formatTitle(data.data.attributes.movie_title))
+        setAwards(filterIncluded(data.included, 'award'))
+        // function will need to filter "awards", "press", "film_fam", "images"
+      })
+      .catch(err => console.log(err))
   }, [])
 
-  // test below for post to awards   
-  // const newAward = {
-  //   award: {
-  //     film_epk_id: epk_id,
-  //     name: "hi",
-  //     award_type:"test",
-  //   } 
-  // }
-  // useEffect(() => {
-  //   postData('https://epk-be.herokuapp.com/api/v1/awards',newAward)
-  //   .then(data => console.log(data, 'awards post'))
-  // }, [])
+
+  console.log('filmEPK in editPage: ', film)
 
   const addFilmInfo = (filmInfo: object) => {
-    patchData(filmInfo, 80).then(data => setFilm(data))
+    patchData(filmInfo, 133).then(data => setFilm(data.data))
   }
 
   const formatTitle = (title: string) => {
@@ -63,8 +49,9 @@ useEffect(() => {
         <HeaderContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         {/* <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo} /> */}
         <AwardsPressContainer awards={awards} presses={presses} addFilmInfo={addFilmInfo} epk_id={epk_id} />
-        <TrailerContainer />
-        <FilmPosterContainer />
+        <TrailerContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+        <FilmPosterContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+        <SynopsisContainer filmEPK={film} addFilmInfo={addFilmInfo} />
       </main>
     </div>
   )

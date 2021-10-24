@@ -5,6 +5,9 @@ import Button from '@mui/material/Button';
 import { postData } from "../../../../utils/apiCalls";
 import { Link } from 'react-router-dom';
 import { FilmEPK } from '../../../../types';
+import './TitleForm.scss';
+
+
 interface IDashboard {
   id: number,
   setAllFilms: React.Dispatch<React.SetStateAction<FilmEPK[]>>,
@@ -13,7 +16,8 @@ interface IDashboard {
 
 const TitleForm = ({ id, setAllFilms, allFilms }: IDashboard) => {
   const [title, setTitle] = useState('')
-  const endpointTitle: string = title.split(' ').join('-')
+  // const endpointTitle: string = title.split(' ').join('-')
+  // const [filmId, setFilmId] = useState<number>()
 
   const makeEPK = () => {
     // if (title) {
@@ -31,29 +35,35 @@ const TitleForm = ({ id, setAllFilms, allFilms }: IDashboard) => {
       postData('https://epk-be.herokuapp.com/api/v1/film_epk', {
         "user_id": id,
         "movie_title": title,
-      }).catch(err => console.log(err))
+      })
+        .then(data => setAllFilms([data.data, ...allFilms]))
+        .catch(err => console.log(err))
     }
   }
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }}>
-      <TextField
-        id="outlined-basic"
-        label="Film Title"
-        variant="outlined"
-        type='text'
-        name='name'
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <Link to={`/edit/${endpointTitle}`}>
-        <Button
-          variant="text"
-          onClick={() => makeEPK()}
-        >save
-        </Button>
-      </Link>
-    </FormControl>
+    <div className='title-input'>
+      <FormControl sx={{ m: 1, minWidth: 120 }} >
+        <TextField
+          className='title-field'
+          id="outlined-basic"
+          label="Film Title"
+          variant="outlined"
+          type='text'
+          helperText='Input title to create a new EPK'
+          name='name'
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        {title &&
+          <Button
+            className='create-epk'
+            variant="text"
+            onClick={() => makeEPK()}
+          >Create
+          </Button>}
+      </FormControl>
+    </div>
   )
 }
 

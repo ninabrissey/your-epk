@@ -1,0 +1,20 @@
+{
+  "data": {
+    "id": "3",
+    "type": "film_epk",
+    "attributes": {
+      "user_id": 1,
+      "movie_title": "Awesome Movie",
+      "genre": null,
+      "country": null,
+      "release_year": null,
+      "run_time": null,
+      "language": null,
+      "budget": null,
+      "website": null,
+      "production_company": null,
+      "distribution": null,
+      "awards": []
+    }
+  }
+}

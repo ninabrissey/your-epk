@@ -1,24 +1,22 @@
+import { FilmEPK } from '../../types';
 
-// interface ITrailer {
-//   trailer: string
-// }
+interface ITrailer {
+  filmEPK: FilmEPK;
+}
 
-
-// param= {trailer}: ITrailer
-// src={trailer}
-const TrailerDisplay = () => {
+const TrailerDisplay = ({ filmEPK } : ITrailer) => {
 
   return (
     <div>
-      <iframe
-      className='trailer'
+      {filmEPK.attributes !== undefined && <iframe
+        className='trailer'
         title='Embedded YouTube Video'
         // width='750'
         // height='438.46'
-        src='video url goes here'
+        // src={filmEPK.attributes.trailer}
         frameBorder='0'
         allowFullScreen
-      />
+      />}
     </div> 
   )
 }

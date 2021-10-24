@@ -6,10 +6,10 @@ const Navigation = ({ onEdit, epk_id, title }: any) => {
   return (
     <nav className='navigation'>
       <img className='logo' src={logo} alt='Your EPK logo' />
-      <div className='menu'>
+      {onEdit && <div className='menu'>
         <Link to={`/dashboard/1`}>Home</Link>
-        {onEdit && <Link to={`/${epk_id}/${title}`}>Press Kit</Link>}
-      </div>
+        <Link to={`/${epk_id}/${title}`}>Press Kit</Link>
+      </div>}
     </nav>
   );
 }

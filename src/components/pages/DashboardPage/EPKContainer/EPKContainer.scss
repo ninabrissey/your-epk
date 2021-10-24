@@ -1,0 +1,10 @@
+@import '../../../../styles/mixins';
+
+.titles {
+  @include flexCenterColumn;
+}
+
+.titles-container {
+  @include gridDisplayCards;
+  width: 80vw;
+}

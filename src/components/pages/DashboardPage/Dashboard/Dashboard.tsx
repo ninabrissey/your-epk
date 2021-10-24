@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './Dashboard.scss';
 // import postData from '../../../utils/apiCalls';
 import TitleForm from '../TitleForm/TitleForm';
 import EPKContainer from '../EPKContainer/EPKContainer';
@@ -19,6 +20,7 @@ const Dashboard = ({ id, currUser }: IUser) => {
     fetch(`https://epk-be.herokuapp.com/api/v1/users/${id}`)
       .then(res => res.json())
       .then((data: any) => {
+        console.log(data)
         setAllFilms(data.included)
       })
       .catch(err => console.log(err))
@@ -29,9 +31,7 @@ const Dashboard = ({ id, currUser }: IUser) => {
   return (
     <div>
       <Navigation />
-      <main>
-        <h2>hey you</h2>
-        <h3>{`${currUser.first_name} ${currUser.last_name}`}</h3>
+      <main className='edit-main'>
         <TitleForm allFilms={allFilms} id={id} setAllFilms={setAllFilms} />
         <EPKContainer allFilms={allFilms} setAllFilms={setAllFilms} />
       </main>

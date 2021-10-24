@@ -1,8 +1,9 @@
 @import './reset';
-@import '../components/Header/header.scss';
+@import '../components/Header/Header.scss';
 @import '../components/Contact/contact.scss';
 @import '../components/Trailer/trailer.scss';
 @import '../components/FilmPoster/filmPoster.scss';
+@import '../components/Synopsis/synopsis.scss';
 
 body {
   margin: 0;
