@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
-import './AwardPressForm.scss';
+import './AwardPress.scss';
 import PressCard from './PressCard';
 // import { createTheme, ThemeProvider } from '@mui/system';
 
