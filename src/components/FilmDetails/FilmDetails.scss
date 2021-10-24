@@ -4,7 +4,7 @@
 
 .film-details-container {
   height: $primary-height;
-  width: 100%;
+  width: $primary-width;
   background-color: $better-orange;
 }
 
@@ -14,7 +14,7 @@
   align-items: center;
 
   button {
-    width: 400px;
+    width: $btn-width;
   }
 }
 
