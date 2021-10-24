@@ -12,6 +12,9 @@ export interface UserData {
 
 export interface EPKData {
   data: FilmEPK
+  included: Award[] | Press[]
+  // this must be any any because it holds press, film_fam, awards, and images
+  // unless we can do | (or operator)
 }
 
 export interface FilmEPK {
@@ -52,6 +55,6 @@ export interface Award {
   film_epk_id: number;
   name: string;
   year: string;
-  type: string;
+  award_type: string;
 }
 

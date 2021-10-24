@@ -20,6 +20,17 @@ const TitleForm = ({ id, setAllFilms, allFilms }: IDashboard) => {
   // const [filmId, setFilmId] = useState<number>()
 
   const makeEPK = () => {
+    // if (title) {
+    //   postData('https://epk-be.herokuapp.com/api/v1/film_epk', {
+    //     "user_id": id,
+    //     "movie_title": title,
+    //   }).then(data => {
+    //     setAllFilms([...allFilms, data.data.attributes.movie_title])
+    //     console.log(allFilms)
+    //   })
+    // }
+    // comment out because this was erroring on my branch
+
     if (title) {
       postData('https://epk-be.herokuapp.com/api/v1/film_epk', {
         "user_id": id,

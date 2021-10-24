@@ -1,0 +1,25 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+
+.film-details-container {
+  height: $primary-height;
+  width: 100%;
+  background-color: $better-orange;
+}
+
+.film-details-form-1 {
+  height: 60vh;
+  @include flexColumnJustify(space-evenly);
+  align-items: center;
+
+  button {
+    width: 400px;
+  }
+}
+
+.form-section{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

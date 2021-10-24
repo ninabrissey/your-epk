@@ -3,3 +3,8 @@
 .edit-page {
   @include flexCenterColumn;
 }
+
+.container-wrapper {
+  width: 100%;
+  display: flex;
+}

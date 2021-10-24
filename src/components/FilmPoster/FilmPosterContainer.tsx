@@ -15,6 +15,11 @@ const FilmPosterContainer = ({ filmEPK, addFilmInfo} : IFilmPoster) => {
 
   return (  
     <div className='film-poster-container'>
+      {!isEditing && 
+        <Fab color='secondary' aria-label='edit'>
+          <EditIcon />
+        </Fab>
+      }
       {isEditing && <FilmPosterForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} />}
       {!isEditing && <FilmPosterDisplay filmEPK={filmEPK} />}
     </div>

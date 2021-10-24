@@ -15,6 +15,11 @@ const TrailerContainer = ({ filmEPK, addFilmInfo} : ITrailer) => {
 
   return (
     <section className='trailer-container'>
+      {!isEditing && 
+        <Fab color='secondary' aria-label='edit'>
+          <EditIcon />
+        </Fab>
+      }
       {isEditing && <TrailerForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} />}
       {!isEditing && <TrailerDisplay filmEPK={filmEPK} />}
     </section>
