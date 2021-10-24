@@ -40,6 +40,8 @@ export interface Attributes {
   synopsis: string;
   movie_poster_url: string;
   trailer: string;
+  tag_line: string;
+  log_line: string;
 }
 
 export interface Press {
