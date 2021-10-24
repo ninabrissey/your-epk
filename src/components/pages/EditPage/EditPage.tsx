@@ -17,14 +17,14 @@ const EditPage = ({ epk_id }: any) => {
 
   useEffect(() => {
     getEPK(epk_id)
-      .then((info: EPKData) => {
-        setFilm(info.data)
-        setTitle(formatTitle(info.data.attributes.movie_title))
+      .then((data: EPKData) => {
+        setFilm(data.data)
+        setTitle(formatTitle(data.data.attributes.movie_title))
       })
       .catch(err => console.log(err))
   }, [])
-    
-    
+
+
   console.log('filmEPK in editPage: ', film)
 
   const addFilmInfo = (filmInfo: object) => {
