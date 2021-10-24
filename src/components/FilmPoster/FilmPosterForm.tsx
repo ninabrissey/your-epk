@@ -35,7 +35,7 @@ const posterImageData = {
   //     "blob_signed_id": "eyJfcmFpbHMiOnsibWVzc2"
   // }
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     postData('https://epk-be.herokuapp.com/api/v1/presigned_url', posterImageData)
     .then(data => {
       setPostRes(data)
