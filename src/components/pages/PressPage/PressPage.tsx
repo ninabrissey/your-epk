@@ -1,11 +1,12 @@
-import HeaderDisplay from "../../Header/HeaderDisplay";
-import AwardPressDisplay from "../../AwardsPress/AwardPressDisplay";
-import TrailerDisplay from "../../Trailer/TrailerDisplay";
-import FilmPosterDisplay from "../../FilmPoster/FilmPosterDisplay";
-import SynopsisDisplay from "../../Synopsis/SynopsisDisplay";
+import HeaderDisplay from '../../Header/HeaderDisplay';
+import AwardPressDisplay from '../../AwardsPress/AwardPressDisplay';
+import TrailerDisplay from '../../Trailer/TrailerDisplay';
+import FilmPosterDisplay from '../../FilmPoster/FilmPosterDisplay';
+import SynopsisDisplay from '../../Synopsis/SynopsisDisplay';
+import FilmDetailsDisplay from '../../FilmDetails/FilmDetailsDisplay';
 import { FilmEPK, EPKData } from '../../../types';
 import { useEffect, useState } from 'react';
-import { getEPK } from "../../../utils/apiCalls";
+import { getEPK } from '../../../utils/apiCalls';
 
 
 const PressPage = ({ title, epk_id }: any) => {
@@ -29,6 +30,7 @@ const PressPage = ({ title, epk_id }: any) => {
       <TrailerDisplay filmEPK={epk} />
       <FilmPosterDisplay filmEPK={epk} />
       <SynopsisDisplay filmEPK={epk} />
+      <FilmDetailsDisplay />
     </div>
   )
 }

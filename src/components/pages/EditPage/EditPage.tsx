@@ -9,6 +9,7 @@ import TrailerContainer from '../../Trailer/TrailerContainer';
 import FilmPosterContainer from '../../FilmPoster/FilmPosterContainer';
 import Navigation from '../../Navigation/Navigation';
 import SynopsisContainer from '../../Synopsis/SynopsisContainer';
+import FilmDetailsContainer from '../../FilmDetails/FilmDetailsContainer';
 
 
 const EditPage = ({ epk_id }: any) => {
@@ -44,6 +45,7 @@ const EditPage = ({ epk_id }: any) => {
         <TrailerContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         <FilmPosterContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         <SynopsisContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+        <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
       </main>
     </div>
   )
