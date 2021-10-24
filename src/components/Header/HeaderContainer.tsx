@@ -13,7 +13,7 @@ interface IHeader {
 const HeaderContainer = ({ filmEPK, addFilmInfo } : IHeader) => {
   const [isEditing, setIsEditing] = useState<boolean>(true)
 
-  console.log('filmEPK in Header Container: ', filmEPK)
+  // console.log('filmEPK in Header Container: ', filmEPK)
 
   return (
     <div className='header-container'>
