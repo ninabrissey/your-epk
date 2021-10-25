@@ -16,12 +16,22 @@ const HeaderContainer = ({ filmEPK, addFilmInfo }: IHeader) => {
 
 	return (
 		<section className="header-container">
-			{/* {!isEditing && (
-        <Fab color="secondary" aria-label="edit">
-        <EditIcon />
+			{!isEditing && (
+				<Fab
+					color="secondary"
+					aria-label="edit"
+					onClick={() => setIsEditing(true)}
+				>
+					<EditIcon />
 				</Fab>
-			)} */}
-			{isEditing && <HeaderForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} />}
+			)}
+			{isEditing && (
+				<HeaderForm
+					filmEPK={filmEPK}
+					addFilmInfo={addFilmInfo}
+					setIsEditing={setIsEditing}
+				/>
+			)}
 			{!isEditing && <HeaderDisplay filmEPK={filmEPK} />}
 			<HeaderImgContainer filmEPK={filmEPK} addFilmInfo={addFilmInfo} />
 		</section>
