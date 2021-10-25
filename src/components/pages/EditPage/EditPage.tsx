@@ -26,15 +26,6 @@ import ImagesForm from '../../Images/ImagesForm';
 // }
 
 const EditPage = ({ epk_id }: any) => {
-  const [error, setError] = useState<any>('');
-  const [loading, setLoading] = useState(false);
-  const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
-  const [title, setTitle] = useState('');
-  const [awards, setAwards] = useState<Array<Included>>([]);
-  const [presses, setPress] = useState<Array<Included>>([]);
-  const [images, setImages] = useState<Image[] | []>([]);
-  const [included, setIncluded] = useState<Array<Included>>([]);
-
   const dummyAward = {
     id: '20',
     type: 'award',
@@ -56,6 +47,14 @@ const EditPage = ({ epk_id }: any) => {
       film_epk_id: epk_id,
     },
   };
+  const [error, setError] = useState<any>('');
+  const [loading, setLoading] = useState(false);
+  const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
+  const [title, setTitle] = useState('');
+  const [awards, setAwards] = useState<Array<Included>>([]);
+  const [presses, setPress] = useState<Array<Included>>([]);
+  const [images, setImages] = useState<Image[] | []>([]);
+  const [included, setIncluded] = useState<Array<Included>>([]);
 
   const getFilmShit = () => {
     getEPK(epk_id).then((data) => {
@@ -118,7 +117,17 @@ const EditPage = ({ epk_id }: any) => {
       <main className="edit-page">
         <HeaderContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         {/* <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo} /> */}
-        {included.length > 0 && (
+        {included.length > 0 ||
+          (film.id && (
+            <AwardsPressContainer
+              awards={awards}
+              presses={presses}
+              addFilmInfo={addFilmInfo}
+              epk_id={epk_id}
+              included={included}
+            />
+          ))}
+        {included.length > 0 && film.id && (
           <AwardsPressContainer
             awards={awards}
             presses={presses}
