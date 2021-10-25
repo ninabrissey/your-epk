@@ -2,26 +2,29 @@
 @import '../../styles/mixins';
 
 .header-container {
-  height: $primary-height;
-  width: 100%;
-  background-color: lavender;
+	height: $primary-height;
+	width: 100%;
+	background-color: lavender;
 }
 
-.header-img {
-  height: $primary-height;
-  width: 100%;
-  object-fit: cover;
-  z-index: 0;
-  position: relative;
+.header-img-form {
+	height: 65vh;
+	width: 60%;
+	object-fit: cover;
+	z-index: 0;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .header-info-container {
-  height: $primary-height;
-  width: 23%;
-  z-index: 5;
-  position: absolute;
-  top: 15vh;
-  left: 69%;
-  background-color: #ffffff;
-  @include flexColumnJustify(space-evenly);
+	height: $primary-height;
+	width: 28%;
+	z-index: 5;
+	position: absolute;
+	top: 15vh;
+	left: 65%;
+	background-color: #ffffff;
+	@include flexColumnJustify(space-evenly);
 }

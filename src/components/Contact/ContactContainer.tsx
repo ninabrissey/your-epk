@@ -1,20 +1,24 @@
 import { useState } from 'react';
 import { FilmEPK } from '../../types';
-import TrailerForm from './TrailerForm';
-import TrailerDisplay from './TrailerDisplay';
+import ContactDisplay from './ContactDisplay';
+import ContactForm from './ContactForm';
 import Fab from '@mui/material/Fab';
 import EditIcon from '@mui/icons-material/Edit';
 
-interface ITrailer {
+interface IContact {
 	filmEPK: FilmEPK;
 	addFilmInfo: any;
 }
 
-const TrailerContainer = ({ filmEPK, addFilmInfo }: ITrailer) => {
+const ContactContainer = ({ filmEPK, addFilmInfo }: IContact) => {
 	const [isEditing, setIsEditing] = useState<boolean>(true);
 
 	return (
-		<section className="trailer-container">
+		<section>
+			{isEditing && (
+				<ContactForm addFilmInfo={addFilmInfo} setIsEditing={setIsEditing} />
+			)}
+
 			{!isEditing && (
 				<Fab
 					color="secondary"
@@ -24,16 +28,10 @@ const TrailerContainer = ({ filmEPK, addFilmInfo }: ITrailer) => {
 					<EditIcon />
 				</Fab>
 			)}
-			{isEditing && (
-				<TrailerForm
-					filmEPK={filmEPK}
-					addFilmInfo={addFilmInfo}
-					setIsEditing={setIsEditing}
-				/>
-			)}
-			{!isEditing && <TrailerDisplay filmEPK={filmEPK} />}
+
+			{!isEditing && <ContactDisplay filmEPK={filmEPK} />}
 		</section>
 	);
 };
 
-export default TrailerContainer;
+export default ContactContainer;

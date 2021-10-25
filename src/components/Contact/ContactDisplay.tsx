@@ -1,33 +1,24 @@
-import { useState, useEffect } from 'react';
-import { FilmEPK, Attributes } from '../../types';
+import { FilmEPK } from '../../types';
 
 interface IContactDisplay {
-  filmEPK: FilmEPK;
+	filmEPK: FilmEPK;
 }
 
-const ContactDisplay = ({ filmEPK } : IContactDisplay) => {
-  const [currentEPK, setCurrentEPK] = useState<Attributes>({} as Attributes)
-
-  useEffect(() => {
-    setCurrentEPK(filmEPK.attributes)
-  }, [filmEPK])
-
-  // console.log('filmEPK in ContactDisplay: ', filmEPK)
-  // console.log('currentEPK: ', currentEPK)
-
-  return (
-    <section className='contact-display-container'>
-      <h2>Contact</h2>
-      <div>
-        <p>Name</p>
-        <p>Phone Number</p>
-        <p>Email Address</p>
-        <p></p>
-      </div>
-    </section>
-  )
-}
-
-
+const ContactDisplay = ({ filmEPK }: IContactDisplay) => {
+	return (
+		<section className="contact-container">
+			<h2>Contact</h2>
+			{filmEPK?.attributes && (
+				<div>
+					<p>{filmEPK.attributes.contact_name}</p>
+					<p>{filmEPK.attributes.contact_number}</p>
+					<p>{filmEPK.attributes.contact_email}</p>
+					<p>{filmEPK.attributes.company_name}</p>
+					<a href={filmEPK.attributes.website}>Website</a>
+				</div>
+			)}
+		</section>
+	);
+};
 
 export default ContactDisplay;
