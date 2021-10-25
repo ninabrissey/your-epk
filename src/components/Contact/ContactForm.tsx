@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-const ContactForm = ({ addFilmInfo }: any) => {
+const ContactForm = ({ addFilmInfo, setIsEditing }: any) => {
 	const [name, setName] = useState<string>('');
 	const [phoneNum, setPhoneNum] = useState<string>('');
 	const [email, setEmail] = useState<string>('');
@@ -19,6 +19,7 @@ const ContactForm = ({ addFilmInfo }: any) => {
 			website: website,
 		};
 		addFilmInfo(currentContact);
+		setIsEditing(false);
 		clearForm();
 	};
 

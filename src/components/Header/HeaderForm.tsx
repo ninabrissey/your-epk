@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FilmEPK } from '../../types';
-import ContactForm from '../Contact/ContactForm';
+import ContactContainer from '../Contact/ContactContainer';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
@@ -8,19 +8,28 @@ import Button from '@mui/material/Button';
 interface IHeader {
 	filmEPK: FilmEPK;
 	addFilmInfo: any;
+	// setIsEditingHeaderImg: any;
+	// setIsEditingHeaderDesc: any;
 }
 
-const HeaderForm = ({ filmEPK, addFilmInfo }: IHeader) => {
+const HeaderForm = ({
+	filmEPK,
+	addFilmInfo,
+}: // setIsEditingHeaderImg,
+// setIsEditingHeaderDesc,
+IHeader) => {
 	const [headerDescription, setHeaderDescription] = useState<string>('');
 	const [headerImg, setHeaderImg] = useState<string>('');
 
 	const handleImg = () => {
 		addFilmInfo({ header_img: headerImg });
+		// setIsEditingHeaderImg(false);
 		setHeaderImg('');
 	};
 
 	const handleDescription = () => {
 		addFilmInfo({ header_description: headerDescription });
+		// setIsEditingHeaderDesc(false);
 		setHeaderDescription('');
 	};
 
@@ -63,7 +72,7 @@ const HeaderForm = ({ filmEPK, addFilmInfo }: IHeader) => {
 					</Button>
 				</FormControl>
 
-				<ContactForm addFilmInfo={addFilmInfo} />
+				<ContactContainer addFilmInfo={addFilmInfo} filmEPK={filmEPK} />
 			</div>
 		</section>
 	);

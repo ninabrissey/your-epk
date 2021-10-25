@@ -11,7 +11,7 @@ interface IContact {
 }
 
 const ContactContainer = ({ filmEPK, addFilmInfo }: IContact) => {
-	const [isEditing, setIsEditing] = useState<string>('');
+	const [isEditing, setIsEditing] = useState<boolean>(true);
 
 	return (
 		<section>
