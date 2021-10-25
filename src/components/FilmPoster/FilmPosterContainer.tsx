@@ -10,17 +10,20 @@ interface IFilmPoster {
   addFilmInfo: any;
 }
 
-const FilmPosterContainer = ({ filmEPK, addFilmInfo} : IFilmPoster) => {
+const FilmPosterContainer = ({ filmEPK, addFilmInfo }: IFilmPoster) => {
   const [isEditing, setIsEditing] = useState<boolean>(true)
+  const [poster, setPoster] = useState<string>('')
 
-  return (  
+  console.log(poster)
+
+  return (
     <div className='film-poster-container'>
-      {!isEditing && 
+      {!isEditing &&
         <Fab color='secondary' aria-label='edit'>
           <EditIcon />
         </Fab>
       }
-      {isEditing && <FilmPosterForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} />}
+      {isEditing && <FilmPosterForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} setPoster={setPoster} />}
       {!isEditing && <FilmPosterDisplay filmEPK={filmEPK} />}
     </div>
   )
