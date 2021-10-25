@@ -26,13 +26,13 @@ export interface FilmEPK {
 export interface Attributes {
   user_id: number;
   movie_title: string;
+
   genre: string;
   country: string;
   release_year: number;
   run_time: number;
   language: string;
   budget: number;
-  website: string;
   production_company: string;
   distribution: string;
   synopsis: string;
@@ -40,6 +40,13 @@ export interface Attributes {
   trailer: string;
   tag_line: string;
   log_line: string;
+  header_description: string;
+  header_img: string;
+  contact_name: string;
+  contact_number: string;
+  contact_email: string;
+  company_name: string;
+  website: string;
 }
 
 export interface Press {
