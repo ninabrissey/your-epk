@@ -4,6 +4,7 @@ import HeaderForm from './HeaderForm';
 import HeaderDisplay from './HeaderDisplay';
 import Fab from '@mui/material/Fab';
 import EditIcon from '@mui/icons-material/Edit';
+import ContactContainer from '../Contact/ContactContainer';
 
 interface IHeader {
 	filmEPK: FilmEPK;
@@ -11,17 +12,28 @@ interface IHeader {
 }
 
 const HeaderContainer = ({ filmEPK, addFilmInfo }: IHeader) => {
-	const [isEditing, setIsEditing] = useState<boolean>(true);
+	const [isEditingHeaderImg, setIsEditingHeaderImg] = useState<boolean>(true);
+	const [isEditingHeaderDesc, setIsEditingHeaderDesc] = useState<boolean>(true);
+	const [isEditingContact, setIsEditingContact] = useState<boolean>(true);
 
 	return (
 		<section className="header-container">
-			{!isEditing && (
+			{/* {!isEditing && (
 				<Fab color="secondary" aria-label="edit">
 					<EditIcon />
 				</Fab>
+			)} */}
+			{isEditingHeaderDesc && isEditingHeaderImg && (
+				<HeaderForm
+					filmEPK={filmEPK}
+					addFilmInfo={addFilmInfo}
+					// setIsEditingHeaderImg={setIsEditingHeaderImg}
+					// setIsEditingHeaderDesc={setIsEditingHeaderDesc}
+					// setIsEditingContact={setIsEditingContact}
+				/>
 			)}
-			{isEditing && <HeaderForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} />}
-			{!isEditing && <HeaderDisplay filmEPK={filmEPK} />}
+			{/* <ContactContainer filmEPK={filmEPK} addFilmInfo={addFilmInfo} /> */}
+			{/* {<HeaderDisplay filmEPK={filmEPK} />} */}
 		</section>
 	);
 };
