@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react';
 import { patchData, getEPK } from '../../../utils/apiCalls';
-import { FilmEPK, EPKData, Award, Press, Image } from '../../../types';
+import {
+  FilmEPK,
+  EPKData,
+  Award,
+  Press,
+  Image,
+  Included,
+} from '../../../types';
 import { filterIncluded } from '../../../utils/cleanData';
 import AwardsPressContainer from '../../AwardsPress/AwardsPressContainer';
 import HeaderContainer from '../../Header/HeaderContainer';
@@ -23,29 +30,71 @@ const EditPage = ({ epk_id }: any) => {
   const [loading, setLoading] = useState(false);
   const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
   const [title, setTitle] = useState('');
-  const [awards, setAwards] = useState<Array<Award>>([]);
-  const [presses, setPress] = useState<Array<Press>>([]);
+  const [awards, setAwards] = useState<Array<Included>>([]);
+  const [presses, setPress] = useState<Array<Included>>([]);
   const [images, setImages] = useState<Image[] | []>([]);
+  const [included, setIncluded] = useState<Array<Included>>([]);
 
-  const getFilmShit = async () => {
-    try {
-      const data = await getEPK(epk_id);
-      const awardsData = await filterIncluded(data, 'award');
-      const pressesData = await filterIncluded(data, 'press');
-      console.log(awardsData);
-      setFilm(data.data);
-
-      // we are setting film to data.data which means that we do
-      // not have access to included.
-      // should we set the whole thing to state?
-
-      setTitle(formatTitle(data.data.attributes.movie_title));
-      setAwards(awardsData);
-      setPress(pressesData);
-    } catch (error) {
-      setError(error);
-    }
+  const dummyAward = {
+    id: '20',
+    type: 'award',
+    attributes: {
+      name: 'Award Name',
+      year: '2020',
+      award_type: 'Sundance',
+      film_epk_id: epk_id,
+    },
   };
+
+  const dummyPress = {
+    id: '1',
+    type: 'presses',
+    attributes: {
+      name_of_publication: 'ExamplePub',
+      description: 'ExampleDesc',
+      link: 'ex.com',
+      film_epk_id: epk_id,
+    },
+  };
+
+  const getFilmShit = () => {
+    getEPK(epk_id).then((data) => {
+      setFilm(data.data);
+      setIncluded(data.included);
+      setTitle(formatTitle(data.data.attributes.movie_title));
+      console.log(data.included, 'inthe useEffect on edit page');
+    });
+    setLoading(false);
+  };
+
+  // const getFilmShit = async () => {
+  //   try {
+  //     const data = await getEPK(epk_id);
+  //     setFilm(data.data);
+  //     setIncluded(data.included);
+  // console.log(data);
+  // const awardsData = filterIncluded(data.included, 'award');
+  // const pressesData = filterIncluded(data.included, 'press');
+  // console.log(awardsData, 'awardsData');
+  // console.log(pressesData, 'pressesData');
+
+  // we are setting film to data.data which means that we do
+  // not have access to included.
+  // should we set the whole thing to state?
+
+  // setTitle(formatTitle(data.data.attributes.movie_title));
+  // setAwards([...awardsData, dummyAward]);
+  // setPress([...pressesData, dummyPress]);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     setError(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   getFilmShit();
+  // }, [awards, presses]);
 
   useEffect(() => {
     setLoading(true);
@@ -69,12 +118,15 @@ const EditPage = ({ epk_id }: any) => {
       <main className="edit-page">
         <HeaderContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         {/* <AwardsPressContainer filmEPK={film} addFilmInfo={addFilmInfo} /> */}
-        <AwardsPressContainer
-          awards={awards}
-          presses={presses}
-          addFilmInfo={addFilmInfo}
-          epk_id={epk_id}
-        />
+        {included.length > 0 && (
+          <AwardsPressContainer
+            awards={awards}
+            presses={presses}
+            addFilmInfo={addFilmInfo}
+            epk_id={epk_id}
+            included={included}
+          />
+        )}
         <TrailerContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         <div className="container-wrapper">
           <SynopsisContainer filmEPK={film} addFilmInfo={addFilmInfo} />

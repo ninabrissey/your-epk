@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react';
 import { postData } from '../../utils/apiCalls';
-import { Award, Press } from '../../types';
+import { Award, Press, Included } from '../../types';
 import AwardPressDisplay from './AwardPressDisplay';
 import AwardPressForm from './AwardPressForm';
 import Fab from '@mui/material/Fab';
 import EditIcon from '@mui/icons-material/Edit';
+import { filterIncluded } from '../../utils/cleanData';
 
 interface APContainerProps {
   addFilmInfo: any;
-  awards: Award[] | [];
-  presses: Press[] | [];
+  awards: Included[];
+  presses: Included[];
   epk_id: string;
+  included: Included[];
 }
 
 const AwardsPressContainer = ({
@@ -18,11 +20,12 @@ const AwardsPressContainer = ({
   presses,
   addFilmInfo,
   epk_id,
+  included,
 }: APContainerProps) => {
   // const AwardsPressContainer = ({filmEPK, addFilmInfo}: APContainerProps) => {
   const [isEditting, setIsEditting] = useState(false);
-  const [currentAwards, setAwards] = useState<Award[] | []>([]);
-  const [currentPresses, setPresses] = useState<Press[] | []>([]);
+  const [currentAwards, setAwards] = useState<Included[]>([]);
+  const [currentPresses, setPresses] = useState<Included[]>([]);
   const [error, setError] = useState<any>('');
   const [loading, setLoading] = useState(false);
 
@@ -47,9 +50,15 @@ const AwardsPressContainer = ({
   };
 
   useEffect(() => {
-    setAwards(awards);
-    setPresses(presses);
-  }, [currentAwards, currentPresses]);
+    setLoading(true);
+    setAwards(filterIncluded(included, 'award'));
+    setPresses(filterIncluded(included, 'press'));
+    console.log('inside useEffect');
+    setLoading(false);
+  }, []);
+
+  console.log(currentPresses, 'currentPresses');
+  console.log(currentAwards, 'currentAwards');
 
   return (
     <div>
@@ -65,9 +74,9 @@ const AwardsPressContainer = ({
         </Fab>
       )}
       {console.log(currentAwards)}
-      {awards !== undefined && (
-        <AwardPressDisplay awards={currentAwards} presses={presses} />
-      )}
+      {/* {currentAwards.length > 0 && ( */}
+      <AwardPressDisplay awards={currentAwards} presses={currentPresses} />
+      {/* )} */}
       {isEditting && (
         <AwardPressForm
           addFilmInfo={addFilmInfo}

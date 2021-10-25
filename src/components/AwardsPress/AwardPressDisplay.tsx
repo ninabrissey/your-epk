@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { FilmEPK, Press, Award } from '../../types';
+import { FilmEPK, Press, Award, Included } from '../../types';
 import PressCard from './PressCard';
 import AwardCard from './AwardCard';
 import './AwardPress.scss';
 
 interface APProps {
-  presses: Press[];
-  awards: Award[];
+  presses: Included[];
+  awards: Included[];
 }
 
 const AwardPressDisplay = ({ awards, presses }: APProps) => {

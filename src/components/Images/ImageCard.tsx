@@ -8,10 +8,10 @@ interface IImage {
 const ImageCard = ({ key, image }: IImage) => {
   return (
     <article className="image-card">
-      <div className="image-container">
+      {/* <div className="image-container">
         <img className="image" src={image.link} />
         <p>{image.description}</p>
-      </div>
+      </div> */}
     </article>
   );
 };

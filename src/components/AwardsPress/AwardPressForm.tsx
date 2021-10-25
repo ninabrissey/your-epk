@@ -50,7 +50,8 @@ const AwardPressForm = ({
     },
   };
 
-  const submitAndClear = (endpoint: string, newItem: any) => {
+  const submitAndClear = (endpoint: string, newItem: any, e: any) => {
+    e.preventDefault();
     if (
       (newAward.award.name && newAward.award.year) ||
       (newPress.press.publication && newPress.press.link)
@@ -128,7 +129,7 @@ const AwardPressForm = ({
                   marginRight: '3%',
                 }}
                 variant="text"
-                onClick={() => submitAndClear('awards', newAward)}
+                onClick={(e) => submitAndClear('awards', newAward, e)}
               >
                 save
               </Button>
@@ -175,7 +176,7 @@ const AwardPressForm = ({
                   marginRight: '3%',
                 }}
                 variant="text"
-                onClick={() => submitAndClear('presses', newPress)}
+                onClick={(e) => submitAndClear('presses', newPress, e)}
               >
                 save
               </Button>
