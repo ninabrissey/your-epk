@@ -1,3 +1,5 @@
+import { postData } from '../utils/apiCalls';
+
 const fileToData = (file: any) => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -12,7 +14,6 @@ const fileToData = (file: any) => {
     }
 
     reader.readAsArrayBuffer(file)
-
   })
 }
 
@@ -23,21 +24,21 @@ const fileCheckSum = async (file: any) => {
 }
 
 
-export const doAllTheThings = async () => {
+export const postToAWS = async (image: any) => {
   //first I want to run my fileToData which returns a Promise
-  const file = await fileToData(filmPoster)
+  const file = await fileToData(image)
 
-  const sum = await fileCheckSum(filmPoster)
-  console.log('filmPoster', filmPoster)
+  const sum = await fileCheckSum(image)
+  console.log('filmPoster', image)
 
   //when that cowboy resolves, I want to use it's guts to make the options object that will be POSTed to the backend to acquire the presignedURL. This will also be asychronous
 
   const body = {
     file: {
-      filename: filmPoster.name,
-      byte_size: filmPoster.size,
+      filename: image.name,
+      byte_size: image.size,
       checksum: sum,
-      content_type: filmPoster.type,
+      content_type: image.type,
       metadata: {
         'message': 'film poster test'
       }
@@ -50,8 +51,11 @@ export const doAllTheThings = async () => {
   const s3PutOptions = {
     method: 'PUT',
     headers: presignedFileParams.direct_upload.headers,
-    body: filmPoster,
+    body: image,
   }
 
   let awsRes = await fetch(presignedFileParams.direct_upload.url, s3PutOptions)
   if (awsRes.status !== 200) return awsRes
+
+
+}
