@@ -26,14 +26,13 @@ const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
 
       reader.onload = (fileEvent: any) => {
         let binary = CryptoJS.lib.WordArray.create(fileEvent.target.result)
-        console.log('binary', binary)
         const md5 = CryptoJS.MD5(binary)
         resolve(md5)
       }
       reader.onerror = () => {
         reject('oops, something went wrong with the file reader.')
       }
-      console.log(reader)
+
 
       reader.readAsArrayBuffer(file)
 
@@ -114,22 +113,33 @@ const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
       {/* <FormControl sx={{ m: 1, minWidth: 340 }}>
         <TextField
           id='outlined-multiline-flexible'
+          className='test-input'
           aria-label='Img URL'
           // label='Img URL'
           type='file'
           name='filmPoster'
-          value={filmPoster}
-          onChange={(e) => setFilmPoster(e.target.value)}
+
+
         />
         <Button
           id='posterBtn'
           variant='text'
-          onClick={handleSubmit}
+          onClick={(event) => { handleSubmit(event) }}
         >save
         </Button>
       </FormControl> */}
       <input id='test-input' type="file" accept="image/*" />
       <button onClick={(event) => { handleSubmit(event) }}>Save</button>
+      <Button
+        variant="contained"
+        component="label"
+      >
+        Upload File
+        <input
+          type="file"
+          hidden
+        />
+      </Button>
     </form>
   )
 }
