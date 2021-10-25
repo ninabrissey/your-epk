@@ -34,6 +34,11 @@ const EditPage = ({ epk_id }: any) => {
       const pressesData = await filterIncluded(data, 'press');
       console.log(awardsData);
       setFilm(data.data);
+
+      // we are setting film to data.data which means that we do
+      // not have access to included.
+      // should we set the whole thing to state?
+
       setTitle(formatTitle(data.data.attributes.movie_title));
       setAwards(awardsData);
       setPress(pressesData);
