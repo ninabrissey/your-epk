@@ -8,24 +8,18 @@ import Button from '@mui/material/Button';
 interface IHeader {
 	filmEPK: FilmEPK;
 	addFilmInfo: any;
+	setIsEditing: any;
 }
 
-const HeaderForm = ({ filmEPK, addFilmInfo }: IHeader) => {
+const HeaderForm = ({ filmEPK, addFilmInfo, setIsEditing }: IHeader) => {
 	const [headerDescription, setHeaderDescription] = useState<string>('');
-	// const [headerImg, setHeaderImg] = useState<string>('');
 
-	// const handleImg = () => {
-	// 	addFilmInfo({ header_img: headerImg });
-	// 	setHeaderImg('');
-	// };
-
-	const handleDescription = () => {
+	const handleSubmit = () => {
 		addFilmInfo({ header_description: headerDescription });
-		// setHeaderDescription('');
+		setIsEditing(false);
 	};
 
 	return (
-		// <section className="header-container">
 		<>
 			<p>HEADER FORM CONTAINER</p>
 			<div className="header-info-container">
@@ -42,7 +36,7 @@ const HeaderForm = ({ filmEPK, addFilmInfo }: IHeader) => {
 						value={headerDescription}
 						onChange={(e) => setHeaderDescription(e.target.value)}
 					/>
-					<Button variant="text" onClick={handleDescription}>
+					<Button variant="text" onClick={handleSubmit}>
 						save
 					</Button>
 				</FormControl>
@@ -50,7 +44,6 @@ const HeaderForm = ({ filmEPK, addFilmInfo }: IHeader) => {
 				<ContactContainer addFilmInfo={addFilmInfo} filmEPK={filmEPK} />
 			</div>
 		</>
-		// </section>
 	);
 };
 
