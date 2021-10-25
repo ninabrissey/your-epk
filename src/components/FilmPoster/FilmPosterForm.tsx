@@ -51,13 +51,10 @@ const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
   }
 
   const doAllTheThings = async () => {
-    //first I want to run my fileToData which returns a Promise
     const file = await fileToData(filmPoster)
 
     const sum = await fileCheckSum(filmPoster)
     console.log('filmPoster', filmPoster)
-
-    //when that cowboy resolves, I want to use it's guts to make the options object that will be POSTed to the backend to acquire the presignedURL. This will also be asychronous
 
     const body = {
       file: {
@@ -72,6 +69,7 @@ const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
     }
 
     const presignedFileParams = await postData('https://epk-be.herokuapp.com/api/v1/presigned_url', body)
+    console.log('presignedFileParams', presignedFileParams)
 
     //once we have our presignedURL response from above 
     const s3PutOptions = {
@@ -83,8 +81,7 @@ const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
     let awsRes = await fetch(presignedFileParams.direct_upload.url, s3PutOptions)
     if (awsRes.status !== 200) return awsRes
 
-
-
+    console.log('awsRes', awsRes)
     //make a PUT to said presigned URL with 
 
     let usersPostOptions = {
