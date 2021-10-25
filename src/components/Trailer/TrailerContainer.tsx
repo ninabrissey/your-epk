@@ -6,24 +6,34 @@ import Fab from '@mui/material/Fab';
 import EditIcon from '@mui/icons-material/Edit';
 
 interface ITrailer {
-  filmEPK: FilmEPK;
-  addFilmInfo: any;
+	filmEPK: FilmEPK;
+	addFilmInfo: any;
 }
 
-const TrailerContainer = ({ filmEPK, addFilmInfo} : ITrailer) => {
-  const [isEditing, setIsEditing] = useState<boolean>(true)
+const TrailerContainer = ({ filmEPK, addFilmInfo }: ITrailer) => {
+	const [isEditing, setIsEditing] = useState<boolean>(true);
 
-  return (
-    <section className='trailer-container'>
-      {!isEditing && 
-        <Fab color='secondary' aria-label='edit'>
-          <EditIcon />
-        </Fab>
-      }
-      {isEditing && <TrailerForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} />}
-      {!isEditing && <TrailerDisplay filmEPK={filmEPK} />}
-    </section>
-  )
-}
+	return (
+		<section className="trailer-container">
+			{!isEditing && (
+				<Fab
+					color="secondary"
+					aria-label="edit"
+					onClick={() => setIsEditing(true)}
+				>
+					<EditIcon />
+				</Fab>
+			)}
+			{isEditing && (
+				<TrailerForm
+					filmEPK={filmEPK}
+					addFilmInfo={addFilmInfo}
+					setIsEditing={setIsEditing}
+				/>
+			)}
+			{!isEditing && <TrailerDisplay filmEPK={filmEPK} />}
+		</section>
+	);
+};
 
-export default TrailerContainer
+export default TrailerContainer;
