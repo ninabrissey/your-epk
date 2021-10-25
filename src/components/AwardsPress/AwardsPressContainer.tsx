@@ -22,12 +22,12 @@ const AwardsPressContainer = ({
   const [currentAwards, setAwards] = useState<Included[]>([]);
   const [currentPresses, setPresses] = useState<Included[]>([]);
   const [error, setError] = useState<any>('');
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const postAwardsPress = async (endpoint: any, newItem: any) => {
     setError('');
+    setIsLoading(true);
     try {
-      setLoading(true);
       const data = await postData(
         `https://epk-be.herokuapp.com/api/v1/${endpoint}`,
         newItem
@@ -37,28 +37,22 @@ const AwardsPressContainer = ({
       }
       if (endpoint === 'presses') {
         setPresses([...currentPresses, data.data]);
+        console.log(data, 'returned press object from post');
+        console.log('current press held in state', currentPresses);
       }
     } catch (error) {
       setError(error);
     }
-    setLoading(false);
+    setIsLoading(false);
   };
 
   useEffect(() => {
-    setLoading(true);
     setAwards(filterIncluded(included, 'award'));
     setPresses(filterIncluded(included, 'press'));
-    console.log('inside useEffect');
-    setLoading(false);
   }, []);
-
-  console.log(currentPresses, 'currentPresses');
-  console.log(currentAwards, 'currentAwards');
 
   return (
     <div>
-      {loading && <p>We are loading you information</p>}
-      {error && <p>Something went wrong. Please refresh the page.</p>}
       {!isEditting && !error && (
         <Fab
           color="secondary"
@@ -68,7 +62,6 @@ const AwardsPressContainer = ({
           <EditIcon />
         </Fab>
       )}
-      {console.log(currentAwards)}
       <AwardPressDisplay awards={currentAwards} presses={currentPresses} />
       {isEditting && (
         <AwardPressForm
@@ -79,16 +72,10 @@ const AwardsPressContainer = ({
           epk_id={epk_id}
         />
       )}
+      {isLoading && <p>We are loading you information</p>}
+      {error && <p>Something went wrong. Please refresh the page.</p>}
     </div>
   );
 };
 
 export default AwardsPressContainer;
-
-// if (this.state.selectedMovie === null || undefined ) {
-//   return (
-//     <div>
-//       Loading
-//     </div>
-//   )
-// }
