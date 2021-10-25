@@ -38,36 +38,18 @@ const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
   return (
     <form>
       <p>I am the film poster form</p>
-      {/* <FormControl sx={{ m: 1, minWidth: 340 }}>
-        <TextField
-          id='outlined-multiline-flexible'
-          className='test-input'
-          aria-label='Img URL'
-          // label='Img URL'
-          type='file'
-          name='filmPoster'
-
-
-        />
-        <Button
-          id='posterBtn'
-          variant='text'
-          onClick={(event) => { handleSubmit(event) }}
-        >save
-        </Button>
-      </FormControl> */}
       <input id='test-input' type="file" accept="image/*" />
       <button onClick={(event) => { handleSubmit(event) }}>Save</button>
-      <Button
+      {/* <Button
         variant="contained"
         component="label"
       >
         Upload File
         <input
           type="file"
-          hidden
+          // hidden
         />
-      </Button>
+      </Button> */}
     </form>
   )
 }
