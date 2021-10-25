@@ -1,9 +1,8 @@
-import { Award } from '../../types';
+import { Award, Included } from '../../types';
 import laurel from './../../images/laurel.png';
 import './AwardPress.scss';
 
 interface IAwardCard {
-  // award: Award
   award: any;
   style: any;
 }
