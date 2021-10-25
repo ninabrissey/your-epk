@@ -9,41 +9,19 @@ interface IHeaderDisplay {
 	// setIsEditingHeaderDesc: any;
 }
 
-const HeaderDisplay = ({
-	filmEPK,
-}: // setIsEditingHeaderImg,
-// setIsEditingHeaderDesc,
-IHeaderDisplay) => {
+const HeaderDisplay = ({ filmEPK }: IHeaderDisplay) => {
 	return (
-		<section className="header-container">
-			{/* {filmEPK?.attributes && (
-				<img
-					className="header-img"
-					src={filmEPK.attributes.header_img}
-					alt=""
-				/>
-			)} */}
+		// <section className="header-container">
+		<div className="header-info-container">
+			<div>
+				{filmEPK?.attributes && <h1>{filmEPK.attributes.movie_title}</h1>}
 
-			<div className="header-info-container">
-				<div>
-					{filmEPK?.attributes && <h1>{filmEPK.attributes.movie_title}</h1>}
-
-					{/* <Fab
-						color="secondary"
-						aria-label="edit"
-						onClick={() => setIsEditingHeaderDesc()}
-					>
-						<EditIcon />
-					</Fab> */}
-
-					{filmEPK?.attributes && (
-						<p>{filmEPK.attributes.header_description}</p>
-					)}
-				</div>
-
-				<ContactDisplay filmEPK={filmEPK} />
+				{filmEPK?.attributes && <p>{filmEPK.attributes.header_description}</p>}
 			</div>
-		</section>
+
+			<ContactDisplay filmEPK={filmEPK} />
+		</div>
+		// </section>
 	);
 };
 

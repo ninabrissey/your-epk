@@ -15,6 +15,10 @@ const ContactContainer = ({ filmEPK, addFilmInfo }: IContact) => {
 
 	return (
 		<section>
+			{isEditing && (
+				<ContactForm addFilmInfo={addFilmInfo} setIsEditing={setIsEditing} />
+			)}
+
 			{!isEditing && (
 				<Fab
 					color="secondary"
@@ -24,9 +28,7 @@ const ContactContainer = ({ filmEPK, addFilmInfo }: IContact) => {
 					<EditIcon />
 				</Fab>
 			)}
-			{isEditing && (
-				<ContactForm addFilmInfo={addFilmInfo} setIsEditing={setIsEditing} />
-			)}
+
 			{!isEditing && <ContactDisplay filmEPK={filmEPK} />}
 		</section>
 	);

@@ -15,6 +15,10 @@ const HeaderImgContainer = ({ filmEPK, addFilmInfo }: IHeaderImg) => {
 
 	return (
 		<>
+			{isEditing && (
+				<HeaderImgForm addFilmInfo={addFilmInfo} setIsEditing={setIsEditing} />
+			)}
+
 			{!isEditing && (
 				<Fab
 					color="secondary"
@@ -23,10 +27,6 @@ const HeaderImgContainer = ({ filmEPK, addFilmInfo }: IHeaderImg) => {
 				>
 					<EditIcon />
 				</Fab>
-			)}
-
-			{isEditing && (
-				<HeaderImgForm addFilmInfo={addFilmInfo} setIsEditing={setIsEditing} />
 			)}
 
 			{!isEditing && <HeaderImgDisplay filmEPK={filmEPK} />}

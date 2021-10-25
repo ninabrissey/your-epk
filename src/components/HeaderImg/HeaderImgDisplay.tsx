@@ -6,7 +6,7 @@ interface IHeaderImg {
 
 const HeaderImgDisplay = ({ filmEPK }: IHeaderImg) => {
 	return (
-		<section className="header-container">
+		<section>
 			{filmEPK?.attributes && (
 				<img
 					className="header-img"
