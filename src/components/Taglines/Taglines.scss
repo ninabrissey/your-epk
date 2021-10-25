@@ -1,0 +1,18 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+
+.taglines-container {
+  height: 35vh;
+  width: $primary-width;
+  background-color: rgb(198, 162, 232);
+}
+
+.taglines-form-wrapper {
+  @include flexColumnJustify(space-evenly);
+  align-items: center;
+
+  button {
+    width: $btn-width;
+  }
+}
