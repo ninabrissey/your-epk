@@ -17,7 +17,6 @@ const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
     if (filmPoster.size > 0) {
       doAllTheThings();
     }
-    console.log('help!')
   }, [filmPoster])
 
 
@@ -36,9 +35,8 @@ const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
       }
       console.log(reader)
 
-      reader.readAsArrayBuffer(document.querySelector<any>('#test-input').files[0])
-      // reader.readAsBinaryString(file);
-      // reader.readAsDataURL(file)
+      reader.readAsArrayBuffer(file)
+
     })
   }
 
