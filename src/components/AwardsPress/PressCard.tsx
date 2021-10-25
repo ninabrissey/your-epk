@@ -1,19 +1,32 @@
 import { Press } from '../../types';
+import laurel from './../../images/laurel.png';
+import './AwardPress.scss';
 
 interface IPressCard {
-  // press: Press
   press: any;
+  style: any;
 }
 
-const PressCard = ({ press }: IPressCard) => {
+// Need to adjust this so the text is showing up. Not sure what the
+// issue is so I copied over the exactly styling from the award card
+
+const PressCard = ({ press, style }: IPressCard) => {
   return (
-    <article className="award-press-display" style={{ background: 'blue' }}>
-      <a className="award-press-card" href={press.link} target="_blank">
-        <h4>{press.attributes.name_of_publication}</h4>
-        {press.attributes.description && (
-          <h5>{press.attributes.description}</h5>
-        )}
-      </a>
+    <article
+      style={style}
+      className="award-press-card award-press-card-background"
+    >
+      <div className="award-card-styling-div">
+        <img className="laurel" src={laurel} alt="laurels" />
+        <div className="award-text">
+          {/* <a href={press.attributes.link} target="_blank"> */}
+          <p>{press.attributes.name_of_publication}</p>
+          {press.attributes.description && (
+            <p>{press.attributes.description}</p>
+          )}
+          {/* </a> */}
+        </div>
+      </div>
     </article>
   );
 };
