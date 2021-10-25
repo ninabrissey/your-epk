@@ -17,8 +17,6 @@ const PressPage = ({ title, epk_id }: any) => {
   const [presses, setPresses] = useState<Array<Press>>([]);
   const [currentImages, setImages] = useState<Image[] | []>([]);
 
-  console.log(epk);
-
   useEffect(() => {
     getEPK(epk_id).then((info: EPKData) => {
       setEpk(info.data);
@@ -26,7 +24,6 @@ const PressPage = ({ title, epk_id }: any) => {
       // setPresses(filterIncluded(info.included, 'press'));
       // setImages(filterIncluded(info.included, 'image'));
       // when the endpoints are up and running, we can comment the above in
-      console.log(epk);
     });
   }, []);
 

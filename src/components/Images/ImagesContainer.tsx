@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { postData } from '../../utils/apiCalls';
 import { Image } from '../../types';
 import ImagesDisplay from './ImagesDisplay';
+import ImagesForm from './ImagesForm';
 
 interface IImageConainer {
   images: Image[] | [];
@@ -18,6 +19,7 @@ const ImagesContainer = () => {
   return (
     <section>
       {/* <ImagesDisplay currentImages={images} epk_id={epk} /> */}
+      <ImagesForm />
     </section>
   );
 };

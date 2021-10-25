@@ -9,8 +9,8 @@ import { setupMaster } from 'cluster';
 import { userInfo } from 'os';
 
 interface IUser {
-  id: number,
-  currUser: UserData
+  id: number;
+  currUser: UserData;
 }
 
 const Dashboard = ({ id, currUser }: IUser) => {
@@ -18,26 +18,22 @@ const Dashboard = ({ id, currUser }: IUser) => {
 
   useEffect(() => {
     fetch(`https://epk-be.herokuapp.com/api/v1/users/${id}`)
-      .then(res => res.json())
+      .then((res) => res.json())
       .then((data: any) => {
-        console.log(data)
-        setAllFilms(data.included)
+        setAllFilms(data.included);
       })
-      .catch(err => console.log(err))
-  }, [])
-
-
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div>
       <Navigation />
-      <main className='edit-main'>
+      <main className="edit-main">
         <TitleForm allFilms={allFilms} id={id} setAllFilms={setAllFilms} />
         <EPKContainer allFilms={allFilms} setAllFilms={setAllFilms} />
       </main>
     </div>
-  )
-}
-
+  );
+};
 
 export default Dashboard;

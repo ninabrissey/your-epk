@@ -22,6 +22,7 @@ const AwardsPressContainer = ({
   // const AwardsPressContainer = ({filmEPK, addFilmInfo}: APContainerProps) => {
   const [isEditting, setIsEditting] = useState(false);
   const [currentAwards, setAwards] = useState<Award[] | []>([]);
+  const [currentPresses, setPresses] = useState<Press[] | []>([]);
   const [error, setError] = useState<any>('');
   const [loading, setLoading] = useState(false);
 
@@ -33,7 +34,12 @@ const AwardsPressContainer = ({
         `https://epk-be.herokuapp.com/api/v1/${endpoint}`,
         newItem
       );
-      setAwards([...currentAwards, data.data]);
+      if (endpoint === 'awards') {
+        setAwards([...currentAwards, data.data]);
+      }
+      if (endpoint === 'presses') {
+        setPresses([...currentPresses, data.data]);
+      }
     } catch (error) {
       setError(error);
     }
@@ -42,7 +48,8 @@ const AwardsPressContainer = ({
 
   useEffect(() => {
     setAwards(awards);
-  }, [awards, presses]);
+    setPresses(presses);
+  }, [currentAwards, currentPresses]);
 
   return (
     <div>
@@ -57,6 +64,7 @@ const AwardsPressContainer = ({
           <EditIcon />
         </Fab>
       )}
+      {console.log(currentAwards)}
       {awards !== undefined && (
         <AwardPressDisplay awards={currentAwards} presses={presses} />
       )}

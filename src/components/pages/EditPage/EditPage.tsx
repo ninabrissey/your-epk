@@ -12,27 +12,39 @@ import FilmDetailsContainer from '../../FilmDetails/FilmDetailsContainer';
 import TaglinesContainer from '../../Taglines/TaglinesContainer';
 import './EditPage.scss';
 import ImagesContainer from '../../Images/ImagesContainer';
+import ImagesForm from '../../Images/ImagesForm';
 
 // interface FilmProps {
 //   filmEPK: FilmEPK;
 // }
 
 const EditPage = ({ epk_id }: any) => {
+  const [error, setError] = useState<any>('');
+  const [loading, setLoading] = useState(false);
   const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
   const [title, setTitle] = useState('');
   const [awards, setAwards] = useState<Array<Award>>([]);
   const [presses, setPress] = useState<Array<Press>>([]);
   const [images, setImages] = useState<Image[] | []>([]);
 
+  const getFilmShit = async () => {
+    try {
+      const data = await getEPK(epk_id);
+      const awardsData = await filterIncluded(data, 'award');
+      const pressesData = await filterIncluded(data, 'press');
+      console.log(awardsData);
+      setFilm(data.data);
+      setTitle(formatTitle(data.data.attributes.movie_title));
+      setAwards(awardsData);
+      setPress(pressesData);
+    } catch (error) {
+      setError(error);
+    }
+  };
+
   useEffect(() => {
-    getEPK(epk_id)
-      .then((data: EPKData) => {
-        setFilm(data.data);
-        setTitle(formatTitle(data.data.attributes.movie_title));
-        setAwards(filterIncluded(data.included, 'award'));
-        // function will need to filter "awards", "press", "film_fam", "images"
-      })
-      .catch((err) => console.log(err));
+    setLoading(true);
+    getFilmShit();
   }, []);
 
   // console.log('filmEPK in editPage: ', film)
@@ -47,6 +59,7 @@ const EditPage = ({ epk_id }: any) => {
 
   return (
     <div>
+      {loading && <p>Loading</p>}
       <Navigation onEdit={true} epk_id={epk_id} title={title} />
       <main className="edit-page">
         <HeaderContainer filmEPK={film} addFilmInfo={addFilmInfo} />
@@ -63,6 +76,7 @@ const EditPage = ({ epk_id }: any) => {
           <FilmPosterContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         </div>
         {/* <ImagesContainer epk_id={epk_id} images={images} /> */}
+        <ImagesForm />
         <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
       </main>

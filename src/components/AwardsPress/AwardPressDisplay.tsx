@@ -10,13 +10,14 @@ interface APProps {
 }
 
 const AwardPressDisplay = ({ awards, presses }: APProps) => {
-  const [currentAwards, setAwards] = useState<any>();
-  const [currentPress, setPress] = useState<any>();
+  console.log(awards, presses);
+  // const [currentAwards, setAwards] = useState<any>();
+  // const [currentPress, setPress] = useState<any>();
 
-  useEffect(() => {
-    setAwards(awards);
-    setPress(presses);
-  }, [awards, presses]);
+  // useEffect(() => {
+  //   setAwards(awards);
+  //   setPress(presses);
+  // }, [currentAwards, currentPress]);
 
   let pressCards;
   let awardCards;
