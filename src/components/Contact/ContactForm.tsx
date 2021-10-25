@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
@@ -9,6 +9,15 @@ const ContactForm = ({ addFilmInfo, setIsEditing }: any) => {
 	const [email, setEmail] = useState<string>('');
 	const [company, setCompany] = useState<string>('');
 	const [website, setWebsite] = useState<string>('');
+
+	const checkFormData = () => {
+		console.log('name in contact form: ', name);
+		// render from state
+	};
+
+	useEffect(() => {
+		checkFormData();
+	});
 
 	const handleSubmit = () => {
 		const currentContact = {
