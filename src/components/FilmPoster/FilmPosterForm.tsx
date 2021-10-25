@@ -10,8 +10,6 @@ import CryptoJS from 'crypto-js';
 
 const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
   const [filmPoster, setFilmPoster] = useState<any>({})
-  // const [postRes, setPostRes] = useState<any>()
-  // const [postResErr, setPostResErr] = useState('')
 
   useEffect(() => {
     if (filmPoster.size > 0) {
@@ -26,11 +24,8 @@ const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
 
   const makeAWSpost = async () => {
     const presignedFileParams = await getPresignedUrl(filmPoster)
-
     const awsRes = await putToAWS(presignedFileParams, filmPoster)
-
     const data: any = await postToDatabase(presignedFileParams, filmEPK, 'movie_posters')
-
     // We need to pass this value to state 
     setPoster(data.movie_poster_url);
   }
