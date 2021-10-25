@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { postData } from '../../utils/apiCalls';
-import { Award, Press, Included } from '../../types';
+import { Included } from '../../types';
 import AwardPressDisplay from './AwardPressDisplay';
 import AwardPressForm from './AwardPressForm';
 import Fab from '@mui/material/Fab';
@@ -9,20 +9,15 @@ import { filterIncluded } from '../../utils/cleanData';
 
 interface APContainerProps {
   addFilmInfo: any;
-  awards: Included[];
-  presses: Included[];
   epk_id: string;
   included: Included[];
 }
 
 const AwardsPressContainer = ({
-  awards,
-  presses,
   addFilmInfo,
   epk_id,
   included,
 }: APContainerProps) => {
-  // const AwardsPressContainer = ({filmEPK, addFilmInfo}: APContainerProps) => {
   const [isEditting, setIsEditting] = useState(false);
   const [currentAwards, setAwards] = useState<Included[]>([]);
   const [currentPresses, setPresses] = useState<Included[]>([]);
@@ -74,9 +69,7 @@ const AwardsPressContainer = ({
         </Fab>
       )}
       {console.log(currentAwards)}
-      {/* {currentAwards.length > 0 && ( */}
       <AwardPressDisplay awards={currentAwards} presses={currentPresses} />
-      {/* )} */}
       {isEditting && (
         <AwardPressForm
           addFilmInfo={addFilmInfo}

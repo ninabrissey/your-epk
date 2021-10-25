@@ -38,3 +38,25 @@ export const images = [
     description: 'Robert Craighead',
   }
 ]
+
+  const dummyAward = {
+    id: '20',
+    type: 'award',
+    attributes: {
+      name: 'Award Name',
+      year: '2020',
+      award_type: 'Sundance',
+      // film_epk_id: epk_id,
+    },
+  };
+
+  const dummyPress = {
+    id: '1',
+    type: 'presses',
+    attributes: {
+      name_of_publication: 'ExamplePub',
+      description: 'ExampleDesc',
+      link: 'ex.com',
+      // film_epk_id: epk_id,
+    },
+  };
