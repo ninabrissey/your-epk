@@ -40,6 +40,17 @@ const FilmDetailsForm = ({ addFilmInfo, setIsEditing }: any) => {
     setWebsite('');
   };
 
+  // useEffect(() => {
+  //   setGenre(filmEPK.attributes);
+  //   setCountry(filmEPK.attributes);
+  //   setReleaseYear(filmEPK.attributes);
+  //   setRuntime(filmEPK.attributes);
+  //   setLanguage(filmEPK.attributes);
+  //   setBudget(filmEPK.attributes);
+  //   setCompany(filmEPK.attributes);
+  //   setWebsite(filmEPK.attributes);
+  // }, [filmEPK]);
+
   return (
     <form className="film-details-form-1">
       <p>I am the film details form</p>
