@@ -1,5 +1,6 @@
 import { postData } from '../utils/apiCalls';
 import CryptoJS from 'crypto-js';
+const yourModuleName = require('crypto-js');
 
 export const fileToData = (file: any) => {
   return new Promise((resolve, reject) => {
