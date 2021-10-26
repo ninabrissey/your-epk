@@ -46,7 +46,8 @@ const EditPage = ({ epk_id }: any) => {
 
   return (
     <div>
-      {loading && <p>Loading</p>}
+      {loading ? <p>Loading</p> : <div>
+       
       <Navigation onEdit={true} epk_id={epk_id} title={title} />
       <main className="edit-page">
         <HeaderContainer filmEPK={film} addFilmInfo={addFilmInfo} />
@@ -68,13 +69,14 @@ const EditPage = ({ epk_id }: any) => {
         <TrailerContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         <div className="container-wrapper">
           <SynopsisContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-          <FilmPosterContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+          <FilmPosterContainer filmEPK={film} addFilmInfo={addFilmInfo} loading={loading}/>
         </div>
         {/* <ImagesContainer epk_id={epk_id} images={images} /> */}
-        {/* <ImagesForm /> */}
+        <ImagesForm />
         <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
       </main>
+      </div>}
     </div>
   );
 };
