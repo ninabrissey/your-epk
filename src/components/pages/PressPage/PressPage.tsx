@@ -46,7 +46,7 @@ const PressPage = ({ title, epk_id }: any) => {
         <div>
           <p>{`You've reached press page for ${epk.attributes.movie_title}, id# ${epk.attributes.release_year}`}</p>
 
-          <HeaderDisplay filmEPK={epk} />
+          {/* <HeaderDisplay filmEPK={epk} /> */}
           <HeaderImgDisplay filmEPK={epk} />
           <div className="press-page-below-header">
             {/* {awards.length > 0 !== undefined && (
