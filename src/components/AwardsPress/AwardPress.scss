@@ -3,20 +3,23 @@
 
 .award-press-display {
   @include gridDisplayCards;
-  width: 60vw;
+  @include marginWidthContainers;
 }
 
 .award-press-card {
   @include flexCenterColumn;
   justify-content: space-evenly;
-  height: 14rem;
-  width: 14rem;
+  height: 225px;
+  width: 225px;
   color: whitesmoke;
-  background-color: $theme-color;
   padding: 10%;
   text-align: center;
+  opacity: 0.95;
+  filter: alpha(opacity=95);
   &:hover {
-    background-color: $theme-dark;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    transform: scale(1.03);
   }
 }
 
@@ -25,7 +28,7 @@
 }
 
 .laurel {
-  width: 17rem;
+  width: 275px;
   z-index: 1;
   margin: 1vh;
   margin-bottom: -27vh;
@@ -35,4 +38,9 @@
   z-index: 2;
   margin-top: 10vh;
   font-size: 1.1rem;
+}
+
+.press-awards-form {
+  display: flex;
+  width: 70vw;
 }
