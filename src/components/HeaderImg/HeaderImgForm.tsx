@@ -29,9 +29,12 @@ const HeaderImgForm = ({ setIsEditing, filmEPK, setHeaderImg }: any) => {
 		if (input) {
 			setHeaderFile(input);
 		}
+	};
+	
+	const handleImg = () => {
 		setIsEditing(false);
 		// setHeaderImg('');
-	};
+	}
 
 	const makeAWSpost = async () => {
 		const presignedFileParams = await getPresignedUrl(headerFile);
@@ -75,6 +78,11 @@ const HeaderImgForm = ({ setIsEditing, filmEPK, setHeaderImg }: any) => {
 					}}
 				>
 					Save
+				</button>
+				<button
+					onClick={() => handleImg()}
+				>
+					View Image
 				</button>
 				{/* <FormControl> */}
 				{/* <Button variant="text" onClick={(event) => handleSubmit(event)}>
