@@ -73,8 +73,10 @@ const EditPage = ({ epk_id }: any) => {
         </div>
         {/* <ImagesContainer epk_id={epk_id} images={images} /> */}
         <ImagesForm />
-        <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-        <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+        <div className="film-details-and-taglines-container">
+          <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+          <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+        </div>
       </main>
     </div>
   );
