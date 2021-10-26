@@ -11,10 +11,10 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-const HeaderImgForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
-	const [headerImg, setHeaderImg] = useState<string>('');
+const HeaderImgForm = ({ setIsEditing, filmEPK, setHeaderImg }: any) => {
+	// const [headerImg, setHeaderImg] = useState<string>('');
 	const [headerFile, setHeaderFile] = useState<any>({});
-	const [testState, setTestState] = useState<string>('');
+	// const [testState, setTestState] = useState<string>('');
 
 	useEffect(() => {
 		if (headerFile.size > 0) {
@@ -23,15 +23,14 @@ const HeaderImgForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
 	}, [headerFile]);
 
 	const handleSubmit = async (event: any) => {
-		// addFilmInfo({ header_img: headerImg });
-		// setIsEditing(false);
-		// setHeaderImg('');
 		event.preventDefault();
 		const input = document.querySelector<any>('#header-input').files[0];
 
 		if (input) {
 			setHeaderFile(input);
 		}
+		setIsEditing(false);
+		// setHeaderImg('');
 	};
 
 	const makeAWSpost = async () => {
@@ -42,8 +41,7 @@ const HeaderImgForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
 			filmEPK,
 			'header_images'
 		);
-		// We need to pass this value to state
-		setTestState(data.header_image_url);
+		setHeaderImg(data.header_image_url);
 	};
 
 	return (
@@ -62,14 +60,27 @@ const HeaderImgForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
 						save
 					</Button>
 				</FormControl> */}
-				<input id="header-input" type="file" accept="image/*" />
-				<button
+				<h2>Choose an image you'd like to go here</h2>
+				<input
+					id="header-input"
+					type="file"
+					accept="image/*"
+					name="headerImg"
+					// value={headerImg}
+					onChange={(e) => setHeaderImg(e.target.value)}
+				/>
+				{/* <button
 					onClick={(event) => {
 						handleSubmit(event);
 					}}
 				>
 					Save
-				</button>
+				</button> */}
+				<FormControl>
+					<Button variant="text" onClick={(event) => handleSubmit(event)}>
+						save
+					</Button>
+				</FormControl>
 			</div>
 		</form>
 	);
