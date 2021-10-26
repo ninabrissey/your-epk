@@ -10,7 +10,7 @@ const HeaderImgDisplay = ({ filmEPK }: IHeaderImg) => {
 			{filmEPK?.attributes && (
 				<img
 					className="header-img"
-					src={filmEPK.attributes.header_img}
+					src={filmEPK.attributes.header_image_url}
 					alt=""
 				/>
 			)}
