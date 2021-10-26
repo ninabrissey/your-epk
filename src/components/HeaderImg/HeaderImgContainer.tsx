@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FilmEPK } from '../../types';
 import HeaderImgForm from './HeaderImgForm';
 import HeaderImgDisplay from './HeaderImgDisplay';
@@ -7,23 +7,42 @@ import EditIcon from '@mui/icons-material/Edit';
 
 interface IHeaderImg {
 	filmEPK: FilmEPK;
-	addFilmInfo: any;
 }
 
-const HeaderImgContainer = ({ filmEPK, addFilmInfo }: IHeaderImg) => {
+const HeaderImgContainer = ({ filmEPK }: IHeaderImg) => {
+	const [headerImg, setHeaderImg] = useState<string>('');
 	const [isEditing, setIsEditing] = useState<boolean>(true);
+
+	// const checkData = () => {
+	// 	if (filmEPK?.attributes) {
+	// 		setHeaderImg(filmEPK.attributes.header_image_url);
+	// 	}
+	// };
+
+	// useEffect(() => {
+	// 	if (filmEPK?.attributes) {
+	// 		setHeaderImg(filmEPK.attributes.header_image_url);
+	// 	}
+	// 	console.log('yeap');
+	// }, [headerImg]);
 
 	return (
 		<>
 			{isEditing && (
-				<HeaderImgForm addFilmInfo={addFilmInfo} setIsEditing={setIsEditing} filmEPK={filmEPK}/>
+				<HeaderImgForm
+					setIsEditing={setIsEditing}
+					filmEPK={filmEPK}
+					setHeaderImg={setHeaderImg}
+				/>
 			)}
 
 			{!isEditing && (
 				<Fab
-					color="secondary"
+					// color="secondary"
+					size="small"
 					aria-label="edit"
 					onClick={() => setIsEditing(true)}
+					className="header-img-edit-btn"
 				>
 					<EditIcon />
 				</Fab>

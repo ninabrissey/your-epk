@@ -5,7 +5,7 @@ import FilmPosterDisplay from '../../FilmPoster/FilmPosterDisplay';
 import SynopsisDisplay from '../../Synopsis/SynopsisDisplay';
 import FilmDetailsDisplay from '../../FilmDetails/FilmDetailsDisplay';
 import TaglinesDisplay from '../../Taglines/TaglinesDisplay';
-import { filterIncluded } from '../../../utils/cleanData';
+// import { filterIncluded } from '../../../utils/cleanData';
 import {
   FilmEPK,
   EPKData,
@@ -40,7 +40,7 @@ const PressPage = ({ title, epk_id }: any) => {
         <p>{`You've reached press page for ${epk.attributes.movie_title}, id# ${epk.attributes.synopsis}`}</p>
       )}
       <p>{` id# ${epk_id}`}</p>
-      <HeaderDisplay filmEPK={epk} />
+      {/* <HeaderDisplay filmEPK={epk} /> */}
       {/* {currentAwards !== undefined && (
         <AwardPressDisplay awards={currentAwards} presses={presses} />
       )} */}
