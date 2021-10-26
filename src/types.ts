@@ -32,7 +32,7 @@ export interface Attributes {
   release_year: string;
   run_time: string;
   language: string;
-  budget: number;
+  budget: string;
   production_company: string;
   distribution: string;
   synopsis: string;
