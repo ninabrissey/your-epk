@@ -34,10 +34,11 @@ const EditPage = ({ epk_id }: any) => {
   useEffect(() => {
     setLoading(true);
     getFilmData();
-  }, []);
+    console.log(film);
+  }, [epk_id]);
 
   const addFilmInfo = (filmInfo: object) => {
-    patchData(filmInfo, 133).then((data) => setFilm(data.data));
+    patchData(filmInfo, epk_id).then((data) => setFilm(data.data));
   };
 
   const formatTitle = (title: string) => {
@@ -46,8 +47,8 @@ const EditPage = ({ epk_id }: any) => {
 
   return (
     <div>
-      {loading && <p>Loading</p>}
       <Navigation onEdit={true} epk_id={epk_id} title={title} />
+      {loading && <p>Loading</p>}
       <main className="edit-page">
         <HeaderContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         {included.length > 0 ||
