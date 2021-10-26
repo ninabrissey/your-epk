@@ -62,7 +62,7 @@ const FilmDetailsForm = ({
   }, [filmEPK]);
 
   return (
-    <form className="film-details-form-1">
+    <form className="film-details-form">
       {/* <p>I am the film details form</p> */}
       <div>
         <FormControl sx={{ m: 1, minWidth: 120 }} className="form-section">
