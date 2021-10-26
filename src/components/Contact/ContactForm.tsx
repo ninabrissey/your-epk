@@ -45,7 +45,7 @@ const ContactForm = ({ filmEPK, addFilmInfo, setIsEditing }: any) => {
 	};
 
 	return (
-		<section className="contact-container">
+		<section className="contact-form">
 			<h2>Contact</h2>
 			<FormControl sx={{ m: 1, minWidth: 120 }}>
 				<TextField

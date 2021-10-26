@@ -1,7 +1,5 @@
 .contact-container {
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
+	height: 40%;
 
 	h2 {
 		font-family: 'Zen Kaku Gothic Antique', sans-serif;
@@ -9,4 +7,39 @@
 		text-align: center;
 		font-size: 1.25em;
 	}
+}
+
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+.contact-display {
+	// height: 40%;
+	padding: 10px;
+}
+
+.contact-info {
+	padding: 10px 0;
+
+	p {
+		padding: 3px;
+	}
+}
+
+.contact-name {
+	font-weight: 700;
+}
+
+.website-link {
+	color: inherit;
+	text-decoration: none;
+}
+
+.contact-edit-btn {
+	position: absolute;
+	z-index: 10;
+	top: 1vh;
+	left: 24vw;
 }
