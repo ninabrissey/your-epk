@@ -29,8 +29,8 @@ export interface Attributes {
 
   genre: string;
   country: string;
-  release_year: number;
-  run_time: number;
+  release_year: string;
+  run_time: string;
   language: string;
   budget: number;
   production_company: string;
