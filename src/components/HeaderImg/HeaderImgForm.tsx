@@ -14,7 +14,7 @@ import Button from '@mui/material/Button';
 const HeaderImgForm = ({ setIsEditing, filmEPK, setHeaderImg }: any) => {
 	// const [headerImg, setHeaderImg] = useState<string>('');
 	const [headerFile, setHeaderFile] = useState<any>({});
-	// const [testState, setTestState] = useState<string>('');
+	const [testState, setTestState] = useState<string>('');
 
 	useEffect(() => {
 		if (headerFile.size > 0) {
@@ -41,7 +41,7 @@ const HeaderImgForm = ({ setIsEditing, filmEPK, setHeaderImg }: any) => {
 			filmEPK,
 			'header_images'
 		);
-		setHeaderImg(data.header_image_url);
+		setTestState(data.header_image_url);
 	};
 
 	return (
@@ -65,22 +65,22 @@ const HeaderImgForm = ({ setIsEditing, filmEPK, setHeaderImg }: any) => {
 					id="header-input"
 					type="file"
 					accept="image/*"
-					name="headerImg"
+					// name="headerImg"
 					// value={headerImg}
-					onChange={(e) => setHeaderImg(e.target.value)}
+					// onChange={(e) => setHeaderImg(e.target.value)}
 				/>
-				{/* <button
+				<button
 					onClick={(event) => {
 						handleSubmit(event);
 					}}
 				>
 					Save
-				</button> */}
-				<FormControl>
-					<Button variant="text" onClick={(event) => handleSubmit(event)}>
-						save
-					</Button>
-				</FormControl>
+				</button>
+				{/* <FormControl> */}
+				{/* <Button variant="text" onClick={(event) => handleSubmit(event)}>
+					save
+				</Button> */}
+				{/* </FormControl> */}
 			</div>
 		</form>
 	);
