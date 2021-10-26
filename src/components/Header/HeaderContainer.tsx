@@ -32,7 +32,9 @@ const HeaderContainer = ({ filmEPK, addFilmInfo }: IHeader) => {
 					<EditIcon />
 				</Fab>
 			)}
-			{!isEditing && <HeaderDisplay filmEPK={filmEPK} />}
+			{!isEditing && (
+				<HeaderDisplay filmEPK={filmEPK} addFilmInfo={addFilmInfo} />
+			)}
 			<HeaderImgContainer filmEPK={filmEPK} addFilmInfo={addFilmInfo} />
 		</section>
 	);

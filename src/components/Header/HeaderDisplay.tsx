@@ -2,14 +2,14 @@ import { FilmEPK } from '../../types';
 import ContactDisplay from '../Contact/ContactDisplay';
 import Fab from '@mui/material/Fab';
 import EditIcon from '@mui/icons-material/Edit';
+import ContactContainer from '../Contact/ContactContainer';
 
 interface IHeaderDisplay {
 	filmEPK: FilmEPK;
-	// setIsEditingHeaderImg: any;
-	// setIsEditingHeaderDesc: any;
+	addFilmInfo: any;
 }
 
-const HeaderDisplay = ({ filmEPK }: IHeaderDisplay) => {
+const HeaderDisplay = ({ filmEPK, addFilmInfo }: IHeaderDisplay) => {
 	return (
 		// <section className="header-container">
 		<div className="header-info-container">
@@ -19,7 +19,7 @@ const HeaderDisplay = ({ filmEPK }: IHeaderDisplay) => {
 				{filmEPK?.attributes && <p>{filmEPK.attributes.header_description}</p>}
 			</div>
 
-			<ContactDisplay filmEPK={filmEPK} />
+			<ContactContainer filmEPK={filmEPK} addFilmInfo={addFilmInfo} />
 		</div>
 		// </section>
 	);

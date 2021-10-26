@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-const ContactForm = ({ addFilmInfo, setIsEditing }: any) => {
+const ContactForm = ({ filmEPK, addFilmInfo, setIsEditing }: any) => {
 	const [name, setName] = useState<string>('');
 	const [phoneNum, setPhoneNum] = useState<string>('');
 	const [email, setEmail] = useState<string>('');
@@ -11,13 +11,18 @@ const ContactForm = ({ addFilmInfo, setIsEditing }: any) => {
 	const [website, setWebsite] = useState<string>('');
 
 	const checkFormData = () => {
-		console.log('name in contact form: ', name);
-		// render from state
+		if (filmEPK?.attributes) {
+			setName(filmEPK.attributes.contact_name);
+			setPhoneNum(filmEPK.attributes.contact_number);
+			setEmail(filmEPK.attributes.contact_email);
+			setCompany(filmEPK.attributes.company_name);
+			setWebsite(filmEPK.attributes.website);
+		}
 	};
 
 	useEffect(() => {
 		checkFormData();
-	});
+	}, []);
 
 	const handleSubmit = () => {
 		const currentContact = {

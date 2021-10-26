@@ -16,7 +16,11 @@ const ContactContainer = ({ filmEPK, addFilmInfo }: IContact) => {
 	return (
 		<section>
 			{isEditing && (
-				<ContactForm addFilmInfo={addFilmInfo} setIsEditing={setIsEditing} />
+				<ContactForm
+					filmEPK={filmEPK}
+					addFilmInfo={addFilmInfo}
+					setIsEditing={setIsEditing}
+				/>
 			)}
 
 			{!isEditing && (
