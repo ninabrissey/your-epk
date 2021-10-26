@@ -7,7 +7,15 @@ import SynopsisDisplay from '../../Synopsis/SynopsisDisplay';
 import FilmDetailsDisplay from '../../FilmDetails/FilmDetailsDisplay';
 import TaglinesDisplay from '../../Taglines/TaglinesDisplay';
 import { filterIncluded } from '../../../utils/cleanData';
-import { FilmEPK, EPKData, Image, Included } from '../../../types';
+// import { filterIncluded } from '../../../utils/cleanData';
+import {
+  FilmEPK,
+  EPKData,
+  Award,
+  Press,
+  Image,
+  Included,
+} from '../../../types';
 import { useEffect, useState } from 'react';
 import { getEPK } from '../../../utils/apiCalls';
 import ImagesDisplay from '../../Images/ImagesDisplay';

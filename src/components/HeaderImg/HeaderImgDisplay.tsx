@@ -6,10 +6,10 @@ interface IHeaderImg {
 
 const HeaderImgDisplay = ({ filmEPK }: IHeaderImg) => {
   return (
-    <section>
+    <section className="header-image-render">
       {filmEPK?.attributes && (
         <img
-          className="header-img"
+          className="header-image"
           src={filmEPK.attributes.header_image_url}
           alt=""
         />
