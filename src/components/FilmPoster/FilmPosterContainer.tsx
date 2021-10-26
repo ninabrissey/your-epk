@@ -8,19 +8,11 @@ import EditIcon from '@mui/icons-material/Edit';
 interface IFilmPoster {
 	filmEPK: FilmEPK;
 	addFilmInfo: any;
-	loading: boolean
+	epk_id: string
 }
 
-const FilmPosterContainer = ({ filmEPK, addFilmInfo }: IFilmPoster) => {
+const FilmPosterContainer = ({ filmEPK, addFilmInfo, epk_id }: IFilmPoster) => {
   const [isEditing, setIsEditing] = useState<boolean>(true)
-  const [poster, setPoster] = useState<string>('')
-	const [hasEPK, setHasEPK] = useState<boolean>(false)
-
-	// useEffect(() => {
-	// 	setTimeout(() => {setPoster(filmEPK.attributes.movie_poster_url)}, 10000)
-	
-
-	// }, [])
 
   return (
 		<div className='film-poster-container'> 
@@ -31,57 +23,11 @@ const FilmPosterContainer = ({ filmEPK, addFilmInfo }: IFilmPoster) => {
 						<EditIcon />
 					</Fab>
 				}
-				{isEditing && <FilmPosterForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} setPoster={setPoster} setIsEditing={setIsEditing} />}
-				{!isEditing && <FilmPosterDisplay filmEPK={filmEPK} poster={poster}/> }
+				{isEditing && <FilmPosterForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} setIsEditing={setIsEditing} />}
+				{!isEditing && <FilmPosterDisplay  epk_id={epk_id}/> }
 			</div> }
 		</div>
   )
-
-	// return (
-	// 	<div className="film-poster-container">
-	// 		{!isEditing && (
-	// 			<Fab
-	// 				color="secondary"
-	// 				aria-label="edit"
-	// 				onClick={() => setIsEditing(true)}
-	// 			>
-	// 				<EditIcon />
-	// 			</Fab>
-	// 		)}
-	// 		{isEditing && (
-	// 			<FilmPosterForm
-	// 				filmEPK={filmEPK}
-	// 				addFilmInfo={addFilmInfo}
-	// 				setPoster={setPoster}
-	// 			/>
-	// 		)}
-	// 		{!isEditing && <FilmPosterDisplay filmEPK={filmEPK} />}
-	// 	</div>
-	// );
-
-	// const [isEditing, setIsEditing] = useState<boolean>(true);
-
-	// return (
-	// 	<div className="film-poster-container">
-	// 		{!isEditing && (
-	// 			<Fab
-	// 				color="secondary"
-	// 				aria-label="edit"
-	// 				onClick={() => setIsEditing(true)}
-	// 			>
-	// 				<EditIcon />
-	// 			</Fab>
-	// 		)}
-	// 		{isEditing && (
-	// 			<FilmPosterForm
-	// 				filmEPK={filmEPK}
-	// 				addFilmInfo={addFilmInfo}
-	// 				setIsEditing={setIsEditing}
-	// 			/>
-	// 		)}
-	// 		{!isEditing && <FilmPosterDisplay filmEPK={filmEPK} />}
-	// 	</div>
-	// );
 };
 
 export default FilmPosterContainer;
