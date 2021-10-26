@@ -1,4 +1,5 @@
 import CryptoJS from 'crypto-js';
+const yourModuleName = require('crypto-js');
 import { stat } from 'fs';
 // Note that for larger files, you may want to hash them incrementally.
 // Taken from https://stackoverflow.com/questions/768268/
