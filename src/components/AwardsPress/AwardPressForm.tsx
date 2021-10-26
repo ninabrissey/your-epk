@@ -5,6 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
+import FormHelperText from '@mui/material/FormHelperText';
 import './AwardPress.scss';
 import PressCard from './PressCard';
 // import { createTheme, ThemeProvider } from '@mui/system';
@@ -67,7 +68,7 @@ const AwardPressForm = ({
   };
 
   return (
-    <section>
+    <section className='awards-press-form-wrapper'>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <div className="press-awards-form">
           <InputLabel id="award-or-press">type</InputLabel>
@@ -88,7 +89,7 @@ const AwardPressForm = ({
             <MenuItem value={'award'}>award</MenuItem>
             <MenuItem value={'press'}>press</MenuItem>
           </Select>
-
+      
           {select === 'award' && (
             <>
               <TextField

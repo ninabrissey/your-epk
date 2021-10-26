@@ -3,6 +3,7 @@
 
 .awards-press-container {
   width: 100%;
+  margin: 5vh 0;
 
   .awards-press-edit-btn {
     top: 5vh;
@@ -22,7 +23,6 @@
 .award-press-display {
   @include gridDisplayCards;
   @include marginWidthContainers;
-
 }
 
 .award-press-card {
@@ -59,7 +59,12 @@
   font-size: 1.1rem;
 }
 
+.awards-press-form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .press-awards-form {
   display: flex;
-  width: 70vw;
+  width: 100%;
 }
