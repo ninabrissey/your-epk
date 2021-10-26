@@ -37,27 +37,27 @@ const FilmPosterContainer = ({ filmEPK, addFilmInfo }: IFilmPoster) => {
 		</div>
   )
 
-	return (
-		<div className="film-poster-container">
-			{!isEditing && (
-				<Fab
-					color="secondary"
-					aria-label="edit"
-					onClick={() => setIsEditing(true)}
-				>
-					<EditIcon />
-				</Fab>
-			)}
-			{isEditing && (
-				<FilmPosterForm
-					filmEPK={filmEPK}
-					addFilmInfo={addFilmInfo}
-					setPoster={setPoster}
-				/>
-			)}
-			{!isEditing && <FilmPosterDisplay filmEPK={filmEPK} />}
-		</div>
-	);
+	// return (
+	// 	<div className="film-poster-container">
+	// 		{!isEditing && (
+	// 			<Fab
+	// 				color="secondary"
+	// 				aria-label="edit"
+	// 				onClick={() => setIsEditing(true)}
+	// 			>
+	// 				<EditIcon />
+	// 			</Fab>
+	// 		)}
+	// 		{isEditing && (
+	// 			<FilmPosterForm
+	// 				filmEPK={filmEPK}
+	// 				addFilmInfo={addFilmInfo}
+	// 				setPoster={setPoster}
+	// 			/>
+	// 		)}
+	// 		{!isEditing && <FilmPosterDisplay filmEPK={filmEPK} />}
+	// 	</div>
+	// );
 
 	// const [isEditing, setIsEditing] = useState<boolean>(true);
 
