@@ -11,7 +11,6 @@ interface IHeaderDisplay {
 
 const HeaderDisplay = ({ filmEPK, addFilmInfo }: IHeaderDisplay) => {
 	return (
-		// <section className="header-container">
 		<div className="header-info-container">
 			<div>
 				{filmEPK?.attributes && <h1>{filmEPK.attributes.movie_title}</h1>}
@@ -23,7 +22,6 @@ const HeaderDisplay = ({ filmEPK, addFilmInfo }: IHeaderDisplay) => {
 
 			<ContactContainer filmEPK={filmEPK} addFilmInfo={addFilmInfo} />
 		</div>
-		// </section>
 	);
 };
 
