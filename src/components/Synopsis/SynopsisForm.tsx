@@ -11,9 +11,8 @@ const SynopsisForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
     const currentSynopsis = {
       synopsis: synopsis,
     };
-    addFilmInfo(currentSynopsis, 133);
+    addFilmInfo(currentSynopsis);
     setIsEditing(false);
-    setSynopsis('');
   };
 
   const checkFormData = () => {
