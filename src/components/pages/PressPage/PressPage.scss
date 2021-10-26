@@ -1,0 +1,40 @@
+.press-page-below-header {
+  display: grid;
+  width: 70vw;
+  margin: auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 2rem;
+}
+
+.press-award-display {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  background: orange;
+}
+
+.trailer-display {
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+//synopsis
+.container-wrapper {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.film-poster-display {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+.film-details-display {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.tagline-display {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
