@@ -8,8 +8,8 @@ const FilmPosterDisplay = ({ filmEPK } : IFilmPoster) => {
 
   return (
     <section>
-      <p>I am the film poster display</p>
-      {filmEPK.attributes !== undefined && <img 
+      {/* <p>I am the film poster display</p> */}
+      {filmEPK?.attributes && <img 
         className='poster'
         src={filmEPK.attributes.movie_poster_url}
         alt=''

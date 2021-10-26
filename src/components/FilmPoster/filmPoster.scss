@@ -5,10 +5,15 @@
 .film-poster-container {
   height: 65vh;
   width: 35%;
-  background-color: rgb(174, 218, 174);
+  // background-color: rgb(140, 140, 140);
 }
 
 .poster {
   object-fit: cover;
   width: 80%;
+}
+
+.film-poster-edit-btn {
+  top: 3vh;
+  left: 27vw;
 }

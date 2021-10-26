@@ -6,7 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import CryptoJS from 'crypto-js';
 
-const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
+const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster, setIsEditing }: any) => {
   const [filmPoster, setFilmPoster] = useState<any>({});
   const [reminder, setReminder] = useState<boolean>(false)
 
@@ -29,6 +29,10 @@ const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
     }
   }
 
+  const handleImg = () => {
+    setIsEditing(false)
+  }
+
   const makeAWSpost = async () => {
     const presignedFileParams = await getPresignedUrl(filmPoster)
     const awsRes = await putToAWS(presignedFileParams, filmPoster)
@@ -39,10 +43,11 @@ const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
 
   return (
     <form>
-      <p>I am the film poster form</p>
+      {/* <p>I am the film poster form</p> */}
       <input id='test-input' type="file" accept="image/*" />
       {reminder && <p>Must choose a file to save</p>}
       <button onClick={(event) => { handleSubmit(event) }}>Save</button>
+      <button onClick={() => handleImg()}>View Image</button>
       {/* <Button
         variant="contained"
         component="label"
