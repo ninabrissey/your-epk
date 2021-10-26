@@ -4,7 +4,8 @@ export const postData = (url: string, data: object) => {
   return fetch(url, {
     method: 'POST',
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Accept": "application/json"
     },
     body: JSON.stringify(data),
   }).then(res => res.json())
@@ -44,13 +45,14 @@ export const getEPK = (epkID: string) => {
     .then(res => res.json())
 }
 
-export const putData = (data: string, checksum: string, directUploadURL: any) => {
+export const putData = (data: any, checksum: string, directUploadURL: any) => {
   return fetch(directUploadURL, {
     method: 'PUT',
     headers: {
       "Content-Type": "image/jpeg",
       "Content-MD5": checksum,
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(data), //is the binary or base64
   })
 }
+
