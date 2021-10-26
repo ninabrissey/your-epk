@@ -16,7 +16,7 @@ const HeaderImgContainer = ({ filmEPK, addFilmInfo }: IHeaderImg) => {
 	return (
 		<>
 			{isEditing && (
-				<HeaderImgForm addFilmInfo={addFilmInfo} setIsEditing={setIsEditing} />
+				<HeaderImgForm addFilmInfo={addFilmInfo} setIsEditing={setIsEditing} filmEPK={filmEPK}/>
 			)}
 
 			{!isEditing && (
