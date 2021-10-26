@@ -74,7 +74,7 @@ const EditPage = ({ epk_id }: any) => {
         <TrailerContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         <div className="container-wrapper">
           <SynopsisContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-          <FilmPosterContainer filmEPK={film} addFilmInfo={addFilmInfo} loading={loading}/>
+          <FilmPosterContainer filmEPK={film} addFilmInfo={addFilmInfo} epk_id={epk_id}/>
         </div>
         {/* <ImagesContainer epk_id={epk_id} images={images} /> */}
         <ImagesForm />
