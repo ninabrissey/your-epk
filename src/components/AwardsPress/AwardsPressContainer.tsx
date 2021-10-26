@@ -52,12 +52,14 @@ const AwardsPressContainer = ({
   }, []);
 
   return (
-    <div>
+    <div className='awards-press-container'>
       {!isEditting && !error && (
         <Fab
-          color="secondary"
+          // color="secondary"
+          size="small"
           aria-label="edit"
           onClick={() => setIsEditting(!isEditting)}
+          className='awards-press-edit-btn'
         >
           <EditIcon />
         </Fab>
