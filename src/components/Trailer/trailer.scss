@@ -1,5 +1,22 @@
 .trailer-container {
   height: 55vh;
   width: 100%;
-  background-color: rgb(233, 187, 107);
+  padding: 2vh 0;
+  background-color: whitesmoke;
+
+  h2 {
+		font-family: 'Zen Kaku Gothic Antique', sans-serif;
+		text-transform: uppercase;
+		font-size: 1.25em;
+    width: 75vw;
+    margin: auto;
+	}
+}
+
+.trailer-form {
+  height: 55%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

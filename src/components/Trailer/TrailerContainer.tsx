@@ -15,6 +15,7 @@ const TrailerContainer = ({ filmEPK, addFilmInfo }: ITrailer) => {
 
 	return (
 		<section className="trailer-container">
+			<h2>Trailer</h2>
 			{!isEditing && (
 				<Fab
 					color="secondary"

@@ -17,8 +17,8 @@ const TrailerForm = ({ addFilmInfo, setIsEditing }: any) => {
 	};
 
 	return (
-		<form>
-			<p>I am the trailer form container</p>
+		<form className='trailer-form'>
+			{/* <p>I am the trailer form container</p> */}
 			<FormControl sx={{ m: 1, minWidth: 480 }}>
 				<TextField
 					id="outlined-multiline-flexible"
