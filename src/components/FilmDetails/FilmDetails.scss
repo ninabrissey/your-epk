@@ -1,9 +1,9 @@
 @import '../../styles/mixins';
 @import '../../styles/variables';
 
-
 .film-details-container {
-  height: $primary-height;
+  // height: $primary-height;
+  height: 60vh;
   width: $primary-width;
   background-color: $better-orange;
 }
@@ -18,8 +18,20 @@
   }
 }
 
-.form-section{
+.form-section {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.film-details-text {
+  p {
+    font-size: 2rem;
+  }
+}
+
+.film-details-section {
+  width: 30vh;
+}
+
+// Maria you prob want to change this back to what you had
