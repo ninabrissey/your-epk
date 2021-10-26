@@ -12,7 +12,7 @@ export interface UserData {
 
 export interface EPKData {
   data: FilmEPK
-  included: Award[] | Press[]
+  included: Included
   // this must be any any because it holds press, film_fam, awards, and images
   // unless we can do | (or operator)
 }
@@ -35,22 +35,13 @@ export interface Attributes {
   budget: number;
   production_company: string;
   distribution: string;
-
-  awards: Award[];
-  presses: Press[];
-
   synopsis: string;
-
   movie_poster_url: string;
-
   trailer: string;
-
   tag_line: string;
   log_line: string;
-
   header_description: string;
   header_img: string;
-
   contact_name: string;
   contact_number: string;
   contact_email: string;
@@ -59,18 +50,32 @@ export interface Attributes {
 }
 
 export interface Press {
-  id: number;
   film_epk_id: number;
   name_of_publication: string;
   description: string;
   link: string;
 }
 
+export interface Included {
+  id: string;
+  type: string;
+  attributes:  Award | Press | Image 
+  // add film fame once endpoint available
+}
+
 export interface Award {
-  id: number;
   film_epk_id: number;
   name: string;
   year: string;
   award_type: string;
 }
 
+export interface Image {
+  film_epk_id: number;
+  description: string;
+  link: string;
+}
+
+export interface Film_Fam {
+
+}

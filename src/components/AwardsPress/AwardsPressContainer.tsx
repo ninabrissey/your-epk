@@ -1,62 +1,81 @@
-import { useState, useEffect } from 'react'
-import { postData } from '../../utils/apiCalls'
-import { Award, Press } from '../../types'
-import AwardPressDisplay from './AwardPressDisplay'
-import AwardPressForm from './AwardPressForm'
+import { useState, useEffect } from 'react';
+import { postData } from '../../utils/apiCalls';
+import { Included } from '../../types';
+import AwardPressDisplay from './AwardPressDisplay';
+import AwardPressForm from './AwardPressForm';
 import Fab from '@mui/material/Fab';
 import EditIcon from '@mui/icons-material/Edit';
+import { filterIncluded } from '../../utils/cleanData';
 
 interface APContainerProps {
   addFilmInfo: any;
-  awards: Award[] | [];
-  presses: Press[] | [];
-  epk_id: string
+  epk_id: string;
+  included: Included[];
 }
 
-const AwardsPressContainer = ({awards, presses, addFilmInfo, epk_id}: APContainerProps) => {
-  // const AwardsPressContainer = ({filmEPK, addFilmInfo}: APContainerProps) => {
-const [isEditting, setIsEditting] = useState(false)
-const [currentAwards, setAwards] = useState<Award[] | []>([])
-const [error, setError] = useState<any>('')
-const [loading, setLoading] = useState(false)
+const AwardsPressContainer = ({
+  addFilmInfo,
+  epk_id,
+  included,
+}: APContainerProps) => {
+  const [isEditting, setIsEditting] = useState(false);
+  const [currentAwards, setAwards] = useState<Included[]>([]);
+  const [currentPresses, setPresses] = useState<Included[]>([]);
+  const [error, setError] = useState<any>('');
+  const [isLoading, setIsLoading] = useState(false);
 
-const postAwardsPress = async (endpoint: any, newItem: any) => {
-  setError('');
-  try {
-    setLoading(true)
-    const data = await postData(`https://epk-be.herokuapp.com/api/v1/${endpoint}`, newItem)
-    setAwards([...currentAwards, data.data])
-  } catch (error) {
-    setError(error)
-  }
-  setLoading(false)
-}
+  const postAwardsPress = async (endpoint: any, newItem: any) => {
+    setError('');
+    setIsLoading(true);
+    try {
+      const data = await postData(
+        `https://epk-be.herokuapp.com/api/v1/${endpoint}`,
+        newItem
+      );
+      if (endpoint === 'awards') {
+        setAwards([...currentAwards, data.data]);
+      }
+      if (endpoint === 'presses') {
+        setPresses([...currentPresses, data.data]);
+        console.log(data, 'returned press object from post');
+        console.log('current press held in state', currentPresses);
+      }
+    } catch (error) {
+      setError(error);
+    }
+    setIsLoading(false);
+  };
 
-useEffect(() => {
-  setAwards(awards)
-}, [awards, presses])
+  useEffect(() => {
+    setAwards(filterIncluded(included, 'award'));
+    setPresses(filterIncluded(included, 'press'));
+  }, []);
 
+  return (
+    <div>
+      {!isEditting && !error && (
+        <Fab
+          color="secondary"
+          aria-label="edit"
+          onClick={() => setIsEditting(!isEditting)}
+        >
+          <EditIcon />
+        </Fab>
+      )}
+      <AwardPressDisplay awards={currentAwards} presses={currentPresses} />
+      {isEditting && (
+        <AwardPressForm
+          addFilmInfo={addFilmInfo}
+          postAwardsPress={postAwardsPress}
+          setIsEditting={setIsEditting}
+          isEditting={isEditting}
+          epk_id={epk_id}
+        />
+      )}
+      {isLoading && <p>We are loading you information</p>}
+      {error && <p>Something went wrong. Please refresh the page.</p>}
+    </div>
+  );
+};
 
-return (
-  <div>
-    {loading && <p>We are loading you information</p>}
-    {error && <p>Something went wrong. Please refresh the page.</p>}
-    { (!isEditting && !error) && <Fab color="secondary" aria-label="edit" onClick={() => setIsEditting(!isEditting)}>
-      <EditIcon />
-    </Fab>}
-    {awards !== undefined && 
-    <AwardPressDisplay awards={currentAwards} presses={presses} />}
-    {isEditting && <AwardPressForm addFilmInfo={addFilmInfo} postAwardsPress={postAwardsPress} setIsEditting={setIsEditting} isEditting={isEditting} epk_id={epk_id}/>}
-  </div>
-  )
-}
-
-export default AwardsPressContainer
-
-// if (this.state.selectedMovie === null || undefined ) {
-//   return (
-//     <div>
-//       Loading
-//     </div>
-//   )
-// }
+export default AwardsPressContainer;

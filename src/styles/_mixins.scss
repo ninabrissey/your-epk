@@ -13,13 +13,18 @@
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 20px;
 }
-
 
 // USED IN *HEADER, *FILM DETAILS,
 @mixin flexColumnJustify($placement) {
   display: flex;
   flex-direction: column;
   justify-content: $placement;
+}
+
+// USE IN *IMAGES, *PRESS
+@mixin marginWidthContainers {
+  margin: auto;
+  width: 60vw;
 }
