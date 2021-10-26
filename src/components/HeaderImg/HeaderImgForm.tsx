@@ -14,6 +14,7 @@ const HeaderImgForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
     if (headerFile.size > 0) {
       makeAWSpost();
     }
+		console.log('headerFile',headerFile)
   }, [headerFile])
 
 	const handleSubmit = async (event: any) => {
