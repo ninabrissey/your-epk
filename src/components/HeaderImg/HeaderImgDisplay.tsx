@@ -4,11 +4,11 @@ import { getEPK } from '../../utils/apiCalls';
 
 interface IHeaderImg {
 	filmEPK: FilmEPK;
-	headerImg: string;
+	// headerImg: string;
 	epk_id: any
 }
 
-const HeaderImgDisplay = ({ filmEPK, headerImg, epk_id }: IHeaderImg) => {
+const HeaderImgDisplay = ({ filmEPK, epk_id }: IHeaderImg) => {
 	const [image, setImage] = useState<string>('')
 
 	useEffect(() => {

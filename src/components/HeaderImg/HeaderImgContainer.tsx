@@ -7,24 +7,11 @@ import EditIcon from '@mui/icons-material/Edit';
 
 interface IHeaderImg {
 	filmEPK: FilmEPK;
+	epk_id: any
 }
 
-const HeaderImgContainer = ({ filmEPK }: IHeaderImg) => {
-	const [headerImg, setHeaderImg] = useState<string>('');
+const HeaderImgContainer = ({ filmEPK , epk_id}: IHeaderImg) => {
 	const [isEditing, setIsEditing] = useState<boolean>(true);
-
-	// const checkData = () => {
-	// 	if (filmEPK?.attributes) {
-	// 		setHeaderImg(filmEPK.attributes.header_image_url);
-	// 	}
-	// };
-
-	// useEffect(() => {
-	// 	if (filmEPK?.attributes) {
-	// 		setHeaderImg(filmEPK.attributes.header_image_url);
-	// 	}
-	// 	console.log('yeap');
-	// }, [headerImg]);
 
 	return (
 		<>
@@ -32,7 +19,6 @@ const HeaderImgContainer = ({ filmEPK }: IHeaderImg) => {
 				<HeaderImgForm
 					setIsEditing={setIsEditing}
 					filmEPK={filmEPK}
-					setHeaderImg={setHeaderImg}
 				/>
 			)}
 
@@ -48,7 +34,7 @@ const HeaderImgContainer = ({ filmEPK }: IHeaderImg) => {
 				</Fab>
 			)}
 
-			{!isEditing && <HeaderImgDisplay filmEPK={filmEPK} />}
+			{!isEditing && <HeaderImgDisplay filmEPK={filmEPK} epk_id={epk_id}/>}
 		</>
 	);
 };
