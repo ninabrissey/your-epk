@@ -48,7 +48,7 @@ export interface Attributes {
   tag_line: string;
   log_line: string;
 
-  header_description: string;
+  header_image_description: string;
   header_img: string;
 
   contact_name: string;
