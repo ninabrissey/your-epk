@@ -17,7 +17,9 @@ const SynopsisForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
   };
 
   useEffect(() => {
-    setSynopsis(filmEPK.attributes.synopsis);
+    if (filmEPK) {
+      setSynopsis(filmEPK.attributes.synopsis);
+    }
   }, [filmEPK]);
 
   return (
