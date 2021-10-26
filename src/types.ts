@@ -42,7 +42,7 @@ export interface Attributes {
   log_line: string;
 
   header_image_description: string;
-  header_img: string;
+  header_image_url: string;
   contact_name: string;
   contact_number: string;
   contact_email: string;
