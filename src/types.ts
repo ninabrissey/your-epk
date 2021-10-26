@@ -28,10 +28,10 @@ export interface Attributes {
   movie_title: string;
   genre: string;
   country: string;
-  release_year: number;
-  run_time: number;
+  release_year: string;
+  run_time: string;
   language: string;
-  budget: number;
+  budget: string;
   production_company: string;
   distribution: string;
   synopsis: string;
