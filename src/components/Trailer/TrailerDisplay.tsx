@@ -11,9 +11,9 @@ const TrailerDisplay = ({ filmEPK } : ITrailer) => {
       {filmEPK.attributes !== undefined && <iframe
         className='trailer'
         title='Embedded YouTube Video'
-        // width='750'
-        // height='438.46'
-        // src={filmEPK.attributes.trailer}
+        width='750'
+        height='438.46'
+        src={filmEPK.attributes.trailer}
         frameBorder='0'
         allowFullScreen
       />}
