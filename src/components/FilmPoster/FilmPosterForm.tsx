@@ -7,7 +7,8 @@ import Button from '@mui/material/Button';
 import CryptoJS from 'crypto-js';
 
 const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
-  const [filmPoster, setFilmPoster] = useState<any>({})
+  const [filmPoster, setFilmPoster] = useState<any>({});
+  const [reminder, setReminder] = useState<boolean>(false)
 
   useEffect(() => {
     if (filmPoster.size > 0) {
@@ -17,7 +18,15 @@ const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    setFilmPoster(document.querySelector<any>('#test-input').files[0])
+    const input = document.querySelector<any>('#test-input').files[0]
+
+    if (input) {
+      setReminder(false)
+      setFilmPoster(input) 
+    } else {
+      setReminder(true)
+
+    }
   }
 
   const makeAWSpost = async () => {
@@ -32,6 +41,7 @@ const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
     <form>
       <p>I am the film poster form</p>
       <input id='test-input' type="file" accept="image/*" />
+      {reminder && <p>Must choose a file to save</p>}
       <button onClick={(event) => { handleSubmit(event) }}>Save</button>
       {/* <Button
         variant="contained"
