@@ -29,6 +29,7 @@ const HeaderForm = ({ filmEPK, addFilmInfo, setIsEditing }: IHeader) => {
 						id="outlined-multiline-flexible"
 						label="Description"
 						multiline
+						required
 						minRows={4}
 						maxRows={4}
 						type="text"

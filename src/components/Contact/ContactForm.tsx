@@ -34,7 +34,6 @@ const ContactForm = ({ filmEPK, addFilmInfo, setIsEditing }: any) => {
 		};
 		addFilmInfo(currentContact);
 		setIsEditing(false);
-		clearForm();
 	};
 
 	const clearForm = () => {
@@ -59,6 +58,7 @@ const ContactForm = ({ filmEPK, addFilmInfo, setIsEditing }: any) => {
 					name="name"
 					value={name}
 					onChange={(e) => setName(e.target.value)}
+					required
 				/>
 				<TextField
 					id="outlined-basic"
@@ -81,6 +81,7 @@ const ContactForm = ({ filmEPK, addFilmInfo, setIsEditing }: any) => {
 					name="email"
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
+					required
 				/>
 				<TextField
 					id="outlined-basic"
