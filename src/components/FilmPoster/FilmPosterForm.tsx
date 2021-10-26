@@ -6,7 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import CryptoJS from 'crypto-js';
 
-const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
+const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster, setIsEditing }: any) => {
   const [filmPoster, setFilmPoster] = useState<any>({});
   const [reminder, setReminder] = useState<boolean>(false)
 
@@ -38,6 +38,7 @@ const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
   }
 
   return (
+    <div>
     <form>
       <p>I am the film poster form</p>
       <input id='test-input' type="file" accept="image/*" />
@@ -54,6 +55,8 @@ const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster }: any) => {
         />
       </Button> */}
     </form>
+    <button onClick={() => setIsEditing(false)} >Done editing</button>
+    </div>
   )
 }
 
