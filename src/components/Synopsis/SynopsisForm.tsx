@@ -27,7 +27,7 @@ const SynopsisForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
   }, [filmEPK]);
 
   return (
-    <form>
+    <form className="synopsis-form-wrapper">
       <p>I am the synopsis form</p>
       <FormControl sx={{ m: 1, minWidth: 320 }}>
         <TextField
