@@ -63,7 +63,7 @@ const FilmDetailsForm = ({
 
   return (
     <form className="film-details-form-1">
-      <p>I am the film details form</p>
+      {/* <p>I am the film details form</p> */}
       <div>
         <FormControl sx={{ m: 1, minWidth: 120 }} className="form-section">
           <TextField

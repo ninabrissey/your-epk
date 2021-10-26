@@ -29,7 +29,7 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
 
   return (
     <form className="taglines-form-wrapper">
-      <p>I am the taglines form</p>
+      {/* <p>I am the taglines form</p> */}
       <div>
         <FormControl sx={{ m: 1, minWidth: 400 }}>
           <TextField

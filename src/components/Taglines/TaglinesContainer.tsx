@@ -15,12 +15,14 @@ const TaglinesContainer = ({ filmEPK, addFilmInfo} : ITaglines) => {
 
   return (
     <section className='taglines-container'>
-
+      <h2>Tagline and Logline</h2>
       {!isEditing && 
         <Fab 
-          color='secondary' 
+          // color='secondary'
+          size="small" 
           aria-label='edit'
           onClick={() => setIsEditing(true)}
+          className="taglines-edit-btn"
         >
           <EditIcon />
         </Fab>

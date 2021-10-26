@@ -19,11 +19,14 @@ const FilmDetailsContainer = ({ filmEPK, addFilmInfo }: IFilmDetails) => {
 
   return (
     <section className="film-details-container">
+      <h2>Film Details</h2>
       {!isEditing && (
         <Fab
-          color="secondary"
+          // color="secondary"
+          size="small"
           aria-label="edit"
           onClick={() => setIsEditing(!isEditing)}
+          className="film-details-edit-btn"
         >
           <EditIcon />
         </Fab>
