@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-const SynopsisForm = ({ addFilmInfo, setIsEditing }: any) => {
+const SynopsisForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
   const [synopsis, setSynopsis] = useState('');
 
   const handleSubmit = () => {
@@ -15,6 +15,10 @@ const SynopsisForm = ({ addFilmInfo, setIsEditing }: any) => {
     setIsEditing(false);
     setSynopsis('');
   };
+
+  useEffect(() => {
+    setSynopsis(filmEPK.attributes.synopsis);
+  }, [filmEPK]);
 
   return (
     <form>
