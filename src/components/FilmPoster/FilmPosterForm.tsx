@@ -42,8 +42,8 @@ const FilmPosterDisplay = ({ addFilmInfo, filmEPK, setPoster, setIsEditing }: an
   }
 
   return (
-    <form>
-      {/* <p>I am the film poster form</p> */}
+    <form className="film-poster-form">
+      <p>Choose an image you'd like to go here</p>
       <input id='test-input' type="file" accept="image/*" />
       {reminder && <p>Must choose a file to save</p>}
       <button onClick={(event) => { handleSubmit(event) }}>Save</button>
