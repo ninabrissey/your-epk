@@ -44,14 +44,14 @@ const PressPage = ({ title, epk_id }: any) => {
     {isLoading ? <p>Loading...</p> : <div>
       <p>{`You've reached press page for ${epk.attributes.movie_title}, id# ${epk.attributes.release_year}`}</p> 
         <HeaderDisplay filmEPK={epk} addFilmInfo={null}/>
-        <HeaderImgDisplay filmEPK={epk} /> 
+        <HeaderImgDisplay filmEPK={epk} epk_id={epk_id}/> 
         {/* {currentAwards !== undefined && (
           <AwardPressDisplay awards={currentAwards} presses={presses} />
         )} */}
         <TrailerDisplay filmEPK={epk} />
         <div className="container-wrapper">
           <SynopsisDisplay filmEPK={epk} />
-          {/* <FilmPosterDisplay filmEPK={epk} poster={epk.attributes.movie_poster_url}/> */}
+          <FilmPosterDisplay epk_id={epk_id}/>
         </div>
         {/* <ImagesDisplay currentImages={currentImages} /> */}
         <FilmDetailsDisplay filmEPK={epk} />
