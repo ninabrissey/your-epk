@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FilmEPK } from '../../types';
 import ContactContainer from '../Contact/ContactContainer';
 import TextField from '@mui/material/TextField';
@@ -14,8 +14,18 @@ interface IHeader {
 const HeaderForm = ({ filmEPK, addFilmInfo, setIsEditing }: IHeader) => {
 	const [headerDescription, setHeaderDescription] = useState<string>('');
 
+	const checkFormData = () => {
+		if (filmEPK?.attributes) {
+			setHeaderDescription(filmEPK.attributes.header_image_description);
+		}
+	};
+
+	useEffect(() => {
+		checkFormData();
+	}, [filmEPK]);
+
 	const handleSubmit = () => {
-		addFilmInfo({ header_description: headerDescription });
+		addFilmInfo({ header_image_description: headerDescription });
 		setIsEditing(false);
 	};
 

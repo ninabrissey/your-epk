@@ -16,7 +16,9 @@ const HeaderDisplay = ({ filmEPK, addFilmInfo }: IHeaderDisplay) => {
 			<div>
 				{filmEPK?.attributes && <h1>{filmEPK.attributes.movie_title}</h1>}
 
-				{filmEPK?.attributes && <p>{filmEPK.attributes.header_description}</p>}
+				{filmEPK?.attributes && (
+					<p>{filmEPK.attributes.header_image_description}</p>
+				)}
 			</div>
 
 			<ContactContainer filmEPK={filmEPK} addFilmInfo={addFilmInfo} />

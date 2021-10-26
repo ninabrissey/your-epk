@@ -22,7 +22,7 @@ const ContactForm = ({ filmEPK, addFilmInfo, setIsEditing }: any) => {
 
 	useEffect(() => {
 		checkFormData();
-	}, []);
+	}, [filmEPK]);
 
 	const handleSubmit = () => {
 		const currentContact = {

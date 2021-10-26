@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-const HeaderImgForm = ({ addFilmInfo, setIsEditing }: any) => {
+const HeaderImgForm = ({ filmEPK, addFilmInfo, setIsEditing }: any) => {
 	const [headerImg, setHeaderImg] = useState<string>('');
 
 	const handleSubmit = () => {
