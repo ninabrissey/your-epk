@@ -38,17 +38,17 @@ const HeaderImgContainer = ({ filmEPK }: IHeaderImg) => {
 
 			{!isEditing && (
 				<Fab
-					color="secondary"
+					// color="secondary"
+					size="small"
 					aria-label="edit"
 					onClick={() => setIsEditing(true)}
+					className="header-img-edit-btn"
 				>
 					<EditIcon />
 				</Fab>
 			)}
 
-			{!isEditing && (
-				<HeaderImgDisplay filmEPK={filmEPK} headerImg={headerImg} />
-			)}
+			{!isEditing && <HeaderImgDisplay filmEPK={filmEPK} />}
 		</>
 	);
 };

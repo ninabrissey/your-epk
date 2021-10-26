@@ -31,9 +31,9 @@ const HeaderForm = ({ filmEPK, addFilmInfo, setIsEditing }: IHeader) => {
 
 	return (
 		<>
-			<p>HEADER FORM CONTAINER</p>
-			<div className="header-info-container">
-				{filmEPK?.attributes && <h1>{filmEPK.attributes.movie_title}</h1>}
+			{/* <p>HEADER FORM CONTAINER</p> */}
+			<div className="header-form">
+				{/* {filmEPK?.attributes && <h1>{filmEPK.attributes.movie_title}</h1>} */}
 				<FormControl sx={{ m: 1, minWidth: 120 }}>
 					<TextField
 						id="outlined-multiline-flexible"

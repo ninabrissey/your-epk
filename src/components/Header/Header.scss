@@ -4,12 +4,30 @@
 .header-container {
 	height: $primary-height;
 	width: 100%;
-	background-color: lavender;
+	background-color: whitesmoke;
+
+	h1 {
+		font-family: 'Zen Kaku Gothic Antique', sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 2em;
+		padding: 5px 10px;
+	}
 }
-// .edit-btn {
-// 	left: 60vw;
-// 	z-index: 10;
-// }
+
+.header-desc-edit-btn {
+	left: 60vw;
+	z-index: 10;
+	top: 1vh;
+	left: 24vw;
+}
+
+.header-form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
 
 .header-img-form {
 	height: 65vh;
@@ -31,15 +49,30 @@
 	top: 15vh;
 	left: 60%;
 	background-color: #ffffff;
-	display: flex;
-	flex-direction: column;
-	// @include flexColumnJustify(space-evenly);
+	// display: flex;
+	// flex-direction: column;
+	@include flexColumnJustify(space-evenly);
 
-	h1 {
-		font-family: 'Zen Kaku Gothic Antique', sans-serif;
-		text-transform: uppercase;
-		text-align: center;
-		font-size: 2em;
-		padding: 5px 10px;
+	p {
+		padding: 10px;
 	}
+}
+
+.header-img-edit-btn {
+	position: absolute;
+	z-index: 10;
+	top: 1vh;
+	left: 50vw;
+}
+
+.header-image-render {
+	height: 85vh;
+	width: 100%;
+	object-fit: cover;
+}
+
+.header-image {
+	height: 85vh;
+	width: 100%;
+	object-fit: cover;
 }
