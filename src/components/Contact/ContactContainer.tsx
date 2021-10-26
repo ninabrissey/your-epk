@@ -14,16 +14,22 @@ const ContactContainer = ({ filmEPK, addFilmInfo }: IContact) => {
 	const [isEditing, setIsEditing] = useState<boolean>(true);
 
 	return (
-		<section>
+		<section className="contact-container">
 			{isEditing && (
-				<ContactForm addFilmInfo={addFilmInfo} setIsEditing={setIsEditing} />
+				<ContactForm
+					filmEPK={filmEPK}
+					addFilmInfo={addFilmInfo}
+					setIsEditing={setIsEditing}
+				/>
 			)}
 
 			{!isEditing && (
 				<Fab
-					color="secondary"
+					// color="secondary"
+					size="small"
 					aria-label="edit"
 					onClick={() => setIsEditing(true)}
+					className="contact-edit-btn"
 				>
 					<EditIcon />
 				</Fab>

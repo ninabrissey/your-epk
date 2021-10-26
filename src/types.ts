@@ -40,8 +40,9 @@ export interface Attributes {
   trailer: string;
   tag_line: string;
   log_line: string;
-  header_description: string;
-  header_img: string;
+
+  header_image_description: string;
+  header_image_url: string;
   contact_name: string;
   contact_number: string;
   contact_email: string;

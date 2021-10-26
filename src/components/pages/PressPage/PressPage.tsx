@@ -6,7 +6,7 @@ import FilmPosterDisplay from '../../FilmPoster/FilmPosterDisplay';
 import SynopsisDisplay from '../../Synopsis/SynopsisDisplay';
 import FilmDetailsDisplay from '../../FilmDetails/FilmDetailsDisplay';
 import TaglinesDisplay from '../../Taglines/TaglinesDisplay';
-import { filterIncluded } from '../../../utils/cleanData';
+// import { filterIncluded } from '../../../utils/cleanData';
 import {
   FilmEPK,
   EPKData,
@@ -52,7 +52,7 @@ const PressPage = ({ title, epk_id }: any) => {
         <TrailerDisplay filmEPK={epk} />
         <div className="container-wrapper">
           <SynopsisDisplay filmEPK={epk} />
-          <FilmPosterDisplay filmEPK={epk} poster={epk.attributes.movie_poster_url}/>
+          {/* <FilmPosterDisplay filmEPK={epk} poster={epk.attributes.movie_poster_url}/> */}
         </div>
         {/* <ImagesDisplay currentImages={currentImages} /> */}
         <FilmDetailsDisplay filmEPK={epk} />

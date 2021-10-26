@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-const ContactForm = ({ addFilmInfo, setIsEditing }: any) => {
+const ContactForm = ({ filmEPK, addFilmInfo, setIsEditing }: any) => {
 	const [name, setName] = useState<string>('');
 	const [phoneNum, setPhoneNum] = useState<string>('');
 	const [email, setEmail] = useState<string>('');
@@ -11,13 +11,18 @@ const ContactForm = ({ addFilmInfo, setIsEditing }: any) => {
 	const [website, setWebsite] = useState<string>('');
 
 	const checkFormData = () => {
-		console.log('name in contact form: ', name);
-		// render from state
+		if (filmEPK?.attributes) {
+			setName(filmEPK.attributes.contact_name);
+			setPhoneNum(filmEPK.attributes.contact_number);
+			setEmail(filmEPK.attributes.contact_email);
+			setCompany(filmEPK.attributes.company_name);
+			setWebsite(filmEPK.attributes.website);
+		}
 	};
 
 	useEffect(() => {
 		checkFormData();
-	});
+	}, [filmEPK]);
 
 	const handleSubmit = () => {
 		const currentContact = {
@@ -29,7 +34,6 @@ const ContactForm = ({ addFilmInfo, setIsEditing }: any) => {
 		};
 		addFilmInfo(currentContact);
 		setIsEditing(false);
-		clearForm();
 	};
 
 	const clearForm = () => {
@@ -41,7 +45,7 @@ const ContactForm = ({ addFilmInfo, setIsEditing }: any) => {
 	};
 
 	return (
-		<section className="contact-container">
+		<section className="contact-form">
 			<h2>Contact</h2>
 			<FormControl sx={{ m: 1, minWidth: 120 }}>
 				<TextField
@@ -54,6 +58,7 @@ const ContactForm = ({ addFilmInfo, setIsEditing }: any) => {
 					name="name"
 					value={name}
 					onChange={(e) => setName(e.target.value)}
+					required
 				/>
 				<TextField
 					id="outlined-basic"
@@ -76,6 +81,7 @@ const ContactForm = ({ addFilmInfo, setIsEditing }: any) => {
 					name="email"
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
+					required
 				/>
 				<TextField
 					id="outlined-basic"

@@ -16,37 +16,37 @@ import ImagesContainer from '../../Images/ImagesContainer';
 import ImagesForm from '../../Images/ImagesForm';
 
 const EditPage = ({ epk_id }: any) => {
-  const [error, setError] = useState<any>('');
-  const [loading, setLoading] = useState(false);
-  const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
-  const [title, setTitle] = useState('');
-  const [included, setIncluded] = useState<Array<Included>>([]);
+	const [error, setError] = useState<any>('');
+	const [loading, setLoading] = useState(false);
+	const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
+	const [title, setTitle] = useState('');
+	const [included, setIncluded] = useState<Array<Included>>([]);
 
-  const getFilmData = () => {
-    getEPK(epk_id).then((data) => {
-      setFilm(data.data);
-      setIncluded(data.included);
-      setTitle(formatTitle(data.data.attributes.movie_title));
-    });
-    setLoading(false);
-  };
+	const getFilmData = () => {
+		getEPK(epk_id).then((data) => {
+			setFilm(data.data);
+			setIncluded(data.included);
+			setTitle(formatTitle(data.data.attributes.movie_title));
+		});
+		setLoading(false);
+	};
 
-  useEffect(() => {
-    setLoading(true);
-    getFilmData();
-    console.log(film);
-  }, [epk_id]);
+	useEffect(() => {
+		setLoading(true);
+		getFilmData();
+		console.log(film);
+	}, [epk_id]);
 
-  const addFilmInfo = (filmInfo: object) => {
-    patchData(filmInfo, epk_id).then((data) => {
-      setFilm(data.data);
-      console.log(data.data, 'filmEPK data in patch addFilmInfo function');
-    });
-  };
+	const addFilmInfo = (filmInfo: object) => {
+		patchData(filmInfo, epk_id).then((data) => {
+			setFilm(data.data);
+			console.log(data.data, 'filmEPK data in patch addFilmInfo function');
+		});
+	};
 
-  const formatTitle = (title: string) => {
-    return title.split(' ').join('-');
-  };
+	const formatTitle = (title: string) => {
+		return title.split(' ').join('-');
+	};
 
   return (
     <div>
