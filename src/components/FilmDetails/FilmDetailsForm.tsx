@@ -3,7 +3,12 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-const FilmDetailsForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
+const FilmDetailsForm = ({
+  addFilmInfo,
+  setIsEditing,
+  filmEPK,
+  isEditing,
+}: any) => {
   const [genre, setGenre] = useState<string>('');
   const [country, setCountry] = useState<string>('');
   const [releaseYear, setReleaseYear] = useState<string>('');
@@ -25,7 +30,7 @@ const FilmDetailsForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
       website: website,
     };
     addFilmInfo(currentFilmDetails);
-    setIsEditing(false);
+    setIsEditing(!isEditing);
   };
 
   const clearForms = () => {
@@ -39,8 +44,8 @@ const FilmDetailsForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
     setWebsite('');
   };
 
-  useEffect(() => {
-    if (filmEPK.attributes !== undefined) {
+  const checkFormData = () => {
+    if (filmEPK?.attributes) {
       setGenre(filmEPK.attributes.genre);
       setCountry(filmEPK.attributes.country);
       setReleaseYear(filmEPK.attributes.releaseYear);
@@ -50,6 +55,10 @@ const FilmDetailsForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
       setCompany(filmEPK.attributes.company);
       setWebsite(filmEPK.attributes.website);
     }
+  };
+
+  useEffect(() => {
+    checkFormData();
   }, [filmEPK]);
 
   return (
