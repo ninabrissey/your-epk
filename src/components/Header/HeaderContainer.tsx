@@ -25,7 +25,8 @@ const HeaderContainer = ({ filmEPK, addFilmInfo }: IHeader) => {
 			)}
 			{!isEditing && (
 				<Fab
-					color="secondary"
+					// color="secondary"
+					size="small"
 					aria-label="edit"
 					onClick={() => setIsEditing(true)}
 				>
