@@ -23,7 +23,7 @@ const FilmDetailsContainer = ({ filmEPK, addFilmInfo }: IFilmDetails) => {
         <Fab
           color="secondary"
           aria-label="edit"
-          onClick={() => setIsEditing(true)}
+          onClick={() => setIsEditing(!isEditing)}
         >
           <EditIcon />
         </Fab>
@@ -34,6 +34,7 @@ const FilmDetailsContainer = ({ filmEPK, addFilmInfo }: IFilmDetails) => {
           filmEPK={filmEPK}
           addFilmInfo={addFilmInfo}
           setIsEditing={setIsEditing}
+          isEditing={isEditing}
         />
       )}
 
