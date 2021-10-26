@@ -1,17 +1,18 @@
-import { Award } from "../../types"
-import laurel from './../../images/laurel.png'
-import './AwardPress.scss'
+import { Award, Included } from '../../types';
+import laurel from './../../images/laurel.png';
+import './AwardPress.scss';
 
 interface IAwardCard {
-  // award: Award
-  award: any,
-  style: any
+  award: any;
+  style: any;
 }
 
-const AwardCard = ({ award, style } : IAwardCard) => {
-
+const AwardCard = ({ award, style }: IAwardCard) => {
   return (
-    <article style={style} className="award-press-card">
+    <article
+      style={style}
+      className="award-press-card award-press-card-background"
+    >
       <div className="award-card-styling-div">
         <img className="laurel" src={laurel} alt="laurels" />
         <div className="award-text">
@@ -21,7 +22,7 @@ const AwardCard = ({ award, style } : IAwardCard) => {
         </div>
       </div>
     </article>
-  )
-}
+  );
+};
 
-export default AwardCard
+export default AwardCard;
