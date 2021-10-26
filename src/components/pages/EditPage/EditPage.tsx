@@ -37,7 +37,7 @@ const EditPage = ({ epk_id }: any) => {
   }, []);
 
   const addFilmInfo = (filmInfo: object) => {
-    patchData(filmInfo, 133).then((data) => setFilm(data.data));
+    patchData(filmInfo, epk_id).then((data) => setFilm(data.data));
   };
 
   const formatTitle = (title: string) => {
@@ -71,7 +71,7 @@ const EditPage = ({ epk_id }: any) => {
           <FilmPosterContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         </div>
         {/* <ImagesContainer epk_id={epk_id} images={images} /> */}
-        <ImagesForm />
+        {/* <ImagesForm /> */}
         <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
       </main>
