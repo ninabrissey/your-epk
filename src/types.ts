@@ -47,6 +47,7 @@ export interface Attributes {
   contact_email: string;
   company_name: string;
   website: string;
+  header_image_url: string,
 }
 
 export interface Press {
@@ -59,7 +60,7 @@ export interface Press {
 export interface Included {
   id: string;
   type: string;
-  attributes:  Award | Press | Image 
+  attributes: Award | Press | Image
   // add film fame once endpoint available
 }
 
