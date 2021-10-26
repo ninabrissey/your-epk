@@ -14,6 +14,7 @@
 	z-index: 0;
 	position: relative;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
@@ -27,4 +28,12 @@
 	left: 65%;
 	background-color: #ffffff;
 	@include flexColumnJustify(space-evenly);
+
+	h1 {
+		font-family: 'Zen Kaku Gothic Antique', sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 2em;
+		padding: 5px 10px;
+	}
 }
