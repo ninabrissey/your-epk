@@ -38,7 +38,10 @@ const EditPage = ({ epk_id }: any) => {
   }, [epk_id]);
 
   const addFilmInfo = (filmInfo: object) => {
-    patchData(filmInfo, epk_id).then((data) => setFilm(data.data));
+    patchData(filmInfo, epk_id).then((data) => {
+      setFilm(data.data);
+      console.log(data.data, 'filmEPK data in patch addFilmInfo function');
+    });
   };
 
   const formatTitle = (title: string) => {
