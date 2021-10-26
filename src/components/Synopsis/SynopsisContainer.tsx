@@ -15,6 +15,7 @@ const SynopsisContainer = ({ filmEPK, addFilmInfo }: ISynopsis) => {
 
 	return (
 		<div className="synopsis-container">
+			<h2>Synopsis</h2>
 			{!isEditing && (
 				<Fab
 					color="secondary"
