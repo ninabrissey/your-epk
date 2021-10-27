@@ -11,18 +11,6 @@ interface APProps {
 }
 
 const AwardPressDisplay = ({ awards, presses }: APProps) => {
-  // const [awards, setAwards] = useState<any>()
-
-  //This is a test for the new fetch call
-  // useEffect(() => {
-  //   try {
-  //     const awards = getArrayData('185/awards').then((data) => console.log(data));
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // });
-
-  // console.log(awards);
   let pressCards: any;
   let awardCards: any;
 
@@ -72,7 +60,7 @@ const AwardPressDisplay = ({ awards, presses }: APProps) => {
 
   return (
     <section>
-      <h3 className='awards-press-title'>Articles and Awards</h3>
+      <h3 className="awards-press-title">Articles and Awards</h3>
       <div className="award-press-display">
         {pressCards}
         {awardCards}

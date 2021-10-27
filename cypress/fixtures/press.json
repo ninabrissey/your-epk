@@ -1,0 +1,12 @@
+{
+  "data": {
+    "id": "1",
+    "type": "presses",
+    "attributes": {
+      "name_of_publication": "ExamplePub",
+      "description": "ExampleDesc",
+      "link": "ex.com",
+      "film_epk_id": "1"
+    }
+  }
+}
