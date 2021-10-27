@@ -16,7 +16,7 @@ const FilmPosterDisplay = ({ epk_id, filmEPK } : IFilmPoster) => {
   })
 
   return (
-    <section>
+    <section className="press-poster-wrapper">
       {filmEPK?.attributes && <img 
         className='poster'
         src={image}

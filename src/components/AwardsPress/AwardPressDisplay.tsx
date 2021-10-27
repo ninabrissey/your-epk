@@ -22,7 +22,7 @@ const AwardPressDisplay = ({ awards, presses }: APProps) => {
   //   }
   // });
 
-  console.log(awards);
+  // console.log(awards);
   let pressCards: any;
   let awardCards: any;
 
