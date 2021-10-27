@@ -24,7 +24,7 @@ const PressPage = ({ title, epk_id }: any) => {
   const [epk, setEpk] = useState<FilmEPK>({} as FilmEPK);
 
   const [currentImages, setImages] = useState<Image[] | []>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     getEPK(epk_id).then((info: EPKData) => {
@@ -45,8 +45,8 @@ const PressPage = ({ title, epk_id }: any) => {
         <div>
           <p>{`You've reached press page for ${epk.attributes.movie_title}, id# ${epk.attributes.release_year}`}</p>
 
-           <HeaderDisplay filmEPK={epk} addFilmInfo={null}/> 
-           <HeaderImgDisplay filmEPK={epk} epk_id={epk_id}/>
+          <HeaderDisplay filmEPK={epk} addFilmInfo={null} />
+          <HeaderImgDisplay filmEPK={epk} epk_id={epk_id} />
           <div className="press-page-below-header">
             {/* {awards.length > 0 !== undefined && (
             <AwardPressDisplay awards={currentAwards} presses={presses} />
@@ -58,7 +58,7 @@ const PressPage = ({ title, epk_id }: any) => {
               <TrailerDisplay filmEPK={epk} />
             </div>
             <div className="container-wrapper">
-              <SynopsisDisplay filmEPK={epk} />
+              <SynopsisDisplay epk_id={epk_id} filmEPK={epk} />
             </div>
             <div className="film-poster-display">
               <FilmPosterDisplay
