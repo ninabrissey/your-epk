@@ -2,20 +2,17 @@
 @import '../../styles/variables';
 
 .film-details-container {
-  // height: $primary-height;
-  height: 60vh;
+  height: 45vh;
   width: $primary-width;
   padding: 2vh;
-  background-color: whitesmoke;
-  border-right: 1px solid black;
 
   h2 {
 		font-family: 'Zen Kaku Gothic Antique', sans-serif;
 		text-transform: uppercase;
 		font-size: 1.25em;
-    width: 26vw;
+    width: 75vw;
     margin: auto;
-    padding-top: 2vh;
+    padding: 15px;
 	}
 }
 
@@ -25,7 +22,7 @@
 }
 
 .film-details-form {
-  height: 60vh;
+  height: 38vh;
   @include flexColumnJustify(space-evenly);
   align-items: center;
 

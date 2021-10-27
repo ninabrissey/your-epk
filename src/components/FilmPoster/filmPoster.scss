@@ -5,7 +5,11 @@
 .film-poster-container {
   height: 50vh;
   width: 35%;
-  // background-color: rgb(140, 140, 140);
+
+  div {
+    margin-top: -5vh;
+    height: 100%;
+  }
 }
 
 .poster {

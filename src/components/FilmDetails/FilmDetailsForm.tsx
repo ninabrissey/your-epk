@@ -124,7 +124,7 @@ const FilmDetailsForm = ({
           />
           <TextField
             id="outlined-multiline-flexible"
-            label="Company"
+            label="Production Company"
             margin="dense"
             type="text"
             name="company"

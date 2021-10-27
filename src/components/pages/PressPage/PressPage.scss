@@ -92,6 +92,22 @@
   line-height: normal;
 }
 
+// FILM POSTER SECTION
+.film-poster-display {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+.press-poster-wrapper {
+  height: 100%;
+  width: $primary-width;
+  object-fit: cover;
+
+  .poster {
+    margin: 0;
+  }
+}
+
 // FILM DETAILS SECTION
 .film-details-display {
   grid-column-start: 1;
@@ -111,19 +127,6 @@
     font-weight: bold;
   }
 }
-
-// FILM POSTER SECTION
-.press-poster-wrapper {
-  height: 100%;
-  width: $primary-width;
-  object-fit: cover;
-}
-
-.film-poster-display {
-  grid-column-start: 3;
-  grid-column-end: 5;
-}
-
 
 // TAGLINES SECTION
 .tagline-press {

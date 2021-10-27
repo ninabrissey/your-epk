@@ -31,7 +31,7 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
     <form className="taglines-form-wrapper">
       {/* <p>I am the taglines form</p> */}
       <div>
-        <FormControl sx={{ m: 1, minWidth: 400 }}>
+        <FormControl sx={{ m: 1, minWidth: 700 }}>
           <TextField
             id="outlined-multiline-flexible"
             label="Tagline"
@@ -50,10 +50,10 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
             value={logline}
             onChange={(e) => setLogline(e.target.value)}
           />
+        </FormControl>
         <Button variant="text" onClick={handleSubmit}>
           save
         </Button>
-        </FormControl>
       </div>
     </form>
   );
