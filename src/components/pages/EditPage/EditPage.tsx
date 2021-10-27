@@ -6,6 +6,7 @@ import HeaderContainer from '../../Header/HeaderContainer';
 import TrailerContainer from '../../Trailer/TrailerContainer';
 import FilmPosterContainer from '../../FilmPoster/FilmPosterContainer';
 import Navigation from '../../Navigation/Navigation';
+import Error from '../../Error/Error';
 import './EditPage.scss';
 
 import SynopsisContainer from '../../Synopsis/SynopsisContainer';
@@ -15,7 +16,7 @@ import './EditPage.scss';
 import ImagesContainer from '../../Images/ImagesContainer';
 import ImagesForm from '../../Images/ImagesForm';
 
-const EditPage = ({ epk_id }: any) => {
+const EditPage = ({ epk_id, id }: any) => {
   const [error, setError] = useState<any>('');
   const [loading, setLoading] = useState(true);
   const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
@@ -23,12 +24,14 @@ const EditPage = ({ epk_id }: any) => {
   const [included, setIncluded] = useState<Array<Included>>([]);
 
   const getFilmData = () => {
-    getEPK(epk_id).then((data) => {
+    getEPK(epk_id)
+      .then((data) => {
       setFilm(data.data);
       setIncluded(data.included);
       setTitle(formatTitle(data.data.attributes.movie_title));
       setLoading(false);
-    });
+    })
+      .catch(err => setError(err));
   };
 
   useEffect(() => {
@@ -50,6 +53,7 @@ const EditPage = ({ epk_id }: any) => {
 
   return (
     <div>
+      {error && <Error />}
       {loading ? <p>Loading</p> : <div>
        
       <Navigation onEdit={true} epk_id={epk_id} title={title} />
