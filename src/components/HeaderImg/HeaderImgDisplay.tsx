@@ -5,7 +5,7 @@ import { getEPK } from '../../utils/apiCalls';
 interface IHeaderImg {
 	filmEPK: FilmEPK;
 	// headerImg: string;
-	epk_id: any
+	 epk_id: any
 }
 
 const HeaderImgDisplay = ({ filmEPK, epk_id }: IHeaderImg) => {

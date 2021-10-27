@@ -26,7 +26,6 @@ export interface FilmEPK {
 export interface Attributes {
   user_id: number;
   movie_title: string;
-
   genre: string;
   country: string;
   release_year: string;
@@ -61,7 +60,7 @@ export interface Press {
 export interface Included {
   id: string;
   type: string;
-  attributes: Award | Press | Image
+  attributes: any
   // add film fame once endpoint available
 }
 

@@ -4,22 +4,25 @@ interface ITrailer {
   filmEPK: FilmEPK;
 }
 
-const TrailerDisplay = ({ filmEPK } : ITrailer) => {
-
+const TrailerDisplay = ({ filmEPK }: ITrailer) => {
   return (
     <div>
-      {filmEPK.attributes !== undefined && <iframe
-        className='trailer'
-        title='Embedded YouTube Video'
-        width='750'
-        height='438.46'
-        src={filmEPK.attributes.trailer}
-        frameBorder='0'
-        allowFullScreen
-      />}
-    </div> 
-  )
-}
+      {filmEPK.attributes !== undefined && (
+        <div className="iframe-container-container">
+          <iframe
+            className="iframe"
+            title="Embedded YouTube Video"
+            src={`https://www.youtube.com/embed/${filmEPK.attributes.trailer}`}
+            // src={`https://www.youtube.com/embed/fXbp6gF5Xxo`}
+            frameBorder="0"
+            allowFullScreen
+          />
+        </div>
+      )}
+    </div>
+  );
+};
 
+//youtu.be/fXbp6gF5Xxo
 
 export default TrailerDisplay;
