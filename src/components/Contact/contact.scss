@@ -5,10 +5,8 @@
 	height: 40%;
 
 	h2 {
-		font-family: 'Zen Kaku Gothic Antique', sans-serif;
-		text-transform: uppercase;
+		@include sectionTitleFormat;
 		text-align: center;
-		font-size: 1.25em;
 	}
 }
 
@@ -16,6 +14,10 @@
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
+
+	h2 {
+		@include sectionTitleFormat;
+	}
 }
 
 .contact-display {

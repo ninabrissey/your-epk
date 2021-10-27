@@ -5,9 +5,10 @@
   background-color: whitesmoke;
 
   h2 {
-    font-family: 'Zen Kaku Gothic Antique', sans-serif;
-    text-transform: uppercase;
-    font-size: 1.25em;
+    @include sectionTitleFormat;
+    // font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    // text-transform: uppercase;
+    // font-size: 1.25em;
     width: 75vw;
     margin: auto;
   }

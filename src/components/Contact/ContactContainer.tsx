@@ -25,7 +25,6 @@ const ContactContainer = ({ filmEPK, addFilmInfo }: IContact) => {
 
 			{!isEditing && (
 				<Fab
-					// color="secondary"
 					size="small"
 					aria-label="edit"
 					onClick={() => setIsEditing(true)}
