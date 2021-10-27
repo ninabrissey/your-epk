@@ -1,6 +1,7 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
 
+// HEADER SECTION
 .press-header-container {
   top: 0;
 
@@ -14,36 +15,36 @@
 }
 
 .press-header-img-container {
-  height: 85vh;
-  width: 100%;
+  height: $primary-height;
+  width: $primary-width;
   position: relative;
   z-index: 1;
 }
 
 .press-header-img {
   object-fit: cover;
-  height: 85vh;
-  width: 100%;
+  height: $primary-height;
+  width: $primary-width;
 }
 
 .press-header-description {
   line-height: normal;
-  font-size: 1.15em;
+  font-size: $primary-font-size;
 }
 
+// CONTACT SECTION
 .contact-display {
   h2 {
-		font-family: 'Zen Kaku Gothic Antique', sans-serif;
-		text-transform: uppercase;
-		text-align: center;
-		font-size: 1.50em;
+    @include sectionTitleFormat;
+    text-align: center;
 	}
 
   .contact-info {
-    font-size: 1.15em;
+    font-size: $primary-font-size;
   }
 }
 
+// PRESS AND AWARDS SECTION
 .press-page-below-header {
   width: 70vw;
   margin: 3vh auto;
@@ -58,85 +59,79 @@
   grid-column-end: 4;
 
   h2 {
-		font-family: 'Zen Kaku Gothic Antique', sans-serif;
-		text-transform: uppercase;
-		font-size: 1.50em;
+		@include sectionTitleFormat;
 	}
 }
 
+// TRAILER SECTION
 .trailer-display {
   grid-column-start: 1;
   grid-column-end: 5;
 
   h2 {
-		font-family: 'Zen Kaku Gothic Antique', sans-serif;
-		text-transform: uppercase;
+		@include sectionTitleFormat;
 		text-align: center;
-    font-size: 1.50em;
     padding: 3vh;
 	}
 }
 
+// SYNOPSIS SECTION
 .synopsis-press {
   grid-column-start: 1;
   grid-column-end: 3;
 
   h2 {
-		font-family: 'Zen Kaku Gothic Antique', sans-serif;
-		text-transform: uppercase;
-		font-size: 1.50em;
-    line-height: normal;
+		@include sectionTitleFormat;
 	}
 }
 
 .synopsis-display {
   width: 95%;
   padding: 3vh;
-  font-size: 1.15em;
+  font-size: $primary-font-size;
+  line-height: normal;
 }
 
-
-.film-poster-display {
-  grid-column-start: 3;
-  grid-column-end: 5;
-}
-
+// FILM DETAILS SECTION
 .film-details-display {
   grid-column-start: 1;
   grid-column-end: 5;
 
   h2 {
-		font-family: 'Zen Kaku Gothic Antique', sans-serif;
-		text-transform: uppercase;
-		font-size: 1.50em;
+		@include sectionTitleFormat;
 	}
 }
 
 .film-details-info {
   width: 95%;
   padding: 3vh;
-  font-size: 1.15em;
+  font-size: $primary-font-size;
   
   span {
     font-weight: bold;
   }
 }
 
+// FILM POSTER SECTION
 .press-poster-wrapper {
   height: 100%;
-  width: 100%;
+  width: $primary-width;
   object-fit: cover;
 }
 
+.film-poster-display {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
 
+
+// TAGLINES SECTION
 .tagline-press {
   grid-column-start: 1;
   grid-column-end: 5;
 
   h2 {
-		font-family: 'Zen Kaku Gothic Antique', sans-serif;
-		text-transform: uppercase;
-		font-size: 1.50em;
+		@include sectionTitleFormat;
 	}
 }
 
@@ -147,7 +142,7 @@
   p {
     padding: 3px;
     line-height: normal;
-    font-size: 1.15em;
+    font-size: $primary-font-size;
   }
 
   span {
