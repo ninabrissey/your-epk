@@ -55,7 +55,7 @@ const EditPage = ({ epk_id }: any) => {
       <Navigation onEdit={true} epk_id={epk_id} title={title} />
       {loading && <p>Loading</p>}
       <main className="edit-page">
-        <HeaderContainer filmEPK={film} addFilmInfo={addFilmInfo} epk_id={epk_id}/>
+        <HeaderContainer filmEPK={film} addFilmInfo={addFilmInfo} epk_id={epk_id} isPressPage={false} />
         {included.length > 0 ||
           (film.id && (
             <AwardsPressContainer

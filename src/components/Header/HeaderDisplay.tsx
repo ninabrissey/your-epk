@@ -7,15 +7,16 @@ import ContactContainer from '../Contact/ContactContainer';
 interface IHeaderDisplay {
   filmEPK: FilmEPK;
   addFilmInfo: any;
+  isPressPage: boolean;
 }
 
-const HeaderDisplay = ({ filmEPK, addFilmInfo }: IHeaderDisplay) => {
+const HeaderDisplay = ({ filmEPK, addFilmInfo, isPressPage }: IHeaderDisplay) => {
   return (
     <>
       {filmEPK?.attributes && (
-        <p>{filmEPK.attributes.header_image_description}</p>
+        <p className='press-header-description'>{filmEPK.attributes.header_image_description}</p>
       )}
-      <ContactContainer filmEPK={filmEPK} addFilmInfo={addFilmInfo} />
+      {!isPressPage && <ContactContainer filmEPK={filmEPK} addFilmInfo={addFilmInfo} />}
     </>
   );
 };
