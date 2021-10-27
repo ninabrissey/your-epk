@@ -1,24 +1,24 @@
 import { useState, useEffect } from 'react';
 import { FilmEPK, Attributes } from '../../types';
+import { getEPK } from '../../utils/apiCalls';
 
 interface ISynopsis {
   filmEPK: FilmEPK;
+  epk_id: string;
 }
 
-const SynopsisDisplay = ({ filmEPK } : ISynopsis) => {
-  // const [currentEPK, setCurrentEPK] = useState<Attributes>({} as Attributes)
+const SynopsisDisplay = ({ filmEPK, epk_id }: ISynopsis) => {
+  const [synopsis, setSynopsis] = useState<Attributes>({} as Attributes);
 
-  // useEffect(() => {
-  //   setCurrentEPK(filmEPK.attributes)
-  // }, [filmEPK])
+  useEffect(() => {
+    getEPK(epk_id).then((data) => setSynopsis(data.data.attributes.synopsis));
+  }, []);
 
   return (
     <section className="synopsis-display">
-      {/* <p>Synopsis renders here</p> */}
-      {filmEPK.attributes !== undefined && <p>{filmEPK.attributes.synopsis}</p>}
+      {synopsis !== undefined && <p>{synopsis}</p>}
     </section>
-  )
-}
-
+  );
+};
 
 export default SynopsisDisplay;
