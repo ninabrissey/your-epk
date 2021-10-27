@@ -1,46 +1,90 @@
-# Getting Started with Create React App
+<div align="center"><img src="https://user-images.githubusercontent.com/76507607/139102243-34da7cea-0986-4126-bd89-7d5e018272cf.png" height="150px" width="200px"/><h1>Your EPK</h1>
+<p>An application to build EPKs.</p>
+<a href="https://your-epk.herokuapp.com/">View Deployed Site Here</a>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+---
 
-### `npm start`
+[Summary](#summary) |
+[Tech Used](#tech-used) |
+[Getting Started](#getting-started) |
+[Current Features](#current-features) |
+[Future Features & Noteworthy Limitations](#future-features-&-noteworthy-limitations) |
+[Preview](#preview) |
+[Learning Goals](#learning-goals) |
+[Organizational Tools](#organizational-tools) |
+[Reflection](#reflection) |
+[Contributors](#contributors) 
+ 
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Summary
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ 
+### Tech Used
+JavaScript | CSS | HTML5 | Cypress/E2E | ReactRouter | React | 
 
-### `npm run build`
+---
+### Getting Started
+1. Clone down this repo 
+2. Then ```cd``` into the directory
+3. Run ```npm install```
+4. Run ```npm start```
+5. Paste this: ```http://localhost:3000/``` into your browser
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Return to top](#top)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
+### Current Features
+- 
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Future Features & Noteworthy Limitations
+- 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Preview
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Return to top](#top)
+
+---
+### Learning Goals
+- 
+
+
+### Organizational Tools
+[Project Spec]() •
+[GitHub Project Board]() •
+[Wireframe]() •
+[Inspiration Board]()
+
+---
+### Reflection
+
+<br>
+
+
+[Return to top](#top)
+
+---
+### Contributors:
+- [Nina Brissey](https://github.com/ninabrissey) <br>
+- [Rachel Jensen](https://github.com/rachelJensen) <br>
+- [Maria DelSignore](https://github.com/madhaus4) <br>
+
+
+
+
+---
+[Return to top](#top)
+
+
+
