@@ -1,0 +1,52 @@
+{
+  "data": {
+    "id": "12",
+    "type": "film_epk",
+    "attributes": {
+      "user_id": 1,
+      "movie_title": "Lady's Grand Adventure",
+      "genre": "action, adventure, buddy comedy",
+      "trailer": "https://www.youtube.com/watch?v=8UCNKsI53SY",
+      "teaser": null,
+      "tag_line": "Floof fun is for everyone",
+      "log_line": "All the floof you can handle.",
+      "synopsis": "This touching, laugh-out-loud cute-fest is a must watch for families, folks of all ages, and pets",
+      "country": "International",
+      "release_year": "2021",
+      "run_time": "2 hours",
+      "language": "English, Floofeese",
+      "budget": "1000000",
+      "website": "http://www.example.com",
+      "production_company": "Universal Studios",
+      "movie_poster_url": "",
+      "header_image_url": "",
+      "distribution": "distribution",
+      "contact_name": "Mini Floof",
+      "contact_email": "thatminiboss@USfloof.boof",
+      "contact_number": "phone number",
+      "company_name": "Flooferoofus"
+    },
+    "relationships": {
+      "awards": {
+        "data": [
+          {
+            "id": "20",
+            "type": "award"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "id": "20",
+      "type": "award",
+      "attributes": {
+        "name": "Sunshiny Award",
+        "year": "2021",
+        "award_type": "Best smoosh of the year",
+        "film_epk_id": 12
+      }
+    }
+  ]
+}
