@@ -18,6 +18,7 @@ import {
 import { useEffect, useState } from 'react';
 import { getEPK } from '../../../utils/apiCalls';
 import ImagesDisplay from '../../Images/ImagesDisplay';
+import ContactDisplay from '../../Contact/ContactDisplay';
 // import '../PressPage/PressPage.scss';
 
 const PressPage = ({ title, epk_id }: any) => {
@@ -30,7 +31,6 @@ const PressPage = ({ title, epk_id }: any) => {
     getEPK(epk_id).then((info: EPKData) => {
       setEpk(info.data);
       setIsLoading(false);
-      console.log('this is in presspage', info);
       // setCurrentAwards(filterIncluded(info.included, 'award'));
       // setPresses(filterIncluded(info.included, 'press'));
       // setImages(filterIncluded(info.included, 'image'));
@@ -42,40 +42,53 @@ const PressPage = ({ title, epk_id }: any) => {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <div>
-          <p>{`You've reached press page for ${epk.attributes.movie_title}, id# ${epk.attributes.release_year}`}</p>
+        <section className="press-page-container">
 
-          <HeaderDisplay filmEPK={epk} addFilmInfo={null} />
-          <HeaderImgDisplay filmEPK={epk} epk_id={epk_id} />
+          <div className="header-info-container press-header-container">
+            <h1>{epk.attributes.movie_title}</h1>
+            <HeaderDisplay filmEPK={epk} addFilmInfo={null} isPressPage={true} /> 
+            <ContactDisplay filmEPK={epk} />
+          </div>
+
+          <div className="press-header-img-container">
+            <HeaderImgDisplay filmEPK={epk} epk_id={epk_id}/>
+          </div>
+
           <div className="press-page-below-header">
+
             {/* {awards.length > 0 !== undefined && (
             <AwardPressDisplay awards={currentAwards} presses={presses} />
-          )} */}
+            )} */}
+
             <div className="press-award-display">
               The is the press container
             </div>
+
             <div className="trailer-display">
               <TrailerDisplay filmEPK={epk} />
             </div>
+
             <div className="container-wrapper">
               <SynopsisDisplay filmEPK={epk} />
             </div>
+
             <div className="film-poster-display">
               <FilmPosterDisplay
                 filmEPK={epk}
-                // poster={epk.attributes.movie_poster_url}
                 epk_id={epk_id}
               />
             </div>
-            {/* <ImagesDisplay currentImages={currentImages} /> */}
+
             <div className="film-details-display">
               <FilmDetailsDisplay filmEPK={epk} />
             </div>
+
             <div className="tagline-display">
               <TaglinesDisplay filmEPK={epk} />
             </div>
+
           </div>
-        </div>
+        </section>
       )}
     </div>
   );

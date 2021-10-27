@@ -38,3 +38,46 @@
   grid-column-start: 3;
   grid-column-end: 5;
 }
+
+
+
+.press-header-container {
+  top: 0;
+
+  h1 {
+		font-family: 'Zen Kaku Gothic Antique', sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 2em;
+		padding: 5px 10px;
+	}
+}
+
+// .press-contact {
+  // width: 30%;
+  // position: absolute;
+  // z-index: 10;
+// }
+
+.press-header-img-container {
+  height: 85vh;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.press-header-img {
+  object-fit: cover;
+  height: 85vh;
+  width: 100%;
+}
+
+.contact-display {
+
+  h2 {
+		font-family: 'Zen Kaku Gothic Antique', sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 1.25em;
+	}
+}

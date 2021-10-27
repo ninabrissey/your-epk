@@ -57,7 +57,7 @@ const HeaderImgForm = ({ setIsEditing, filmEPK }: any) => {
 				</button>
 				<button
 					onClick={(event) => handleImg(event)}
-					>View Image
+					>Done editing
 				</button>
 			</div>
 		</form>

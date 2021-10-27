@@ -4,7 +4,6 @@ import { getEPK } from '../../utils/apiCalls';
 
 interface IHeaderImg {
 	filmEPK: FilmEPK;
-	// headerImg: string;
 	 epk_id: any
 }
 
@@ -20,7 +19,7 @@ const HeaderImgDisplay = ({ filmEPK, epk_id }: IHeaderImg) => {
 		<section className="header-image-render">
 			{filmEPK?.attributes && (
 				<img
-					className="header-image"
+					className="press-header-img"
 					src={image}
 					alt=""
 				/>

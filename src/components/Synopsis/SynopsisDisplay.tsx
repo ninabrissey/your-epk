@@ -4,7 +4,9 @@ interface ISynopsis {
   filmEPK: FilmEPK;
 }
 
-const SynopsisDisplay = ({ filmEPK }: ISynopsis) => {
+
+const SynopsisDisplay = ({ filmEPK } : ISynopsis) => {
+
   return (
     <section className="synopsis-display">
       {filmEPK?.attributes && <p>{filmEPK.attributes.synopsis}</p>}

@@ -69,6 +69,7 @@ const FilmDetailsForm = ({
           <TextField
             id="outlined-multiline-flexible"
             label="Genre"
+            margin="dense"
             type="text"
             name="genre"
             value={genre}
@@ -77,6 +78,7 @@ const FilmDetailsForm = ({
           <TextField
             id="outlined-multiline-flexible"
             label="Country"
+            margin="dense"
             type="text"
             name="country"
             value={country}
@@ -85,6 +87,7 @@ const FilmDetailsForm = ({
           <TextField
             id="outlined-multiline-flexible"
             label="Release Year"
+            margin="dense"
             type="text"
             name="releaseYear"
             value={releaseYear}
@@ -93,6 +96,7 @@ const FilmDetailsForm = ({
           <TextField
             id="outlined-multiline-flexible"
             label="Runtime"
+            margin="dense"
             type="text"
             name="runtime"
             value={runtime}
@@ -103,6 +107,7 @@ const FilmDetailsForm = ({
           <TextField
             id="outlined-multiline-flexible"
             label="Language"
+            margin="dense"
             type="text"
             name="language"
             value={language}
@@ -111,6 +116,7 @@ const FilmDetailsForm = ({
           <TextField
             id="outlined-multiline-flexible"
             label="Budget"
+            margin="dense"
             type="text"
             name="budget"
             value={budget}
@@ -119,6 +125,7 @@ const FilmDetailsForm = ({
           <TextField
             id="outlined-multiline-flexible"
             label="Company"
+            margin="dense"
             type="text"
             name="company"
             value={company}
@@ -127,6 +134,7 @@ const FilmDetailsForm = ({
           <TextField
             id="outlined-multiline-flexible"
             label="Website"
+            margin="dense"
             type="text"
             name="website"
             value={website}
