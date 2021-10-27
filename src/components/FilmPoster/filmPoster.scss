@@ -3,12 +3,28 @@
 
 
 .film-poster-container {
-  height: 65vh;
+  height: 50vh;
   width: 35%;
-  background-color: rgb(174, 218, 174);
+  // background-color: rgb(140, 140, 140);
 }
 
 .poster {
   object-fit: cover;
   width: 80%;
+}
+
+.film-poster-edit-btn {
+  top: 3vh;
+  left: 27vw;
+}
+
+.film-poster-form {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: auto;
+  justify-content: center;
 }

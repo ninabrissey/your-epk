@@ -4,12 +4,39 @@
 .taglines-container {
   height: 60vh;
   width: $primary-width;
-  background-color: rgb(198, 162, 232);
+  padding: 2vh;
+  background-color: whitesmoke;
+
+  h2 {
+		font-family: 'Zen Kaku Gothic Antique', sans-serif;
+		text-transform: uppercase;
+		font-size: 1.25em;
+    width: 40vw;
+    margin: auto;
+    padding-top: 2vh;
+	}
+}
+
+.taglines-edit-btn {
+  top: -4vh;
+  left: 40vw;
 }
 
 .taglines-form-wrapper {
   @include flexCenterColumn;
   justify-content: center;
   align-items: center;
+
+  div {
+    width: 100%;
+  }
 }
-//Maria take a look here
+
+.taglines-display {
+  width: 70%;
+  margin: auto;
+
+  p {
+    padding: 10px;
+  }
+}

@@ -8,9 +8,9 @@ interface IFilmDetails {
 const FilmDetailsDisplay = ({ filmEPK }: IFilmDetails) => {
   return (
     <section className="film-details-section">
-      <h2>Film Details</h2>
+      {/* <h2>Film Details</h2> */}
       {filmEPK.attributes !== undefined && (
-        <div className="film-details-text">
+        <div className="film-details-info">
           <p>Genre: {filmEPK.attributes.genre}</p>
           <p>Country of origin: {filmEPK.attributes.country}</p>
           <p>Realeased: {filmEPK.attributes.release_year}</p>

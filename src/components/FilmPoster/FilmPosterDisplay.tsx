@@ -3,12 +3,11 @@ import { useState, useEffect } from 'react';
 import { getEPK } from '../../utils/apiCalls';
 
 interface IFilmPoster {
-  // filmEPK: FilmEPK;
-  // poster: string,
-  epk_id: string
+  filmEPK: FilmEPK;
+  epk_id: string;
 }
 
-const FilmPosterDisplay = ({ epk_id} : IFilmPoster) => {
+const FilmPosterDisplay = ({ epk_id, filmEPK } : IFilmPoster) => {
   const [image, setImage] = useState<string>('')
 
   useEffect(() => {
@@ -18,12 +17,11 @@ const FilmPosterDisplay = ({ epk_id} : IFilmPoster) => {
 
   return (
     <section>
-      <p>I am the film poster display</p>
-       <img 
+      {filmEPK?.attributes && <img 
         className='poster'
         src={image}
         alt=''
-      />
+      />}
     </section>  
   )
 }

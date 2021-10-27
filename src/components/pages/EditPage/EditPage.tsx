@@ -77,8 +77,8 @@ const EditPage = ({ epk_id }: any) => {
           <FilmPosterContainer filmEPK={film} addFilmInfo={addFilmInfo} epk_id={epk_id}/>
         </div>
         {/* <ImagesContainer epk_id={epk_id} images={images} /> */}
-        <ImagesForm />
-        <div className="film-details-and-taglines-container">
+        {/* <ImagesForm /> */}
+        <div className="container-wrapper">
           <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
           <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
         </div>
@@ -89,13 +89,3 @@ const EditPage = ({ epk_id }: any) => {
 };
 
 export default EditPage;
-
-{/* 
-{included.length > 0 ||
-            (film.id && (
-              <AwardsPressContainer
-                addFilmInfo={addFilmInfo}
-                epk_id={epk_id}
-                included={included}
-              />
-            ))} */}

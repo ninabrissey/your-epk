@@ -13,7 +13,7 @@ const HeaderImgForm = ({ setIsEditing, filmEPK }: any) => {
     if (headerFile.size > 0) {
       makeAWSpost();
     }
-		console.log('headerFile',headerFile)
+		// console.log('headerFile',headerFile)
   }, [headerFile])
 
 	const handleSubmit = async (event: any) => {
@@ -38,7 +38,6 @@ const HeaderImgForm = ({ setIsEditing, filmEPK }: any) => {
 			filmEPK,
 			'header_images'
 		);
-		// setHeaderImg(data.header_image_url);
 	};
 
 	return (
@@ -54,15 +53,11 @@ const HeaderImgForm = ({ setIsEditing, filmEPK }: any) => {
 					onClick={(event) => {
 						handleSubmit(event);
 					}}
-				>
-					Save
+					>Save
 				</button>
 				<button
-					onClick={(event) => {
-						handleImg(event);
-					}}
-				>
-					View Image
+					onClick={(event) => handleImg(event)}
+					>View Image
 				</button>
 			</div>
 		</form>

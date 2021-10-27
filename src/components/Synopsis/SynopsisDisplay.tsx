@@ -13,8 +13,8 @@ const SynopsisDisplay = ({ filmEPK } : ISynopsis) => {
   // }, [filmEPK])
 
   return (
-    <section>
-      <p>Synopsis renders here</p>
+    <section className="synopsis-display">
+      {/* <p>Synopsis renders here</p> */}
       {filmEPK.attributes !== undefined && <p>{filmEPK.attributes.synopsis}</p>}
     </section>
   )

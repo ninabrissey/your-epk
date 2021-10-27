@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FilmEPK } from '../../types';
 import FilmPosterForm from '../FilmPoster/FilmPosterForm';
 import FilmPosterDisplay from '../FilmPoster/FilmPosterDisplay';
@@ -19,12 +19,16 @@ const FilmPosterContainer = ({ filmEPK, addFilmInfo, epk_id }: IFilmPoster) => {
 		{ !filmEPK.attributes ? <p>loading</p> :
 			<div >
 				{!isEditing &&
-					<Fab color='secondary' aria-label='edit' onClick={() => setIsEditing(true)}>
+					<Fab 	
+						size="small"
+						aria-label="edit"
+						onClick={() => setIsEditing(true)}
+						className="film-poster-edit-btn">
 						<EditIcon />
 					</Fab>
 				}
 				{isEditing && <FilmPosterForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} setIsEditing={setIsEditing} />}
-				{!isEditing && <FilmPosterDisplay  epk_id={epk_id}/> }
+				{!isEditing && <FilmPosterDisplay filmEPK={filmEPK} epk_id={epk_id}/> }
 			</div> }
 		</div>
   )

@@ -28,8 +28,8 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
   }, [filmEPK]);
 
   return (
-    <div className="taglines-form-wrapper">
-      <p>I am the taglines form</p>
+    <form className="taglines-form-wrapper">
+      {/* <p>I am the taglines form</p> */}
       <div>
         <FormControl sx={{ m: 1, minWidth: 400 }}>
           <TextField
@@ -55,7 +55,7 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
           save
         </Button>
       </div>
-    </div>
+    </form>
   );
 };
 

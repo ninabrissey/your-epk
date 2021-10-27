@@ -5,10 +5,26 @@
   // height: $primary-height;
   height: 60vh;
   width: $primary-width;
-  background-color: $better-orange;
+  padding: 2vh;
+  background-color: whitesmoke;
+  border-right: 1px solid black;
+
+  h2 {
+		font-family: 'Zen Kaku Gothic Antique', sans-serif;
+		text-transform: uppercase;
+		font-size: 1.25em;
+    width: 26vw;
+    margin: auto;
+    padding-top: 2vh;
+	}
 }
 
-.film-details-form-1 {
+.film-details-edit-btn {
+  top: -4vh;
+  left: 40vw;
+}
+
+.film-details-form {
   height: 60vh;
   @include flexColumnJustify(space-evenly);
   align-items: center;
@@ -24,14 +40,12 @@
   flex-wrap: wrap;
 }
 
-.film-details-text {
-  p {
-    font-size: 2rem;
-  }
-}
+.film-details-info {
+  padding: 10px 0;
+  width: 60%;
+  margin: auto;
 
-.film-details-section {
-  width: 30vh;
+	p {
+		padding: 3px;
+	}
 }
-
-// Maria you prob want to change this back to what you had

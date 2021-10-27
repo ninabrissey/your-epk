@@ -15,11 +15,14 @@ const SynopsisContainer = ({ filmEPK, addFilmInfo }: ISynopsis) => {
 
 	return (
 		<div className="synopsis-container">
+			<h2>Synopsis</h2>
 			{!isEditing && (
 				<Fab
-					color="secondary"
+					// color="secondary"
+					size="small"
 					aria-label="edit"
 					onClick={() => setIsEditing(true)}
+					className="synopsis-edit-btn"
 				>
 					<EditIcon />
 				</Fab>

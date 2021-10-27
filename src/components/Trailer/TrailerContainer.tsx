@@ -17,9 +17,10 @@ const TrailerContainer = ({ filmEPK, addFilmInfo }: ITrailer) => {
     <section className="trailer-container">
       {!isEditing && (
         <Fab
-          color="secondary"
+          size="small"
           aria-label="edit"
           onClick={() => setIsEditing(true)}
+          className="trailer-edit-btn"
         >
           <EditIcon />
         </Fab>
