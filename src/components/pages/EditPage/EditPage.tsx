@@ -50,42 +50,52 @@ const EditPage = ({ epk_id }: any) => {
 
   return (
     <div>
+      {loading ? <p>Loading</p> : <div>
+       
       <Navigation onEdit={true} epk_id={epk_id} title={title} />
-      {loading ? (
-        <p>Loading</p>
-      ) : (
-        <main className="edit-page">
-          <HeaderContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-          {included.length > 0 ||
+      {loading && <p>Loading</p>}
+      <main className="edit-page">
+        <HeaderContainer filmEPK={film} addFilmInfo={addFilmInfo} epk_id={epk_id}/>
+        {included.length > 0 ||
+          (film.id && (
+            <AwardsPressContainer
+              addFilmInfo={addFilmInfo}
+              epk_id={epk_id}
+              included={included}
+            />
+          ))}
+        {included.length > 0 && film.id && (
+          <AwardsPressContainer
+            addFilmInfo={addFilmInfo}
+            epk_id={epk_id}
+            included={included}
+          />
+        )}
+        <TrailerContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+        <div className="container-wrapper">
+          <SynopsisContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+          <FilmPosterContainer filmEPK={film} addFilmInfo={addFilmInfo} epk_id={epk_id}/>
+        </div>
+        {/* <ImagesContainer epk_id={epk_id} images={images} /> */}
+        <ImagesForm />
+        <div className="film-details-and-taglines-container">
+          <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+          <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+        </div>
+      </main>
+      </div>}
+    </div>
+  );
+};
+
+export default EditPage;
+
+{/* 
+{included.length > 0 ||
             (film.id && (
               <AwardsPressContainer
                 addFilmInfo={addFilmInfo}
                 epk_id={epk_id}
                 included={included}
               />
-            ))}
-          {included.length > 0 && film.id && (
-            <AwardsPressContainer
-              addFilmInfo={addFilmInfo}
-              epk_id={epk_id}
-              included={included}
-            />
-          )}
-          <TrailerContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-          <div className="container-wrapper">
-            <SynopsisContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-            <FilmPosterContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-          </div>
-          {/* <ImagesContainer epk_id={epk_id} images={images} /> */}
-          <ImagesForm />
-          <div className="film-details-and-taglines-container">
-            <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-            <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-          </div>
-        </main>
-      )}
-    </div>
-  );
-};
-
-export default EditPage;
+            ))} */}

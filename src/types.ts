@@ -47,6 +47,7 @@ export interface Attributes {
   contact_email: string;
   company_name: string;
   website: string;
+
 }
 
 export interface Press {
