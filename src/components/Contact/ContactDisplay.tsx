@@ -12,10 +12,10 @@ const ContactDisplay = ({ filmEPK }: IContactDisplay) => {
 				<div className="contact-info">
 					<p className="contact-name">{filmEPK.attributes.contact_name}</p>
 					<p className="contact-email">
-						email: {filmEPK.attributes.contact_email}
+					<span>email: </span>{filmEPK.attributes.contact_email}
 					</p>
 					<p className="contact-number">
-						mobile: {filmEPK.attributes.contact_number}
+					<span>mobile: </span>{filmEPK.attributes.contact_number}
 					</p>
 
 					<p className="contact-website">
