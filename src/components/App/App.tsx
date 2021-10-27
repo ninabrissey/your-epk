@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Dashboard from '../pages/DashboardPage/Dashboard/Dashboard';
+import Navigation from '../Navigation/Navigation';
 import EditPage from '../pages/EditPage/EditPage';
 import PressPage from '../pages/PressPage/PressPage';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, Link } from 'react-router-dom';
 import { UserData } from '../../types';
 
 const userId: number = 1;
@@ -37,6 +38,14 @@ function App() {
         <Route exact path='/:epk_id/:title' render={({ match }) =>
           <PressPage title={match.params.title} epk_id={match.params.epk_id} />
         }>
+        </Route>
+        <Route path='*'>
+        <div>
+          <Navigation onEdit={false} />
+          <Link to={`/dashboard/${userId}`}>
+            <h2>Page not found. Return to dashboard</h2>
+          </Link>
+          </div>
         </Route>
       </Switch>
     </div>
