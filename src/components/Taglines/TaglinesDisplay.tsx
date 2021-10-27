@@ -10,8 +10,8 @@ const TaglinesDisplay = ({ filmEPK }: ITaglines) => {
       {/* <p>Taglines display here!</p> */}
       {filmEPK?.attributes && (
         <>
-          <p>Tagline: {filmEPK.attributes.tag_line}</p>
-          <p>Logline: {filmEPK.attributes.log_line}</p>
+          <p><span>Tagline: </span>{filmEPK.attributes.tag_line}</p>
+          <p><span>Logline: </span>{filmEPK.attributes.log_line}</p>
         </>
       )}
     </section>
