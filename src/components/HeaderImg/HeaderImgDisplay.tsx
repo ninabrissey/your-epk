@@ -4,7 +4,6 @@ import { getEPK } from '../../utils/apiCalls';
 
 interface IHeaderImg {
 	filmEPK: FilmEPK;
-	// headerImg: string;
 	 epk_id: any
 }
 

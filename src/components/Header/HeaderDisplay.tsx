@@ -1,7 +1,4 @@
 import { FilmEPK } from '../../types';
-import ContactDisplay from '../Contact/ContactDisplay';
-import Fab from '@mui/material/Fab';
-import EditIcon from '@mui/icons-material/Edit';
 import ContactContainer from '../Contact/ContactContainer';
 
 interface IHeaderDisplay {
