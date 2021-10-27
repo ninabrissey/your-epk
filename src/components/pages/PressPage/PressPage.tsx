@@ -19,7 +19,6 @@ import { useEffect, useState } from 'react';
 import { getEPK, getArrayData } from '../../../utils/apiCalls';
 import ImagesDisplay from '../../Images/ImagesDisplay';
 import ContactDisplay from '../../Contact/ContactDisplay';
-// import '../PressPage/PressPage.scss';
 
 const PressPage = ({ title, epk_id }: any) => {
   const [epk, setEpk] = useState<FilmEPK>({} as FilmEPK);
@@ -59,11 +58,10 @@ const PressPage = ({ title, epk_id }: any) => {
           </div>
 
           <div className="press-page-below-header">
-            <AwardPressDisplay awards={awards} presses={presses} />
 
             <div className="press-award-display">
               <h2>Articles and Awards</h2>
-              {/* <AwardPressDisplay /> */}
+              <AwardPressDisplay awards={awards} presses={presses} />
             </div>
 
             <div className="trailer-display">

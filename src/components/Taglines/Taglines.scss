@@ -2,7 +2,7 @@
 @import '../../styles/variables';
 
 .taglines-container {
-  height: 60vh;
+  height: 30vh;
   width: $primary-width;
   padding: 2vh;
   background-color: whitesmoke;
@@ -11,9 +11,9 @@
 		font-family: 'Zen Kaku Gothic Antique', sans-serif;
 		text-transform: uppercase;
 		font-size: 1.25em;
-    width: 40vw;
+    width: 75vw;
     margin: auto;
-    padding-top: 2vh;
+    padding: 15px;
 	}
 }
 
@@ -26,7 +26,7 @@
   @include flexCenterColumn;
   justify-content: center;
   align-items: center;
-  height: 64%;
+  height: 80%;
 
   div {
     display: flex;

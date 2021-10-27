@@ -1,16 +1,11 @@
 @import '../../../styles/mixins';
+@import '../../../styles/variables';
 
 .edit-page {
   @include flexCenterColumn;
 }
 
 .container-wrapper {
-  width: 100%;
+  width: $primary-width;
   display: flex;
 }
-
-// .film-details-and-taglines-container {
-//   @include flexCenterRow;
-// }
-
-//Maria this is probably fine to keep

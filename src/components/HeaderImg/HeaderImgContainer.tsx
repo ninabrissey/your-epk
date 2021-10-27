@@ -4,6 +4,7 @@ import HeaderImgForm from './HeaderImgForm';
 import HeaderImgDisplay from './HeaderImgDisplay';
 import Fab from '@mui/material/Fab';
 import EditIcon from '@mui/icons-material/Edit';
+import headerTestImg from '../../images/headerTestImg.png';
 
 interface IHeaderImg {
 	filmEPK: FilmEPK;
