@@ -62,14 +62,17 @@ const PressPage = ({ title, epk_id }: any) => {
             <AwardPressDisplay awards={awards} presses={presses} />
 
             <div className="press-award-display">
-              The is the press container
+              <h2>Articles and Awards</h2>
+              {/* <AwardPressDisplay /> */}
             </div>
 
             <div className="trailer-display">
+              <h2>Trailer</h2>
               <TrailerDisplay filmEPK={epk} />
             </div>
 
-            <div className="container-wrapper">
+            <div className="synopsis-press">
+              <h2>Synopsis</h2>
               <SynopsisDisplay filmEPK={epk} />
             </div>
 
@@ -77,12 +80,14 @@ const PressPage = ({ title, epk_id }: any) => {
               <FilmPosterDisplay filmEPK={epk} epk_id={epk_id} />
             </div>
 
-            <div className="film-details-display">
-              <FilmDetailsDisplay filmEPK={epk} />
+            <div className="tagline-press">
+              <h2>Tagline and Logline</h2>
+              <TaglinesDisplay filmEPK={epk} />
             </div>
 
-            <div className="tagline-display">
-              <TaglinesDisplay filmEPK={epk} />
+            <div className="film-details-display">
+              <h2>Film Details</h2>
+              <FilmDetailsDisplay filmEPK={epk} />
             </div>
           </div>
         </section>
