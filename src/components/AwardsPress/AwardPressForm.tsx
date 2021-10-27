@@ -68,7 +68,7 @@ const AwardPressForm = ({
   };
 
   return (
-    <section className='awards-press-form-wrapper'>
+    <section className="awards-press-form-wrapper">
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <div className="press-awards-form">
           <InputLabel id="award-or-press">type</InputLabel>
@@ -89,7 +89,7 @@ const AwardPressForm = ({
             <MenuItem value={'award'}>award</MenuItem>
             <MenuItem value={'press'}>press</MenuItem>
           </Select>
-      
+
           {select === 'award' && (
             <>
               <TextField

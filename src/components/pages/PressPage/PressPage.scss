@@ -6,12 +6,12 @@
   top: 0;
 
   h1 {
-		font-family: 'Zen Kaku Gothic Antique', sans-serif;
-		text-transform: uppercase;
-		text-align: center;
-		font-size: 2.15em;
-		padding: 5px 10px;
-	}
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2.15em;
+    padding: 5px 10px;
+  }
 }
 
 .press-header-img-container {
@@ -37,7 +37,7 @@
   h2 {
     @include sectionTitleFormat;
     text-align: center;
-	}
+  }
 
   .contact-info {
     font-size: $primary-font-size;
@@ -59,8 +59,8 @@
   grid-column-end: 4;
 
   h2 {
-		@include sectionTitleFormat;
-	}
+    @include sectionTitleFormat;
+  }
 }
 
 // TRAILER SECTION
@@ -69,10 +69,10 @@
   grid-column-end: 5;
 
   h2 {
-		@include sectionTitleFormat;
-		text-align: center;
+    @include sectionTitleFormat;
+    text-align: center;
     padding: 3vh;
-	}
+  }
 }
 
 // SYNOPSIS SECTION
@@ -81,8 +81,8 @@
   grid-column-end: 3;
 
   h2 {
-		@include sectionTitleFormat;
-	}
+    @include sectionTitleFormat;
+  }
 }
 
 .synopsis-display {
@@ -98,15 +98,15 @@
   grid-column-end: 5;
 
   h2 {
-		@include sectionTitleFormat;
-	}
+    @include sectionTitleFormat;
+  }
 }
 
 .film-details-info {
   width: 95%;
   padding: 3vh;
   font-size: $primary-font-size;
-  
+
   span {
     font-weight: bold;
   }
@@ -124,15 +124,14 @@
   grid-column-end: 5;
 }
 
-
 // TAGLINES SECTION
 .tagline-press {
   grid-column-start: 1;
   grid-column-end: 5;
 
   h2 {
-		@include sectionTitleFormat;
-	}
+    @include sectionTitleFormat;
+  }
 }
 
 .taglines-display {
@@ -149,6 +148,3 @@
     font-weight: bold;
   }
 }
-
-
-
