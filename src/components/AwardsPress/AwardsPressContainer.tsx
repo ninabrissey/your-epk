@@ -53,9 +53,9 @@ const AwardsPressContainer = ({
 
   return (
     <div className='awards-press-container'>
+      <h2 className="awards-press-title">Articles and Awards</h2>
       {!isEditting && !error && (
         <Fab
-          // color="secondary"
           size="small"
           aria-label="edit"
           onClick={() => setIsEditting(!isEditting)}
