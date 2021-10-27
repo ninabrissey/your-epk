@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Dashboard from '../pages/DashboardPage/Dashboard/Dashboard';
-import Navigation from '../Navigation/Navigation';
+import Error from '../Error/Error';
 import EditPage from '../pages/EditPage/EditPage';
 import PressPage from '../pages/PressPage/PressPage';
 import { Route, Switch, Redirect, Link } from 'react-router-dom';
@@ -32,7 +32,7 @@ function App() {
           <Dashboard currUser={currUser} id={userId} />
         </Route>
         <Route exact path='/edit/:epk_id' render={({ match }) =>
-          <EditPage epk_id={match.params.epk_id} />
+          <EditPage epk_id={match.params.epk_id} userId={userId}/>
         }>
         </Route>
         <Route exact path='/:epk_id/:title' render={({ match }) =>
@@ -40,12 +40,7 @@ function App() {
         }>
         </Route>
         <Route path='*'>
-        <div>
-          <Navigation onEdit={false} />
-          <Link to={`/dashboard/${userId}`}>
-            <h2>Page not found. Return to dashboard</h2>
-          </Link>
-          </div>
+          <Error userId={userId} />
         </Route>
       </Switch>
     </div>
