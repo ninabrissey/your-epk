@@ -16,24 +16,25 @@ import {
   Included,
 } from '../../../types';
 import { useEffect, useState } from 'react';
-import { getEPK } from '../../../utils/apiCalls';
+import { getEPK, getArrayData } from '../../../utils/apiCalls';
 import ImagesDisplay from '../../Images/ImagesDisplay';
 import ContactDisplay from '../../Contact/ContactDisplay';
 // import '../PressPage/PressPage.scss';
 
 const PressPage = ({ title, epk_id }: any) => {
   const [epk, setEpk] = useState<FilmEPK>({} as FilmEPK);
-
-  const [currentImages, setImages] = useState<Image[] | []>([]);
+  const [awards, setAwards] = useState<Array<Included>>([]);
+  const [presses, setPresses] = useState<Array<Included>>([]);
+  // const [currentImages, setImages] = useState<Image[] | []>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    getEPK(epk_id).then((info: EPKData) => {
+    getEPK(epk_id).then((info: any) => {
       setEpk(info.data);
+      setAwards(filterIncluded(info.included, 'award'));
+      console.log(info, 'in the press page useEffect');
+      setPresses(filterIncluded(info.included, 'press'));
       setIsLoading(false);
-      // setCurrentAwards(filterIncluded(info.included, 'award'));
-      // setPresses(filterIncluded(info.included, 'press'));
-      // setImages(filterIncluded(info.included, 'image'));
     });
   }, []);
 
@@ -43,22 +44,22 @@ const PressPage = ({ title, epk_id }: any) => {
         <p>Loading...</p>
       ) : (
         <section className="press-page-container">
-
           <div className="header-info-container press-header-container">
             <h1>{epk.attributes.movie_title}</h1>
-            <HeaderDisplay filmEPK={epk} addFilmInfo={null} isPressPage={true} /> 
+            <HeaderDisplay
+              filmEPK={epk}
+              addFilmInfo={null}
+              isPressPage={true}
+            />
             <ContactDisplay filmEPK={epk} />
           </div>
 
           <div className="press-header-img-container">
-            <HeaderImgDisplay filmEPK={epk} epk_id={epk_id}/>
+            <HeaderImgDisplay filmEPK={epk} epk_id={epk_id} />
           </div>
 
           <div className="press-page-below-header">
-
-            {/* {awards.length > 0 !== undefined && (
-            <AwardPressDisplay awards={currentAwards} presses={presses} />
-            )} */}
+            <AwardPressDisplay awards={awards} presses={presses} />
 
             <div className="press-award-display">
               The is the press container
@@ -73,10 +74,7 @@ const PressPage = ({ title, epk_id }: any) => {
             </div>
 
             <div className="film-poster-display">
-              <FilmPosterDisplay
-                filmEPK={epk}
-                epk_id={epk_id}
-              />
+              <FilmPosterDisplay filmEPK={epk} epk_id={epk_id} />
             </div>
 
             <div className="film-details-display">
@@ -86,7 +84,6 @@ const PressPage = ({ title, epk_id }: any) => {
             <div className="tagline-display">
               <TaglinesDisplay filmEPK={epk} />
             </div>
-
           </div>
         </section>
       )}
