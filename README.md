@@ -40,16 +40,21 @@ TypeScript | React | ReactRouter | SCSS | HTML5 | Cypress/E2E | React MUI | Clou
 
 ---
 ### Current Features
-- 
+- A user can create a new EPK and have it appear on their dashboard
+- From the edit page, a user can add a header image, film description,trailer, awards and press, film poster, contact information, synopis, and movie details
+- Ever EPK generates a formatted EPK link with a professional display of their film details to be shared with media
 
 
 ### Future Features & Noteworthy Limitations
-- 
+- Add space for a film teaser, information about the film team, and film stills
+- Build login to allow multiple users
+- Allow a user to select different fonts or color palettes for their EPK
+- Add templates for other kinds of EPKs--for music or book promotion
 
 
 ### Preview
 
-
+[Your EPK](https://github.com/your-epk/your-epk/dashboard/1)
 
 
 [Return to top](#top)
