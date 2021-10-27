@@ -10,7 +10,7 @@ interface IHeaderImg {
 	epk_id: any
 }
 
-const HeaderImgContainer = ({ filmEPK , epk_id}: IHeaderImg) => {
+const HeaderImgContainer = ({ filmEPK , epk_id }: IHeaderImg) => {
 	const [isEditing, setIsEditing] = useState<boolean>(true);
 
 	return (

@@ -7,7 +7,6 @@ import SynopsisDisplay from '../../Synopsis/SynopsisDisplay';
 import FilmDetailsDisplay from '../../FilmDetails/FilmDetailsDisplay';
 import TaglinesDisplay from '../../Taglines/TaglinesDisplay';
 import { filterIncluded } from '../../../utils/cleanData';
-// import { filterIncluded } from '../../../utils/cleanData';
 import {
   FilmEPK,
   EPKData,
@@ -19,7 +18,7 @@ import {
 import { useEffect, useState } from 'react';
 import { getEPK } from '../../../utils/apiCalls';
 import ImagesDisplay from '../../Images/ImagesDisplay';
-import '../PressPage/PressPage.scss';
+// import '../PressPage/PressPage.scss';
 
 const PressPage = ({ title, epk_id }: any) => {
   const [epk, setEpk] = useState<FilmEPK>({} as FilmEPK);
@@ -63,7 +62,7 @@ const PressPage = ({ title, epk_id }: any) => {
             </div>
             <div className="film-poster-display">
               <FilmPosterDisplay
-                // filmEPK={epk}
+                filmEPK={epk}
                 // poster={epk.attributes.movie_poster_url}
                 epk_id={epk_id}
               />

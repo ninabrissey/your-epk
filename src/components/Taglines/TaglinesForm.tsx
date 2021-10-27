@@ -55,7 +55,7 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
           save
         </Button>
       </div>
-    </div>
+    </form>
   );
 };
 
