@@ -26,12 +26,12 @@ const EditPage = ({ epk_id, id }: any) => {
   const getFilmData = () => {
     getEPK(epk_id)
       .then((data) => {
-      setFilm(data.data);
-      setIncluded(data.included);
-      setTitle(formatTitle(data.data.attributes.movie_title));
-      setLoading(false);
-    })
-      .catch(err => setError(err));
+        setFilm(data.data);
+        setIncluded(data.included);
+        setTitle(formatTitle(data.data.attributes.movie_title));
+        setLoading(false);
+      })
+      .catch((err) => setError(err));
   };
 
   useEffect(() => {
@@ -54,13 +54,20 @@ const EditPage = ({ epk_id, id }: any) => {
   return (
     <div>
       {error && <Error />}
-      {loading ? <p>Loading</p> : <div>
-       
-      <Navigation onEdit={true} epk_id={epk_id} title={title} />
-      {loading && <p>Loading</p>}
-      <main className="edit-page">
-        <HeaderContainer filmEPK={film} addFilmInfo={addFilmInfo} epk_id={epk_id} isPressPage={false} />
-      
+      {loading ? (
+        <p>Loading</p>
+      ) : (
+        <div>
+          <Navigation onEdit={true} epk_id={epk_id} title={title} />
+          {loading && <p>Loading</p>}
+          <main className="edit-page">
+            <HeaderContainer
+              filmEPK={film}
+              addFilmInfo={addFilmInfo}
+              epk_id={epk_id}
+              isPressPage={false}
+            />
+
             {included.length > 0 ||
               (film.id && (
                 <AwardsPressContainer
