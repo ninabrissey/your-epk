@@ -21,12 +21,11 @@
 ---
 
 ### Summary
-
-
+Your EPK is an Electronic Press Kit tool that allows a user to input a film's information and generate a professional press kit for film promotion. This React web app is designed to be highly interactive, allowing the user to visualize their final press kit by editing the film information in a mock-up format the mirrors the final EPK's layout. A user can generate and edit multiple EPKs, which allows for targeted EPK design aimed at specific media if neeeded. 
 
  
 ### Tech Used
-JavaScript | CSS | HTML5 | Cypress/E2E | ReactRouter | React | 
+TypeScript | React | ReactRouter | SCSS | HTML5 | Cypress/E2E | React MUI | Cloud storage with AWS S3
 
 ---
 ### Getting Started
@@ -57,14 +56,15 @@ JavaScript | CSS | HTML5 | Cypress/E2E | ReactRouter | React |
 
 ---
 ### Learning Goals
-- 
+Students at Turing School of Software and Design complete this capstone project as a final step before graduation. It is a collaboration between students from the frontend and backend engineering programs to build a full stack application. The goal is to select at least two new technologies to learn and incorporate as a team. New technologies for our team included...
+- TypeScript 
+- React Material UI
+- Cloud storage with AWS S3
 
 
 ### Organizational Tools
-[Project Spec]() •
-[GitHub Project Board]() •
-[Wireframe]() •
-[Inspiration Board]()
+[GitHub Project Board](https://github.com/your-epk/your-epk/projects/1) •
+[Wireframe](https://www.figma.com/file/TcDoNtyfEqeKwCI7mSXP36/yourEPK?node-id=0%3A1) •
 
 ---
 ### Reflection
