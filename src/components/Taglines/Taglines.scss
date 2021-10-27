@@ -11,10 +11,15 @@
 		font-family: 'Zen Kaku Gothic Antique', sans-serif;
 		text-transform: uppercase;
 		font-size: 1.25em;
-    width: 42vw;
+    width: 40vw;
     margin: auto;
     padding-top: 2vh;
 	}
+}
+
+.taglines-edit-btn {
+  top: -4vh;
+  left: 40vw;
 }
 
 .taglines-form-wrapper {
@@ -23,7 +28,11 @@
   align-items: center;
 }
 
-.taglines-edit-btn {
-  top: -4vh;
-  left: 40vw;
+.taglines-display {
+  width: 70%;
+  margin: auto;
+
+  p {
+    padding: 10px;
+  }
 }
