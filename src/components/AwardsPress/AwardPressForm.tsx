@@ -45,9 +45,9 @@ const AwardPressForm = ({
   const newPress = {
     press: {
       film_epk_id: epk_id,
-      publication: publication,
+      name_of_publication: publication,
       link: link,
-      quote: quote,
+      description: quote,
     },
   };
 
@@ -55,7 +55,7 @@ const AwardPressForm = ({
     e.preventDefault();
     if (
       (newAward.award.name && newAward.award.year) ||
-      (newPress.press.publication && newPress.press.link)
+      (newPress.press.name_of_publication && newPress.press.link)
     ) {
       setPublication('');
       setLink('');
