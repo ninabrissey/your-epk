@@ -50,10 +50,10 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
             value={logline}
             onChange={(e) => setLogline(e.target.value)}
           />
-        </FormControl>
         <Button variant="text" onClick={handleSubmit}>
           save
         </Button>
+        </FormControl>
       </div>
     </form>
   );
