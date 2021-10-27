@@ -43,6 +43,14 @@
 
 .press-header-container {
   top: 0;
+
+  h1 {
+		font-family: 'Zen Kaku Gothic Antique', sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 2em;
+		padding: 5px 10px;
+	}
 }
 
 // .press-contact {
@@ -68,3 +76,13 @@
 // .press-header-description {
 
 // }
+
+.contact-display {
+
+  h2 {
+		font-family: 'Zen Kaku Gothic Antique', sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 1.25em;
+	}
+}
