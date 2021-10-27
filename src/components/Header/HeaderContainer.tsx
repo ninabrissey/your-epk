@@ -9,9 +9,10 @@ import EditIcon from '@mui/icons-material/Edit';
 interface IHeader {
 	filmEPK: FilmEPK;
 	addFilmInfo: any;
+	epk_id: any
 }
 
-const HeaderContainer = ({ filmEPK, addFilmInfo }: IHeader) => {
+const HeaderContainer = ({ filmEPK, addFilmInfo, epk_id }: IHeader) => {
 	const [isEditing, setIsEditing] = useState<boolean>(true);
 
 	return (
@@ -40,7 +41,7 @@ const HeaderContainer = ({ filmEPK, addFilmInfo }: IHeader) => {
 					<HeaderDisplay filmEPK={filmEPK} addFilmInfo={addFilmInfo} />
 				)}
 			</div>
-			<HeaderImgContainer filmEPK={filmEPK} />
+			<HeaderImgContainer filmEPK={filmEPK} epk_id={epk_id}/>
 		</section>
 	);
 };

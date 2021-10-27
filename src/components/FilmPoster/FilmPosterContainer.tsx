@@ -8,62 +8,30 @@ import EditIcon from '@mui/icons-material/Edit';
 interface IFilmPoster {
 	filmEPK: FilmEPK;
 	addFilmInfo: any;
+	epk_id: string
 }
 
-const FilmPosterContainer = ({ filmEPK, addFilmInfo }: IFilmPoster) => {
-	const [isEditing, setIsEditing] = useState<boolean>(true);
-	const [poster, setPoster] = useState<string>('');
+const FilmPosterContainer = ({ filmEPK, addFilmInfo, epk_id }: IFilmPoster) => {
+  const [isEditing, setIsEditing] = useState<boolean>(true)
 
-	// console.log(poster)
-
-	return (
-		<div className="film-poster-container">
-			{!isEditing && (
-				<Fab
-					// color="secondary"
-					size="small"
-					aria-label="edit"
-					onClick={() => setIsEditing(true)}
-					className="film-poster-edit-btn"
-				>
-					<EditIcon />
-				</Fab>
-			)}
-			{isEditing && (
-				<FilmPosterForm
-					filmEPK={filmEPK}
-					addFilmInfo={addFilmInfo}
-					setPoster={setPoster}
-					setIsEditing={setIsEditing}
-				/>
-			)}
-			{!isEditing && <FilmPosterDisplay filmEPK={filmEPK} />}
+  return (
+		<div className='film-poster-container'> 
+		{ !filmEPK.attributes ? <p>loading</p> :
+			<div >
+				{!isEditing &&
+					<Fab 	
+						size="small"
+						aria-label="edit"
+						onClick={() => setIsEditing(true)}
+						className="film-poster-edit-btn">
+						<EditIcon />
+					</Fab>
+				}
+				{isEditing && <FilmPosterForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} setIsEditing={setIsEditing} />}
+				{!isEditing && <FilmPosterDisplay filmEPK={filmEPK} epk_id={epk_id}/> }
+			</div> }
 		</div>
-	);
-
-	// const [isEditing, setIsEditing] = useState<boolean>(true);
-
-	// return (
-	// 	<div className="film-poster-container">
-	// 		{!isEditing && (
-	// 			<Fab
-	// 				color="secondary"
-	// 				aria-label="edit"
-	// 				onClick={() => setIsEditing(true)}
-	// 			>
-	// 				<EditIcon />
-	// 			</Fab>
-	// 		)}
-	// 		{isEditing && (
-	// 			<FilmPosterForm
-	// 				filmEPK={filmEPK}
-	// 				addFilmInfo={addFilmInfo}
-	// 				setIsEditing={setIsEditing}
-	// 			/>
-	// 		)}
-	// 		{!isEditing && <FilmPosterDisplay filmEPK={filmEPK} />}
-	// 	</div>
-	// );
+  )
 };
 
 export default FilmPosterContainer;
