@@ -11,19 +11,12 @@ interface IHeaderDisplay {
 
 const HeaderDisplay = ({ filmEPK, addFilmInfo }: IHeaderDisplay) => {
   return (
-    // <div className="header-info-container">
     <>
-      {/* <div> */}
-      {/* {filmEPK?.attributes && <h1>{filmEPK.attributes.movie_title}</h1>} */}
-
       {filmEPK?.attributes && (
         <p>{filmEPK.attributes.header_image_description}</p>
       )}
-      {/* </div> */}
-
       <ContactContainer filmEPK={filmEPK} addFilmInfo={addFilmInfo} />
     </>
-    // </div>
   );
 };
 
