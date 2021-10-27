@@ -8,10 +8,9 @@ import EditIcon from '@mui/icons-material/Edit';
 interface ISynopsis {
   filmEPK: FilmEPK;
   addFilmInfo: any;
-  epk_id: any;
 }
 
-const SynopsisContainer = ({ filmEPK, addFilmInfo, epk_id }: ISynopsis) => {
+const SynopsisContainer = ({ filmEPK, addFilmInfo }: ISynopsis) => {
   const [isEditing, setIsEditing] = useState<boolean>(true);
 
   return (
@@ -35,7 +34,7 @@ const SynopsisContainer = ({ filmEPK, addFilmInfo, epk_id }: ISynopsis) => {
           setIsEditing={setIsEditing}
         />
       )}
-      {!isEditing && <SynopsisDisplay filmEPK={filmEPK} epk_id={epk_id} />}
+      {!isEditing && <SynopsisDisplay filmEPK={filmEPK} />}
     </div>
   );
 };

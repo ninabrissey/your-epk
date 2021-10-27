@@ -58,7 +58,7 @@ const PressPage = ({ title, epk_id }: any) => {
               <TrailerDisplay filmEPK={epk} />
             </div>
             <div className="container-wrapper">
-              <SynopsisDisplay epk_id={epk_id} filmEPK={epk} />
+              <SynopsisDisplay filmEPK={epk} />
             </div>
             <div className="film-poster-display">
               <FilmPosterDisplay
