@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { Included } from '../../types';
 import PressCard from './PressCard';
 import AwardCard from './AwardCard';
+import { getArrayData } from '../../utils/apiCalls';
 import './AwardPress.scss';
 
 interface APProps {
@@ -9,6 +11,18 @@ interface APProps {
 }
 
 const AwardPressDisplay = ({ awards, presses }: APProps) => {
+  // const [awards, setAwards] = useState<any>()
+
+  //This is a test for the new fetch call
+  // useEffect(() => {
+  //   try {
+  //     const awards = getArrayData('185/awards').then((data) => console.log(data));
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // });
+
+  console.log(awards);
   let pressCards: any;
   let awardCards: any;
 

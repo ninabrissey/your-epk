@@ -3,3 +3,21 @@
   width: 100%;
   background-color: rgb(233, 187, 107);
 }
+
+.iframe-container-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 75%;
+  margin-bottom: -15%;
+}
+
+.iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 80%;
+}

@@ -4,8 +4,8 @@ import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
 const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
-  const [tagline, setTagline] = useState<string>('');
-  const [logline, setLogline] = useState<string>('');
+  const [tagline, setTagline] = useState<string>(filmEPK.attributes.tagline);
+  const [logline, setLogline] = useState<string>(filmEPK.attributes.logline);
 
   const handleSubmit = () => {
     const currentTaglines = {
@@ -28,7 +28,7 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
   }, [filmEPK]);
 
   return (
-    <form className="taglines-form-wrapper">
+    <div className="taglines-form-wrapper">
       <p>I am the taglines form</p>
       <div>
         <FormControl sx={{ m: 1, minWidth: 400 }}>
@@ -51,11 +51,11 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
             onChange={(e) => setLogline(e.target.value)}
           />
         </FormControl>
+        <Button variant="text" onClick={handleSubmit}>
+          save
+        </Button>
       </div>
-      <Button variant="text" onClick={handleSubmit}>
-        save
-      </Button>
-    </form>
+    </div>
   );
 };
 
