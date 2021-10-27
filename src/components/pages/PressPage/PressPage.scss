@@ -1,7 +1,54 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+// HEADER SECTION
+.press-header-container {
+  top: 0;
+
+  h1 {
+		font-family: 'Zen Kaku Gothic Antique', sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 2.15em;
+		padding: 5px 10px;
+	}
+}
+
+.press-header-img-container {
+  height: $primary-height;
+  width: $primary-width;
+  position: relative;
+  z-index: 1;
+}
+
+.press-header-img {
+  object-fit: cover;
+  height: $primary-height;
+  width: $primary-width;
+}
+
+.press-header-description {
+  line-height: normal;
+  font-size: $primary-font-size;
+}
+
+// CONTACT SECTION
+.contact-display {
+  h2 {
+    @include sectionTitleFormat;
+    text-align: center;
+	}
+
+  .contact-info {
+    font-size: $primary-font-size;
+  }
+}
+
+// PRESS AND AWARDS SECTION
 .press-page-below-header {
-  display: grid;
   width: 70vw;
-  margin: auto;
+  margin: 3vh auto;
+  display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   gap: 2rem;
@@ -10,74 +57,98 @@
 .press-award-display {
   grid-column-start: 1;
   grid-column-end: 4;
-  background: orange;
+
+  h2 {
+		@include sectionTitleFormat;
+	}
 }
 
+// TRAILER SECTION
 .trailer-display {
   grid-column-start: 1;
   grid-column-end: 5;
+
+  h2 {
+		@include sectionTitleFormat;
+		text-align: center;
+    padding: 3vh;
+	}
 }
 
-//synopsis
-// .container-wrapper {
-//   grid-column-start: 1;
-//   grid-column-end: 3;
-// }
+// SYNOPSIS SECTION
+.synopsis-press {
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  h2 {
+		@include sectionTitleFormat;
+	}
+}
+
+.synopsis-display {
+  width: 95%;
+  padding: 3vh;
+  font-size: $primary-font-size;
+  line-height: normal;
+}
+
+// FILM DETAILS SECTION
+.film-details-display {
+  grid-column-start: 1;
+  grid-column-end: 5;
+
+  h2 {
+		@include sectionTitleFormat;
+	}
+}
+
+.film-details-info {
+  width: 95%;
+  padding: 3vh;
+  font-size: $primary-font-size;
+  
+  span {
+    font-weight: bold;
+  }
+}
+
+// FILM POSTER SECTION
+.press-poster-wrapper {
+  height: 100%;
+  width: $primary-width;
+  object-fit: cover;
+}
 
 .film-poster-display {
   grid-column-start: 3;
   grid-column-end: 5;
 }
 
-.film-details-display {
+
+// TAGLINES SECTION
+.tagline-press {
   grid-column-start: 1;
-  grid-column-end: 3;
-}
-
-.tagline-display {
-  grid-column-start: 3;
   grid-column-end: 5;
-}
-
-
-
-.press-header-container {
-  top: 0;
-
-  h1 {
-		font-family: 'Zen Kaku Gothic Antique', sans-serif;
-		text-transform: uppercase;
-		text-align: center;
-		font-size: 2em;
-		padding: 5px 10px;
-	}
-}
-
-// .press-contact {
-  // width: 30%;
-  // position: absolute;
-  // z-index: 10;
-// }
-
-.press-header-img-container {
-  height: 85vh;
-  width: 100%;
-  position: relative;
-  z-index: 1;
-}
-
-.press-header-img {
-  object-fit: cover;
-  height: 85vh;
-  width: 100%;
-}
-
-.contact-display {
 
   h2 {
-		font-family: 'Zen Kaku Gothic Antique', sans-serif;
-		text-transform: uppercase;
-		text-align: center;
-		font-size: 1.25em;
+		@include sectionTitleFormat;
 	}
 }
+
+.taglines-display {
+  width: 95%;
+  padding: 3vh;
+
+  p {
+    padding: 3px;
+    line-height: normal;
+    font-size: $primary-font-size;
+  }
+
+  span {
+    font-weight: bold;
+  }
+}
+
+
+

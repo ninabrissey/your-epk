@@ -1,46 +1,99 @@
-# Getting Started with Create React App
+<div align="center"><img src="https://user-images.githubusercontent.com/76507607/139102243-34da7cea-0986-4126-bd89-7d5e018272cf.png" height="150px" width="200px"/><h1>Your EPK</h1>
+<p>An application to build EPKs.</p>
+<a href="https://your-epk.herokuapp.com/">View Deployed Site Here</a>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+---
 
-### `npm start`
+[Summary](#summary) |
+[Tech Used](#tech-used) |
+[Getting Started](#getting-started) |
+[Current Features](#current-features) |
+[Future Features & Noteworthy Limitations](#future-features-&-noteworthy-limitations) |
+[Preview](#preview) |
+[Learning Goals](#learning-goals) |
+[Organizational Tools](#organizational-tools) |
+[Reflection](#reflection) |
+[Contributors](#contributors) 
+ 
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Summary
+Your EPK is an Electronic Press Kit tool that allows a user to input a film's information and generate a professional press kit for film promotion. This React web app is designed to be highly interactive, allowing the user to visualize their final press kit by editing the film information in a mock-up format the mirrors the final EPK's layout. A user can generate and edit multiple EPKs, which allows for targeted EPK design aimed at specific media if neeeded. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+ 
+### Tech Used
+TypeScript | React | ReactRouter | SCSS | HTML5 | Cypress/E2E | React MUI | Cloud storage with AWS S3
 
-### `npm test`
+---
+### Getting Started
+1. Clone down this repo 
+2. Then ```cd``` into the directory
+3. Run ```npm install```
+4. Run ```npm start```
+5. Paste this: ```http://localhost:3000/``` into your browser
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+[Return to top](#top)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
+### Current Features
+- A user can create a new EPK and have it appear on their dashboard
+- From the edit page, a user can add a header image, film description,trailer, awards and press, film poster, contact information, synopis, and movie details
+- Ever EPK generates a formatted EPK link with a professional display of their film details to be shared with media
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Future Features & Noteworthy Limitations
+- Add space for a film teaser, information about the film team, and film stills
+- Build login to allow multiple users
+- Allow a user to select different fonts or color palettes for their EPK
+- Add templates for other kinds of EPKs--for music or book promotion
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Preview
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[Your EPK](https://github.com/your-epk/your-epk/dashboard/1)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[Return to top](#top)
 
-## Learn More
+---
+### Learning Goals
+Students at Turing School of Software and Design complete this capstone project as a final step before graduation. It is a collaboration between students from the frontend and backend engineering programs to build a full stack application. The goal is to select at least two new technologies to learn and incorporate as a team. New technologies for our team included...
+- TypeScript 
+- React Material UI
+- Cloud storage with AWS S3
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Organizational Tools
+[GitHub Project Board](https://github.com/your-epk/your-epk/projects/1) •
+[Wireframe](https://www.figma.com/file/TcDoNtyfEqeKwCI7mSXP36/yourEPK?node-id=0%3A1) •
+
+---
+### Reflection
+
+<br>
+
+
+[Return to top](#top)
+
+---
+### Contributors:
+#### Frontend Team
+- [Nina Brissey](https://github.com/ninabrissey) <br>
+- [Rachel Jensen](https://github.com/rachelJensen) <br>
+- [Maria DelSignore](https://github.com/madhaus4) <br>
+#### Backend Team
+- [Michael Abbott](https://github.com/AbbottMichael)
+- [Elliot Olbright](https://github.com/ElliotOlbright)
+
+
+
+
+---
+[Return to top](#top)
+
+
+
