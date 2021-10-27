@@ -82,14 +82,14 @@ const PressPage = ({ title, epk_id }: any) => {
               />
             </div>
 
-            <div className="film-details-display">
-              <h2>Film Details</h2>
-              <FilmDetailsDisplay filmEPK={epk} />
-            </div>
-
             <div className="tagline-press">
               <h2>Tagline and Logline</h2>
               <TaglinesDisplay filmEPK={epk} />
+            </div>
+
+            <div className="film-details-display">
+              <h2>Film Details</h2>
+              <FilmDetailsDisplay filmEPK={epk} />
             </div>
 
           </div>
