@@ -49,8 +49,6 @@
 	top: 15vh;
 	left: 60%;
 	background-color: #ffffff;
-	// display: flex;
-	// flex-direction: column;
 	@include flexColumnJustify(space-evenly);
 
 	p {
@@ -72,9 +70,3 @@
 	position: absolute;
 	z-index: 1;
 }
-
-// .header-image {
-// 	height: 85vh;
-// 	width: 100%;
-// 	object-fit: cover;
-// }

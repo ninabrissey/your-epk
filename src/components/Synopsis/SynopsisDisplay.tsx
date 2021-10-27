@@ -1,21 +1,14 @@
-import { useState, useEffect } from 'react';
-import { FilmEPK, Attributes } from '../../types';
+import { FilmEPK } from '../../types';
 
 interface ISynopsis {
   filmEPK: FilmEPK;
 }
 
 const SynopsisDisplay = ({ filmEPK } : ISynopsis) => {
-  // const [currentEPK, setCurrentEPK] = useState<Attributes>({} as Attributes)
-
-  // useEffect(() => {
-  //   setCurrentEPK(filmEPK.attributes)
-  // }, [filmEPK])
 
   return (
     <section className="synopsis-display">
-      {/* <p>Synopsis renders here</p> */}
-      {filmEPK.attributes !== undefined && <p>{filmEPK.attributes.synopsis}</p>}
+      {filmEPK?.attributes&& <p>{filmEPK.attributes.synopsis}</p>}
     </section>
   )
 }

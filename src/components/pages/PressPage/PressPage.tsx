@@ -31,7 +31,6 @@ const PressPage = ({ title, epk_id }: any) => {
     getEPK(epk_id).then((info: EPKData) => {
       setEpk(info.data);
       setIsLoading(false);
-      console.log('this is in presspage', info);
       // setCurrentAwards(filterIncluded(info.included, 'award'));
       // setPresses(filterIncluded(info.included, 'press'));
       // setImages(filterIncluded(info.included, 'image'));

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { FilmEPK } from '../../types';
 import HeaderImgForm from './HeaderImgForm';
 import HeaderImgDisplay from './HeaderImgDisplay';
