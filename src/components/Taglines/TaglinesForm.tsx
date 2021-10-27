@@ -17,8 +17,8 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
   };
 
   const checkFormData = () => {
-    setTagline(filmEPK.attributes.tagline);
-    setLogline(filmEPK.attributes.logline);
+    setTagline(filmEPK.attributes.tag_line);
+    setLogline(filmEPK.attributes.log_line);
   };
 
   useEffect(() => {

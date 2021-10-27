@@ -48,11 +48,11 @@ const FilmDetailsForm = ({
     if (filmEPK?.attributes) {
       setGenre(filmEPK.attributes.genre);
       setCountry(filmEPK.attributes.country);
-      setReleaseYear(filmEPK.attributes.releaseYear);
-      setRuntime(filmEPK.attributes.runtime);
+      setReleaseYear(filmEPK.attributes.release_year);
+      setRuntime(filmEPK.attributes.run_time);
       setLanguage(filmEPK.attributes.language);
       setBudget(filmEPK.attributes.budget);
-      setCompany(filmEPK.attributes.company);
+      setCompany(filmEPK.attributes.production_company);
       setWebsite(filmEPK.attributes.website);
     }
   };

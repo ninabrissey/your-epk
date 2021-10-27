@@ -6,37 +6,37 @@ import Fab from '@mui/material/Fab';
 import EditIcon from '@mui/icons-material/Edit';
 
 interface ISynopsis {
-	filmEPK: FilmEPK;
-	addFilmInfo: any;
+  filmEPK: FilmEPK;
+  addFilmInfo: any;
 }
 
 const SynopsisContainer = ({ filmEPK, addFilmInfo }: ISynopsis) => {
-	const [isEditing, setIsEditing] = useState<boolean>(true);
+  const [isEditing, setIsEditing] = useState<boolean>(true);
 
-	return (
-		<div className="synopsis-container">
-			<h2>Synopsis</h2>
-			{!isEditing && (
-				<Fab
-					// color="secondary"
-					size="small"
-					aria-label="edit"
-					onClick={() => setIsEditing(true)}
-					className="synopsis-edit-btn"
-				>
-					<EditIcon />
-				</Fab>
-			)}
-			{isEditing && (
-				<SynopsisForm
-					filmEPK={filmEPK}
-					addFilmInfo={addFilmInfo}
-					setIsEditing={setIsEditing}
-				/>
-			)}
-			{!isEditing && <SynopsisDisplay filmEPK={filmEPK} />}
-		</div>
-	);
+  return (
+    <div className="synopsis-container">
+      <h2>Synopsis</h2>
+      {!isEditing && (
+        <Fab
+          // color="secondary"
+          size="small"
+          aria-label="edit"
+          onClick={() => setIsEditing(true)}
+          className="synopsis-edit-btn"
+        >
+          <EditIcon />
+        </Fab>
+      )}
+      {isEditing && (
+        <SynopsisForm
+          filmEPK={filmEPK}
+          addFilmInfo={addFilmInfo}
+          setIsEditing={setIsEditing}
+        />
+      )}
+      {!isEditing && <SynopsisDisplay filmEPK={filmEPK} />}
+    </div>
+  );
 };
 
 export default SynopsisContainer;

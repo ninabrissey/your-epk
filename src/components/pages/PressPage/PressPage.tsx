@@ -25,7 +25,7 @@ const PressPage = ({ title, epk_id }: any) => {
   const [epk, setEpk] = useState<FilmEPK>({} as FilmEPK);
 
   const [currentImages, setImages] = useState<Image[] | []>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     getEPK(epk_id).then((info: EPKData) => {
