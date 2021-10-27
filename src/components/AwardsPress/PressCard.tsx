@@ -17,14 +17,13 @@ const PressCard = ({ press, style }: IPressCard) => {
       className="award-press-card award-press-card-background"
     >
       <div className="award-card-styling-div">
-        <img className="laurel" src={laurel} alt="laurels" />
-        <div className="award-text">
-          {/* <a href={press.attributes.link} target="_blank"> */}
-          <p>{press.attributes.name_of_publication}</p>
-          {press.attributes.description && (
-            <p>{press.attributes.description}</p>
-          )}
-          {/* </a> */}
+        <div className="award-text laurel">
+          <a href={press.attributes.link} target="_blank">
+            <p>{press.attributes.name_of_publication}</p>
+            {press.attributes.description && (
+              <p>{press.attributes.description}</p>
+            )}
+          </a>
         </div>
       </div>
     </article>

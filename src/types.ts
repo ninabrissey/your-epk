@@ -61,7 +61,7 @@ export interface Included {
   id: string;
   type: string;
   attributes: any
-  // add film fame once endpoint available
+  // add film fam once endpoint available
 }
 
 export interface Award {
