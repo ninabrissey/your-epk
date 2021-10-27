@@ -14,7 +14,7 @@ const ContactContainer = ({ filmEPK, addFilmInfo }: IContact) => {
 	const [isEditing, setIsEditing] = useState<boolean>(true);
 
 	return (
-		<section className="contact-container">
+		<section className="contact-container press-contact">
 			{isEditing && (
 				<ContactForm
 					filmEPK={filmEPK}
