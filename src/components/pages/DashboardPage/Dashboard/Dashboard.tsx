@@ -15,7 +15,6 @@ interface IUser {
 
 const Dashboard = ({ id, currUser }: IUser) => {
   const [allFilms, setAllFilms] = useState<FilmEPK[]>([]);
-  // const [filmImg, setFilmImg] = useState<any>()
 
   useEffect(() => {
     fetch(`https://epk-be.herokuapp.com/api/v1/users/${id}`)
@@ -24,27 +23,16 @@ const Dashboard = ({ id, currUser }: IUser) => {
         setAllFilms(data.included);
       })
       .catch((err) => console.log(err));
-
-    // getEPKImage()
   }, []);
-
-  // const getEPKImage = () => {
-  //   const findImg = allFilms.find(film => {
-  //     if (film.id) {
-  //       return film.attributes.header_image_url
-  //     }
-  //   })
-  //   setFilmImg(findImg)
-  //   console.log('findImg: ', findImg)
-  // }
-
-  // console.log('allFilms: ', allFilms)
 
   return (
     <div>
       <Navigation />
       <main className="edit-main">
-        <TitleForm allFilms={allFilms} id={id} setAllFilms={setAllFilms} />
+        <div className="party-title">
+          <h1>To build your <span>electronic press kit</span>, enter your film title below</h1>
+          <TitleForm allFilms={allFilms} id={id} setAllFilms={setAllFilms} />
+        </div>
         <EPKContainer allFilms={allFilms} setAllFilms={setAllFilms} />
       </main>
     </div>
