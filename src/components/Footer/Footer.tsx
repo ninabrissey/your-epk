@@ -12,6 +12,7 @@ const Footer = () => {
           window.scrollTo(0, 0);
         }}
       > */}
+      <p>Powered by</p>
         <img
           className="logo"
           src={logo}
