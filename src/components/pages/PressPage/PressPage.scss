@@ -132,22 +132,23 @@
   }
   .taglines-section {
     margin: 0;
+    width: 100%;
   }
 }
-
-.taglines-display-info {
-  @include contentSizePress;
   
-  p {
-    padding: 3px;
-    line-height: normal;
-    font-size: $primary-font-size;
+  .taglines-display-info {
+    @include contentSizePress;
+    
+    p {
+      padding: 3px;
+      line-height: normal;
+      font-size: $primary-font-size;
+    }
+    
+    span {
+      font-weight: bold;
+    }
   }
-  
-  span {
-    font-weight: bold;
-  }
-}
 
 
 
