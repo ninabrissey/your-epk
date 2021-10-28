@@ -87,12 +87,12 @@ Students at Turing School of Software and Design complete this capstone project 
 ---
 ### Contributors:
 #### Frontend Team
-- Nina Brissey | [github](https://github.com/ninabrissey) | [find Nina on linkedIn](https://www.linkedin.com/in/ninabrissey/)<br>
-- Rachel Jensen | [github](https://github.com/rachelJensen) | [Rachel's linkedIn](https://www.linkedin.com/in/racheljensendev/) <br>
-- [Maria DelSignore](https://github.com/madhaus4) <br>
+- Nina Brissey | [GitHub](https://github.com/ninabrissey) | [Nina's linkedIn](https://www.linkedin.com/in/ninabrissey/)
+- Rachel Jensen | [GitHub](https://github.com/rachelJensen) | [Rachel's linkedIn](https://www.linkedin.com/in/racheljensendev/)
+- Maria DelSignore | [GitHub](https://github.com/madhaus4) | [Maria's linkedIn](https://www.linkedin.com/in/mariadelsignore/)
 #### Backend Team
-- [Michael Abbott](https://github.com/AbbottMichael)
-- [Elliot Olbright](https://github.com/ElliotOlbright)
+- Michael Abbott | [GitHub](https://github.com/AbbottMichael) | [Michael's linkedIn](https://www.linkedin.com/in/mjabbottdesign/)
+- Elliot Olbright | [GitHub](https://github.com/ElliotOlbright) | [Elliot's linkedIn](https://www.linkedin.com/in/elliotolbright/)
 
 
 
