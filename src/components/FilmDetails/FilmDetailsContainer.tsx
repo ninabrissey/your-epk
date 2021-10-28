@@ -13,16 +13,11 @@ interface IFilmDetails {
 const FilmDetailsContainer = ({ filmEPK, addFilmInfo }: IFilmDetails) => {
   const [isEditing, setIsEditing] = useState<boolean>(true);
 
-  // Nina Note
-  // I believe that error handling and loading is all being handled
-  // Edit page for everything except for the arrays
-
   return (
     <section className="film-details-container">
       <h2>Film Details</h2>
       {!isEditing && (
         <Fab
-          // color="secondary"
           size="small"
           aria-label="edit"
           onClick={() => setIsEditing(!isEditing)}

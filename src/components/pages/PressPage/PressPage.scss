@@ -90,6 +90,7 @@
   @include contentSizePress;
   font-size: $primary-font-size;
   line-height: normal;
+  width: 95%;
 }
 
 // FILM POSTER SECTION
@@ -105,25 +106,6 @@
 
   .poster {
     margin: 0;
-  }
-}
-
-// FILM DETAILS SECTION
-.film-details-display {
-  grid-column-start: 1;
-  grid-column-end: 5;
-
-  h2 {
-    @include sectionTitleFormat;
-  }
-}
-
-.film-details-info {
-  @include contentSizePress;
-  font-size: $primary-font-size;
-
-  span {
-    font-weight: bold;
   }
 }
 
@@ -147,16 +129,44 @@
   h2 {
     @include sectionTitleFormat;
   }
+  .taglines-section {
+    margin: 0;
+  }
 }
 
-.taglines-display {
+.taglines-display-info {
   @include contentSizePress;
-
+  
   p {
     padding: 3px;
     line-height: normal;
     font-size: $primary-font-size;
   }
+  
+  span {
+    font-weight: bold;
+  }
+}
+
+
+
+// FILM DETAILS SECTION
+.film-details-display {
+  grid-column-start: 1;
+  grid-column-end: 5;
+
+  h2 {
+    @include sectionTitleFormat;
+  }
+
+  .film-details-section {
+    margin: 0;
+  }
+}
+
+.film-details-info {
+  @include contentSizePress;
+  font-size: $primary-font-size;
 
   span {
     font-weight: bold;
