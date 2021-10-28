@@ -54,7 +54,12 @@ TypeScript | React | ReactRouter | SCSS | HTML5 | Cypress/E2E | React MUI | Clou
 
 ### Preview
 
-[Your EPK](https://github.com/your-epk/your-epk/dashboard/1)
+[Your EPK](https://your-epk.herokuapp.com/dashboard/1)
+
+![Editable Press Kit](https://user-images.githubusercontent.com/81662051/139305802-29734c1d-cc09-420a-afae-26f4240ac9b4.png)
+edit view                   | mock-up view
+:-------------------------:|:-------------------------:
+![edit view](https://user-images.githubusercontent.com/81662051/139305850-e908e01e-7580-4ded-8aae-3bda7b173a09.png) | ![mock-up view](https://user-images.githubusercontent.com/81662051/139305881-634b8d20-1a4b-4ccc-9700-b1acad552f36.png)
 
 
 [Return to top](#top)
