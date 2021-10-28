@@ -95,12 +95,23 @@ const AwardPressForm = ({
               <TextField
                 style={{ marginRight: '3%' }}
                 id="outlined-basic"
-                name="name"
-                label="name"
+                name="festival"
+                label="festival"
+                variant="outlined"
+                value={awardType}
+                onChange={(e) => setAwardType(e.target.value)}
+                helperText="festival required"
+                required
+              />
+              <TextField
+                style={{ marginRight: '3%' }}
+                id="outlined-basic"
+                name="award type"
+                label="award type"
                 variant="outlined"
                 value={awardName}
                 onChange={(e) => setAwardName(e.target.value)}
-                helperText="name required"
+                helperText="award type required"
                 required
               />
               <TextField
@@ -113,15 +124,6 @@ const AwardPressForm = ({
                 onChange={(e) => setAwardYear(e.target.value)}
                 helperText="year required"
                 required
-              />
-              <TextField
-                style={{ marginRight: '3%' }}
-                id="outlined-basic"
-                name="type"
-                label="type"
-                variant="outlined"
-                value={awardType}
-                onChange={(e) => setAwardType(e.target.value)}
               />
               <Button
                 style={{
@@ -165,10 +167,12 @@ const AwardPressForm = ({
                 style={{ marginRight: '3%' }}
                 id="outlined-basic"
                 name="description"
-                label="description/quote"
+                label="description"
                 variant="outlined"
                 value={quote}
                 onChange={(e) => setQuote(e.target.value)}
+                helperText="description/quote required"
+                required
               />
               <Button
                 style={{
