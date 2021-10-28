@@ -8,9 +8,7 @@
   border-right: 1px solid black;
 
   h2 {
-		font-family: 'Zen Kaku Gothic Antique', sans-serif;
-		text-transform: uppercase;
-		font-size: 1.25em;
+    @include sectionTitleFormat;
     width: 42vw;
     margin: auto;
     padding-top: 2vh;
@@ -28,6 +26,8 @@
 .synopsis-display {
   width: 70%;
   margin: auto;
+  line-height: normal;
+  font-size: $primary-font-size;
 }
 
 .synopsis-edit-btn {

@@ -60,6 +60,7 @@
 
   h2 {
     @include sectionTitleFormat;
+    padding: 3vh 0;
   }
 }
 
@@ -83,14 +84,15 @@
   h2 {
     @include sectionTitleFormat;
   }
+
+  .synopsis-display {
+    @include contentSizePress;
+    font-size: $primary-font-size;
+    // line-height: normal;
+    width: 95%;
+  }
 }
 
-.synopsis-display {
-  width: 95%;
-  padding: 3vh;
-  font-size: $primary-font-size;
-  line-height: normal;
-}
 
 // FILM POSTER SECTION
 .film-poster-display {
@@ -105,26 +107,6 @@
 
   .poster {
     margin: 0;
-  }
-}
-
-// FILM DETAILS SECTION
-.film-details-display {
-  grid-column-start: 1;
-  grid-column-end: 5;
-
-  h2 {
-    @include sectionTitleFormat;
-  }
-}
-
-.film-details-info {
-  width: 95%;
-  padding: 3vh;
-  font-size: $primary-font-size;
-
-  span {
-    font-weight: bold;
   }
 }
 
@@ -148,17 +130,45 @@
   h2 {
     @include sectionTitleFormat;
   }
+  .taglines-section {
+    margin: 0;
+    width: 100%;
+  }
+}
+  
+  .taglines-display-info {
+    @include contentSizePress;
+    
+    p {
+      padding: 3px;
+      line-height: normal;
+      font-size: $primary-font-size;
+    }
+    
+    span {
+      font-weight: bold;
+    }
+  }
+
+
+
+// FILM DETAILS SECTION
+.film-details-display {
+  grid-column-start: 1;
+  grid-column-end: 5;
+
+  h2 {
+    @include sectionTitleFormat;
+  }
+
+  .film-details-section {
+    margin: 0;
+  }
 }
 
-.taglines-display {
-  width: 95%;
-  padding: 3vh;
-
-  p {
-    padding: 3px;
-    line-height: normal;
-    font-size: $primary-font-size;
-  }
+.film-details-info {
+  @include contentSizePress;
+  font-size: $primary-font-size;
 
   span {
     font-weight: bold;

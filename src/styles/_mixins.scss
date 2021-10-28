@@ -35,3 +35,8 @@
   text-transform: uppercase;
   font-size: 1.50em;
 }
+
+@mixin contentSizePress {
+  padding: 3vh;
+  margin: 0;
+}

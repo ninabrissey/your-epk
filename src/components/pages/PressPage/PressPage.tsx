@@ -19,6 +19,7 @@ import { useEffect, useState } from 'react';
 import { getEPK, getArrayData } from '../../../utils/apiCalls';
 import ImagesDisplay from '../../Images/ImagesDisplay';
 import ContactDisplay from '../../Contact/ContactDisplay';
+import Footer from '../../Footer/Footer';
 
 const PressPage = ({ title, epk_id }: any) => {
   const [epk, setEpk] = useState<FilmEPK>({} as FilmEPK);
@@ -89,6 +90,7 @@ const PressPage = ({ title, epk_id }: any) => {
           </div>
         </section>
       )}
+      <Footer />
     </div>
   );
 };

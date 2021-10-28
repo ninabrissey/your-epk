@@ -5,8 +5,12 @@
   width: 100%;
   margin: 5vh 0;
 
+  h2 {
+    @include sectionTitleFormat;
+  }
+
   .awards-press-edit-btn {
-    top: 5vh;
+    top: -6vh;
     left: 92vw;
   }
 }

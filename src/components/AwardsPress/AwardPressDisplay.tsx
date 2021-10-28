@@ -50,7 +50,7 @@ const AwardPressDisplay = ({ awards, presses }: APProps) => {
 
   return (
     <section>
-      <h3 className="awards-press-title">Articles and Awards</h3>
+      {/* <h3 className="awards-press-title">Articles and Awards</h3> */}
       <div className="award-press-display">{awardPressArray}</div>
     </section>
   );

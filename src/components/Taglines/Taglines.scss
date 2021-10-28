@@ -8,9 +8,7 @@
   background-color: whitesmoke;
 
   h2 {
-		font-family: 'Zen Kaku Gothic Antique', sans-serif;
-		text-transform: uppercase;
-		font-size: 1.25em;
+    @include sectionTitleFormat;
     width: 75vw;
     margin: auto;
     padding: 15px;
@@ -18,8 +16,8 @@
 }
 
 .taglines-edit-btn {
-  top: -4vh;
-  left: 40vw;
+  top: -6vh;
+  left: 92vw;
 }
 
 .taglines-form-wrapper {
@@ -34,9 +32,15 @@
   }
 }
 
-.taglines-display {
-  width: 70%;
+.taglines-section {
+  width: 75%;
   margin: auto;
+}
+
+.taglines-display-info {
+  padding: 0 3vh;
+  margin: 0;
+  width: 95%;
 
   p {
     padding: 10px;
