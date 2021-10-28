@@ -84,14 +84,15 @@
   h2 {
     @include sectionTitleFormat;
   }
+
+  .synopsis-display {
+    @include contentSizePress;
+    font-size: $primary-font-size;
+    // line-height: normal;
+    width: 95%;
+  }
 }
 
-.synopsis-display {
-  @include contentSizePress;
-  font-size: $primary-font-size;
-  line-height: normal;
-  width: 95%;
-}
 
 // FILM POSTER SECTION
 .film-poster-display {
