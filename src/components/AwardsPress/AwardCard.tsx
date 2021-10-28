@@ -1,5 +1,8 @@
 import { Award, Included } from '../../types';
 import laurel from './../../images/laurel.png';
+import clear from './../../images/clear.png';
+import Fab from '@mui/material/Fab';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import './AwardPress.scss';
 
 interface IAwardCard {
@@ -14,6 +17,17 @@ const AwardCard = ({ award, style }: IAwardCard) => {
       className="award-press-card award-press-card-background"
     >
       <div className="award-card-styling-div">
+        <div
+          style={{
+            textAlign: 'right',
+            marginTop: '-30px',
+            marginRight: '5px ',
+          }}
+        >
+          <Fab size="small" aria-label="delete">
+            <DeleteOutlineIcon />
+          </Fab>
+        </div>
         <img className="laurel" src={laurel} alt="laurels" />
         <div className="award-text">
           <p>{award.attributes.name}</p>
