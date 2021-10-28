@@ -3,7 +3,7 @@
 
 .header-container {
 	height: $primary-height;
-	width: 100%;
+	width: $primary-width;
 	background-color: whitesmoke;
 
 	h1 {
@@ -23,7 +23,7 @@
 }
 
 .header-form {
-	width: 100%;
+	width: $primary-width;
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
@@ -65,7 +65,7 @@
 
 .header-image-render {
 	height: 85vh;
-	width: 100%;
+	width: $primary-width;
 	margin-top: -5vh;
 	object-fit: cover;
 	position: absolute;
