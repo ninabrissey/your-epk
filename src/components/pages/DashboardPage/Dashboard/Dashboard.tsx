@@ -15,6 +15,7 @@ interface IUser {
 
 const Dashboard = ({ id, currUser }: IUser) => {
   const [allFilms, setAllFilms] = useState<FilmEPK[]>([]);
+  // const [filmImg, setFilmImg] = useState<any>()
 
   useEffect(() => {
     fetch(`https://epk-be.herokuapp.com/api/v1/users/${id}`)
@@ -23,7 +24,21 @@ const Dashboard = ({ id, currUser }: IUser) => {
         setAllFilms(data.included);
       })
       .catch((err) => console.log(err));
+
+    // getEPKImage()
   }, []);
+
+  // const getEPKImage = () => {
+  //   const findImg = allFilms.find(film => {
+  //     if (film.id) {
+  //       return film.attributes.header_image_url
+  //     }
+  //   })
+  //   setFilmImg(findImg)
+  //   console.log('findImg: ', findImg)
+  // }
+
+  // console.log('allFilms: ', allFilms)
 
   return (
     <div>

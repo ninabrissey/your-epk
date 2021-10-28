@@ -1,17 +1,19 @@
 import { Link } from 'react-router-dom';
-import { FilmEPK, Attributes } from '../../../../types';
+import { FilmEPK } from '../../../../types';
 import './EPKCard.scss'
 import Button from '@mui/material/Button';
 
 interface ITitle {
   title: string,
+  image: string,
   epk_id: number,
   setAllFilms: React.Dispatch<React.SetStateAction<FilmEPK[]>>
   allFilms: FilmEPK[],
   key: number
 }
 
-const EPKCard = ({ title, epk_id, setAllFilms, allFilms, key }: ITitle) => {
+const EPKCard = ({ title, image, epk_id, setAllFilms, allFilms }: ITitle) => {
+
   const deleteEPK = (id: number) => {
     fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${id}`, {
       method: 'DELETE'
@@ -23,14 +25,23 @@ const EPKCard = ({ title, epk_id, setAllFilms, allFilms, key }: ITitle) => {
 
   return (
     <article className='title-card' >
+      <div className="dashboard-image-container">
+        <img className="dashboard-image" src={image} alt="" />
+      </div>
       <Link to={`/edit/${epk_id}`} className='linked-title' >
         <div key={epk_id} className='go-to-edit'>
-          <p className='title-text'>{title}</p>
+          <div className='box-around-text'>
+            <h2 className='title-text'>{title}</h2>
+          </div>
         </div>
       </Link>
-      {/* <button >Delete</button> */}
-      <Button variant="outlined" size="small" onClick={() => deleteEPK(epk_id)}>
-        Delete
+
+      <Button 
+        id="deleteBtnDashboard"
+        variant="outlined" 
+        size="small" 
+        onClick={() => deleteEPK(epk_id)}
+        >Delete EPK
       </Button>
     </article>
   )

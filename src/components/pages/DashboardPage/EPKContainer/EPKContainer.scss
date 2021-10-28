@@ -2,6 +2,7 @@
 
 .titles {
   @include flexCenterColumn;
+  margin-bottom: 20vh;
 }
 
 .titles-container {
