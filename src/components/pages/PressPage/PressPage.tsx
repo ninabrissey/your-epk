@@ -58,7 +58,6 @@ const PressPage = ({ title, epk_id }: any) => {
           </div>
 
           <div className="press-page-below-header">
-
             <div className="press-award-display">
               <h2>Articles and Awards</h2>
               <AwardPressDisplay awards={awards} presses={presses} />
