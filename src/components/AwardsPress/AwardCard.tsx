@@ -24,9 +24,9 @@ const AwardCard = ({ award, style }: IAwardCard) => {
             marginRight: '5px ',
           }}
         >
-          <Fab size="small" aria-label="delete">
+          {/* <Fab size="small" aria-label="delete">
             <DeleteOutlineIcon />
-          </Fab>
+          </Fab> */}
         </div>
         <img className="laurel" src={laurel} alt="laurels" />
         <div className="award-text">

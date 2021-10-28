@@ -15,13 +15,13 @@ interface IPressCard {
 const PressCard = ({ press, style }: IPressCard) => {
   return (
     <article style={style} className="award-press-card-background press-card">
-      <Fab
+      {/* <Fab
         style={{ marginLeft: '235px', marginBottom: '235px' }}
         size="small"
         aria-label="delete"
       >
         <DeleteOutlineIcon />
-      </Fab>
+      </Fab> */}
       <div>
         <a
           style={{ color: 'inherit' }}
