@@ -69,3 +69,21 @@
   display: flex;
   width: 100%;
 }
+
+.press-card {
+  @include flexCenterColumn;
+  justify-content: space-evenly;
+  height: 225px;
+  width: 225px;
+  color: whitesmoke;
+  padding: 10%;
+  text-align: center;
+  opacity: 0.95;
+  filter: alpha(opacity=95);
+
+  &:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    transform: scale(1.03);
+  }
+}
