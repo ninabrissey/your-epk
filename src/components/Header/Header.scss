@@ -42,11 +42,11 @@
 }
 
 .header-info-container {
-	height: $primary-height;
+	height: 86vh;
 	width: 30%;
 	z-index: 5;
 	position: absolute;
-	top: 15vh;
+	top: 14vh;
 	left: 60%;
 	background-color: #ffffff;
 	@include flexColumnJustify(space-evenly);
@@ -66,6 +66,7 @@
 .header-image-render {
 	height: 85vh;
 	width: 100%;
+	margin-top: -5vh;
 	object-fit: cover;
 	position: absolute;
 	z-index: 1;

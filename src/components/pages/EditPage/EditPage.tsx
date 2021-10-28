@@ -7,12 +7,9 @@ import TrailerContainer from '../../Trailer/TrailerContainer';
 import FilmPosterContainer from '../../FilmPoster/FilmPosterContainer';
 import Navigation from '../../Navigation/Navigation';
 import Error from '../../Error/Error';
-import './EditPage.scss';
-
 import SynopsisContainer from '../../Synopsis/SynopsisContainer';
 import FilmDetailsContainer from '../../FilmDetails/FilmDetailsContainer';
 import TaglinesContainer from '../../Taglines/TaglinesContainer';
-import './EditPage.scss';
 import ImagesContainer from '../../Images/ImagesContainer';
 import ImagesForm from '../../Images/ImagesForm';
 
@@ -37,13 +34,13 @@ const EditPage = ({ epk_id, id }: any) => {
   useEffect(() => {
     setLoading(true);
     getFilmData();
-    console.log(film);
+    // console.log(film);
   }, [epk_id]);
 
   const addFilmInfo = (filmInfo: object) => {
     patchData(filmInfo, epk_id).then((data) => {
       setFilm(data.data);
-      console.log(data.data, 'filmEPK data in patch addFilmInfo function');
+      // console.log(data.data, 'filmEPK data in patch addFilmInfo function');
     });
   };
 
@@ -94,10 +91,10 @@ const EditPage = ({ epk_id, id }: any) => {
             </div>
             {/* <ImagesContainer epk_id={epk_id} images={images} /> */}
             {/* <ImagesForm /> */}
-            <div className="container-wrapper">
-              <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-              <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-            </div>
+            <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+            {/* <div className="container-wrapper"> */}
+            <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+            {/* </div> */}
           </main>
         </div>
       )}

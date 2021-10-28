@@ -19,7 +19,6 @@ import { useEffect, useState } from 'react';
 import { getEPK, getArrayData } from '../../../utils/apiCalls';
 import ImagesDisplay from '../../Images/ImagesDisplay';
 import ContactDisplay from '../../Contact/ContactDisplay';
-// import '../PressPage/PressPage.scss';
 
 const PressPage = ({ title, epk_id }: any) => {
   const [epk, setEpk] = useState<FilmEPK>({} as FilmEPK);
