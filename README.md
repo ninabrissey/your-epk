@@ -87,12 +87,12 @@ Students at Turing School of Software and Design complete this capstone project 
 ---
 ### Contributors:
 #### Frontend Team
-- Nina Brissey | [GitHub](https://github.com/ninabrissey) | [Nina's linkedIn](https://www.linkedin.com/in/ninabrissey/)
-- Rachel Jensen | [GitHub](https://github.com/rachelJensen) | [Rachel's linkedIn](https://www.linkedin.com/in/racheljensendev/)
-- Maria DelSignore | [GitHub](https://github.com/madhaus4) | [Maria's linkedIn](https://www.linkedin.com/in/mariadelsignore/)
+- Nina Brissey | [GitHub](https://github.com/ninabrissey) | [LinkedIn](https://www.linkedin.com/in/ninabrissey/)
+- Rachel Jensen | [GitHub](https://github.com/rachelJensen) | [LinkedIn](https://www.linkedin.com/in/racheljensendev/)
+- Maria DelSignore | [GitHub](https://github.com/madhaus4) | [LinkedIn](https://www.linkedin.com/in/mariadelsignore/)
 #### Backend Team
-- Michael Abbott | [GitHub](https://github.com/AbbottMichael) | [Michael's linkedIn](https://www.linkedin.com/in/mjabbottdesign/)
-- Elliot Olbright | [GitHub](https://github.com/ElliotOlbright) | [Elliot's linkedIn](https://www.linkedin.com/in/elliotolbright/)
+- Michael Abbott | [GitHub](https://github.com/AbbottMichael) | [LinkedIn](https://www.linkedin.com/in/mjabbottdesign/)
+- Elliot Olbright | [GitHub](https://github.com/ElliotOlbright) | [LinkedIn](https://www.linkedin.com/in/elliotolbright/)
 
 
 
