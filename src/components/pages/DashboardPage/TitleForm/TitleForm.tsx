@@ -43,7 +43,7 @@ const TitleForm = ({ id, setAllFilms, allFilms }: IDashboard) => {
 
   return (
     <div className='title-input'>
-      <FormControl sx={{ m: 1, minWidth: 120 }} >
+      <FormControl sx={{ m: 1, minWidth: 240 }} >
         <TextField
           className='title-field'
           id="outlined-basic"
