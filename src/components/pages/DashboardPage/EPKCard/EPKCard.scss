@@ -69,4 +69,13 @@
   position: absolute;
   z-index: 10;
   bottom: 0vh;
+  color: whitesmoke;
+  background-color: #ff9143;
+  border: none;
+
+  &:hover {
+    background-color: whitesmoke;
+    border: none;
+    color: black;
+  }
 }
