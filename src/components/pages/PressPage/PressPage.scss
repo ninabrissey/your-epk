@@ -87,8 +87,7 @@
 }
 
 .synopsis-display {
-  width: 95%;
-  padding: 3vh;
+  @include contentSizePress;
   font-size: $primary-font-size;
   line-height: normal;
 }
@@ -120,8 +119,7 @@
 }
 
 .film-details-info {
-  width: 95%;
-  padding: 3vh;
+  @include contentSizePress;
   font-size: $primary-font-size;
 
   span {
@@ -152,8 +150,7 @@
 }
 
 .taglines-display {
-  width: 95%;
-  padding: 3vh;
+  @include contentSizePress;
 
   p {
     padding: 3px;
