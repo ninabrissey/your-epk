@@ -16,10 +16,10 @@ describe('Award Press Container', () => {
   it('should have a header, an edit button, and a display', () => {
     cy.get('.awards-press-title').contains('Articles and Awards')
       .get('.awards-press-edit-btn').should('be.visible')
-      .get(':nth-child(1) > .award-card-styling-div > .award-text > :nth-child(1)').contains('The Times')
-      .get(':nth-child(1) > .award-card-styling-div > .award-text > :nth-child(2)').contains('brilliant')
-      .get(':nth-child(2) > .award-card-styling-div > .award-text > :nth-child(1)').contains('Sunshiny')
-      .get(':nth-child(2) > .award-card-styling-div > .award-text > :nth-child(2)').contains('Best smoosh of the year')
+      .get('a > :nth-child(1)').contains('The Times')
+      .get('a > :nth-child(2)').contains('brilliant')
+      .get('.award-text > :nth-child(1)').contains('Sunshiny')
+      .get('.award-text > :nth-child(2)').contains('Best smoosh of the year')
       .get('.award-text > :nth-child(3)').contains('2021')
   })
 

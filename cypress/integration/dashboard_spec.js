@@ -21,7 +21,7 @@ describe('Dashboard', () => {
 
   it('should display a user\'s existing EPKs', () => {
     cy.get('.titles-container').children().should('have.length', 2)
-    cy.get(':nth-child(1) > .linked-title > .go-to-edit > .title-text').contains('The Adventures of Mini')
+    cy.get(':nth-child(1) > .linked-title > .go-to-edit > .box-around-text > .title-text').contains('The Adventures of Mini')
     
   })
 
@@ -32,7 +32,7 @@ describe('Dashboard', () => {
     
     cy.get('.titles-container').children().should('have.length', 3)
 
-    cy.get(':nth-child(1) > .linked-title > .go-to-edit > .title-text').contains('Awesome Movie')
+    cy.get(':nth-child(1) > .linked-title > .go-to-edit > .box-around-text > .title-text').contains('Awesome Movie')
   })
   
   it('should allow a user to delete an EPK', () => {
@@ -42,7 +42,7 @@ describe('Dashboard', () => {
     
     cy.get('.titles-container > :nth-child(1) > .MuiButton-root').click()
 
-    cy.get(':nth-child(1) > .linked-title > .go-to-edit > .title-text').contains('Film That\'s Bueno')
+    cy.get(':nth-child(1) > .linked-title > .go-to-edit > .box-around-text > .title-text').contains('Film That\'s Bueno')
   })
 
 })
