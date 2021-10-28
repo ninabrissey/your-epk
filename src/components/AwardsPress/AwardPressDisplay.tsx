@@ -45,7 +45,7 @@ const AwardPressDisplay = ({ awards, presses }: APProps) => {
       },
       []
     );
-    console.log(awardPressArray);
+    // console.log(awardPressArray);
   }
 
   return (

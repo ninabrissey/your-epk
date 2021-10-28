@@ -5,21 +5,68 @@
   @include flexCenterColumn;
   justify-content: space-evenly;
   height: 215px;
-  color: whitesmoke;
-  background-color: #F1EAE0;
-  padding: 5%;
-  text-align: center;
+  // color: whitesmoke;
+  // background-color: #F1EAE0;
+  background-color: whitesmoke;
+  // padding: 5%;
+  // text-align: center;
+  position: relative;
+
+  h2 {
+		@include sectionTitleFormat;
+		text-align: center;
+    padding: 1vh;
+    color: black;
+	}
+}
+
+.dashboard-image-container {
+  height: 215px;
+  object-fit: cover;
+  width: 100%;
+  /* z-index: 5; */
+  position: relative;
+}
+
+.dashboard-image {
+  height: 215px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .linked-title {
-  height: 80%;
-  width: 80%;
+  // height: 80%;
+  // width: 80%;
+  height: 100%;
+  width: 100%;
+
+  position: absolute;
+  z-index: 10;
+
   &:hover {
-    background-color: $theme-dark;
+    background-color: $logo-color;
   }
 }
 
 .go-to-edit {
-  @include flexCenterColumn;
-  padding: 10%;
+  // @include flexCenterColumn;
+  // padding: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.box-around-text {
+  background-color: white;
+  width: 100%;
+}
+
+#deleteBtnDashboard {
+  margin: 1vh;
+
+  position: absolute;
+  z-index: 10;
+  bottom: 0vh;
 }
