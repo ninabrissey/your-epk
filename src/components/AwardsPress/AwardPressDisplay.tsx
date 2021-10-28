@@ -11,12 +11,13 @@ interface APProps {
 }
 
 const AwardPressDisplay = ({ awards, presses }: APProps) => {
-  let pressCards: any;
-  let awardCards: any;
+  let awardPressArray: any;
 
-  if (awards !== undefined) {
-    awardCards = awards.map((award, i) => {
-      if (i % 2 === 0) {
+  if (presses !== undefined || awards !== undefined) {
+    let pressCards: any;
+    let awardCards: any;
+    if (awards !== undefined) {
+      awardCards = awards.map((award, i) => {
         return (
           <AwardCard
             key={award.id}
@@ -24,47 +25,33 @@ const AwardPressDisplay = ({ awards, presses }: APProps) => {
             style={{ background: '#FF904D' }}
           />
         );
-      } else if (i % 2 === 1) {
-        return (
-          <AwardCard
-            key={award.id}
-            award={award}
-            style={{ background: '#F1EAE0', color: '#605E59' }}
-          />
-        );
-      }
-    });
-  }
-
-  if (presses !== undefined) {
-    pressCards = presses.map((press, i) => {
-      if (i % 2 === 0) {
+      });
+    }
+    if (presses !== undefined) {
+      pressCards = presses.map((press, i) => {
         return (
           <PressCard
             key={press.id}
             press={press}
-            style={{ background: '#FF904D' }}
+            style={{ background: 'whitesmoke', color: '#605E59' }}
           />
         );
-      } else if (i % 2 === 1) {
-        return (
-          <PressCard
-            key={press.id}
-            press={press}
-            style={{ background: '#F1EAE0', color: '#605E59' }}
-          />
-        );
-      }
-    });
+      });
+    }
+    awardPressArray = awardCards.reduce(
+      (awardPress: any, item: any, i: number) => {
+        awardPress.push(item, pressCards[i]);
+        return awardPress;
+      },
+      []
+    );
+    console.log(awardPressArray);
   }
 
   return (
     <section>
       {/* <h3 className="awards-press-title">Articles and Awards</h3> */}
-      <div className="award-press-display">
-        {pressCards}
-        {awardCards}
-      </div>
+      <div className="award-press-display">{awardPressArray}</div>
     </section>
   );
 };
