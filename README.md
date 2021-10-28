@@ -87,7 +87,7 @@ Students at Turing School of Software and Design complete this capstone project 
 ---
 ### Contributors:
 #### Frontend Team
-- [Nina Brissey](https://github.com/ninabrissey) <br>
+- Nina | [Nina Brissey](https://github.com/ninabrissey) | [find Nina on linkedIn](https://www.linkedin.com/in/ninabrissey/)<br>
 - [Rachel Jensen](https://github.com/rachelJensen) <br>
 - [Maria DelSignore](https://github.com/madhaus4) <br>
 #### Backend Team
