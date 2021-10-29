@@ -30,9 +30,9 @@ TypeScript | React | ReactRouter | SCSS | HTML5 | Cypress/E2E | React MUI | Clou
 <p text-align="center"> 
     <img alt="React Badge" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
     <img alt="TypeScript Badge" src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
-    <img alt="React Material UI" src="https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=whitee" />
     <img alt="Sass" src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" />
     <img alt="AWS S3" src="https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" />
+    <img alt="React Material UI" src="https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=whitee" />
 </p>
 
 ---
