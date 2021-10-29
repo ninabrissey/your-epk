@@ -27,6 +27,15 @@ Your EPK is an Electronic Press Kit tool that allows a user to input a film's in
 ### Tech Used
 TypeScript | React | ReactRouter | SCSS | HTML5 | Cypress/E2E | React MUI | Cloud storage with AWS S3
 
+<p text-align="center"> 
+    <img alt="React Badge" src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=flat-square)" />
+    <img alt="React Router Badge" src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white&style=flat-square)" />
+    <img alt="TypeScript Badge" src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
+    <img alt="HTML5 Badge" src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=fff&style=flat-square" />
+    <img alt="CSS3 Badge" src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=fff&style=flat-square" />
+    <img alt="Cypress Badge" src="https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=fff&style=flat-square" />
+</p>
+
 ---
 ### Getting Started
 1. Clone down this repo 
