@@ -65,15 +65,7 @@ const EditPage = ({ epk_id, id }: any) => {
               isPressPage={false}
             />
 
-            {included.length > 0 ||
-              (film.id && (
-                <AwardsPressContainer
-                  addFilmInfo={addFilmInfo}
-                  epk_id={epk_id}
-                  included={included}
-                />
-              ))}
-            {included.length > 0 && film.id && (
+            {film.id && (
               <AwardsPressContainer
                 addFilmInfo={addFilmInfo}
                 epk_id={epk_id}
