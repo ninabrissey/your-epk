@@ -11,14 +11,14 @@ interface APProps {
 }
 
 const AwardPressDisplay = ({ awards, presses }: APProps) => {
-  let combinedAwardPress: any;
+  let combinedAwardPress: JSX.Element[] | undefined;
 
 
   if (presses !== undefined || awards !== undefined) {
-    let pressCards: any;
-    let awardCards: any;
+    let pressCards: JSX.Element[];
+    let awardCards: JSX.Element[];
     if (awards !== undefined) {
-      awardCards = awards.map((award, i) => {
+      awardCards = awards.map((award) => {
         return (
           <AwardCard
             key={award.id}
@@ -29,7 +29,7 @@ const AwardPressDisplay = ({ awards, presses }: APProps) => {
       });
     }
     if (presses !== undefined) {
-      pressCards = presses.map((press, i) => {
+      pressCards = presses.map((press) => {
         return (
           <PressCard
             key={press.id}
@@ -40,10 +40,11 @@ const AwardPressDisplay = ({ awards, presses }: APProps) => {
       });
     }
 
+    //this function will currently alternate placement of press and award starting with whichever is longer.
     const orderAwardsPress = () => {
       if (awardCards.length >= pressCards.length) {
         return awardCards.reduce(
-          (combined: any, award: any, i: number) => {
+          (combined: JSX.Element[], award: JSX.Element, i: number) => {
             combined.push(award, pressCards[i]);
             return combined;
           },
@@ -51,7 +52,7 @@ const AwardPressDisplay = ({ awards, presses }: APProps) => {
         )
       } else {
         return pressCards.reduce(
-          (combined: any, press: any, i: number) => {
+          (combined: JSX.Element[], press: JSX.Element, i: number) => {
             combined.push(press, awardCards[i]);
             return combined;
           },
@@ -72,12 +73,3 @@ const AwardPressDisplay = ({ awards, presses }: APProps) => {
 };
 
 export default AwardPressDisplay;
-
-
-// awardPressArray = awardCards.reduce(
-//   (awardPress: any, item: any, i: number) => {
-//     awardPress.push(item, pressCards[i]);
-//     return awardPress;
-//   },
-//   []
-// );
