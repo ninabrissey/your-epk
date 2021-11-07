@@ -7,7 +7,7 @@ import './AwardPress.scss';
 import { relative } from 'path';
 
 interface IAwardCard {
-  award: any;
+  award: Included;
   style: any;
   isEditing: boolean;
 }

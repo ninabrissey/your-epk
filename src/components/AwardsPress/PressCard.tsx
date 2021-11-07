@@ -1,17 +1,14 @@
-import { Press } from '../../types';
+import { Press, Included } from '../../types';
 import laurel from './../../images/laurel.png';
 import Fab from '@mui/material/Fab';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import './AwardPress.scss';
 
 interface IPressCard {
-  press: any;
+  press: Included;
   style: any;
   isEditing: boolean;
 }
-
-// Need to adjust this so the text is showing up. Not sure what the
-// issue is so I copied over the exactly styling from the award card
 
 const PressCard = ({ press, style, isEditing }: IPressCard) => {
   return (
