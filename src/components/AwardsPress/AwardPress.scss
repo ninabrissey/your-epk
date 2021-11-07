@@ -32,8 +32,8 @@
 .award-press-card {
   @include flexCenterColumn;
   justify-content: center;
-  height: 225px;
-  width: 225px;
+  height: 278px;
+  width: 278px;
   color: whitesmoke;
   text-align: center;
   opacity: 0.95;
@@ -64,8 +64,8 @@
 }
 
 .award-text {
-  z-index: 2;
-  margin-top: 10vh;
+  z-index: 3;
+  margin: 11vh 1vh;
   font-size: 1.1rem;
 }
 
