@@ -14,7 +14,34 @@ interface IPressCard {
 
 const PressCard = ({ press, style }: IPressCard) => {
   return (
-    <article style={style} className="award-press-card-background press-card">
+    <article 
+      style={style} className="award-press-card"
+    >
+      <div className='award-elements'>
+        <a
+          style={{ color: 'inherit' }}
+          href={press.attributes.link}
+          target="_blank"
+        >
+          <div className='award-text'>
+            <p>{press.attributes.name_of_publication}</p>
+            {press.attributes.description && (
+              <p>{press.attributes.description}</p>
+            )}
+          </div>
+        </a>
+        <div className='delete-btn'>
+          <Fab size="small" aria-label="delete">
+            <DeleteOutlineIcon />
+          </Fab>
+        </div>
+      </div>
+    </article>
+  );
+};
+
+export default PressCard;
+
       {/* <Fab
         style={{ marginLeft: '235px', marginBottom: '235px' }}
         size="small"
@@ -22,20 +49,3 @@ const PressCard = ({ press, style }: IPressCard) => {
       >
         <DeleteOutlineIcon />
       </Fab> */}
-      <div>
-        <a
-          style={{ color: 'inherit' }}
-          href={press.attributes.link}
-          target="_blank"
-        >
-          <p>{press.attributes.name_of_publication}</p>
-          {press.attributes.description && (
-            <p>{press.attributes.description}</p>
-          )}
-        </a>
-      </div>
-    </article>
-  );
-};
-
-export default PressCard;
