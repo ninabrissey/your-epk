@@ -7,12 +7,13 @@ import './AwardPress.scss';
 interface IPressCard {
   press: any;
   style: any;
+  isEditing: boolean;
 }
 
 // Need to adjust this so the text is showing up. Not sure what the
 // issue is so I copied over the exactly styling from the award card
 
-const PressCard = ({ press, style }: IPressCard) => {
+const PressCard = ({ press, style, isEditing }: IPressCard) => {
   return (
     <article 
       style={style} className="award-press-card"
@@ -30,11 +31,11 @@ const PressCard = ({ press, style }: IPressCard) => {
             )}
           </div>
         </a>
-        <div className='delete-btn'>
+        {isEditing && <div className='delete-btn'>
           <Fab size="small" aria-label="delete">
             <DeleteOutlineIcon />
           </Fab>
-        </div>
+        </div>}
       </div>
     </article>
   );

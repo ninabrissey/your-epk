@@ -9,9 +9,10 @@ import { relative } from 'path';
 interface IAwardCard {
   award: any;
   style: any;
+  isEditing: boolean;
 }
 
-const AwardCard = ({ award, style }: IAwardCard) => {
+const AwardCard = ({ award, style, isEditing }: IAwardCard) => {
   return (
     <article
       style={style}
@@ -25,11 +26,11 @@ const AwardCard = ({ award, style }: IAwardCard) => {
           {award.attributes.award_type && <p>{award.attributes.award_type}</p>}
           <p>{award.attributes.year}</p>
         </div>
-        <div className='delete-btn'>
+        {isEditing && <div className='delete-btn'>
           <Fab size="small" aria-label="delete">
             <DeleteOutlineIcon />
           </Fab>
-        </div>
+        </div>}
       </div>
     </article>
   );
