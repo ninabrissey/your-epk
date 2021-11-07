@@ -64,7 +64,7 @@ const AwardsPressContainer = ({
           <EditIcon />
         </Fab>
       )}
-      <AwardPressDisplay awards={currentAwards} presses={currentPresses} />
+      <AwardPressDisplay awards={currentAwards} presses={currentPresses} isEditing={isEditting}/>
       {isEditting && (
         <AwardPressForm
           addFilmInfo={addFilmInfo}

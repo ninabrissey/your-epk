@@ -8,9 +8,10 @@ import './AwardPress.scss';
 interface APProps {
   presses: Included[];
   awards: Included[];
+  isEditing: boolean;
 }
 
-const AwardPressDisplay = ({ awards, presses }: APProps) => {
+const AwardPressDisplay = ({ awards, presses, isEditing }: APProps) => {
   let combinedAwardPress: JSX.Element[] | undefined;
 
 
@@ -24,17 +25,19 @@ const AwardPressDisplay = ({ awards, presses }: APProps) => {
             key={award.id}
             award={award}
             style={{ background: '#FF904D' }}
+            isEditing={isEditing}
           />
         );
       });
     }
     if (presses !== undefined) {
-      pressCards = presses.map((press) => {
+      pressCards = presses.map((press) => { 
         return (
           <PressCard
             key={press.id}
             press={press}
             style={{ background: 'whitesmoke', color: '#605E59' }}
+            isEditing={isEditing}
           />
         );
       });
