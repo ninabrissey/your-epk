@@ -11,7 +11,8 @@ interface APProps {
 }
 
 const AwardPressDisplay = ({ awards, presses }: APProps) => {
-  let awardPressArray: any;
+  let combinedAwardPress: any;
+
 
   if (presses !== undefined || awards !== undefined) {
     let pressCards: any;
@@ -38,22 +39,45 @@ const AwardPressDisplay = ({ awards, presses }: APProps) => {
         );
       });
     }
-    awardPressArray = awardCards.reduce(
-      (awardPress: any, item: any, i: number) => {
-        awardPress.push(item, pressCards[i]);
-        return awardPress;
-      },
-      []
-    );
-    // console.log(awardPressArray);
+
+    const orderAwardsPress = () => {
+      if (awardCards.length >= pressCards.length) {
+        return awardCards.reduce(
+          (combined: any, award: any, i: number) => {
+            combined.push(award, pressCards[i]);
+            return combined;
+          },
+          []
+        )
+      } else {
+        return pressCards.reduce(
+          (combined: any, press: any, i: number) => {
+            combined.push(press, awardCards[i]);
+            return combined;
+          },
+          []
+        )
+      }
+    }
+
+    combinedAwardPress = orderAwardsPress();
   }
 
   return (
     <section>
       {/* <h3 className="awards-press-title">Articles and Awards</h3> */}
-      <div className="award-press-display">{awardPressArray}</div>
+      <div className="award-press-display">{combinedAwardPress}</div>
     </section>
   );
 };
 
 export default AwardPressDisplay;
+
+
+// awardPressArray = awardCards.reduce(
+//   (awardPress: any, item: any, i: number) => {
+//     awardPress.push(item, pressCards[i]);
+//     return awardPress;
+//   },
+//   []
+// );
