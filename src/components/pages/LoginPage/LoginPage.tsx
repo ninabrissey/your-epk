@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { UserData } from '../../../types';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
-import { UserData } from '../../../types';
 
 const LoginPage = () => {
   const [isLoggingIn, setIsLoggingIn] = useState<boolean>(true)
