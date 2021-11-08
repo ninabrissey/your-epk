@@ -2,8 +2,9 @@ import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
+import { UserData } from '../../../types';
 
-const LoginForm = () => {
+const LoginForm = ({ setCurrUser, setIsRegistering } : any) => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
 
@@ -34,8 +35,11 @@ const LoginForm = () => {
 					onChange={(e) => setPassword(e.target.value)}
 					required
 				/>
-        <Button variant="text">
+        <Button variant="text" onClick={setCurrUser}>
 					Login
+				</Button>
+        <Button variant="text" onClick={() => setIsRegistering(true)}>
+					Register
 				</Button>
       </FormControl>  
     </form>
