@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { postUserData } from '../../../utils/apiCalls';
 import { Link } from 'react-router-dom';
 import { UserData } from '../../../types';
 import TextField from '@mui/material/TextField';
@@ -8,6 +9,16 @@ import Button from '@mui/material/Button';
 const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+
+  const handleClick = () => {
+    let currentUser = {
+      email: email,
+      password: password
+    }
+    
+    postUserData('https://epk-be.herokuapp.com/api/v1/sessions', currentUser)
+    .then(res => console.log('postUserDataResponse: ', res))
+  }
 
   return (
     <form className='login-container'>
@@ -36,11 +47,11 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
 					onChange={(e) => setPassword(e.target.value)}
 					required
 				/>
-        <Link to='/dashboard/1' className='login-btn'>
-          <Button variant="text" onClick={() => setIsLoggingIn(false)}>
+        {/* <Link to='/dashboard/1' className='login-btn'> */}
+          <Button variant="text" onClick={() => {handleClick(); setIsLoggingIn(false)}}>
             Login
           </Button>
-        </Link>
+        {/* </Link> */}
         <Button variant="text" onClick={() => {setIsRegistering(false); setIsLoggingIn(false)} }>
 					Register
 				</Button>
