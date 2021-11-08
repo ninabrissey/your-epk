@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { UserData } from '../../../types';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
-import { UserData } from '../../../types';
 
 const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
   const [email, setEmail] = useState<string>('')
@@ -35,9 +36,11 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
 					onChange={(e) => setPassword(e.target.value)}
 					required
 				/>
-        <Button variant="text" onClick={() => setIsLoggingIn(false)}>
-					Login
-				</Button>
+        <Link to='/dashboard/1' className='login-btn'>
+          <Button variant="text" onClick={() => setIsLoggingIn(false)}>
+            Login
+          </Button>
+        </Link>
         <Button variant="text" onClick={() => {setIsRegistering(false); setIsLoggingIn(false)} }>
 					Register
 				</Button>
