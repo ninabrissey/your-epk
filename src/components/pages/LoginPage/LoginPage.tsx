@@ -5,13 +5,16 @@ import Button from '@mui/material/Button';
 
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
+import { UserData } from '../../../types';
 
 const LoginPage = () => {
+  const [isLoggingIn, setIsLoggingIn] = useState<boolean>(true)
+  const [isRegistering, setIsRegistering] = useState<boolean>(false)
 
   return (
     <section>
-      <LoginForm /> 
-      <RegisterForm />
+      {!isRegistering && <LoginForm setIsRegistering={setIsRegistering} />}
+      {isRegistering && <RegisterForm />}
     </section>
   )
 }
