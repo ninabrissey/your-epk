@@ -60,3 +60,17 @@ export const getArrayData = (type: any) => {
   return fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${type}`)
   .then(res => res.json())
 }
+
+
+
+export const postUserData = (url: string, data: object) => {
+  return fetch(url, {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "Set-Cookie": "test-cookie=yummy-cookie"
+    },
+    body: JSON.stringify(data),
+  }).then(res => res.json())
+}
