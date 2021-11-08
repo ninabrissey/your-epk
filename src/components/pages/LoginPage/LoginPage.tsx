@@ -3,12 +3,16 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-import LoginForm from '../LoginPage/LoginForm';
+import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 
 const LoginPage = () => {
 
   return (
-   <LoginForm /> 
+    <section>
+      <LoginForm /> 
+      <RegisterForm />
+    </section>
   )
 }
 
