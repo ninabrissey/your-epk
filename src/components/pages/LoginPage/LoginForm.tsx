@@ -4,7 +4,7 @@ import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import { UserData } from '../../../types';
 
-const LoginForm = ({ setCurrUser, setIsRegistering } : any) => {
+const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
 
@@ -35,10 +35,10 @@ const LoginForm = ({ setCurrUser, setIsRegistering } : any) => {
 					onChange={(e) => setPassword(e.target.value)}
 					required
 				/>
-        <Button variant="text" onClick={setCurrUser}>
+        <Button variant="text" onClick={() => setIsLoggingIn(false)}>
 					Login
 				</Button>
-        <Button variant="text" onClick={() => setIsRegistering(true)}>
+        <Button variant="text" onClick={() => {setIsRegistering(false); setIsLoggingIn(false)} }>
 					Register
 				</Button>
       </FormControl>  

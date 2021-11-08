@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-const RegisterForm = () => {
+const RegisterForm = ({ setIsRegistering, setIsLoggingIn } : any) => {
   const [firstName, setFirstName] = useState<string>('')
   const [lastName, setLastName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
@@ -73,8 +73,10 @@ const RegisterForm = () => {
 					onChange={(e) => setPassword2(e.target.value)}
 					required
 				/>
-        <Button variant='text'>
-					Submit
+        <Button 
+          variant='text' 
+          onClick={() => {setIsRegistering(false); setIsLoggingIn(true)} }
+          >Submit
 				</Button>
       </FormControl>  
     </form>
