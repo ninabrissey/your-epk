@@ -16,28 +16,21 @@ interface IDashboard {
 
 const TitleForm = ({ id, setAllFilms, allFilms }: IDashboard) => {
   const [title, setTitle] = useState('')
+  const [error, setError] = useState('')
   // const endpointTitle: string = title.split(' ').join('-')
   // const [filmId, setFilmId] = useState<number>()
 
   const makeEPK = () => {
-    // if (title) {
-    //   postData('https://epk-be.herokuapp.com/api/v1/film_epk', {
-    //     "user_id": id,
-    //     "movie_title": title,
-    //   }).then(data => {
-    //     setAllFilms([...allFilms, data.data.attributes.movie_title])
-    //     console.log(allFilms)
-    //   })
-    // }
-    // comment out because this was erroring on my branch
 
     if (title) {
       postData('https://epk-be.herokuapp.com/api/v1/film_epk', {
         "user_id": id,
         "movie_title": title,
       })
-        .then(data => setAllFilms([data.data, ...allFilms]))
-        .catch(err => console.log(err))
+        .then(data => {
+          console.log(data)
+          setAllFilms([data.data, ...allFilms])})
+        .catch(err => setError(err))
     }
   }
 
@@ -63,6 +56,7 @@ const TitleForm = ({ id, setAllFilms, allFilms }: IDashboard) => {
           >Create
           </Button>}
       </FormControl>
+      {error && <h3>Sorry, this site is underconstruction and may be experiencing errors</h3>}
     </div>
   )
 }
