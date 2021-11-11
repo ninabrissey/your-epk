@@ -5,6 +5,7 @@ import { UserData } from '../../../types';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
+import Cookies from 'js-cookie';
 
 const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
   const [email, setEmail] = useState<string>('')
@@ -17,7 +18,11 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
     }
     
     postUserData('https://epk-be.herokuapp.com/api/v1/sessions', currentUser)
-    .then(res => console.log('postUserDataResponse: ', res))
+    .then(res => {
+			// const cookie: any = Cookies.set(res.attributes.csrf_token)
+			const cookie: any = Cookies.set('csrf-token', res.data.attributes.csrf_token)
+			// console.log(res.data.attributes.csrf_token)
+			console.log('postUserDataResponse: ', res)})
   }
 
   return (
