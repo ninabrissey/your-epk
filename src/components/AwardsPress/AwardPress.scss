@@ -2,8 +2,10 @@
 @import '../../styles/mixins';
 
 .awards-press-container {
-  width: 100%;
-  margin: 5vh 0;
+  // width: 100%;
+  // margin: 5vh 0;
+  grid-column-start: 1;
+  grid-column-end: 4;
 
   h2 {
     @include sectionTitleFormat;
@@ -11,7 +13,7 @@
 
   .awards-press-edit-btn {
     top: -6vh;
-    left: 92vw;
+    left: 80vw;
   }
 }
 
