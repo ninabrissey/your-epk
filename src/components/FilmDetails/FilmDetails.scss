@@ -2,16 +2,18 @@
 @import '../../styles/variables';
 
 .film-details-container {
-  height: 45vh;
-  width: $primary-width;
-  padding: 2vh;
+  // height: 45vh;
+  // width: $primary-width;
+  // padding: 2vh;
+  grid-column-start: 1;
+  grid-column-end: 5;
 
   h2 {
     @include sectionTitleFormat;
     width: 75vw;
     margin: auto;
     padding: 15px;
-	}
+  }
 }
 
 .film-details-edit-btn {
@@ -20,7 +22,7 @@
 }
 
 .film-details-form {
-  height: 38vh;
+  // height: 38vh;
   @include flexColumnJustify(space-evenly);
   align-items: center;
 
@@ -46,7 +48,7 @@
   width: 60%;
   margin: auto;
 
-	p {
-		padding: 3px;
-	}
+  p {
+    padding: 3px;
+  }
 }
