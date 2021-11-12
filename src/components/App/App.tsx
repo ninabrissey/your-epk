@@ -29,7 +29,7 @@ function App() {
           <LoginPage />
           {/* <Redirect to={`/dashboard/${userId}`} /> */}
         </Route>
-        <Route exact path={`/dashboard/${userId}`}>
+        <Route exact path={`/dashboard/1`}>
           <Dashboard currUser={currUser} id={userId} />
         </Route>
         <Route exact path='/edit/:epk_id' render={({ match }) =>
