@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 
 
 export const postData = (url: string, data: object) => {
-  const cookie: any = Cookies.get('csrf-token')
+  const cookie: any = Cookies.get('CSRF-TOKEN')
   console.log('typeof cookie', cookie)
 
   return fetch(url, {
