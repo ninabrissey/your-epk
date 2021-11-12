@@ -1,19 +1,20 @@
 import { FilmEPK } from "../types";
 import Cookies from 'js-cookie';
 
+const cookie: any = Cookies.get('csrf-token')
+console.log('cookie in postdata', cookie)
 
 export const postData = (url: string, data: object) => {
-  const cookie: any = Cookies.get('CSRF-TOKEN')
-  console.log('typeof cookie', cookie)
-
   return fetch(url, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
       "Accept": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
       "X-CSRF-Token": cookie
     },
     body: JSON.stringify(data),
+    credentials: "include"
   }).then(res => {
     if (res.ok) {
       return res.json()
@@ -26,8 +27,12 @@ export const patchData = (data: object, filmID: number) => {
   return fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${filmID}`, {
     method: 'PATCH',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      "Accept": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
+      "X-CSRF-Token": cookie
     },
+    credentials: "include",
     body: JSON.stringify({ film_epk: data })
   })
     .then(res => res.json())
