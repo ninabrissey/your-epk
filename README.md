@@ -1,7 +1,7 @@
 <div align="center"><img src="https://user-images.githubusercontent.com/76507607/139102243-34da7cea-0986-4126-bd89-7d5e018272cf.png" height="150px" width="200px"/><h1>Your EPK</h1>
 <p>An application to build EPKs.</p>
 <a href="https://your-epk.herokuapp.com/">View Deployed Site Here</a>
- <p>Login:</p><p>Email/Username: nbrissey@gmail.com</p><p>Password: password</p>
+ <p>Login Info - Email/Username: nbrissey@gmail.com, Password: password</p>
 </div>
 
 
