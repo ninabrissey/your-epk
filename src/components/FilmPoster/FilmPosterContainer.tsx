@@ -6,32 +6,45 @@ import Fab from '@mui/material/Fab';
 import EditIcon from '@mui/icons-material/Edit';
 
 interface IFilmPoster {
-	filmEPK: FilmEPK;
-	addFilmInfo: any;
-	epk_id: string
+  filmEPK: FilmEPK;
+  addFilmInfo: any;
+  epk_id: string;
 }
 
 const FilmPosterContainer = ({ filmEPK, addFilmInfo, epk_id }: IFilmPoster) => {
-  const [isEditing, setIsEditing] = useState<boolean>(true)
+  const [isEditing, setIsEditing] = useState<boolean>(true);
 
   return (
-		<div className='film-poster-container'> 
-		{ !filmEPK.attributes ? <p>loading</p> :
-			<div >
-				{!isEditing &&
-					<Fab 	
-						size="small"
-						aria-label="edit"
-						onClick={() => setIsEditing(true)}
-						className="film-poster-edit-btn">
-						<EditIcon />
-					</Fab>
-				}
-				{isEditing && <FilmPosterForm filmEPK={filmEPK} addFilmInfo={addFilmInfo} setIsEditing={setIsEditing} />}
-				{!isEditing && <FilmPosterDisplay filmEPK={filmEPK} epk_id={epk_id}/> }
-			</div> }
-		</div>
-  )
+    // <div className="film-poster-dixmssplay">
+    <div className="film-poster-container">
+      {!filmEPK.attributes ? (
+        <p>loading</p>
+      ) : (
+        <div>
+          {!isEditing && (
+            <Fab
+              size="small"
+              aria-label="edit"
+              onClick={() => setIsEditing(true)}
+              className="film-poster-edit-btn"
+            >
+              <EditIcon />
+            </Fab>
+          )}
+          {isEditing && (
+            <FilmPosterForm
+              filmEPK={filmEPK}
+              addFilmInfo={addFilmInfo}
+              setIsEditing={setIsEditing}
+            />
+          )}
+          {!isEditing && (
+            <FilmPosterDisplay filmEPK={filmEPK} epk_id={epk_id} />
+          )}
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default FilmPosterContainer;
