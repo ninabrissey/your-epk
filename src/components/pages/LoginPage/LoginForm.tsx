@@ -20,7 +20,8 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
     postUserData('https://epk-be.herokuapp.com/api/v1/sessions', currentUser)
     .then(res => {
 			// const cookie: any = Cookies.set(res.attributes.csrf_token)
-			const cookie: any = Cookies.set('csrf-token', res.data.attributes.csrf_token)
+			// const cookie: any = Cookies.set('csrf-token', res.data.attributes.csrf_token)
+
 			// console.log(res.data.attributes.csrf_token)
 			console.log('postUserDataResponse: ', res)})
   }
