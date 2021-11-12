@@ -2,22 +2,24 @@
 @import '../../styles/mixins';
 
 .synopsis-container {
-  height: 50vh;
-  width: 65%;
-  padding: 2vh;
+  // height: 50vh;
+  // width: 65%;
+  // padding: 2vh;
   border-right: 1px solid black;
+  grid-column-start: 1;
+  grid-column-end: 3;
 
   h2 {
     @include sectionTitleFormat;
     width: 42vw;
     margin: auto;
     padding-top: 2vh;
-	}
+  }
 }
 
 .synopsis-form {
-  height: 92%;
-  width: 100%;
+  // height: 92%;
+  // width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

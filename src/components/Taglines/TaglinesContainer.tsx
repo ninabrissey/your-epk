@@ -10,36 +10,35 @@ interface ITaglines {
   addFilmInfo: any;
 }
 
-const TaglinesContainer = ({ filmEPK, addFilmInfo} : ITaglines) => {
-  const [isEditing, setIsEditing] = useState<boolean>(true)
+const TaglinesContainer = ({ filmEPK, addFilmInfo }: ITaglines) => {
+  const [isEditing, setIsEditing] = useState<boolean>(true);
 
   return (
-    <section className='taglines-container'>
+    <section className="taglines-container">
       <h2>Tagline and Logline</h2>
-      {!isEditing && 
-        <Fab 
+      {!isEditing && (
+        <Fab
           // color='secondary'
-          size="small" 
-          aria-label='edit'
+          size="small"
+          aria-label="edit"
           onClick={() => setIsEditing(true)}
           className="taglines-edit-btn"
         >
           <EditIcon />
         </Fab>
-      }
+      )}
 
-      {isEditing && <TaglinesForm 
-        filmEPK={filmEPK} 
-        addFilmInfo={addFilmInfo} 
-        setIsEditing={setIsEditing}
-      />}
+      {isEditing && (
+        <TaglinesForm
+          filmEPK={filmEPK}
+          addFilmInfo={addFilmInfo}
+          setIsEditing={setIsEditing}
+        />
+      )}
 
-      {!isEditing && <TaglinesDisplay 
-        filmEPK={filmEPK} 
-      />}
-
+      {!isEditing && <TaglinesDisplay filmEPK={filmEPK} />}
     </section>
-  )
-}
+  );
+};
 
-export default TaglinesContainer
+export default TaglinesContainer;

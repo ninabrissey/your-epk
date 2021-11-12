@@ -9,3 +9,12 @@
   width: $primary-width;
   display: flex;
 }
+
+.edit-page-below-header {
+  width: 70vw;
+  margin: 3vh auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 2rem;
+}
