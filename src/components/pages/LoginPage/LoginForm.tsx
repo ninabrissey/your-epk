@@ -19,11 +19,9 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
     
     postUserData('https://epk-be.herokuapp.com/api/v1/sessions', currentUser)
     .then(res => {
-			// const cookie: any = Cookies.set(res.attributes.csrf_token)
-			// const cookie: any = Cookies.set('csrf-token', res.data.attributes.csrf_token)
-
-			// console.log(res.data.attributes.csrf_token)
-			console.log('postUserDataResponse: ', res)})
+			const cookie: any = Cookies.set('csrf-token', res.data.attributes.csrf_token)
+		})
+	
   }
 
   return (
@@ -53,11 +51,11 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
 					onChange={(e) => setPassword(e.target.value)}
 					required
 				/>
-        {/* <Link to='/dashboard/1' className='login-btn'> */}
+        <Link to='/dashboard/1' className='login-btn'>
           <Button variant="text" onClick={() => {handleClick(); setIsLoggingIn(false)}}>
             Login
           </Button>
-        {/* </Link> */}
+        </Link>
         <Button variant="text" onClick={() => {setIsRegistering(false); setIsLoggingIn(false)} }>
 					Register
 				</Button>
