@@ -4,7 +4,7 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, setIsEditing } : any) => {
+const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing } : any) => {
   const [firstName, setFirstName] = useState<string>('')
   const [lastName, setLastName] = useState<string>('')
   const [role, setRole] = useState<string>('')
@@ -20,8 +20,7 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, setIsEditing } : any) => {
         film_epk_id: epk_id  
       }
     }
-    postData('https://epk-be.herokuapp.com/api/v1/film_fams', filmTeamMember)
-      .then(res => console.log('FilmTeamRES: ', res))
+    postFilmFam(filmTeamMember)
     setIsEditing(false)
   }
 

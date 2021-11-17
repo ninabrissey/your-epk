@@ -21,6 +21,7 @@ export interface FilmEPK {
   id: string | number;
   type: string;
   attributes: Attributes;
+  relationships: Relationships;
 }
 
 export interface Attributes {
@@ -39,7 +40,6 @@ export interface Attributes {
   trailer: string;
   tag_line: string;
   log_line: string;
-
   header_image_description: string;
   header_image_url: string;
   contact_name: string;
@@ -47,7 +47,12 @@ export interface Attributes {
   contact_email: string;
   company_name: string;
   website: string;
+}
 
+export interface Relationships {
+  awards: Award;
+  film_fams: FilmFams;
+  presses: Press;
 }
 
 export interface Press {
@@ -77,6 +82,14 @@ export interface Image {
   link: string;
 }
 
-export interface Film_Fam {
+export interface FilmFams {
+  data: CurrentCrewMember[];
+}
 
+export interface CurrentCrewMember {
+  film_epk_id: number;
+  first_name: string;
+  last_name: string;
+  role: string;
+  description: string;
 }
