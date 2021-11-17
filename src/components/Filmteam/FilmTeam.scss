@@ -1,0 +1,25 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.film-team-container {
+  height: 45vh;
+  width: 100%;
+  padding: 2vh;
+
+  h2 {
+    @include sectionTitleFormat;
+    width: 75vw;
+    margin: auto;
+    padding: 15px;
+	}
+}
+
+.film-team-form {
+  height: 38vh;
+  @include flexColumnJustify(space-evenly);
+  align-items: center;
+
+  button {
+    width: $btn-width;
+  }
+}
