@@ -2,6 +2,7 @@ import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
+import { postData } from '../../../utils/apiCalls';
 
 const RegisterForm = ({ setIsRegistering, setIsLoggingIn } : any) => {
   const [firstName, setFirstName] = useState<string>('')
@@ -9,6 +10,45 @@ const RegisterForm = ({ setIsRegistering, setIsLoggingIn } : any) => {
   const [email, setEmail] = useState<string>('')
   const [password1, setPassword1] = useState<string>('')
   const [password2, setPassword2] = useState<string>('')
+	const [error, setError] = useState<boolean>(false)
+
+	const registerUser = () => {
+		console.log(firstName, lastName, email, password1, password2)
+		const canPost = checkUser()
+
+		if (!canPost) {
+			setError(true)
+		}
+
+		if (canPost) {
+			console.log('user will post')
+			postData('https://epk-be.herokuapp.com/api/v1/users', {
+				"email": email,
+				"first_name": firstName,
+				"last_name": lastName,
+				"password": password1,
+				"password_confirmation": password2
+			}).then(res => {
+				console.log(res)
+			})
+		}
+	}
+
+	const checkUser = () => {
+		let canPost = true;
+
+		if (password1 !== password2) {
+			canPost = false
+		}
+
+		if (firstName.length < 1 || lastName.length < 1 || email.length < 6 || password1.length < 8) {
+			canPost = false
+		}
+
+		return canPost
+	}
+
+
 
   return (
     <form className='login-container'>
@@ -75,10 +115,14 @@ const RegisterForm = ({ setIsRegistering, setIsLoggingIn } : any) => {
 				/>
         <Button 
           variant='text' 
-          onClick={() => {setIsRegistering(false); setIsLoggingIn(true)} }
+          onClick={() => {
+						// setIsRegistering(false); setIsLoggingIn(true)
+						registerUser();
+					} }
           >Submit
 				</Button>
       </FormControl>  
+			{error && <p>Please fill out all fields and make sure password is at least 8 characters</p>} 
     </form>
   )
 }
