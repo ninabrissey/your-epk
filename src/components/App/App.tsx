@@ -3,6 +3,7 @@ import Dashboard from '../pages/DashboardPage/Dashboard/Dashboard';
 import Error from '../Error/Error';
 import EditPage from '../pages/EditPage/EditPage';
 import PressPage from '../pages/PressPage/PressPage';
+import LoginPage from '../pages/LoginPage/LoginPage';
 import { Route, Switch, Redirect, Link } from 'react-router-dom';
 import { UserData } from '../../types';
 
@@ -25,10 +26,10 @@ function App() {
 
       <Switch>
         <Route exact path='/' >
-          {/* {a login page will go here} */}
-          <Redirect to={`/dashboard/${userId}`} />
+          <LoginPage />
+          {/* <Redirect to={`/dashboard/${userId}`} /> */}
         </Route>
-        <Route exact path={`/dashboard/${userId}`}>
+        <Route exact path={`/dashboard/1`}>
           <Dashboard currUser={currUser} id={userId} />
         </Route>
         <Route exact path='/edit/:epk_id' render={({ match }) =>

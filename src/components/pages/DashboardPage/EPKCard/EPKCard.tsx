@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { FilmEPK } from '../../../../types';
 import './EPKCard.scss'
 import Button from '@mui/material/Button';
+import Cookies from 'js-cookie';
 
 interface ITitle {
   title: string,
@@ -15,8 +16,16 @@ interface ITitle {
 const EPKCard = ({ title, image, epk_id, setAllFilms, allFilms }: ITitle) => {
 
   const deleteEPK = (id: number) => {
+    const cookie: any = Cookies.get('csrf-token')
     fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${id}`, {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-CSRF-Token": cookie
+      },
+      credentials: "include"
     }).then(() => {
       let films: FilmEPK[] = allFilms.filter((film: FilmEPK) => film.id !== epk_id)
       setAllFilms(films)

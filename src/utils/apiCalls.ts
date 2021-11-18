@@ -1,35 +1,38 @@
-import { FilmEPK } from "../types"
+import { FilmEPK } from "../types";
+import Cookies from 'js-cookie';
+
+const cookie: any = Cookies.get('csrf-token')
+console.log('cookie in postdata', cookie)
 
 export const postData = (url: string, data: object) => {
   return fetch(url, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
-      "Accept": "application/json"
+      "Accept": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
+      "X-CSRF-Token": cookie
     },
     body: JSON.stringify(data),
-  }).then(res => res.json())
+    credentials: "include"
+  }).then(res => {
+    if (res.ok) {
+      return res.json()
+    }
+    return Promise.reject(`error ${res.status}`)
+  })
 }
-
-// export const patchData = (data : object, filmID : number) => {
-//   return fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${filmID}`, {
-//     method: 'PATCH',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({film_epk: data})
-//   })
-//   .then(res => res.json())
-//   .then(data => console.log('PATCHED_DATA: ', data))
-//   .catch(err => console.log('ERROR_IN_PATCH: ', err))
-// }
 
 export const patchData = (data: object, filmID: number) => {
   return fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${filmID}`, {
     method: 'PATCH',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      "Accept": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
+      "X-CSRF-Token": cookie
     },
+    credentials: "include",
     body: JSON.stringify({ film_epk: data })
   })
     .then(res => res.json())
@@ -58,5 +61,21 @@ export const putData = (data: any, checksum: string, directUploadURL: any) => {
 
 export const getArrayData = (type: any) => {
   return fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${type}`)
-  .then(res => res.json())
+    .then(res => res.json())
+}
+
+
+
+export const postUserData = (url: string, data: object) => {
+  return fetch(url, {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+    },
+    body: JSON.stringify(data),
+    credentials: 'include',
+  }).then(res => {
+    return res.json()
+  })
 }
