@@ -83,19 +83,3 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing 
 
 export default FilmTeamForm;
 
-
-// GET	/api/v1/film_epk/:film_epk_id/film_fams	    Get all a film_epk's film fams.	
-// POST	/api/v1/film_fams	                          Create film_epk film_fam.	
-// PATCH	/api/v1/film_fams/:id	                    Update film_epk film_fam.	
-// DELETE	/api/v1/film_fams/:id	                    Delete an film_fam.
-
-// POST REQUEST
-// body = {
-//   "film_fam": {
-//     "role": "Director",
-//     "first_name": "alec",
-//     "last_name": "baldwin",
-//     "description": "goofball",
-//     "film_epk_id": "80"
-//   }
-// }

@@ -18,10 +18,9 @@ const FilmTeamContainer = ({ filmEPK, epk_id, addFilmInfo } : IFilmTeam) => {
 
   const postFilmFam = (filmTeamMember : object) => {
     postData('https://epk-be.herokuapp.com/api/v1/film_fams', filmTeamMember)
-    .then(res => console.log('FilmTeamRES: ', res))
     .then((data : any) => {
-      setCurrentMember(data)
-      console.log('currentMember: ', data)
+      setCurrentMember(data.attributes)
+      console.log('data: ', data)
     })
   }
 

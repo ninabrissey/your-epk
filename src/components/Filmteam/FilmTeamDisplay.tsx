@@ -7,7 +7,7 @@ const FilmTeamDisplay = ({ filmEPK } : IFilmTeamDisplay) => {
 
   return (
     <section>
-      {console.log(filmEPK)}
+      {/* {console.log(filmEPK)} */}
       <p>I am the FILM TEAM DISPLAY</p>
       {/* <p>{filmEPK.relationships.film_fam[0].first_name}</p> */}
       <p></p>
