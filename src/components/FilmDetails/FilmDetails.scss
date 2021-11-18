@@ -5,12 +5,17 @@
   // height: 45vh;
   // width: $primary-width;
   // padding: 2vh;
+  // margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   grid-column-start: 1;
   grid-column-end: 5;
 
   h2 {
     @include sectionTitleFormat;
     width: 75vw;
+    text-align: left;
     margin: auto;
     padding: 15px;
   }
