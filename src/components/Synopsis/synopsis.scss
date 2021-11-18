@@ -5,9 +5,9 @@
   // height: 50vh;
   // width: 65%;
   // padding: 2vh;
-  border-right: 1px solid black;
+  // border-right: 1px solid black;
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 3;
 
   h2 {
     @include sectionTitleFormat;
@@ -20,6 +20,7 @@
 .synopsis-form {
   // height: 92%;
   // width: 100%;
+  margin-top: 4%;
   display: flex;
   justify-content: center;
   align-items: center;
