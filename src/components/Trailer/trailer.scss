@@ -1,7 +1,7 @@
 .trailer-container {
   // height: 55vh;
-  // width: 100%;
-  padding: 2vh 0;
+  width: 100%;
+  // padding: 2vh 0;
   background-color: whitesmoke;
   grid-column-start: 1;
   grid-column-end: 5;
@@ -14,7 +14,7 @@
 }
 
 .trailer-form {
-  height: 55%;
+  // height: 55%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -22,8 +22,8 @@
 }
 
 .trailer-edit-btn {
-  top: -3vh;
-  left: 92vw;
+  top: -6vh;
+  left: 80vw;
 }
 
 .iframe-container-container {
