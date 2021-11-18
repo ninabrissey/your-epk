@@ -27,7 +27,7 @@ const SynopsisForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
 
   return (
     <form className="synopsis-form">
-      <FormControl sx={{ m: 1, minWidth: 490 }}>
+      <FormControl sx={{ m: 1, width: '100%' }}>
         <TextField
           id="outlined-multiline-flexible"
           label="Synopsis"
