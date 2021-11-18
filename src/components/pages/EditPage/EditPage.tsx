@@ -93,6 +93,7 @@ const EditPage = ({ epk_id, id }: any) => {
               filmEPK={film} 
               epk_id={epk_id} 
               addFilmInfo={addFilmInfo} 
+              included={included}
             />
           </main>
         </div>
