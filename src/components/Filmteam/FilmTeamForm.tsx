@@ -5,16 +5,16 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing } : any) => {
-  const [firstName, setFirstName] = useState<string>('')
-  const [lastName, setLastName] = useState<string>('')
+  const [name, setName] = useState<string>('')
+  // const [lastName, setLastName] = useState<string>('')
   const [role, setRole] = useState<string>('')
   const [description, setDescription] = useState<string>('')
 
   const handleSubmit = () => {
     let filmTeamMember = {
       film_fam: {
-        first_name: firstName,
-        last_name: lastName,
+        first_name: name,
+        // last_name: lastName,
         role: role,
         description: description,
         film_epk_id: epk_id  
@@ -29,16 +29,16 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing 
       <FormControl sx={{ m: 1, minWidth: 120 }}>
       	<TextField
 					id="outlined-basic"
-					label="First name"
+					label="Name"
 					variant="outlined"
 					size="small"
 					margin="dense"
 					type="text"
-					name="firstName"
-					value={firstName}
-					onChange={(e) => setFirstName(e.target.value)}
+					name="name"
+					value={name}
+					onChange={(e) => setName(e.target.value)}
 				/>
-        <TextField
+        {/* <TextField
 					id="outlined-basic"
 					label="Last name"
 					variant="outlined"
@@ -48,7 +48,7 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing 
 					name="lastName"
 					value={lastName}
 					onChange={(e) => setLastName(e.target.value)}
-				/>
+				/> */}
         <TextField
 					id="outlined-basic"
 					label="Role"
