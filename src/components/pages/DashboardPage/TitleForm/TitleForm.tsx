@@ -9,22 +9,18 @@ import './TitleForm.scss';
 
 
 interface IDashboard {
-  id: number,
   setAllFilms: React.Dispatch<React.SetStateAction<FilmEPK[]>>,
   allFilms: object[]
 }
 
-const TitleForm = ({ id, setAllFilms, allFilms }: IDashboard) => {
+const TitleForm = ({ setAllFilms, allFilms }: IDashboard) => {
   const [title, setTitle] = useState('')
   const [error, setError] = useState('')
-  // const endpointTitle: string = title.split(' ').join('-')
-  // const [filmId, setFilmId] = useState<number>()
 
   const makeEPK = () => {
 
     if (title) {
-      postData('https://epk-be.herokuapp.com/api/v1/film_epk', {
-        "user_id": id,
+      postData('https://epk-be.herokuapp.com/api/v2/film_epk', {
         "movie_title": title,
       })
         .then(data => {
