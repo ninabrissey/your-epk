@@ -1,23 +1,18 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Dashboard.scss';
-// import postData from '../../../utils/apiCalls';
 import TitleForm from '../TitleForm/TitleForm';
 import EPKContainer from '../EPKContainer/EPKContainer';
 import Navigation from '../../../Navigation/Navigation';
 import Button from '@mui/material/Button';
-import { ThisIsUser, FilmEPK } from '../../../../types';
-import { setupMaster } from 'cluster';
-import { userInfo } from 'os';
-import Cookies from 'js-cookie';
+import { FilmEPK } from '../../../../types';
 import { getUser } from '../../../../utils/apiCalls';
 
 const Dashboard = () => {
   const [allFilms, setAllFilms] = useState<FilmEPK[]>([]);
   const [userError, setUserError] = useState<string>('');
-  
+
   useEffect(() => {
-    const cookie: any = Cookies.get('csrf-token')
     getUser()
       .then((data: any) => {
         setAllFilms(data.included);
