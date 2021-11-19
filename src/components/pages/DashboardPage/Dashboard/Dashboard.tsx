@@ -1,41 +1,31 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Dashboard.scss';
 // import postData from '../../../utils/apiCalls';
 import TitleForm from '../TitleForm/TitleForm';
 import EPKContainer from '../EPKContainer/EPKContainer';
 import Navigation from '../../../Navigation/Navigation';
+import Button from '@mui/material/Button';
 import { ThisIsUser, FilmEPK } from '../../../../types';
 import { setupMaster } from 'cluster';
 import { userInfo } from 'os';
 import Cookies from 'js-cookie';
+import { getUser } from '../../../../utils/apiCalls';
 
-// interface IUser {
-//   // id: number;
-//   currUser: ThisIsUser;
-// }
-
-const Dashboard = ({ currUser }: any) => {
+const Dashboard = () => {
   const [allFilms, setAllFilms] = useState<FilmEPK[]>([]);
-
+  const [userError, setUserError] = useState<string>('');
+  
   useEffect(() => {
     const cookie: any = Cookies.get('csrf-token')
-
-    fetch(`https://epk-be.herokuapp.com/api/v2/user`, {
-      method: 'GET',
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "X-Requested-With": "XMLHttpRequest",
-        "X-CSRF-Token": cookie
-      },  
-      credentials: "include"
-    })
-      .then((res) => res.json())
+    getUser()
       .then((data: any) => {
-        console.log(currUser)
         setAllFilms(data.included);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log('error', err)
+        setUserError(`Error ${err}`)
+      });
   }, []);
 
   return (
@@ -46,7 +36,14 @@ const Dashboard = ({ currUser }: any) => {
           <h1>To build your <span>electronic press kit</span>, enter your film title below</h1>
           <TitleForm allFilms={allFilms} setAllFilms={setAllFilms} />
         </div>
-       <EPKContainer allFilms={allFilms} setAllFilms={setAllFilms} />
+        {userError && <Link to={`/login`} className='login-btn'>
+					<Button variant="text" onClick={() => {
+
+						} }>
+						Login to create and edit your EPKs
+					</Button>
+			</Link>}
+        <EPKContainer allFilms={allFilms} setAllFilms={setAllFilms} />
       </main>
     </div>
   );
