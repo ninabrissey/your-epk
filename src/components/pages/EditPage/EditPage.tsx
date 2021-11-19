@@ -13,7 +13,7 @@ import TaglinesContainer from '../../Taglines/TaglinesContainer';
 import ImagesContainer from '../../Images/ImagesContainer';
 import ImagesForm from '../../Images/ImagesForm';
 
-const EditPage = ({ epk_id, id }: any) => {
+const EditPage = ({ epk_id }: any) => {
   const [error, setError] = useState<any>('');
   const [loading, setLoading] = useState(true);
   const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
