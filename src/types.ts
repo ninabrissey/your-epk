@@ -89,7 +89,7 @@ export interface FilmFams {
 export interface CurrentCrewMember {
   film_epk_id: number;
   first_name: string;
-  last_name: string;
+  // last_name: string;
   role: string;
   description: string;
 }

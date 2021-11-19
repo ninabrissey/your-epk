@@ -34,15 +34,7 @@ const FilmTeamContainer = ({ filmEPK, epk_id, addFilmInfo, included } : IFilmTea
   return (
     <div className='film-team-container'>
       <h2>Film Crew</h2>
-      {/* {console.log('allCrew: ', allCrew)} */}
-      {isEditing && <FilmTeamForm 
-        filmEPK={filmEPK}
-        epk_id={epk_id}
-        addFilmInfo={addFilmInfo}
-        postFilmFam={postFilmFam}
-        setIsEditing={setIsEditing} 
-      />}
-      {!isEditing && <FilmTeamDisplay filmEPK={filmEPK} allCrew={allCrew} />}
+
       {!isEditing && 
         <Fab
           size="small"
@@ -53,6 +45,24 @@ const FilmTeamContainer = ({ filmEPK, epk_id, addFilmInfo, included } : IFilmTea
           <EditIcon />
         </Fab>
       }
+
+      {isEditing && 
+        <FilmTeamDisplay 
+          filmEPK={filmEPK} 
+          allCrew={allCrew} 
+        />
+      }
+
+      {isEditing && 
+        <FilmTeamForm 
+          filmEPK={filmEPK}
+          epk_id={epk_id}
+          addFilmInfo={addFilmInfo}
+          postFilmFam={postFilmFam}
+          setIsEditing={setIsEditing} 
+        />
+      }
+
     </div>
   )
 }
