@@ -8,4 +8,19 @@
 .container-wrapper {
   width: $primary-width;
   display: flex;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 2rem;
+}
+
+.edit-page-below-header {
+  width: 70vw;
+  margin: 3vh auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 2rem;
 }
