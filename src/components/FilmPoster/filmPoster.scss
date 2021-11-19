@@ -1,15 +1,16 @@
 @import '../../styles/mixins';
 @import '../../styles/variables';
 
-
 .film-poster-container {
-  height: 50vh;
-  width: 35%;
+  // height: 50vh;
+  // width: 35%;
+  grid-column-start: 3;
+  grid-column-end: 5;
 
-  div {
-    margin-top: -5vh;
-    height: 100%;
-  }
+  // div {
+  // margin-top: -5vh;
+  // height: 100%;
+  // }
 }
 
 .poster {
@@ -23,8 +24,8 @@
 }
 
 .film-poster-form {
-  width: 80%;
-  height: 80%;
+  // width: 80%;
+  // height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;

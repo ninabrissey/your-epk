@@ -2,17 +2,19 @@
 @import '../../styles/variables';
 
 .taglines-container {
-  height: 30vh;
-  width: $primary-width;
+  // height: 30vh;
+  // width: $primary-width;
   padding: 2vh;
   background-color: whitesmoke;
+  grid-column-start: 1;
+  grid-column-end: 5;
 
   h2 {
     @include sectionTitleFormat;
     width: 75vw;
     margin: auto;
     padding: 15px;
-	}
+  }
 }
 
 .taglines-edit-btn {
