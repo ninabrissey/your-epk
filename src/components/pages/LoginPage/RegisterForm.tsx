@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
@@ -11,6 +12,7 @@ const RegisterForm = ({ setIsRegistering, setIsLoggingIn } : any) => {
   const [password1, setPassword1] = useState<string>('')
   const [password2, setPassword2] = useState<string>('')
 	const [error, setError] = useState<boolean>(false)
+	const [success, setSuccess] = useState<boolean>(false)
 
 	const registerUser = () => {
 		console.log(firstName, lastName, email, password1, password2)
@@ -30,8 +32,9 @@ const RegisterForm = ({ setIsRegistering, setIsLoggingIn } : any) => {
 				"password_confirmation": password2
 			}).then(res => {
 				console.log(res)
-				setIsRegistering(false) 
-				setIsLoggingIn(true)
+				// setIsRegistering(false) 
+				// setIsLoggingIn(true)
+				setSuccess(true)
 			})
 		}
 	}
@@ -49,8 +52,6 @@ const RegisterForm = ({ setIsRegistering, setIsLoggingIn } : any) => {
 
 		return canPost
 	}
-
-
 
   return (
     <form className='login-container'>
@@ -118,13 +119,20 @@ const RegisterForm = ({ setIsRegistering, setIsLoggingIn } : any) => {
         <Button 
           variant='text' 
           onClick={() => {
-						// setIsRegistering(false); setIsLoggingIn(true)
 						registerUser();
 					} }
           >Submit
 				</Button>
       </FormControl>  
 			{error && <p>Please fill out all fields and make sure password is at least 8 characters</p>} 
+			{success && 
+				<Link to={`/login`} className='login-btn'>
+					<Button variant="text" onClick={() => {
+
+						} }>
+						Success! Return to Login
+					</Button>
+			</Link>}
     </form>
   )
 }
