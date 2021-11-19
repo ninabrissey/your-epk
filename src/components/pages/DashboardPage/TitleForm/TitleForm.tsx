@@ -18,7 +18,6 @@ const TitleForm = ({ setAllFilms, allFilms }: IDashboard) => {
   const [error, setError] = useState('')
 
   const makeEPK = () => {
-
     if (title) {
       postData('https://epk-be.herokuapp.com/api/v2/film_epk', {
         "movie_title": title,
@@ -52,7 +51,7 @@ const TitleForm = ({ setAllFilms, allFilms }: IDashboard) => {
           >Create
           </Button>}
       </FormControl>
-      {error && <h3>Sorry, this site is underconstruction and may be experiencing errors</h3>}
+      {error && <h3>{`Something went wrong. You may need to refresh the page`}</h3>}
     </div>
   )
 }
