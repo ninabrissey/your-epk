@@ -93,6 +93,10 @@ export const postUserData = (url: string, data: object) => {
     body: JSON.stringify(data),
     credentials: 'include',
   }).then(res => {
-    return res.json()
+    if (res.ok) {
+      return res.json()
+    } else {
+      return Promise.reject(res.status)
+    }
   })
 }

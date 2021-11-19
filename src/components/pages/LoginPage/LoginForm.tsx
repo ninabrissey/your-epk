@@ -11,6 +11,7 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
 	const [hasCookie, setHasCookie] = useState<boolean>(false)
+	const [error, setError] = useState('')
 
   const handleClick = () => {
     let currentUser = {
@@ -22,6 +23,10 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
     .then(res => {
 			const cookie: any = Cookies.set('csrf-token', res.data.attributes.csrf_token)
 			setHasCookie(true)
+			setError('')
+		})
+		.catch(err => {	
+			setError(`${err}`)
 		})
   }
 
@@ -70,6 +75,7 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
 						Success! Go to Dashboard
 				</Button>
 				</Link> }
+			{error && <p>Login failed. Please try again</p>}	
     </form>
   )
 }
