@@ -11,6 +11,7 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
 
+
   const handleClick = () => {
     let currentUser = {
       email: email,
@@ -20,8 +21,8 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
     postUserData('https://epk-be.herokuapp.com/api/v1/sessions', currentUser)
     .then(res => {
 			const cookie: any = Cookies.set('csrf-token', res.data.attributes.csrf_token)
+			setCurrUser(res.data)
 		})
-	
   }
 
   return (
@@ -51,14 +52,17 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
 					onChange={(e) => setPassword(e.target.value)}
 					required
 				/>
-        <Link to='/dashboard/1' className='login-btn'>
-          <Button variant="text" onClick={() => {handleClick(); setIsLoggingIn(false)}}>
-            Login
-          </Button>
-        </Link>
-        <Button variant="text" onClick={() => {setIsRegistering(false); setIsLoggingIn(false)} }>
-					Register
-				</Button>
+				 <Link to={`/dashboard`} className='login-btn'>
+						<Button variant="text" onClick={() => {handleClick()}}>
+							Login
+						</Button>
+					</Link>
+				<Link to={`/register`} className='login-btn'>
+					<Button variant="text" onClick={() => {
+						} }>
+						Register
+					</Button>
+				</Link>
       </FormControl>  
     </form>
   )
