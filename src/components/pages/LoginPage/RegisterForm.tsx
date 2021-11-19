@@ -31,9 +31,6 @@ const RegisterForm = ({ setIsRegistering, setIsLoggingIn } : any) => {
 				"password": password1,
 				"password_confirmation": password2
 			}).then(res => {
-				console.log(res)
-				// setIsRegistering(false) 
-				// setIsLoggingIn(true)
 				setSuccess(true)
 			})
 		}
