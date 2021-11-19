@@ -38,10 +38,25 @@ export const patchData = (data: object, filmID: number) => {
     .then(res => res.json())
 }
 
-export const getUser = (userID: number) => {
-  return fetch(`https://epk-be.herokuapp.com/api/v1/users/${userID}`)
-    .then(res => res.json())
+export const getUser = () => {
+  return fetch(`https://epk-be.herokuapp.com/api/v2/user`, {
+    method: 'GET',
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
+      "X-CSRF-Token": cookie
+    },
+    credentials: "include"
+  }).then(res => {
+    if (res.ok) {
+      return res.json()
+    } else {
+      return Promise.reject(res.status)
+    }
+  })
 }
+
 
 export const getEPK = (epkID: string) => {
   return fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${epkID}`)
