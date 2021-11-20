@@ -13,7 +13,6 @@ interface APProps {
 const AwardPressDisplay = ({ awards, presses }: APProps) => {
   let combinedAwardPress: JSX.Element[] | undefined;
 
-
   if (presses !== undefined || awards !== undefined) {
     let pressCards: JSX.Element[];
     let awardCards: JSX.Element[];
@@ -49,7 +48,7 @@ const AwardPressDisplay = ({ awards, presses }: APProps) => {
             return combined;
           },
           []
-        )
+        );
       } else {
         return pressCards.reduce(
           (combined: JSX.Element[], press: JSX.Element, i: number) => {
@@ -57,9 +56,9 @@ const AwardPressDisplay = ({ awards, presses }: APProps) => {
             return combined;
           },
           []
-        )
+        );
       }
-    }
+    };
 
     combinedAwardPress = orderAwardsPress();
   }
