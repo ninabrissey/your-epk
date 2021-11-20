@@ -32,7 +32,17 @@
   }
 }
 
-.image-upload-btn {
+// .image-upload-btn {
+//   background: transparent;
+//   border-radius: 0.3rem;
+//   cursor: pointer;
+//   padding: 10.5px 14px;
+//   border: 1px solid #bababa;
+//   color: #585858;
+//   width: 200px;
+// }
+
+.image-upload-btn-2::file-selector-button {
   background: transparent;
   border-radius: 0.3rem;
   cursor: pointer;
@@ -40,4 +50,8 @@
   border: 1px solid #bababa;
   color: #585858;
   width: 200px;
+}
+
+#FilmCrewImageInput {
+  font-size: 1em;
 }
