@@ -2,9 +2,12 @@ import { FilmEPK } from "../types";
 import Cookies from 'js-cookie';
 
 const cookie: any = Cookies.get('csrf-token')
-console.log('cookie in postdata', cookie)
+
 
 export const postData = (url: string, data: object) => {
+  const cookie: any = Cookies.get('csrf-token')
+  console.log('cookie in postdata', cookie)
+
   return fetch(url, {
     method: 'POST',
     headers: {
@@ -24,6 +27,7 @@ export const postData = (url: string, data: object) => {
 }
 
 export const patchData = (data: object, filmID: number) => {
+  const cookie: any = Cookies.get('csrf-token')
   return fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${filmID}`, {
     method: 'PATCH',
     headers: {
@@ -38,10 +42,25 @@ export const patchData = (data: object, filmID: number) => {
     .then(res => res.json())
 }
 
-export const getUser = (userID: number) => {
-  return fetch(`https://epk-be.herokuapp.com/api/v1/users/${userID}`)
-    .then(res => res.json())
+export const getUser = () => {
+  return fetch(`https://epk-be.herokuapp.com/api/v2/user`, {
+    method: 'GET',
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
+      "X-CSRF-Token": cookie
+    },
+    credentials: "include"
+  }).then(res => {
+    if (res.ok) {
+      return res.json()
+    } else {
+      return Promise.reject(res.status)
+    }
+  })
 }
+
 
 export const getEPK = (epkID: string) => {
   return fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${epkID}`)
@@ -64,8 +83,6 @@ export const getArrayData = (type: any) => {
     .then(res => res.json())
 }
 
-
-
 export const postUserData = (url: string, data: object) => {
   return fetch(url, {
     method: 'POST',
@@ -76,6 +93,10 @@ export const postUserData = (url: string, data: object) => {
     body: JSON.stringify(data),
     credentials: 'include',
   }).then(res => {
-    return res.json()
+    if (res.ok) {
+      return res.json()
+    } else {
+      return Promise.reject(res.status)
+    }
   })
 }
