@@ -21,7 +21,6 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing 
       }
     }
     postFilmFam(filmTeamMember)
-    setIsEditing(false)
   }
 
   return (
@@ -74,6 +73,12 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing 
 				<Button variant="text" 
           onClick={handleSubmit}
           >add film crew
+				</Button>
+			</FormControl>
+      <FormControl>
+      <Button variant="text" 
+          onClick={() => setIsEditing(false)}
+          >done editing
 				</Button>
 			</FormControl>
     </section>

@@ -46,12 +46,10 @@ const FilmTeamContainer = ({ filmEPK, epk_id, addFilmInfo, included } : IFilmTea
         </Fab>
       }
 
-      {isEditing && 
-        <FilmTeamDisplay 
-          filmEPK={filmEPK} 
-          allCrew={allCrew} 
-        />
-      }
+      <FilmTeamDisplay 
+        filmEPK={filmEPK} 
+        allCrew={allCrew} 
+      />
 
       {isEditing && 
         <FilmTeamForm 
