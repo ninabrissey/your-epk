@@ -9,11 +9,11 @@ interface IFilms {
 
 const EPKContainer = ({ allFilms, setAllFilms }: IFilms) => {
   const allTitles: any[] = allFilms.map((film: any) => {
-    return (
-      <EPKCard title={film.attributes.movie_title} image={film.attributes.header_image_url} epk_id={film.id} setAllFilms={setAllFilms} allFilms={allFilms} key={film.id} />
-    )
-  })
-
+      return (
+        <EPKCard title={film.attributes.movie_title} image={film.attributes.header_image_url} epk_id={film.id} setAllFilms={setAllFilms} allFilms={allFilms} key={film.id} />
+      )
+    })
+  
   return (
     <section className='titles'>
       <div className='titles-container'>
