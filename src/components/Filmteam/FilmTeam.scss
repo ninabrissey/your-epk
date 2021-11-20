@@ -14,12 +14,20 @@
 	}
 }
 
-.film-team-form {
-  height: 38vh;
-  @include flexColumnJustify(space-evenly);
-  align-items: center;
+// .film-team-form {
+//   height: 38vh;
+  // @include flexColumnJustify(space-evenly);
+  // align-items: center;
 
-  button {
-    width: $btn-width;
+//   button {
+//     width: $btn-width;
+//   }
+// }
+
+.film-team-form {
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 }
