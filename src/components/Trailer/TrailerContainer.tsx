@@ -14,7 +14,7 @@ const TrailerContainer = ({ filmEPK, addFilmInfo }: ITrailer) => {
   const [isEditing, setIsEditing] = useState<boolean>(true);
 
   return (
-    <section className="trailer-container">
+    <section className="trailer-container trailer-display">
       <h2>Trailer</h2>
       {!isEditing && (
         <Fab

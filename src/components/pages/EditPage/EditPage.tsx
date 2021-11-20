@@ -14,7 +14,7 @@ import ImagesContainer from '../../Images/ImagesContainer';
 import ImagesForm from '../../Images/ImagesForm';
 import FilmTeamContainer from '../../Filmteam/FilmTeamContainer';
 
-const EditPage = ({ epk_id, id }: any) => {
+const EditPage = ({ epk_id }: any) => {
   const [error, setError] = useState<any>('');
   const [loading, setLoading] = useState(true);
   const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
@@ -65,22 +65,29 @@ const EditPage = ({ epk_id, id }: any) => {
               epk_id={epk_id}
               isPressPage={false}
             />
-
-            {film.id && (
-              <AwardsPressContainer
-                addFilmInfo={addFilmInfo}
-                epk_id={epk_id}
-                included={included}
-              />
-            )}
-            <TrailerContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-            <div className="container-wrapper">
-              <SynopsisContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-              <FilmPosterContainer
-                filmEPK={film}
-                addFilmInfo={addFilmInfo}
-                epk_id={epk_id}
-              />
+            <div className="edit-page-below-header">
+              {film.id && (
+                <AwardsPressContainer
+                  addFilmInfo={addFilmInfo}
+                  epk_id={epk_id}
+                  included={included}
+                />
+              )}
+              <TrailerContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+              <div className="container-wrapper">
+                <SynopsisContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+                <FilmPosterContainer
+                  filmEPK={film}
+                  addFilmInfo={addFilmInfo}
+                  epk_id={epk_id}
+                />
+              </div>
+              {/* <ImagesContainer epk_id={epk_id} images={images} /> */}
+              {/* <ImagesForm /> */}
+              <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+              {/* <div className="container-wrapper"> */}
+              <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+              {/* </div> */}
             </div>
             {/* <ImagesContainer epk_id={epk_id} images={images} /> */}
             {/* <ImagesForm /> */}
