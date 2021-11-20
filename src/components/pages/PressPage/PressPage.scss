@@ -9,7 +9,7 @@
     font-family: 'Zen Kaku Gothic Antique', sans-serif;
     text-transform: uppercase;
     text-align: center;
-    font-size: 2.15em;
+    font-size: 2.5em;
     padding: 5px 10px;
   }
 }
@@ -29,7 +29,8 @@
 
 .press-header-description {
   line-height: normal;
-  font-size: $primary-font-size;
+  // font-size: $primary-font-size;
+  font-size: 1.6vw;
 }
 
 // CONTACT SECTION
@@ -40,7 +41,8 @@
   }
 
   .contact-info {
-    font-size: $primary-font-size;
+    // font-size: $primary-font-size;
+    font-size: 1.4vw;
   }
 }
 
@@ -171,4 +173,10 @@
   span {
     font-weight: bold;
   }
+}
+
+@media screen and (max-width: 1023px) {
+}
+
+@media screen and (max-width: 767px) {
 }
