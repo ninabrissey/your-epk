@@ -1,31 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { postData } from '../../utils/apiCalls';
 import { getPresignedUrl, putToAWS, postFilmMemberToDatabase } from '../../awsS3/helperFunctions';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, setIsEditing, allCrew, setAllCrew } : any) => {
+const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew } : any) => {
   const [name, setName] = useState<string>('')
-  // const [lastName, setLastName] = useState<string>('')
   const [role, setRole] = useState<string>('')
   const [description, setDescription] = useState<string>('')
-  const [image, setImage] = useState<any>({})
-  const [currentMember, setCurrentMember] = useState<object>({})
-
-  // useEffect(() => {
-  //   if (image.size > 0) {
-  //     makeAWSpost();
-  //   }
-  // }, [image])
-
-  // useEffect(() => {
-  //   const input = document.querySelector<any>('#FilmCrewImageInput').files[0];
-  //   const fileName = document.querySelector<any>('#file-chosen')
-
-  //   fileName.innerText = document.querySelector<any>('#FilmCrewImageInput').files[0];
-  //   console.log(fileName)
-  // }, [])
 
   const postFilmFam = (filmTeamMember : object) => {
     postData('https://epk-be.herokuapp.com/api/v1/film_fams', filmTeamMember)
@@ -50,7 +33,6 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, setIsEditing, allCrew, set
   }
 
   const handleImageSubmit = async (memberID : any) => {
-		// event.preventDefault();
 		const input = document.querySelector<any>('#FilmCrewImageInput').files[0];
 
     if (input.size > 0) {
@@ -100,17 +82,6 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, setIsEditing, allCrew, set
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 				/>
-        {/* <TextField
-					id="outlined-basic"
-					label="Last name"
-					variant="outlined"
-					size="small"
-					margin="dense"
-					type="text"
-					name="lastName"
-					value={lastName}
-					onChange={(e) => setLastName(e.target.value)}
-				/> */}
         <TextField
 					id="outlined-basic"
 					label="Role"

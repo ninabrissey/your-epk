@@ -16,16 +16,7 @@ interface IFilmTeam {
 
 const FilmTeamContainer = ({ filmEPK, epk_id, addFilmInfo, included } : IFilmTeam) => {
   const [isEditing, setIsEditing] = useState<boolean>(true);
-  const [currentMember, setCurrentMember] = useState<object>({})
   const [allCrew, setAllCrew] = useState<Included[]>([])
-
-  // const postFilmFam = (filmTeamMember : object) => {
-  //   postData('https://epk-be.herokuapp.com/api/v1/film_fams', filmTeamMember)
-  //   .then((data : any) => {
-  //     setCurrentMember(data.attributes)
-  //     // console.log('data: ', data)
-  //   })
-  // }
 
   useEffect(() => {
     setAllCrew((filterIncluded(included, 'film_fam')))
@@ -47,9 +38,9 @@ const FilmTeamContainer = ({ filmEPK, epk_id, addFilmInfo, included } : IFilmTea
       }
 
       <FilmTeamDisplay 
-        filmEPK={filmEPK} 
+        // filmEPK={filmEPK} 
         allCrew={allCrew} 
-        epk_id={epk_id}
+        // epk_id={epk_id}
       />
 
       {isEditing && 

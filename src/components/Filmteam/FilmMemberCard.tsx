@@ -1,5 +1,3 @@
-
-
 const FilmMemberCard = ({ name, role, description, image } : any) => {
 
   return (

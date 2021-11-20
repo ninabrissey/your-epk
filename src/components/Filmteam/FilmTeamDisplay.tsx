@@ -1,23 +1,10 @@
-import { useEffect, useState } from 'react';
-import { getEPK } from '../../utils/apiCalls';
-import { FilmEPK, Included, FilmFams, CurrentCrewMember } from '../../types';
+import { Included } from '../../types';
 import FilmMemberCard from './FilmMemberCard';
 
 interface IFilmTeamDisplay {
-	filmEPK: FilmEPK;
   allCrew: Included[];
-  epk_id: any;
-  // currentMember: CurrentCrewMember;
 }
-const FilmTeamDisplay = ({ filmEPK, allCrew, epk_id } : IFilmTeamDisplay) => {
-  const [image, setImage] = useState<string>('')
-  // console.log('allCrew: ', allCrew)
-
-  useEffect(() => {
-		getEPK(epk_id)
-    // .then(data => console.log('data: ', data.data))
-			// .then(data => setImage(data.data.attributes.head_shots))
-	},[])
+const FilmTeamDisplay = ({ allCrew } : IFilmTeamDisplay) => {
 
   const searchAllCrew = allCrew.map((crewMember : Included) => {
     return ( 
@@ -26,14 +13,13 @@ const FilmTeamDisplay = ({ filmEPK, allCrew, epk_id } : IFilmTeamDisplay) => {
         name={crewMember.attributes.first_name}
         role={crewMember.attributes.role}
         description={crewMember.attributes.description}
-        image={image}
+        image={crewMember.attributes.head_shot_url}
       />
     )
   })
 
   return (
     <section>
-      {/* {console.log('allCrew in DISPLAY: ', allCrew)} */}
       {searchAllCrew}
     </section>
   )
