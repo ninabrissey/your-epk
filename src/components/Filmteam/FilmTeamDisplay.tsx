@@ -11,11 +11,12 @@ interface IFilmTeamDisplay {
 }
 const FilmTeamDisplay = ({ filmEPK, allCrew, epk_id } : IFilmTeamDisplay) => {
   const [image, setImage] = useState<string>('')
-  console.log('allCrew: ', allCrew)
+  // console.log('allCrew: ', allCrew)
 
   useEffect(() => {
 		getEPK(epk_id)
-			.then(data => setImage(data.data.attributes.head_shots))
+    // .then(data => console.log('data: ', data.data))
+			// .then(data => setImage(data.data.attributes.head_shots))
 	},[])
 
   const searchAllCrew = allCrew.map((crewMember : Included) => {

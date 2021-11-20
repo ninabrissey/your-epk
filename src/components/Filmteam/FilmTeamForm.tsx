@@ -1,22 +1,23 @@
 import { useState, useEffect } from 'react';
 import { postData } from '../../utils/apiCalls';
-import { getPresignedUrl, putToAWS, postToDatabase } from '../../awsS3/helperFunctions';
+import { getPresignedUrl, putToAWS, postFilmMemberToDatabase } from '../../awsS3/helperFunctions';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing } : any) => {
+const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, setIsEditing, allCrew, setAllCrew } : any) => {
   const [name, setName] = useState<string>('')
   // const [lastName, setLastName] = useState<string>('')
   const [role, setRole] = useState<string>('')
   const [description, setDescription] = useState<string>('')
   const [image, setImage] = useState<any>({})
+  const [currentMember, setCurrentMember] = useState<object>({})
 
-  useEffect(() => {
-    if (image.size > 0) {
-      makeAWSpost();
-    }
-  }, [image])
+  // useEffect(() => {
+  //   if (image.size > 0) {
+  //     makeAWSpost();
+  //   }
+  // }, [image])
 
   // useEffect(() => {
   //   const input = document.querySelector<any>('#FilmCrewImageInput').files[0];
@@ -26,36 +27,39 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing 
   //   console.log(fileName)
   // }, [])
 
+  const postFilmFam = (filmTeamMember : object) => {
+    postData('https://epk-be.herokuapp.com/api/v1/film_fams', filmTeamMember)
+    .then((data : any) => {
+      console.log('data in form POST: ', data)
+      handleImageSubmit(data.data.id).then(data => setAllCrew([data.data, ...allCrew]))
+    })
+  }
 
-  const handleTextSubmit = async (event : any) => {
+  const handleTextSubmit = (event : any) => {
     event.preventDefault();
 
     let filmTeamMember = {
       film_fam: {
         first_name: name,
-        // last_name: lastName,
         role: role,
         description: description,
         film_epk_id: epk_id  
       }
     }
-    await postFilmFam(filmTeamMember)
-    handleImageSubmit(event)
+    postFilmFam(filmTeamMember)
   }
 
-  const handleImageSubmit = async (event: any) => {
-		event.preventDefault();
+  const handleImageSubmit = async (memberID : any) => {
+		// event.preventDefault();
 		const input = document.querySelector<any>('#FilmCrewImageInput').files[0];
 
-		if (input) {
-			setImage(input);
-		}
-	}
-
-  const makeAWSpost = async () => {
-		const presignedFileParams = await getPresignedUrl(image);
-		const awsRes = await putToAWS(presignedFileParams, image);
-		const data: any = await postToDatabase(presignedFileParams, filmEPK, 'head_shots')
+    if (input.size > 0) {
+      const presignedFileParams = await getPresignedUrl(input);
+      console.log('presignedFileParams: ', presignedFileParams)
+      const awsRes = await putToAWS(presignedFileParams, input);
+      const data: any = await postFilmMemberToDatabase(presignedFileParams, memberID, 'head_shots')
+      return data
+    }
 	}
 
   return (

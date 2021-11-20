@@ -87,3 +87,30 @@ export const postToDatabase = async (fileParams: any, epk: any, endpoint: string
   let data = await res.json()
   return data
 }
+
+
+// STEP 3 FOR FILM TEAM
+export const postFilmMemberToDatabase = async (fileParams: any, filmMember: any, endpoint: string) => {
+  const cookie: any = Cookies.get('csrf-token')
+
+  let usersPostOptions: any = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      "X-Requested-With": "XMLHttpRequest",
+      "X-CSRF-Token": cookie
+    },
+    credentials: 'include',
+    body: JSON.stringify({
+      film_fam_id: filmMember,
+      blob_signed_id: fileParams.blob_signed_id,
+    }),
+  }
+  let res = await fetch(`https://epk-be.herokuapp.com/api/v1/${endpoint}`, usersPostOptions)
+  if (res.status !== 200) return res
+
+  let data = await res.json()
+  return data
+}
+

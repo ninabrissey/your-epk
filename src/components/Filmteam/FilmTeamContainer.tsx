@@ -19,13 +19,13 @@ const FilmTeamContainer = ({ filmEPK, epk_id, addFilmInfo, included } : IFilmTea
   const [currentMember, setCurrentMember] = useState<object>({})
   const [allCrew, setAllCrew] = useState<Included[]>([])
 
-  const postFilmFam = (filmTeamMember : object) => {
-    postData('https://epk-be.herokuapp.com/api/v1/film_fams', filmTeamMember)
-    .then((data : any) => {
-      setCurrentMember(data.attributes)
-      // console.log('data: ', data)
-    })
-  }
+  // const postFilmFam = (filmTeamMember : object) => {
+  //   postData('https://epk-be.herokuapp.com/api/v1/film_fams', filmTeamMember)
+  //   .then((data : any) => {
+  //     setCurrentMember(data.attributes)
+  //     // console.log('data: ', data)
+  //   })
+  // }
 
   useEffect(() => {
     setAllCrew((filterIncluded(included, 'film_fam')))
@@ -57,8 +57,10 @@ const FilmTeamContainer = ({ filmEPK, epk_id, addFilmInfo, included } : IFilmTea
           filmEPK={filmEPK}
           epk_id={epk_id}
           addFilmInfo={addFilmInfo}
-          postFilmFam={postFilmFam}
+          // postFilmFam={postFilmFam}
           setIsEditing={setIsEditing} 
+          allCrew={allCrew}
+          setAllCrew={setAllCrew}
         />
       }
 
