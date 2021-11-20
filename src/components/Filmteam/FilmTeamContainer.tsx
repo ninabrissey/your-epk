@@ -17,7 +17,7 @@ interface IFilmTeam {
 const FilmTeamContainer = ({ filmEPK, epk_id, addFilmInfo, included } : IFilmTeam) => {
   const [isEditing, setIsEditing] = useState<boolean>(true);
   const [currentMember, setCurrentMember] = useState<object>({})
-  const [allCrew, setAllCrew] = useState<any>([])
+  const [allCrew, setAllCrew] = useState<Included[]>([])
 
   const postFilmFam = (filmTeamMember : object) => {
     postData('https://epk-be.herokuapp.com/api/v1/film_fams', filmTeamMember)

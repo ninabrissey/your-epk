@@ -25,7 +25,7 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing 
   }
 
   return (
-    <form className='film-team-form'>
+    <section className='film-team-form'>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
       	<TextField
 					id="outlined-basic"
@@ -76,7 +76,7 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing 
           >add film crew
 				</Button>
 			</FormControl>
-    </form>
+    </section>
   )
 }
 
