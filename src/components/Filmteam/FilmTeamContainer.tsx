@@ -49,6 +49,7 @@ const FilmTeamContainer = ({ filmEPK, epk_id, addFilmInfo, included } : IFilmTea
       <FilmTeamDisplay 
         filmEPK={filmEPK} 
         allCrew={allCrew} 
+        epk_id={epk_id}
       />
 
       {isEditing && 
