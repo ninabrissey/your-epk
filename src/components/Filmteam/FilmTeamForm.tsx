@@ -18,6 +18,14 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing 
     }
   }, [image])
 
+  useEffect(() => {
+    const input = document.querySelector<any>('#FilmCrewImageInput').files[0];
+    const fileName = document.querySelector<any>('#file-chosen')
+
+    fileName.innerText = document.querySelector<any>('#FilmCrewImageInput').files[0];
+    console.log(fileName)
+  }, [])
+
 
   const handleTextSubmit = async (event : any) => {
     event.preventDefault();
@@ -32,8 +40,6 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing 
       }
     }
     await postFilmFam(filmTeamMember)
-
-
     handleImageSubmit(event)
   }
 
@@ -57,7 +63,13 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing 
 
       <form className="film-team-img-form">
         <div>
+          <label 
+            htmlFor="FilmCrewImageInput" className='image-upload-btn'
+            >Choose File
+          </label>
+          <span id="file-chosen">No file chosen</span>
           <input
+            hidden
             id="FilmCrewImageInput"
             type="file"
             accept="image/*"
