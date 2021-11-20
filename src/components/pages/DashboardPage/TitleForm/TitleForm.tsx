@@ -9,35 +9,23 @@ import './TitleForm.scss';
 
 
 interface IDashboard {
-  id: number,
   setAllFilms: React.Dispatch<React.SetStateAction<FilmEPK[]>>,
   allFilms: object[]
 }
 
-const TitleForm = ({ id, setAllFilms, allFilms }: IDashboard) => {
+const TitleForm = ({ setAllFilms, allFilms }: IDashboard) => {
   const [title, setTitle] = useState('')
-  // const endpointTitle: string = title.split(' ').join('-')
-  // const [filmId, setFilmId] = useState<number>()
+  const [error, setError] = useState('')
 
   const makeEPK = () => {
-    // if (title) {
-    //   postData('https://epk-be.herokuapp.com/api/v1/film_epk', {
-    //     "user_id": id,
-    //     "movie_title": title,
-    //   }).then(data => {
-    //     setAllFilms([...allFilms, data.data.attributes.movie_title])
-    //     console.log(allFilms)
-    //   })
-    // }
-    // comment out because this was erroring on my branch
-
     if (title) {
-      postData('https://epk-be.herokuapp.com/api/v1/film_epk', {
-        "user_id": id,
+      postData('https://epk-be.herokuapp.com/api/v2/film_epk', {
         "movie_title": title,
       })
-        .then(data => setAllFilms([data.data, ...allFilms]))
-        .catch(err => console.log(err))
+        .then(data => {
+          console.log(data)
+          setAllFilms([data.data, ...allFilms])})
+        .catch(err => setError(err))
     }
   }
 
@@ -63,6 +51,7 @@ const TitleForm = ({ id, setAllFilms, allFilms }: IDashboard) => {
           >Create
           </Button>}
       </FormControl>
+      {error && <h3>{`Something went wrong. You may need to refresh the page`}</h3>}
     </div>
   )
 }

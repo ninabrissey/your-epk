@@ -1,28 +1,26 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Dashboard.scss';
-// import postData from '../../../utils/apiCalls';
 import TitleForm from '../TitleForm/TitleForm';
 import EPKContainer from '../EPKContainer/EPKContainer';
 import Navigation from '../../../Navigation/Navigation';
-import { UserData, FilmEPK } from '../../../../types';
-import { setupMaster } from 'cluster';
-import { userInfo } from 'os';
+import Button from '@mui/material/Button';
+import { FilmEPK } from '../../../../types';
+import { getUser } from '../../../../utils/apiCalls';
 
-interface IUser {
-  id: number;
-  currUser: UserData;
-}
-
-const Dashboard = ({ id, currUser }: IUser) => {
+const Dashboard = () => {
   const [allFilms, setAllFilms] = useState<FilmEPK[]>([]);
+  const [userError, setUserError] = useState<string>('');
 
   useEffect(() => {
-    fetch(`https://epk-be.herokuapp.com/api/v1/users/${id}`)
-      .then((res) => res.json())
+    getUser()
       .then((data: any) => {
         setAllFilms(data.included);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log('error', err)
+        setUserError(`Error ${err}`)
+      });
   }, []);
 
   return (
@@ -31,8 +29,15 @@ const Dashboard = ({ id, currUser }: IUser) => {
       <main className="edit-main">
         <div className="party-title">
           <h1>To build your <span>electronic press kit</span>, enter your film title below</h1>
-          <TitleForm allFilms={allFilms} id={id} setAllFilms={setAllFilms} />
+          <TitleForm allFilms={allFilms} setAllFilms={setAllFilms} />
         </div>
+        {userError && <Link to={`/login`} className='login-btn'>
+					<Button variant="text" onClick={() => {
+
+						} }>
+						Login to create and edit your EPKs
+					</Button>
+			</Link>}
         <EPKContainer allFilms={allFilms} setAllFilms={setAllFilms} />
       </main>
     </div>

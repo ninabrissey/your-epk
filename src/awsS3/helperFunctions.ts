@@ -1,6 +1,6 @@
 import { postData } from '../utils/apiCalls';
 import CryptoJS from 'crypto-js';
-
+import Cookies from 'js-cookie';
 
 //********** Helpers **********//
 export const fileToData = (file: any) => {
@@ -65,16 +65,21 @@ export const putToAWS = async (fileParams: any, image: any) => {
 //********** STEP 3 **********//
 
 export const postToDatabase = async (fileParams: any, epk: any, endpoint: string) => {
-  let usersPostOptions = {
+  const cookie: any = Cookies.get('csrf-token')
+
+  let usersPostOptions: any = {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      "X-Requested-With": "XMLHttpRequest",
+      "X-CSRF-Token": cookie
     },
+    credentials: 'include',
     body: JSON.stringify({
       film_epk_id: epk.id,
       blob_signed_id: fileParams.blob_signed_id,
-    })
+    }),
   }
   let res = await fetch(`https://epk-be.herokuapp.com/api/v1/${endpoint}`, usersPostOptions)
   if (res.status !== 200) return res
