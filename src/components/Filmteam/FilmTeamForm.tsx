@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { postData } from '../../utils/apiCalls';
+import { getPresignedUrl, putToAWS, postToDatabase } from '../../awsS3/helperFunctions';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -9,8 +10,18 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing 
   // const [lastName, setLastName] = useState<string>('')
   const [role, setRole] = useState<string>('')
   const [description, setDescription] = useState<string>('')
+  const [image, setImage] = useState<any>({})
 
-  const handleSubmit = () => {
+  useEffect(() => {
+    if (image.size > 0) {
+      makeAWSpost();
+    }
+  }, [image])
+
+
+  const handleTextSubmit = async (event : any) => {
+    event.preventDefault();
+
     let filmTeamMember = {
       film_fam: {
         first_name: name,
@@ -20,11 +31,46 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing 
         film_epk_id: epk_id  
       }
     }
-    postFilmFam(filmTeamMember)
+    await postFilmFam(filmTeamMember)
+
+
+    handleImageSubmit(event)
   }
 
+  const handleImageSubmit = async (event: any) => {
+		event.preventDefault();
+		const input = document.querySelector<any>('#FilmCrewImageInput').files[0];
+
+		if (input) {
+			setImage(input);
+		}
+	}
+
+  const makeAWSpost = async () => {
+		const presignedFileParams = await getPresignedUrl(image);
+		const awsRes = await putToAWS(presignedFileParams, image);
+		const data: any = await postToDatabase(presignedFileParams, filmEPK, 'head_shots')
+	}
+
   return (
-    <section className='film-team-form'>
+    <section className="film-team-form">
+
+      <form className="film-team-img-form">
+        <div>
+          <input
+            id="FilmCrewImageInput"
+            type="file"
+            accept="image/*"
+          />
+          {/* <button
+            onClick={(event) => {
+              handleImageSubmit(event);
+            }}
+            >Save
+          </button> */}
+        </div>
+      </form>
+
       <FormControl sx={{ m: 1, minWidth: 120 }}>
       	<TextField
 					id="outlined-basic"
@@ -71,16 +117,18 @@ const FilmTeamForm = ({ filmEPK, epk_id, addFilmInfo, postFilmFam, setIsEditing 
 					onChange={(e) => setDescription(e.target.value)}
 				/>
 				<Button variant="text" 
-          onClick={handleSubmit}
+          onClick={handleTextSubmit}
           >add film crew
 				</Button>
 			</FormControl>
+
       <FormControl>
-      <Button variant="text" 
+        <Button variant="text" 
           onClick={() => setIsEditing(false)}
           >done editing
 				</Button>
 			</FormControl>
+
     </section>
   )
 }
