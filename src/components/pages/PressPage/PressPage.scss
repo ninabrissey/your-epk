@@ -175,8 +175,16 @@
   }
 }
 
-@media screen and (max-width: 1023px) {
-}
-
 @media screen and (max-width: 767px) {
+  .press-page-below-header {
+    width: 90vw;
+  }
+  .synopsis-press {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+  .film-poster-display {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
 }
