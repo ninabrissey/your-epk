@@ -19,7 +19,7 @@ const FilmTeamDisplay = ({ allCrew } : IFilmTeamDisplay) => {
   })
 
   return (
-    <section>
+    <section className='all-crew-wrapper'>
       {searchAllCrew}
     </section>
   )

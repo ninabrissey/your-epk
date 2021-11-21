@@ -55,3 +55,28 @@
 #FilmCrewImageInput {
   font-size: 1em;
 }
+
+
+.all-crew-wrapper {
+  @include gridDisplayCards;
+  @include marginWidthContainers;
+}
+
+
+.crew-member-card {
+  position: relative;
+
+  img {
+    height: 27vh;
+    width: 27vw;
+    // position: absolute;
+    // top: 0;
+    z-index: 0;
+  }
+}
+
+.crew-member-card {
+  p {
+    z-index: 10;
+  }
+}
