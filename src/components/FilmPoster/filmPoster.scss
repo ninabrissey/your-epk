@@ -33,3 +33,10 @@
   margin: auto;
   justify-content: center;
 }
+
+@media screen and (max-width: 767px) {
+  .film-poster-container {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+}
