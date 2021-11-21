@@ -11,9 +11,9 @@
 
   h2 {
     @include sectionTitleFormat;
-    width: 42vw;
+    width: 75vw;
     margin: auto;
-    padding-top: 2vh;
+    padding: 15px;
   }
 }
 
@@ -35,12 +35,16 @@
 
 .synopsis-edit-btn {
   top: -3vh;
-  left: 50vw;
+  left: 30vw;
 }
 
 @media screen and (max-width: 767px) {
   .synopsis-container {
     grid-column-start: 1;
     grid-column-end: 5;
+  }
+  .synopsis-edit-btn {
+    top: -3vh;
+    left: 78vw;
   }
 }
