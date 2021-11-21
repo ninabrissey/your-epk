@@ -32,9 +32,7 @@ const Dashboard = () => {
           <TitleForm allFilms={allFilms} setAllFilms={setAllFilms} />
         </div>
         {userError && <Link to={`/login`} className='login-btn'>
-					<Button variant="text" onClick={() => {
-
-						} }>
+					<Button variant="text" >
 						Login to create and edit your EPKs
 					</Button>
 			</Link>}
