@@ -13,7 +13,7 @@
 
   .awards-press-edit-btn {
     top: -6vh;
-    left: 80vw;
+    left: 78vw;
   }
 }
 
@@ -97,15 +97,27 @@
   .award-press-display {
     display: flex;
     font-size: 0;
-    // width: 70vw;
+    width: 70vw;
     overflow: scroll;
     white-space: nowrap;
   }
   .press-card .award-press-card {
     height: 100%;
     width: 175px;
-    // min-width: 175px;
+    min-width: 175px;
     // background: whitesmoke;
     // color: #605e59;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .award-press-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    width: 90vw;
+    overflow: scroll;
+    white-space: nowrap;
   }
 }
