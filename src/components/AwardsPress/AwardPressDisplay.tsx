@@ -34,6 +34,7 @@ const AwardPressDisplay = ({ awards, presses, isEditing }: APProps) => {
         );
       });
     }
+    return [];
   }
 
   const makePresses = () => {
@@ -49,10 +50,11 @@ const AwardPressDisplay = ({ awards, presses, isEditing }: APProps) => {
         );
       });
     }
+    return [];
   }
 
   //this function will currently alternate placement of press and award starting with whichever is longer.
-  const orderAwardsPress = (awardCards: any, pressCards: any) => {
+  const orderAwardsPress = (awardCards: JSX.Element[], pressCards: JSX.Element[]) => {
     if (awardCards.length >= pressCards.length) {
       return awardCards.reduce(
         (combined: JSX.Element[], award: JSX.Element, i: number) => {
