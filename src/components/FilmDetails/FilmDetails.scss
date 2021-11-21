@@ -23,7 +23,7 @@
 
 .film-details-edit-btn {
   top: -6vh;
-  left: 92vw;
+  left: 80vw;
 }
 
 .film-details-form {
@@ -49,11 +49,18 @@
 
 .film-details-info {
   // padding: 10px 0;
-  padding: 0 3vh;
+  // padding: 0 3vh;
   width: 60%;
   margin: auto;
 
   p {
     padding: 3px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .film-details-section .film-details-info {
+    width: 100%;
+    margin: auto;
   }
 }
