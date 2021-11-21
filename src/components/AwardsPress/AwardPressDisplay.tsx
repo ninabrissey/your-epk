@@ -8,10 +8,13 @@ interface APProps {
   presses: Included[];
   awards: Included[];
   isEditing: boolean;
+  canDelete: boolean;
 }
 
-const AwardPressDisplay = ({ awards, presses, isEditing }: APProps) => {
+const AwardPressDisplay = ({ awards, presses, isEditing, canDelete }: APProps) => {
   const [combinedAwardPress, setCombined] = useState<JSX.Element[]>([])
+
+  console.log('Display is Editing', isEditing)
 
   useEffect(() => {
     const award = makeAwards();
@@ -19,7 +22,7 @@ const AwardPressDisplay = ({ awards, presses, isEditing }: APProps) => {
 
     const combined = orderAwardsPress(award, press)
     setCombined(combined)
-  }, [])
+  }, [awards, presses, isEditing])
 
   const makeAwards = () => {
     if (awards !== undefined) {
@@ -30,6 +33,7 @@ const AwardPressDisplay = ({ awards, presses, isEditing }: APProps) => {
             award={award}
             style={{ background: '#FF904D' }}
             isEditing={isEditing}
+            canDelete={canDelete}
           />
         );
       });
@@ -53,7 +57,6 @@ const AwardPressDisplay = ({ awards, presses, isEditing }: APProps) => {
     return [];
   }
 
-  //this function will currently alternate placement of press and award starting with whichever is longer.
   const orderAwardsPress = (awardCards: JSX.Element[], pressCards: JSX.Element[]) => {
     if (awardCards.length >= pressCards.length) {
       return awardCards.reduce(
