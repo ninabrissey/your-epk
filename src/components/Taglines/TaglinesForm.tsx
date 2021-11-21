@@ -40,7 +40,7 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
             onChange={(e) => setTagline(e.target.value)}
           />
         </FormControl>
-        <FormControl sx={{ m: 1, minWidth: '50vw' }}>
+        <FormControl sx={{ m: 1, minWidth: '63vw' }}>
           <TextField
             id="outlined-multiline-flexible"
             label="Logline"
