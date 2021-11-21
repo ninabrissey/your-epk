@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Included } from '../../types';
 import PressCard from './PressCard';
 import AwardCard from './AwardCard';
-import { getArrayData } from '../../utils/apiCalls';
 import './AwardPress.scss';
 
 interface APProps {
@@ -12,14 +11,19 @@ interface APProps {
 }
 
 const AwardPressDisplay = ({ awards, presses, isEditing }: APProps) => {
-  let combinedAwardPress: JSX.Element[] | undefined;
+  const [combinedAwardPress, setCombined] = useState<JSX.Element[]>([])
 
+  useEffect(() => {
+    const award = makeAwards();
+    const press = makePresses();
 
-  if (presses !== undefined || awards !== undefined) {
-    let pressCards: JSX.Element[];
-    let awardCards: JSX.Element[];
+    const combined = orderAwardsPress(award, press)
+    setCombined(combined)
+  }, [])
+
+  const makeAwards = () => {
     if (awards !== undefined) {
-      awardCards = awards.map((award) => {
+      return awards.map((award) => {
         return (
           <AwardCard
             key={award.id}
@@ -30,8 +34,11 @@ const AwardPressDisplay = ({ awards, presses, isEditing }: APProps) => {
         );
       });
     }
+  }
+
+  const makePresses = () => {
     if (presses !== undefined) {
-      pressCards = presses.map((press) => { 
+      return presses.map((press) => { 
         return (
           <PressCard
             key={press.id}
@@ -42,35 +49,41 @@ const AwardPressDisplay = ({ awards, presses, isEditing }: APProps) => {
         );
       });
     }
+  }
 
-    //this function will currently alternate placement of press and award starting with whichever is longer.
-    const orderAwardsPress = () => {
-      if (awardCards.length >= pressCards.length) {
-        return awardCards.reduce(
-          (combined: JSX.Element[], award: JSX.Element, i: number) => {
-            combined.push(award, pressCards[i]);
-            return combined;
-          },
-          []
-        )
-      } else {
-        return pressCards.reduce(
-          (combined: JSX.Element[], press: JSX.Element, i: number) => {
-            combined.push(press, awardCards[i]);
-            return combined;
-          },
-          []
-        )
-      }
+  //this function will currently alternate placement of press and award starting with whichever is longer.
+  const orderAwardsPress = (awardCards: any, pressCards: any) => {
+    if (awardCards.length >= pressCards.length) {
+      return awardCards.reduce(
+        (combined: JSX.Element[], award: JSX.Element, i: number) => {
+          combined.push(award);
+          if(pressCards[i]) {
+            combined.push(pressCards[i])
+          }
+          return combined;
+        },
+        []
+      )
+    } else {
+      return pressCards.reduce(
+        (combined: JSX.Element[], press: JSX.Element, i: number) => {
+          combined.push(press);
+          if (awardCards[i]) {
+            combined.push(awardCards[i])
+          }
+          return combined;
+        },
+        []
+      )
     }
-
-    combinedAwardPress = orderAwardsPress();
   }
 
   return (
     <section>
       {/* <h3 className="awards-press-title">Articles and Awards</h3> */}
-      <div className="award-press-display">{combinedAwardPress}</div>
+      <div className="award-press-display">
+        {combinedAwardPress}
+      </div>
     </section>
   );
 };
