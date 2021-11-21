@@ -30,7 +30,7 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
   return (
     <form className="taglines-form-wrapper">
       <div>
-        <FormControl sx={{ m: 1, minWidth: '50vw' }}>
+        <FormControl sx={{ m: 1, width: '65vw' }}>
           <TextField
             id="outlined-multiline-flexible"
             label="Tagline"
@@ -40,7 +40,7 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
             onChange={(e) => setTagline(e.target.value)}
           />
         </FormControl>
-        <FormControl sx={{ m: 1, minWidth: '63vw' }}>
+        <FormControl sx={{ m: 1, width: '65vw' }}>
           <TextField
             id="outlined-multiline-flexible"
             label="Logline"
