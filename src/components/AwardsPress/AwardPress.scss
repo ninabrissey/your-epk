@@ -35,7 +35,7 @@
   @include flexCenterColumn;
   justify-content: space-evenly;
   height: 225px;
-  width: 225px;
+  width: 20vw;
   color: whitesmoke;
   padding: 10%;
   text-align: center;
@@ -53,8 +53,7 @@
   @include flexCenterColumn;
   justify-content: space-evenly;
   height: 225px;
-  width: 225px;
-  color: whitesmoke;
+  width: 20vw;
   padding: 10%;
   text-align: center;
   opacity: 0.95;
@@ -98,13 +97,15 @@
   .award-press-display {
     display: flex;
     font-size: 0;
-    width: 75vw;
-    margin-left: -2.5vw;
-    margin-right: -2.5vw;
+    // width: 70vw;
     overflow: scroll;
     white-space: nowrap;
   }
-}
-
-@media screen and (max-width: 767px) {
+  .press-card .award-press-card {
+    height: 100%;
+    width: 175px;
+    // min-width: 175px;
+    // background: whitesmoke;
+    // color: #605e59;
+  }
 }
