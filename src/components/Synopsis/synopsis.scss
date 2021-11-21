@@ -37,3 +37,10 @@
   top: -3vh;
   left: 50vw;
 }
+
+@media screen and (max-width: 767px) {
+  .synopsis-container {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+}
