@@ -8,18 +8,15 @@ interface APProps {
   presses: Included[];
   awards: Included[];
   isEditing: boolean;
-  canDelete: boolean;
+  removeCard: any;
 }
 
-const AwardPressDisplay = ({ awards, presses, isEditing, canDelete }: APProps) => {
+const AwardPressDisplay = ({ awards, presses, isEditing, removeCard }: APProps) => {
   const [combinedAwardPress, setCombined] = useState<JSX.Element[]>([])
-
-  console.log('Display is Editing', isEditing)
 
   useEffect(() => {
     const award = makeAwards();
     const press = makePresses();
-
     const combined = orderAwardsPress(award, press)
     setCombined(combined)
   }, [awards, presses, isEditing])
@@ -33,7 +30,7 @@ const AwardPressDisplay = ({ awards, presses, isEditing, canDelete }: APProps) =
             award={award}
             style={{ background: '#FF904D' }}
             isEditing={isEditing}
-            canDelete={canDelete}
+            removeCard={removeCard}
           />
         );
       });
