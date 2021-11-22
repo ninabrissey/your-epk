@@ -16,13 +16,29 @@ interface APContainerProps {
 const AwardsPressContainer = ({
   addFilmInfo,
   epk_id,
-  included,
+  included
 }: APContainerProps) => {
   const [isEditting, setIsEditting] = useState(false);
   const [currentAwards, setAwards] = useState<Included[]>([]);
   const [currentPresses, setPresses] = useState<Included[]>([]);
   const [error, setError] = useState<any>('');
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setAwards(filterIncluded(included, 'award'));
+    setPresses(filterIncluded(included, 'press'));
+  }, []);
+
+  const removeCard = (type: string, id: string) => {
+    if (type === 'award') {
+      const updatedAwards = currentAwards.filter(award => award.id !== id)
+      setAwards(updatedAwards)
+    }
+    if (type === 'press') {
+      const updatedPress = currentPresses.filter(press => press.id !== id)
+      setPresses(updatedPress)
+    }
+  }
 
   const postAwardsPress = async (endpoint: any, newItem: any) => {
     setError('');
@@ -37,19 +53,12 @@ const AwardsPressContainer = ({
       }
       if (endpoint === 'presses') {
         setPresses([...currentPresses, data.data]);
-        console.log(data, 'returned press object from post');
-        console.log('current press held in state', currentPresses);
       }
     } catch (error) {
       setError(error);
     }
     setIsLoading(false);
   };
-
-  useEffect(() => {
-    setAwards(filterIncluded(included, 'award'));
-    setPresses(filterIncluded(included, 'press'));
-  }, []);
 
   return (
     <div className='awards-press-container'>
@@ -65,7 +74,7 @@ const AwardsPressContainer = ({
         </Fab>
       )}
       {(currentAwards.length > 0 || currentPresses.length > 0) &&
-        <AwardPressDisplay awards={currentAwards} presses={currentPresses} isEditing={isEditting}/>
+        <AwardPressDisplay awards={currentAwards} presses={currentPresses} isEditing={isEditting} removeCard={removeCard}/>
       }
       {isEditting && (
         <AwardPressForm
