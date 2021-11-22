@@ -29,6 +29,7 @@
 .award-press-display {
   @include gridDisplayCards;
   @include marginWidthContainers;
+  justify-items: center;
 }
 
 .award-press-card {
