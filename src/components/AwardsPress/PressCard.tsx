@@ -1,5 +1,6 @@
 import { Press, Included } from '../../types';
 import laurel from './../../images/laurel.png';
+import { deleteIncluded } from '../../utils/apiCalls';
 import Fab from '@mui/material/Fab';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import './AwardPress.scss';
@@ -8,9 +9,21 @@ interface IPressCard {
   press: Included;
   style: any;
   isEditing: boolean;
+  removeCard: any;
 }
 
-const PressCard = ({ press, style, isEditing }: IPressCard) => {
+const PressCard = ({ press, style, isEditing, removeCard }: IPressCard) => {
+  
+  const deletePress = () => {
+    deleteIncluded('presses', press.id)
+      .then(res => {
+        if (res.status === 204) {
+        removeCard('press', press.id)
+        console.log(`deleted ${press.id}`)
+      }
+    })
+  }
+  
   return (
     <article 
       style={style} className="award-press-card"
@@ -30,7 +43,7 @@ const PressCard = ({ press, style, isEditing }: IPressCard) => {
         </a>
         {isEditing && <div className='delete-btn'>
           <Fab size="small" aria-label="delete">
-            <DeleteOutlineIcon />
+            <DeleteOutlineIcon onClick={deletePress}/>
           </Fab>
         </div>}
       </div>
@@ -39,11 +52,3 @@ const PressCard = ({ press, style, isEditing }: IPressCard) => {
 };
 
 export default PressCard;
-
-      {/* <Fab
-        style={{ marginLeft: '235px', marginBottom: '235px' }}
-        size="small"
-        aria-label="delete"
-      >
-        <DeleteOutlineIcon />
-      </Fab> */}
