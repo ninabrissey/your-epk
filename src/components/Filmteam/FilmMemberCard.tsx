@@ -2,10 +2,10 @@ const FilmMemberCard = ({ name, role, description, image } : any) => {
 
   return (
     <article className='crew-member-card'>
-      <div>
+      <div className='crew-img-wrapper'>
         <img src={image} alt='' />
       </div>
-      <div>
+      <div className='crew-info-wrapper'>
         <p>name: {name}</p>
         <p>role: {role}</p>
         <p>description: {description}</p>
