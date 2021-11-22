@@ -13,11 +13,13 @@ const Footer = () => {
         }}
       > */}
       <p>Powered by</p>
-        <img
-          className="logo"
-          src={logo}
-          alt="your EPK logo which is a link to the top of the page"
-        />
+        <Link to={`/dashboard`}>
+          <img
+            className="logo"
+            src={logo}
+            alt="your EPK logo which is a link to the top of the page"
+          />
+        </Link>
       {/* </Link> */}
     </footer>    
   )

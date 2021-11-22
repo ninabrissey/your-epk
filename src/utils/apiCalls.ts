@@ -101,9 +101,23 @@ export const postUserData = (url: string, data: object) => {
   })
 }
 
+export const deleteIncluded = (type: string, id: string) => {
+  const cookie: any = Cookies.get('csrf-token')
+
+  return fetch(`https://epk-be.herokuapp.com/api/v1/${type}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
+      "X-CSRF-Token": cookie
+    },
+    credentials: "include"
+  })
+};
 
 // DELETE FILM FAM MEMBER
-export const deleteData = (ID : any) => {
+export const deleteData = (ID: any) => {
   return fetch(`https://epk-be.herokuapp.com/api/v1/film_fams/${ID}`, {
     method: 'DELETE'
   }).then(res => res.json())
