@@ -1,7 +1,7 @@
 import ImageCard from './FilmStillsCard';
 import { Image } from '../../types';
 
-const ImagesDisplay = (currentImages: Image[] | [], epk: number) => {
+const FilmStillsDisplay = (currentImages: Image[] | [], epk: number) => {
   // const imageCards = images.map((image) => {
   //   return <ImageCard key={image.id} image={image} />;
   // });
@@ -32,4 +32,4 @@ const ImagesDisplay = (currentImages: Image[] | [], epk: number) => {
 //   },
 // ];
 
-export default ImagesDisplay;
+export default FilmStillsDisplay;

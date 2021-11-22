@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { postData } from '../../utils/apiCalls';
-import { Image } from '../../types';
-import ImagesDisplay from './FilmStillsDisplay';
-import ImagesForm from './FilmsStillsForm';
+import { Included, Image } from '../../types';
+import FilmStillsDisplay from './FilmStillsDisplay';
+import FilmStillsForm from './FilmStillsForm';
 
-interface IImageConainer {
-  images: Image[] | [];
+interface IFilmStillsContainer {
+  included: Included[] | [];
   epk_id: number;
 }
 
 // const ImagesContainer = ({ currentImages, epk }: IImageConainer) => {
-const ImagesContainer = () => {
+const FilmStillsContainer = ({ included, epk_id }: IFilmStillsContainer) => {
   const [isEditting, setIsEditting] = useState(false);
   const [images, setImages] = useState<Image[] | []>([]);
   const [error, setError] = useState<any>('');
@@ -18,10 +18,10 @@ const ImagesContainer = () => {
 
   return (
     <section>
-      {/* <ImagesDisplay currentImages={images} epk_id={epk} /> */}
-      <ImagesForm />
+      {/* <FilmStillsDisplay currentImages={images} epk_id={epk} /> */}
+      <FilmStillsForm />
     </section>
   );
 };
 
-export default ImagesContainer;
+export default FilmStillsContainer;

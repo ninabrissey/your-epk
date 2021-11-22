@@ -5,7 +5,7 @@ interface IImage {
   key: number;
 }
 
-const ImageCard = ({ key, image }: IImage) => {
+const FilmStillsCard = ({ key, image }: IImage) => {
   return (
     <article className="image-card">
       {/* <div className="image-container">
@@ -16,4 +16,4 @@ const ImageCard = ({ key, image }: IImage) => {
   );
 };
 
-export default ImageCard;
+export default FilmStillsCard;
