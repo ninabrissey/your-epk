@@ -5,9 +5,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
-import FormHelperText from '@mui/material/FormHelperText';
+// import FormHelperText from '@mui/material/FormHelperText';
 import './AwardPress.scss';
-import PressCard from './PressCard';
+// import PressCard from './PressCard';
 // import { createTheme, ThemeProvider } from '@mui/system';
 
 interface IAwardPressForm {
@@ -19,7 +19,6 @@ interface IAwardPressForm {
 }
 
 const AwardPressForm = ({
-  addFilmInfo,
   postAwardsPress,
   setIsEditting,
   isEditting,
