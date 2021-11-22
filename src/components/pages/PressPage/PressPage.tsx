@@ -17,7 +17,7 @@ import {
 } from '../../../types';
 import { useEffect, useState } from 'react';
 import { getEPK, getArrayData } from '../../../utils/apiCalls';
-import ImagesDisplay from '../../Images/ImagesDisplay';
+import ImagesDisplay from '../../FilmStills/FilmStillsDisplay';
 import ContactDisplay from '../../Contact/ContactDisplay';
 import Footer from '../../Footer/Footer';
 
@@ -61,7 +61,12 @@ const PressPage = ({ title, epk_id }: any) => {
           <div className="press-page-below-header">
             <div className="press-award-display">
               <h2>Articles and Awards</h2>
-              <AwardPressDisplay awards={awards} presses={presses} isEditing={false} removeCard={null}/>
+              <AwardPressDisplay
+                awards={awards}
+                presses={presses}
+                isEditing={false}
+                removeCard={null}
+              />
             </div>
 
             <div className="trailer-display">
