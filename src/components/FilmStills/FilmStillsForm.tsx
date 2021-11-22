@@ -1,14 +1,13 @@
 import { useState } from 'react';
-import './Images.scss';
 
-interface IImageForm {
+interface IFilmStillsForm {
   setIsEditting: any;
   isEditting: boolean;
   epk_id: string;
   postImage: any;
 }
 
-const ImagesForm = () => {
+const FilmStillsForm = () => {
   const [imageFile, setImageFile] = useState('');
 
   return (
@@ -26,4 +25,4 @@ const ImagesForm = () => {
   );
 };
 
-export default ImagesForm;
+export default FilmStillsForm;
