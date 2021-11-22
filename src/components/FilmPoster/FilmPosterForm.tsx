@@ -32,12 +32,15 @@ const FilmPosterDisplay = ({ filmEPK, setIsEditing, isEditing }: any) => {
   }
 
   return (
-    <form className='film-poster-form'>
-      <input id='test-input' type="file" accept="image/*" />
-      {reminder && <p>Must choose a file to save</p>}
-      <button onClick={(event) => { handleSubmit(event) }}>Save</button>
-      <button onClick={() => setIsEditing(!isEditing)} >Done editing</button>
-    </form>
+    <div className='poster-form-wrapper'>
+      <h2>Film Poster</h2>
+      <form className='film-poster-form'>
+        <input id='test-input' type="file" accept="image/*" />
+        {reminder && <p>Must choose a file to save</p>}
+        <button onClick={(event) => { handleSubmit(event) }}>Save</button>
+        <button onClick={() => setIsEditing(!isEditing)} >Done editing</button>
+      </form>
+    </div>
   )
 }
 
