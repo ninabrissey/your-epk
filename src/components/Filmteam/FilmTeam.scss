@@ -2,12 +2,9 @@
 @import '../../styles/mixins';
 
 .film-team-container {
-  // height: 45vh;
-  // width: 100%;
-  // padding: 2vh;
-  display: grid;
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 5;
+  background-color: whitesmoke;
 
   h2 {
     @include sectionTitleFormat;
