@@ -10,8 +10,8 @@ import Error from '../../Error/Error';
 import SynopsisContainer from '../../Synopsis/SynopsisContainer';
 import FilmDetailsContainer from '../../FilmDetails/FilmDetailsContainer';
 import TaglinesContainer from '../../Taglines/TaglinesContainer';
-import ImagesContainer from '../../Images/ImagesContainer';
-import ImagesForm from '../../Images/ImagesForm';
+// import ImagesContainer from '../../Images/ImagesContainer';
+// import ImagesForm from '../../Images/ImagesForm';
 import FilmTeamContainer from '../../Filmteam/FilmTeamContainer';
 
 const EditPage = ({ epk_id }: any) => {
@@ -35,13 +35,11 @@ const EditPage = ({ epk_id }: any) => {
   useEffect(() => {
     setLoading(true);
     getFilmData();
-    // console.log(film);
   }, [epk_id]);
 
   const addFilmInfo = (filmInfo: object) => {
     patchData(filmInfo, epk_id).then((data) => {
       setFilm(data.data);
-      // console.log(data.data, 'filmEPK data in patch addFilmInfo function');
     });
   };
 

@@ -3,7 +3,7 @@ import Dashboard from '../pages/DashboardPage/Dashboard/Dashboard';
 import Error from '../Error/Error';
 import EditPage from '../pages/EditPage/EditPage';
 import PressPage from '../pages/PressPage/PressPage';
-import LoginPage from '../pages/LoginPage/LoginPage';
+// import LoginPage from '../pages/LoginPage/LoginPage';
 import LoginForm from '../pages/LoginPage/LoginForm';
 import Navigation from '../Navigation/Navigation';
 import RegisterForm from '../pages/LoginPage/RegisterForm';
