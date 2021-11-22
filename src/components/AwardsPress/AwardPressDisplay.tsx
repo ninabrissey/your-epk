@@ -47,6 +47,7 @@ const AwardPressDisplay = ({ awards, presses, isEditing, removeCard }: APProps) 
             press={press}
             style={{ background: 'whitesmoke', color: '#605E59' }}
             isEditing={isEditing}
+            removeCard={removeCard}
           />
         );
       });
