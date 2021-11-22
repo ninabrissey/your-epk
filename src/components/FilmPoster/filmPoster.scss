@@ -6,22 +6,41 @@
   // width: 35%;
   grid-column-start: 3;
   grid-column-end: 5;
+  position: relative;
 
   // div {
   // margin-top: -5vh;
   // height: 100%;
   // }
+
+  div {
+    height: 100%;
+    // position: absolute;
+    // top: -10%;
+  }
 }
 
 .poster {
   object-fit: cover;
   width: 100%;
+  margin-top: -6vh;
 }
 
 .film-poster-edit-btn {
   top: 3vh;
-  left: 27vw;
+  left: 30vw;
 }
+
+.poster-form-wrapper {
+  h2 {
+    @include sectionTitleFormat;
+    margin: auto;
+    padding: 15px;
+  }
+}
+
+
+
 
 .film-poster-form {
   // width: 80%;
