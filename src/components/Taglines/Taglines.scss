@@ -4,7 +4,7 @@
 .taglines-container {
   // height: 30vh;
   // width: $primary-width;
-  padding: 2vh;
+  padding: 1vh;
   background-color: whitesmoke;
   grid-column-start: 1;
   grid-column-end: 5;
@@ -19,7 +19,7 @@
 
 .taglines-edit-btn {
   top: -6vh;
-  left: 92vw;
+  left: 75.5vw;
 }
 
 .taglines-form-wrapper {
@@ -46,5 +46,12 @@
 
   p {
     padding: 10px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .taglines-section {
+    width: 90%;
+    margin: auto;
   }
 }

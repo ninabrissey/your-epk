@@ -12,6 +12,7 @@ import FilmDetailsContainer from '../../FilmDetails/FilmDetailsContainer';
 import TaglinesContainer from '../../Taglines/TaglinesContainer';
 import ImagesContainer from '../../Images/ImagesContainer';
 import ImagesForm from '../../Images/ImagesForm';
+import FilmTeamContainer from '../../Filmteam/FilmTeamContainer';
 
 const EditPage = ({ epk_id }: any) => {
   const [error, setError] = useState<any>('');
@@ -88,6 +89,19 @@ const EditPage = ({ epk_id }: any) => {
               <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
               {/* </div> */}
             </div>
+            {/* <ImagesContainer epk_id={epk_id} images={images} /> */}
+            {/* <ImagesForm /> */}
+            <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+            {/* <div className="container-wrapper"> */}
+            <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+            {/* </div> */}
+
+            <FilmTeamContainer 
+              filmEPK={film} 
+              epk_id={epk_id} 
+              addFilmInfo={addFilmInfo} 
+              included={included}
+            />
           </main>
         </div>
       )}
