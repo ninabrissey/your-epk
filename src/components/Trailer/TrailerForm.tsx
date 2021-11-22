@@ -16,23 +16,23 @@ const TrailerForm = ({ addFilmInfo, setIsEditing }: any) => {
     setIsEditing(false);
   };
 
-	return (
-		<form className='trailer-form'>
-			<FormControl sx={{ m: 1, minWidth: 480 }}>
-				<TextField
-					id="outlined-multiline-flexible"
-					label="Trailer URL"
-					type="text"
-					name="trailer"
-					value={filmTrailer}
-					onChange={(e) => setFilmTrailer(e.target.value)}
-				/>
-				<Button variant="text" onClick={handleSubmit}>
-					save
-				</Button>
-			</FormControl>
-		</form>
-	);
+  return (
+    <form className="trailer-form">
+      <FormControl sx={{ m: 1, width: '90%' }}>
+        <TextField
+          id="outlined-multiline-flexible"
+          label="Trailer URL"
+          type="text"
+          name="trailer"
+          value={filmTrailer}
+          onChange={(e) => setFilmTrailer(e.target.value)}
+        />
+        <Button variant="text" onClick={handleSubmit}>
+          save
+        </Button>
+      </FormControl>
+    </form>
+  );
 };
 
 export default TrailerForm;

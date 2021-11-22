@@ -1,0 +1,82 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.film-team-container {
+  height: 45vh;
+  width: 100%;
+  padding: 2vh;
+
+  h2 {
+    @include sectionTitleFormat;
+    width: 75vw;
+    margin: auto;
+    padding: 15px;
+	}
+}
+
+// .film-team-form {
+//   height: 38vh;
+  // @include flexColumnJustify(space-evenly);
+  // align-items: center;
+
+//   button {
+//     width: $btn-width;
+//   }
+// }
+
+.film-team-form {
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+
+// .image-upload-btn {
+//   background: transparent;
+//   border-radius: 0.3rem;
+//   cursor: pointer;
+//   padding: 10.5px 14px;
+//   border: 1px solid #bababa;
+//   color: #585858;
+//   width: 200px;
+// }
+
+.image-upload-btn-2::file-selector-button {
+  background: transparent;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  padding: 10.5px 14px;
+  border: 1px solid #bababa;
+  color: #585858;
+  width: 200px;
+}
+
+#FilmCrewImageInput {
+  font-size: 1em;
+}
+
+
+.all-crew-wrapper {
+  @include gridDisplayCards;
+  @include marginWidthContainers;
+}
+
+
+.crew-member-card {
+  position: relative;
+
+  img {
+    height: 27vh;
+    width: 27vw;
+    // position: absolute;
+    // top: 0;
+    z-index: 0;
+  }
+}
+
+.crew-member-card {
+  p {
+    z-index: 10;
+  }
+}

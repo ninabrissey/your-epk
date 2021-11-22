@@ -13,7 +13,7 @@
 
   .awards-press-edit-btn {
     top: -6vh;
-    left: 80vw;
+    left: 78vw;
   }
 }
 
@@ -35,8 +35,25 @@
   @include flexCenterColumn;
   justify-content: space-evenly;
   height: 225px;
-  width: 225px;
+  width: 17vw;
   color: whitesmoke;
+  padding: 10%;
+  text-align: center;
+  opacity: 0.95;
+  filter: alpha(opacity=95);
+
+  &:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    transform: scale(1.03);
+  }
+}
+
+.press-card {
+  @include flexCenterColumn;
+  justify-content: space-evenly;
+  height: 225px;
+  width: 17vw;
   padding: 10%;
   text-align: center;
   opacity: 0.95;
@@ -54,10 +71,10 @@
 }
 
 .laurel {
-  width: 275px;
+  width: 17vw;
   z-index: 2;
   margin: 1vh;
-  margin-bottom: -27vh;
+  margin-bottom: -23vh;
 }
 
 .award-text {
@@ -76,20 +93,43 @@
   width: 100%;
 }
 
-.press-card {
-  @include flexCenterColumn;
-  justify-content: space-evenly;
-  height: 225px;
-  width: 225px;
-  color: whitesmoke;
-  padding: 10%;
-  text-align: center;
-  opacity: 0.95;
-  filter: alpha(opacity=95);
+@media screen and (max-width: 1100px) {
+  .award-press-display {
+    display: flex;
+    font-size: 0;
+    width: 70vw;
+    overflow: scroll;
+    white-space: nowrap;
+  }
+  .press-card .award-press-card {
+    height: 100%;
+    width: 175px;
+    min-width: 175px;
+    // background: whitesmoke;
+    // color: #605e59;
+  }
+  .laurel {
+    width: 25vw;
+    z-index: 2;
+    margin: 1vh;
+    margin-bottom: -23vh;
+  }
+}
 
-  &:hover {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    transform: scale(1.03);
+@media screen and (max-width: 767px) {
+  .award-press-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    width: 90vw;
+    overflow: scroll;
+    white-space: nowrap;
+  }
+  .laurel {
+    width: 30vw;
+    z-index: 2;
+    margin: 1vh;
+    margin-bottom: -23vh;
   }
 }

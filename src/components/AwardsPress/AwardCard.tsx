@@ -12,10 +12,7 @@ interface IAwardCard {
 
 const AwardCard = ({ award, style }: IAwardCard) => {
   return (
-    <article
-      style={style}
-      className="award-press-card award-press-card-background"
-    >
+    <article style={style} className="award-press-card">
       <div className="award-card-styling-div">
         <div
           style={{

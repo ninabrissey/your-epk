@@ -31,3 +31,31 @@
     font-weight: bold;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .menu {
+    width: 35vw;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .menu {
+    width: 45vw;
+    padding: 0;
+  }
+  .logo {
+    padding: 0;
+    padding-left: 5vw;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .menu {
+    width: 55vw;
+    padding: 0;
+  }
+  .logo {
+    padding: 0;
+    padding-left: 5vw;
+  }
+}

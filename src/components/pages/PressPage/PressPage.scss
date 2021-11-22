@@ -9,7 +9,7 @@
     font-family: 'Zen Kaku Gothic Antique', sans-serif;
     text-transform: uppercase;
     text-align: center;
-    font-size: 2.15em;
+    font-size: 2.5em;
     padding: 5px 10px;
   }
 }
@@ -29,7 +29,8 @@
 
 .press-header-description {
   line-height: normal;
-  font-size: $primary-font-size;
+  // font-size: $primary-font-size;
+  font-size: 1.6vw;
 }
 
 // CONTACT SECTION
@@ -40,7 +41,8 @@
   }
 
   .contact-info {
-    font-size: $primary-font-size;
+    // font-size: $primary-font-size;
+    font-size: 1.4vw;
   }
 }
 
@@ -170,5 +172,19 @@
 
   span {
     font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .press-page-below-header {
+    width: 90vw;
+  }
+  .synopsis-press {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+  .film-poster-display {
+    grid-column-start: 1;
+    grid-column-end: 5;
   }
 }
