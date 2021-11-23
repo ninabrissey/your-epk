@@ -1,16 +1,17 @@
-import ImageCard from './FilmStillsCard';
+import FilmStillsCard from './FilmStillsCard';
 import { Image } from '../../types';
 
-const FilmStillsDisplay = (currentImages: Image[] | [], epk: number) => {
-  // const imageCards = images.map((image) => {
-  //   return <ImageCard key={image.id} image={image} />;
-  // });
-  return <div></div>;
+const FilmStillsDisplay = ({ filmStills, epk_id }: any) => {
+  const filmsStillCards = filmStills.map((filmStill: any) => {
+    return <FilmStillsCard key={filmStill.id} filmStill={filmStill} />;
+  });
 
-  // return <div className="image-display-container">{imageCards}</div>;
+  return <div className="image-display-container">{filmsStillCards}</div>;
 };
 
-// const images: Image[] = [
+export default FilmStillsDisplay;
+
+// const filmStills: Image[] = [
 //   {
 //     id: 1,
 //     film_epk_id: 133,
@@ -31,5 +32,3 @@ const FilmStillsDisplay = (currentImages: Image[] | [], epk: number) => {
 //     description: 'Robert Craighead',
 //   },
 // ];
-
-export default FilmStillsDisplay;
