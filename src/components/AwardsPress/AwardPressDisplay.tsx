@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Included } from '../../types';
 import PressCard from './PressCard';
 import AwardCard from './AwardCard';
+import { useTheme } from '../../context/ThemeContext';
 import './AwardPress.scss';
 
 interface APProps {
@@ -11,15 +12,26 @@ interface APProps {
   removeCard: any;
 }
 
-const AwardPressDisplay = ({ awards, presses, isEditing, removeCard }: APProps) => {
-  const [combinedAwardPress, setCombined] = useState<JSX.Element[]>([])
+const AwardPressDisplay = ({
+  awards,
+  presses,
+  isEditing,
+  removeCard,
+}: APProps) => {
+  const [combinedAwardPress, setCombined] = useState<JSX.Element[]>([]);
+
+  const { themeColor } = useTheme();
+
+  console.log(themeColor, 'themecolor in Award Press');
+
+  useEffect(() => {}, [themeColor]);
 
   useEffect(() => {
     const award = makeAwards();
     const press = makePresses();
-    const combined = orderAwardsPress(award, press)
-    setCombined(combined)
-  }, [awards, presses, isEditing])
+    const combined = orderAwardsPress(award, press);
+    setCombined(combined);
+  }, [awards, presses, isEditing]);
 
   const makeAwards = () => {
     if (awards !== undefined) {
@@ -28,7 +40,7 @@ const AwardPressDisplay = ({ awards, presses, isEditing, removeCard }: APProps) 
           <AwardCard
             key={award.id}
             award={award}
-            style={{ background: '#FF904D' }}
+            style={{ background: themeColor || '#ffb179' }}
             isEditing={isEditing}
             removeCard={removeCard}
           />
@@ -36,11 +48,11 @@ const AwardPressDisplay = ({ awards, presses, isEditing, removeCard }: APProps) 
       });
     }
     return [];
-  }
+  };
 
   const makePresses = () => {
     if (presses !== undefined) {
-      return presses.map((press) => { 
+      return presses.map((press) => {
         return (
           <PressCard
             key={press.id}
@@ -53,40 +65,41 @@ const AwardPressDisplay = ({ awards, presses, isEditing, removeCard }: APProps) 
       });
     }
     return [];
-  }
+  };
 
-  const orderAwardsPress = (awardCards: JSX.Element[], pressCards: JSX.Element[]) => {
+  const orderAwardsPress = (
+    awardCards: JSX.Element[],
+    pressCards: JSX.Element[]
+  ) => {
     if (awardCards.length >= pressCards.length) {
       return awardCards.reduce(
         (combined: JSX.Element[], award: JSX.Element, i: number) => {
           combined.push(award);
-          if(pressCards[i]) {
-            combined.push(pressCards[i])
+          if (pressCards[i]) {
+            combined.push(pressCards[i]);
           }
           return combined;
         },
         []
-      )
+      );
     } else {
       return pressCards.reduce(
         (combined: JSX.Element[], press: JSX.Element, i: number) => {
           combined.push(press);
           if (awardCards[i]) {
-            combined.push(awardCards[i])
+            combined.push(awardCards[i]);
           }
           return combined;
         },
         []
-      )
+      );
     }
-  }
+  };
 
   return (
     <section>
       {/* <h3 className="awards-press-title">Articles and Awards</h3> */}
-      <div className="award-press-display">
-        {combinedAwardPress}
-      </div>
+      <div className="award-press-display">{combinedAwardPress}</div>
     </section>
   );
 };
