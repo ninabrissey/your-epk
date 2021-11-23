@@ -1,19 +1,14 @@
-import { useState } from 'react';
 import Dashboard from '../pages/DashboardPage/Dashboard/Dashboard';
 import Error from '../Error/Error';
 import EditPage from '../pages/EditPage/EditPage';
 import PressPage from '../pages/PressPage/PressPage';
-// import LoginPage from '../pages/LoginPage/LoginPage';
 import LoginForm from '../pages/LoginPage/LoginForm';
 import Navigation from '../Navigation/Navigation';
 import RegisterForm from '../pages/LoginPage/RegisterForm';
-import { Route, Switch, Redirect, Link } from 'react-router-dom';
-import { ThisIsUser } from '../../types';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 
 function App() {
-  const [currUser, setCurrUser] = useState<ThisIsUser>({} as ThisIsUser);
-
   return (
     <div className="App">
 
@@ -23,7 +18,7 @@ function App() {
         </Route>
         <Route exact path={`/login`}>
           <Navigation onLogin={true}/>
-          <LoginForm setCurrUser={setCurrUser}/>
+          <LoginForm />
         </Route>
         <Route exact path={`/register`}>
           <RegisterForm setIsRegistering={true} setIsLoggingIn={true} />  

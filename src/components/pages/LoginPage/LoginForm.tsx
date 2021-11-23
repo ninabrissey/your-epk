@@ -1,13 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { postUserData } from '../../../utils/apiCalls';
 import { Link } from 'react-router-dom';
-import { UserData } from '../../../types';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import Cookies from 'js-cookie';
 
-const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
+const LoginForm = () => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
 	const [hasCookie, setHasCookie] = useState<boolean>(false)
@@ -82,3 +81,29 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
 
 
 export default LoginForm;
+
+
+// import { useState } from 'react';
+// import { UserData } from '../../../types';
+// import LoginForm from './LoginForm';
+// import RegisterForm from './RegisterForm';
+
+// const LoginPage = () => {
+//   const [isLoggingIn, setIsLoggingIn] = useState<boolean>(true)
+//   const [isRegistering, setIsRegistering] = useState<boolean>(true)
+
+//   return (
+//     <section>
+//       {!isRegistering && isLoggingIn && <div>
+//         <p>Thank you for registering with Your EPK</p>
+//         <p>Please login to go to your new account</p>
+//       </div>}
+//       {/* {!isRegistering && !isLoggingIn && <RegisterForm setIsRegistering={setIsRegistering} setIsLoggingIn={setIsLoggingIn} />}
+//       {isRegistering && isLoggingIn && <LoginForm />}
+//       {!isRegistering && isLoggingIn && <LoginForm />} */}
+//     </section>
+//   )
+// }
+
+
+// export default LoginPage;
