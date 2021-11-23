@@ -78,8 +78,8 @@ export const putData = (data: any, checksum: string, directUploadURL: any) => {
   })
 }
 
-export const getArrayData = (type: any) => {
-  return fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${type}`)
+export const getArrayData = (type: string, epkID: string) => {
+  return fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${epkID}/${type}`)
     .then(res => res.json())
 }
 
