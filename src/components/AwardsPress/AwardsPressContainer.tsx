@@ -6,6 +6,7 @@ import AwardPressForm from './AwardPressForm';
 import Fab from '@mui/material/Fab';
 import EditIcon from '@mui/icons-material/Edit';
 import { filterIncluded } from '../../utils/cleanData';
+// import { useTheme } from '../../context/ThemeContext';
 
 interface APContainerProps {
   addFilmInfo: any;
@@ -16,13 +17,17 @@ interface APContainerProps {
 const AwardsPressContainer = ({
   addFilmInfo,
   epk_id,
-  included
+  included,
 }: APContainerProps) => {
   const [isEditting, setIsEditting] = useState(false);
   const [currentAwards, setAwards] = useState<Included[]>([]);
   const [currentPresses, setPresses] = useState<Included[]>([]);
   const [error, setError] = useState<any>('');
   const [isLoading, setIsLoading] = useState(false);
+
+  // const { themeColor } = useTheme();
+
+  // useEffect(() => {}, [themeColor]);
 
   useEffect(() => {
     setAwards(filterIncluded(included, 'award'));
@@ -31,14 +36,14 @@ const AwardsPressContainer = ({
 
   const removeCard = (type: string, id: string) => {
     if (type === 'award') {
-      const updatedAwards = currentAwards.filter(award => award.id !== id)
-      setAwards(updatedAwards)
+      const updatedAwards = currentAwards.filter((award) => award.id !== id);
+      setAwards(updatedAwards);
     }
     if (type === 'press') {
-      const updatedPress = currentPresses.filter(press => press.id !== id)
-      setPresses(updatedPress)
+      const updatedPress = currentPresses.filter((press) => press.id !== id);
+      setPresses(updatedPress);
     }
-  }
+  };
 
   const postAwardsPress = async (endpoint: any, newItem: any) => {
     setError('');
@@ -61,21 +66,26 @@ const AwardsPressContainer = ({
   };
 
   return (
-    <div className='awards-press-container'>
+    <div className="awards-press-container">
       <h2 className="awards-press-title">Articles and Awards</h2>
       {!isEditting && !error && (
         <Fab
           size="small"
           aria-label="edit"
           onClick={() => setIsEditting(!isEditting)}
-          className='awards-press-edit-btn'
+          className="awards-press-edit-btn"
         >
           <EditIcon />
         </Fab>
       )}
-      {(currentAwards.length > 0 || currentPresses.length > 0) &&
-        <AwardPressDisplay awards={currentAwards} presses={currentPresses} isEditing={isEditting} removeCard={removeCard}/>
-      }
+      {(currentAwards.length > 0 || currentPresses.length > 0) && (
+        <AwardPressDisplay
+          awards={currentAwards}
+          presses={currentPresses}
+          isEditing={isEditting}
+          removeCard={removeCard}
+        />
+      )}
       {isEditting && (
         <AwardPressForm
           addFilmInfo={addFilmInfo}
