@@ -1,17 +1,12 @@
-import { Image } from '../../types';
+// import { Image } from '../../types';
 
-interface IImage {
-  image: Image;
-  key: number;
-}
-
-const FilmStillsCard = ({ key, image }: IImage) => {
+const FilmStillsCard = ({ filmStill }: any) => {
   return (
     <article className="image-card">
-      {/* <div className="image-container">
-        <img className="image" src={image.link} />
-        <p>{image.description}</p>
-      </div> */}
+      <div className="image-container">
+        <img className="image" src={filmStill.link} />
+        <p>{filmStill.description}</p>
+      </div>
     </article>
   );
 };
