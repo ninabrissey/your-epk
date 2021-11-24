@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import { postData } from "../../../../utils/apiCalls";
-import { Link } from 'react-router-dom';
 import { FilmEPK } from '../../../../types';
 import './TitleForm.scss';
 

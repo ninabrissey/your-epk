@@ -27,6 +27,8 @@ const AwardsPressContainer = ({
   useEffect(() => {
     setAwards(filterIncluded(included, 'award'));
     setPresses(filterIncluded(included, 'press'));
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const removeCard = (type: string, id: string) => {

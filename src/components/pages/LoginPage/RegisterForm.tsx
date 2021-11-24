@@ -5,7 +5,7 @@ import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import { postData } from '../../../utils/apiCalls';
 
-const RegisterForm = ({ setIsRegistering, setIsLoggingIn } : any) => {
+const RegisterForm = () => {
   const [firstName, setFirstName] = useState<string>('')
   const [lastName, setLastName] = useState<string>('')
   const [email, setEmail] = useState<string>('')

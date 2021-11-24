@@ -10,6 +10,7 @@ const FilmPosterDisplay = ({ filmEPK, setIsEditing }: any) => {
     if (filmPoster.size > 0) {
       makeAWSpost();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filmPoster])
 
   const handleSubmit = async (event: any) => {
@@ -27,8 +28,8 @@ const FilmPosterDisplay = ({ filmEPK, setIsEditing }: any) => {
 
   const makeAWSpost = async () => {
     const presignedFileParams = await getPresignedUrl(filmPoster)
-    const awsRes = await putToAWS(presignedFileParams, filmPoster)
-    const data: any = await postToDatabase(presignedFileParams, filmEPK, 'movie_posters')
+    await putToAWS(presignedFileParams, filmPoster)
+    await postToDatabase(presignedFileParams, filmEPK, 'movie_posters')
   }
 
   return (
