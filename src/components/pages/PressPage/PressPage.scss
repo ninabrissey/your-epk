@@ -175,6 +175,17 @@
   }
 }
 
+// FILM TEAM SECTION
+.film-team-display {
+  grid-column-start: 1;
+  grid-column-end: 5;
+
+  h2 {
+    @include sectionTitleFormat;
+  }
+}
+
+
 @media screen and (max-width: 767px) {
   .press-page-below-header {
     width: 90vw;
