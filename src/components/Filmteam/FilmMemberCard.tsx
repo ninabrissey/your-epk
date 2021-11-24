@@ -1,4 +1,17 @@
-const FilmMemberCard = ({ name, role, description, image } : any) => {
+import { deleteIncluded } from '../../utils/apiCalls';
+import Fab from '@mui/material/Fab';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+
+const FilmMemberCard = ({ id, name, role, description, image, removeFilmMember, isEditing } : any) => {
+
+  const deleteFilmMember = () => {
+    deleteIncluded('film_fams', id)
+      .then(res => {
+        if (res.status === 204) {
+          removeFilmMember(id)
+        }
+      })
+  }
 
   return (
     <article className='crew-member-card'>
@@ -10,6 +23,11 @@ const FilmMemberCard = ({ name, role, description, image } : any) => {
         <p>role: {role}</p>
         <p>description: {description}</p>
       </div>
+      {isEditing && <div className='delete-btn'>
+          <Fab size="small" aria-label="delete">
+            <DeleteOutlineIcon onClick={deleteFilmMember}/>
+          </Fab>
+        </div>}
     </article>
   )
 }
