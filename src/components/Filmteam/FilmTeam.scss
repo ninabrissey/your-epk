@@ -5,6 +5,7 @@
   grid-column-start: 1;
   grid-column-end: 5;
   background-color: whitesmoke;
+  margin-bottom: 10vh;
 
   h2 {
     @include sectionTitleFormat;
@@ -21,11 +22,25 @@
 
 
 .film-team-form {
+  padding: 4vh 0;
+  width: 80%;
+  margin: auto;
+
   div {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
   }
+}
+
+.film-team-img-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.film-team-done-btn {
+  margin: 2vh;
 }
 
 // .image-upload-btn {
