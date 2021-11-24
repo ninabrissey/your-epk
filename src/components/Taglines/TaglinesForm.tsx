@@ -25,6 +25,7 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
     if (filmEPK?.attributes) {
       checkFormData();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filmEPK]);
 
   return (

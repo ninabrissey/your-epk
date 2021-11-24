@@ -21,6 +21,12 @@ const EditPage = ({ epk_id }: any) => {
   const [title, setTitle] = useState('');
   const [included, setIncluded] = useState<Array<Included>>([]);
 
+  useEffect(() => {
+    setLoading(true);
+    getFilmData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [epk_id]);
+
   const getFilmData = () => {
     getEPK(epk_id)
       .then((data) => {
@@ -31,11 +37,6 @@ const EditPage = ({ epk_id }: any) => {
       })
       .catch((err) => setError(err));
   };
-
-  useEffect(() => {
-    setLoading(true);
-    getFilmData();
-  }, [epk_id]);
 
   const addFilmInfo = (filmInfo: object) => {
     patchData(filmInfo, epk_id).then((data) => {

@@ -7,17 +7,9 @@ import SynopsisDisplay from '../../Synopsis/SynopsisDisplay';
 import FilmDetailsDisplay from '../../FilmDetails/FilmDetailsDisplay';
 import TaglinesDisplay from '../../Taglines/TaglinesDisplay';
 import { filterIncluded } from '../../../utils/cleanData';
-import {
-  FilmEPK,
-  EPKData,
-  Award,
-  Press,
-  Image,
-  Included,
-} from '../../../types';
+import { FilmEPK, Included } from '../../../types';
 import { useEffect, useState } from 'react';
-import { getEPK, getArrayData } from '../../../utils/apiCalls';
-import ImagesDisplay from '../../Images/ImagesDisplay';
+import { getEPK } from '../../../utils/apiCalls';
 import ContactDisplay from '../../Contact/ContactDisplay';
 import Footer from '../../Footer/Footer';
 
@@ -36,6 +28,7 @@ const PressPage = ({ title, epk_id }: any) => {
       setPresses(filterIncluded(info.included, 'press'));
       setIsLoading(false);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

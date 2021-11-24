@@ -6,6 +6,13 @@ import Button from '@mui/material/Button';
 
 const SynopsisForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
   const [synopsis, setSynopsis] = useState('');
+  
+  useEffect(() => {
+    if (filmEPK?.attributes) {
+      checkFormData();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filmEPK]);
 
   const handleSubmit = () => {
     const currentSynopsis = {
@@ -18,12 +25,6 @@ const SynopsisForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
   const checkFormData = () => {
     setSynopsis(filmEPK.attributes.synopsis);
   };
-
-  useEffect(() => {
-    if (filmEPK?.attributes) {
-      checkFormData();
-    }
-  }, [filmEPK]);
 
   return (
     <form className="synopsis-form">
