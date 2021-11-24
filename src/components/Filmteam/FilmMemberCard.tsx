@@ -19,9 +19,9 @@ const FilmMemberCard = ({ id, name, role, description, image, removeFilmMember, 
         <img src={image} alt='' />
       </div>
       <div className='crew-info-wrapper'>
-        <p>name: {name}</p>
-        <p>role: {role}</p>
-        <p>description: {description}</p>
+        <p className='crew-name'>{name}</p>
+        <p>{role}</p>
+        <p>{description}</p>
       </div>
       {isEditing && <div className='delete-btn'>
           <Fab size="small" aria-label="delete">

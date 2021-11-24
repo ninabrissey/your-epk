@@ -8,21 +8,17 @@
 
   h2 {
     @include sectionTitleFormat;
-    width: 75vw;
+    // width: 75vw;
     margin: auto;
     padding: 15px;
 	}
 }
 
-// .film-team-form {
-//   height: 38vh;
-  // @include flexColumnJustify(space-evenly);
-  // align-items: center;
+.film-crew-edit-btn {
+  top: -5vh;
+  left: 70vw;
+}
 
-//   button {
-//     width: $btn-width;
-//   }
-// }
 
 .film-team-form {
   div {
@@ -103,4 +99,9 @@
   position: absolute;
   top: 70%;
   background-color: whitesmoke;
+}
+
+
+.crew-name {
+  font-weight: 700;
 }
