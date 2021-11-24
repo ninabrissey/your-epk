@@ -4,22 +4,22 @@
 .taglines-container {
   // height: 30vh;
   // width: $primary-width;
-  padding: 1vh;
+  // padding: 1vh;
   background-color: whitesmoke;
   grid-column-start: 1;
   grid-column-end: 5;
 
   h2 {
     @include sectionTitleFormat;
-    width: 75vw;
+    // width: 75vw;
     margin: auto;
     padding: 15px;
   }
 }
 
 .taglines-edit-btn {
-  top: -6vh;
-  left: 75.5vw;
+  top: -5vh;
+  left: 70vw;
 }
 
 .taglines-form-wrapper {

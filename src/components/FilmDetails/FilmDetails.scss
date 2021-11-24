@@ -14,16 +14,16 @@
 
   h2 {
     @include sectionTitleFormat;
-    width: 75vw;
+    // width: 75vw;
     text-align: left;
-    margin: auto;
+    // margin: auto;
     padding: 15px;
   }
 }
 
 .film-details-edit-btn {
-  top: -6vh;
-  left: 78vw;
+  top: -5vh;
+  left: 70vw;
 }
 
 .film-details-form {

@@ -36,7 +36,7 @@ const FilmTeamContainer = ({ filmEPK, epk_id, addFilmInfo, included } : IFilmTea
           size="small"
           aria-label="edit"
           onClick={() => setIsEditing(true)}
-          className='awards-press-edit-btn'
+          className='film-crew-edit-btn'
         >
           <EditIcon />
         </Fab>
