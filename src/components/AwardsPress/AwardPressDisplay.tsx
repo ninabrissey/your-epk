@@ -24,14 +24,12 @@ const AwardPressDisplay = ({
 
   console.log(themeColor, 'themecolor in Award Press');
 
-  useEffect(() => {}, [themeColor]);
-
   useEffect(() => {
     const award = makeAwards();
     const press = makePresses();
     const combined = orderAwardsPress(award, press);
     setCombined(combined);
-  }, [awards, presses, isEditing]);
+  }, [awards, presses, isEditing, themeColor]);
 
   const makeAwards = () => {
     if (awards !== undefined) {

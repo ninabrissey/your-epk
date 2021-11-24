@@ -25,7 +25,7 @@ const ThemeContextProvider = ({ children }) => {
   const changeTheme = (selectedTheme) => {
     // add post or patch for theme, then use the response to set the theme
     setTheme(selectedTheme);
-    console.log(theme);
+    console.log(theme, 'in theme context');
   };
 
   return (

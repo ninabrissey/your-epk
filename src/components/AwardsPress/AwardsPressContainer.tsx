@@ -6,7 +6,7 @@ import AwardPressForm from './AwardPressForm';
 import Fab from '@mui/material/Fab';
 import EditIcon from '@mui/icons-material/Edit';
 import { filterIncluded } from '../../utils/cleanData';
-// import { useTheme } from '../../context/ThemeContext';
+import { useTheme } from '../../context/ThemeContext';
 
 interface APContainerProps {
   addFilmInfo: any;
@@ -24,10 +24,6 @@ const AwardsPressContainer = ({
   const [currentPresses, setPresses] = useState<Included[]>([]);
   const [error, setError] = useState<any>('');
   const [isLoading, setIsLoading] = useState(false);
-
-  // const { themeColor } = useTheme();
-
-  // useEffect(() => {}, [themeColor]);
 
   useEffect(() => {
     setAwards(filterIncluded(included, 'award'));

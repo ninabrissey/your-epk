@@ -10,12 +10,14 @@ const ThemeSelector = () => {
   const [themeState, setThemeState] = useState<IThemeState>({ themeColor: '' });
 
   const handleChange = (e: any) => {
+    console.log(themeState, 'in theme Selector');
     const value = e.target.value;
     setThemeState({
       ...themeState,
       [e.target.name]: value,
     });
-    changeTheme(themeState);
+
+    changeTheme({ themeColor: value });
   };
 
   return (
