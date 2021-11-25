@@ -30,34 +30,46 @@
 
   img {
     position: absolute;
-    z-index: 5;
+    // z-index: 5;
+    height: 70vh;
+    width: 103%;
+    object-fit: cover;
     
     // position: absolute;
-    top: 12vh;
-    left: 21vw;
-    margin:-60px 0 0 -60px;
-    -webkit-animation:spin 5s linear infinite;
-    -moz-animation:spin 5s linear infinite;
-    animation:spin 20s linear infinite;
+    // top: 12vh;
+    // left: 21vw;
+    // margin:-60px 0 0 -60px;
+    // -webkit-animation:spin 5s linear infinite;
+    // -moz-animation:spin 5s linear infinite;
+    // animation:spin 20s linear infinite;
+    // transition-timing-function: ease-in-out;
+    // transition: 0.2s;
+    // transform: translateY(130%);
   }
 }
 
-@-moz-keyframes spin { 
-  100% { -moz-transform: rotate(360deg); } 
-}
-@-webkit-keyframes spin { 
-  100% { -webkit-transform: rotate(360deg); } 
-}
-@keyframes spin { 
-  100% { 
-      -webkit-transform: rotate(360deg); 
-      transform:rotate(360deg); 
-  } 
-}
+// @-moz-keyframes spin { 
+//   100% { -moz-transform: rotate(360deg); } 
+// }
+// @-webkit-keyframes spin { 
+//   100% { -webkit-transform: rotate(360deg); } 
+// }
+// @keyframes spin { 
+//   100% { 
+//       -webkit-transform: rotate(360deg); 
+//       transform:rotate(360deg); 
+//   } 
+// }
 
 .login-form-wrapper {
   position: absolute;
-  left: 75vw;
+  left: 64vw;
+  background-color: white;
+  height: 71vh;
+  width: 23vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-btn {

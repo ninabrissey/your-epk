@@ -7,6 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import Cookies from 'js-cookie';
 import logoImage from '../../../images/logo_image.png';
+import logoBackground from '../../../images/logo_background2.png';
 
 const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
   const [email, setEmail] = useState<string>('')
@@ -34,9 +35,10 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
 
   return (
     <form className='login-container'>
+			<img src={logoBackground} alt='' />
 			<h1>Welcome to <span>Your EPK</span> A platform to build your own electronic press kit</h1>
 			{/* <h1>Login to make it happen</h1> */}
-			<img className='login-img' src={logoImage} alt='' />
+			{/* <img className='login-img' src={logoImage} alt='' /> */}
 			<div className='login-form-wrapper'>
 			{!hasCookie &&	
 				<FormControl sx={{ m: 1, minWidth: 120 }}>
@@ -65,7 +67,7 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
 						required
 					/>
 					
-						<Button variant="text" onClick={() => {handleClick()}}>
+						<Button className='login-btn' variant="text" onClick={() => {handleClick()}}>
 							Login
 						</Button>
 						<Link to={`/register`} className='login-btn'>
