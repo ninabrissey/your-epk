@@ -31,10 +31,12 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
 		})
   }
 
+
   return (
     <form className='login-container'>
-			<h1>Welcome to <span>Your EPK</span> </h1>
-			<img src={logoImage} alt='' />
+			<h1>Welcome to <span>Your EPK</span> A platform to build your own electronic press kit</h1>
+			{/* <h1>Login to make it happen</h1> */}
+			<img className='login-img' src={logoImage} alt='' />
 			<div className='login-form-wrapper'>
 			{!hasCookie &&	
 				<FormControl sx={{ m: 1, minWidth: 120 }}>
