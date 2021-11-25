@@ -8,7 +8,7 @@ const LoginPage = () => {
   const [isRegistering, setIsRegistering] = useState<boolean>(true)
 
   return (
-    <section>
+    <section className='login-page'>
       {!isRegistering && isLoggingIn && <div>
         <p>Thank you for registering with Your EPK</p>
         <p>Please login to go to your new account</p>

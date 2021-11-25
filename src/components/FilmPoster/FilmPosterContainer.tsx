@@ -22,25 +22,29 @@ const FilmPosterContainer = ({ filmEPK, addFilmInfo, epk_id }: IFilmPoster) => {
       ) : (
         <div>
           {!isEditing && (
+            <FilmPosterForm
+              filmEPK={filmEPK}
+              addFilmInfo={addFilmInfo}
+              setIsEditing={setIsEditing}
+              isEditing={isEditing}
+            />
+          )}
+          
+          {isEditing && (
             <Fab
               size="small"
               aria-label="edit"
-              onClick={() => setIsEditing(true)}
+              onClick={() => setIsEditing(!isEditing)}
               className="film-poster-edit-btn"
             >
               <EditIcon />
             </Fab>
           )}
+
           {isEditing && (
-            <FilmPosterForm
-              filmEPK={filmEPK}
-              addFilmInfo={addFilmInfo}
-              setIsEditing={setIsEditing}
-            />
-          )}
-          {!isEditing && (
             <FilmPosterDisplay filmEPK={filmEPK} epk_id={epk_id} />
           )}
+
         </div>
       )}
     </div>

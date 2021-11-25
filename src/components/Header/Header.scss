@@ -4,7 +4,8 @@
 .header-container {
 	height: $primary-height;
 	width: $primary-width;
-	background-color: whitesmoke;
+	background-color: whitesmoke;	
+	position: relative;
 
 	h1 {
 		font-family: 'Zen Kaku Gothic Antique', sans-serif;
@@ -19,7 +20,7 @@
 	left: 60vw;
 	z-index: 10;
 	top: 1vh;
-	left: 24vw;
+	left: 26vw;
 }
 
 .header-form {
@@ -46,10 +47,12 @@
 	width: 30%;
 	z-index: 5;
 	position: absolute;
-	top: 14vh;
+	// top: 14vh;
 	left: 60%;
 	background-color: #ffffff;
 	@include flexColumnJustify(space-evenly);
+
+	padding: 1vh;
 
 	p {
 		padding: 10px;
@@ -59,15 +62,16 @@
 .header-img-edit-btn {
 	position: absolute;
 	z-index: 10;
-	top: 1vh;
-	left: 50vw;
+	top: 2vh;
+	left: 55vw;
 }
 
 .header-image-render {
 	height: 85vh;
 	width: $primary-width;
-	margin-top: -5vh;
+	// margin-top: -5vh;
 	object-fit: cover;
+	top: 0;
 	position: absolute;
 	z-index: 1;
 }

@@ -6,7 +6,7 @@ import {
 } from '../../awsS3/helperFunctions';
 
 
-const HeaderImgForm = ({ setIsEditing, filmEPK }: any) => {
+const HeaderImgForm = ({ setIsEditing, isEditing, filmEPK }: any) => {
 	const [headerFile, setHeaderFile] = useState<any>({});
 
 	useEffect(() => {
@@ -27,7 +27,7 @@ const HeaderImgForm = ({ setIsEditing, filmEPK }: any) => {
 
 	const handleImg = (event: any) => {
 		event.preventDefault();
-		setIsEditing(false);
+		setIsEditing(!isEditing);
 	}
 
 	const makeAWSpost = async () => {

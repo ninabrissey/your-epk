@@ -3,17 +3,22 @@ import FilmMemberCard from './FilmMemberCard';
 
 interface IFilmTeamDisplay {
   allCrew: Included[];
+  removeFilmMember: any;
+  isEditing: any;
 }
-const FilmTeamDisplay = ({ allCrew } : IFilmTeamDisplay) => {
+const FilmTeamDisplay = ({ allCrew, removeFilmMember, isEditing } : IFilmTeamDisplay) => {
 
   const searchAllCrew = allCrew.map((crewMember : Included) => {
     return ( 
       <FilmMemberCard 
         key={crewMember.id}
+        id={crewMember.id}
         name={crewMember.attributes.first_name}
         role={crewMember.attributes.role}
         description={crewMember.attributes.description}
         image={crewMember.attributes.head_shot_url}
+        removeFilmMember={removeFilmMember}
+        isEditing={isEditing}
       />
     )
   })

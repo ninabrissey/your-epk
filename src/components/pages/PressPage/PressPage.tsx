@@ -19,6 +19,7 @@ import { useEffect, useState } from 'react';
 import { getEPK, getArrayData } from '../../../utils/apiCalls';
 import ImagesDisplay from '../../FilmStills/FilmStillsDisplay';
 import ContactDisplay from '../../Contact/ContactDisplay';
+import FilmTeamDisplay from '../../Filmteam/FilmTeamDisplay';
 import Footer from '../../Footer/Footer';
 
 const PressPage = ({ title, epk_id }: any) => {
@@ -26,6 +27,7 @@ const PressPage = ({ title, epk_id }: any) => {
   const [awards, setAwards] = useState<Array<Included>>([]);
   const [presses, setPresses] = useState<Array<Included>>([]);
   // const [currentImages, setImages] = useState<Image[] | []>([]);
+  const [allCrew, setAllCrew] = useState<Array<Included>>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -34,6 +36,7 @@ const PressPage = ({ title, epk_id }: any) => {
       setAwards(filterIncluded(info.included, 'award'));
       console.log(info, 'in the press page useEffect');
       setPresses(filterIncluded(info.included, 'press'));
+      setAllCrew(filterIncluded(info.included, 'film_fam'));
       setIsLoading(false);
     });
   }, []);
@@ -91,6 +94,12 @@ const PressPage = ({ title, epk_id }: any) => {
             <div className="film-details-display">
               <h2>Film Details</h2>
               <FilmDetailsDisplay filmEPK={epk} />
+            </div>
+
+
+            <div className="film-team-display">
+              <h2>Film Crew</h2>
+              <FilmTeamDisplay allCrew={allCrew} removeFilmMember={null} isEditing={null} />
             </div>
           </div>
         </section>

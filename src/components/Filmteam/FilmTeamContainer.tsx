@@ -22,6 +22,11 @@ const FilmTeamContainer = ({ filmEPK, epk_id, addFilmInfo, included } : IFilmTea
     setAllCrew((filterIncluded(included, 'film_fam')))
   }, [])
 
+  const removeFilmMember = (id : string) => {
+    const updatedCrew = allCrew.filter(member => member.id !== id)
+    setAllCrew(updatedCrew)
+  }
+
   return (
     <div className='film-team-container'>
       <h2>Film Crew</h2>
@@ -31,7 +36,7 @@ const FilmTeamContainer = ({ filmEPK, epk_id, addFilmInfo, included } : IFilmTea
           size="small"
           aria-label="edit"
           onClick={() => setIsEditing(true)}
-          className='awards-press-edit-btn'
+          className='film-crew-edit-btn'
         >
           <EditIcon />
         </Fab>
@@ -40,6 +45,8 @@ const FilmTeamContainer = ({ filmEPK, epk_id, addFilmInfo, included } : IFilmTea
       <FilmTeamDisplay 
         // filmEPK={filmEPK} 
         allCrew={allCrew} 
+        removeFilmMember={removeFilmMember}
+        isEditing={isEditing}
         // epk_id={epk_id}
       />
 
