@@ -6,10 +6,12 @@ import FilmPosterDisplay from '../../FilmPoster/FilmPosterDisplay';
 import SynopsisDisplay from '../../Synopsis/SynopsisDisplay';
 import FilmDetailsDisplay from '../../FilmDetails/FilmDetailsDisplay';
 import TaglinesDisplay from '../../Taglines/TaglinesDisplay';
+import Error from '../../Error/Error';
 import { filterIncluded } from '../../../utils/cleanData';
 import { FilmEPK, Included } from '../../../types';
 import { useEffect, useState } from 'react';
 import { getEPK } from '../../../utils/apiCalls';
+import { Redirect } from 'react-router-dom';
 import ContactDisplay from '../../Contact/ContactDisplay';
 import Footer from '../../Footer/Footer';
 
@@ -17,22 +19,27 @@ const PressPage = ({ title, epk_id }: any) => {
   const [epk, setEpk] = useState<FilmEPK>({} as FilmEPK);
   const [awards, setAwards] = useState<Array<Included>>([]);
   const [presses, setPresses] = useState<Array<Included>>([]);
-  // const [currentImages, setImages] = useState<Image[] | []>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string>('');
 
   useEffect(() => {
-    getEPK(epk_id).then((info: any) => {
-      setEpk(info.data);
-      setAwards(filterIncluded(info.included, 'award'));
-      console.log(info, 'in the press page useEffect');
-      setPresses(filterIncluded(info.included, 'press'));
-      setIsLoading(false);
-    });
+    getEPK(epk_id)
+      .then((info: any) => {
+        setEpk(info.data);
+        setAwards(filterIncluded(info.included, 'award'));
+        setPresses(filterIncluded(info.included, 'press'));
+        setIsLoading(false);
+      })
+        .catch(err => setError(err))
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div>
+      {error && (
+        <Redirect to={`/not-found/${epk_id}`} />
+      )}
       {isLoading ? (
         <p>Loading...</p>
       ) : (
