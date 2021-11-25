@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import Cookies from 'js-cookie';
+import logoImage from '../../../images/logo_image.png';
 
 const LoginForm = () => {
   const [email, setEmail] = useState<string>('')
@@ -31,50 +32,54 @@ const LoginForm = () => {
 
   return (
     <form className='login-container'>
-		{!hasCookie &&	
-			<FormControl sx={{ m: 1, minWidth: 120 }}>
-				<TextField
-					id="outlined-basic"
-					label="Email"
-					variant="outlined"
-					size="small"
-					margin="dense"
-					type="text"
-					name="email"
-					value={email}
-					onChange={(e) => setEmail(e.target.value)}
-					required
-				/>
-      	<TextField
-					id="outlined-basic"
-					label="Password"
-					variant="outlined"
-					size="small"
-					margin="dense"
-					type="password"
-					name="password"
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-					required
-				/>
-				
-					<Button variant="text" onClick={() => {handleClick()}}>
-						Login
-					</Button>
-					<Link to={`/register`} className='login-btn'>
-						<Button variant="text" onClick={() => {
-						} }>
-							Register
+			<h1>Welcome to <span>Your EPK</span> </h1>
+			<img src={logoImage} alt='' />
+			<div className='login-form-wrapper'>
+			{!hasCookie &&	
+				<FormControl sx={{ m: 1, minWidth: 120 }}>
+					<TextField
+						id="outlined-basic"
+						label="Email"
+						variant="outlined"
+						size="small"
+						margin="dense"
+						type="text"
+						name="email"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+						required
+					/>
+					<TextField
+						id="outlined-basic"
+						label="Password"
+						variant="outlined"
+						size="small"
+						margin="dense"
+						type="password"
+						name="password"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+						required
+					/>
+					
+						<Button variant="text" onClick={() => {handleClick()}}>
+							Login
 						</Button>
-					</Link>
-      </FormControl> } 
-			{hasCookie && 
-				<Link to={`/dashboard`} className='login-btn'>
-					<Button variant="text" >
-						Success! Go to Dashboard
-				</Button>
-				</Link> }
-			{error && <p>Login failed. Please try again</p>}	
+						<Link to={`/register`} className='login-btn'>
+							<Button variant="text" onClick={() => {
+							} }>
+								Register
+							</Button>
+						</Link>
+				</FormControl> } 
+				{hasCookie && 
+					<Link to={`/dashboard`} className='login-btn'>
+						<Button variant="text" >
+							Success! Go to Dashboard
+					</Button>
+					</Link> }
+				{error && <p>Login failed. Please try again</p>}
+			</div>	
     </form>
   )
 }

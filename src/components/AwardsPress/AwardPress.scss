@@ -12,8 +12,8 @@
   }
 
   .awards-press-edit-btn {
-    top: -6vh;
-    left: 78vw;
+    top: -5vh;
+    left: 70vw;
   }
 }
 
@@ -29,6 +29,7 @@
 .award-press-display {
   @include gridDisplayCards;
   @include marginWidthContainers;
+  justify-items: center;
 }
 
 .award-press-card {

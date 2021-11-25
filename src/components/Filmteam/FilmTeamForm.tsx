@@ -111,7 +111,9 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew } : any) => {
 			</FormControl>
 
       <FormControl>
-        <Button variant="text" 
+        <Button 
+          className='film-team-done-btn'
+          variant="text" 
           onClick={() => setIsEditing(false)}
           >done editing
 				</Button>

@@ -2,34 +2,45 @@
 @import '../../styles/mixins';
 
 .film-team-container {
-  height: 45vh;
-  width: 100%;
-  padding: 2vh;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  background-color: whitesmoke;
+  margin-bottom: 10vh;
 
   h2 {
     @include sectionTitleFormat;
-    width: 75vw;
+    // width: 75vw;
     margin: auto;
     padding: 15px;
 	}
 }
 
-// .film-team-form {
-//   height: 38vh;
-  // @include flexColumnJustify(space-evenly);
-  // align-items: center;
+.film-crew-edit-btn {
+  top: -5vh;
+  left: 70vw;
+}
 
-//   button {
-//     width: $btn-width;
-//   }
-// }
 
 .film-team-form {
+  padding: 4vh 0;
+  width: 80%;
+  margin: auto;
+
   div {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
   }
+}
+
+.film-team-img-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.film-team-done-btn {
+  margin: 2vh;
 }
 
 // .image-upload-btn {
@@ -60,23 +71,52 @@
 .all-crew-wrapper {
   @include gridDisplayCards;
   @include marginWidthContainers;
+  justify-items: center;
 }
 
 
 .crew-member-card {
+  // height: 17vh;
+  // width: 17vw;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  // justify-content: space-evenly;
+  height: 23vw;
+  width: 23vw;
+  // padding: 10%;
+  text-align: center;
+  opacity: 0.95;
+}
+
+.crew-img-wrapper {
+  z-index: 0;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  object-fit: cover;
 
   img {
-    height: 27vh;
-    width: 27vw;
-    // position: absolute;
-    // top: 0;
-    z-index: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 }
 
-.crew-member-card {
-  p {
-    z-index: 10;
-  }
+.crew-info-wrapper {
+  z-index: 10;
+  width: 96%;
+  align-self: center;
+  padding: 2%;
+  text-align: left;
+  position: absolute;
+  top: 70%;
+  background-color: whitesmoke;
+}
+
+
+.crew-name {
+  font-weight: 700;
 }

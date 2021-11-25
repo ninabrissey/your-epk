@@ -6,19 +6,20 @@ import FilmPosterDisplay from '../../FilmPoster/FilmPosterDisplay';
 import SynopsisDisplay from '../../Synopsis/SynopsisDisplay';
 import FilmDetailsDisplay from '../../FilmDetails/FilmDetailsDisplay';
 import TaglinesDisplay from '../../Taglines/TaglinesDisplay';
-import Error from '../../Error/Error';
 import { filterIncluded } from '../../../utils/cleanData';
 import { FilmEPK, Included } from '../../../types';
 import { useEffect, useState } from 'react';
 import { getEPK } from '../../../utils/apiCalls';
 import { Redirect } from 'react-router-dom';
 import ContactDisplay from '../../Contact/ContactDisplay';
+import FilmTeamDisplay from '../../Filmteam/FilmTeamDisplay';
 import Footer from '../../Footer/Footer';
 
 const PressPage = ({ title, epk_id }: any) => {
   const [epk, setEpk] = useState<FilmEPK>({} as FilmEPK);
   const [awards, setAwards] = useState<Array<Included>>([]);
   const [presses, setPresses] = useState<Array<Included>>([]);
+  const [allCrew, setAllCrew] = useState<Array<Included>>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
 
@@ -86,6 +87,12 @@ const PressPage = ({ title, epk_id }: any) => {
             <div className="film-details-display">
               <h2>Film Details</h2>
               <FilmDetailsDisplay filmEPK={epk} />
+            </div>
+
+
+            <div className="film-team-display">
+              <h2>Film Crew</h2>
+              <FilmTeamDisplay allCrew={allCrew} removeFilmMember={null} isEditing={null} />
             </div>
           </div>
         </section>

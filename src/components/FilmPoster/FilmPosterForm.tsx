@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getPresignedUrl, putToAWS, postToDatabase } from '../../awsS3/helperFunctions';
 
 
-const FilmPosterDisplay = ({ filmEPK, setIsEditing }: any) => {
+const FilmPosterDisplay = ({ filmEPK, setIsEditing, isEditing }: any) => {
   const [filmPoster, setFilmPoster] = useState<any>({});
   const [reminder, setReminder] = useState<boolean>(false)
 
@@ -33,12 +33,15 @@ const FilmPosterDisplay = ({ filmEPK, setIsEditing }: any) => {
   }
 
   return (
-    <form className='film-poster-form'>
-      <input id='test-input' type="file" accept="image/*" />
-      {reminder && <p>Must choose a file to save</p>}
-      <button onClick={(event) => { handleSubmit(event) }}>Save</button>
-      <button onClick={() => setIsEditing(false)} >Done editing</button>
-    </form>
+    <div className='poster-form-wrapper'>
+      <h2>Film Poster</h2>
+      <form className='film-poster-form'>
+        <input id='test-input' type="file" accept="image/*" />
+        {reminder && <p>Must choose a file to save</p>}
+        <button onClick={(event) => { handleSubmit(event) }}>Save</button>
+        <button onClick={() => setIsEditing(!isEditing)} >Done editing</button>
+      </form>
+    </div>
   )
 }
 

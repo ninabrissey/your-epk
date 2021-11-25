@@ -7,7 +7,8 @@
 
 .container-wrapper {
   width: $primary-width;
-  display: flex;
+  height: fit-content;
+  // display: flex;
   grid-column-start: 1;
   grid-column-end: 5;
   display: grid;
@@ -17,7 +18,7 @@
 }
 
 .edit-page-below-header {
-  width: 70vw;
+  width: 75vw;
   margin: 3vh auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
