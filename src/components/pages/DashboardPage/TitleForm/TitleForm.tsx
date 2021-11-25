@@ -50,7 +50,7 @@ const TitleForm = ({ setAllFilms, allFilms }: IDashboard) => {
           >Create
           </Button>}
       </FormControl>
-      {error && <h3>{`Something went wrong. You may need to refresh the page`}</h3>}
+      {error && <h3>{`You will need to log-in to create Your EPKs`}</h3>}
     </div>
   )
 }
