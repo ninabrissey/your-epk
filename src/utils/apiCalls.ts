@@ -5,7 +5,6 @@ const cookie: any = Cookies.get('csrf-token')
 
 export const postData = (url: string, data: object) => {
   const cookie: any = Cookies.get('csrf-token')
-  console.log('cookie in postdata', cookie)
 
   return fetch(url, {
     method: 'POST',
