@@ -24,20 +24,22 @@ function App() {
           <RegisterForm />  
         </Route>
         <Route exact path={`/dashboard`}>
-
           <Dashboard />
-
         </Route>
         <Route exact path='/edit/:epk_id' render={({ match }) =>
-          <EditPage epk_id={match.params.epk_id} />
+          <EditPage epk_id={match.params.epk_id}  />
         }>
         </Route>
-        <Route exact path='/:epk_id/:title' render={({ match }) =>
-          <PressPage title={match.params.title} epk_id={match.params.epk_id} />
+        <Route exact path={`/no-edit-access/:epk_id`} render={({ match }) =>
+           <Error accessDenied={true} notFound={false} epk_id={match.params.epk_id}/>
+        }>
+        </Route>        
+        <Route path='/presskit/:epk_id' render={({ match }) =>
+          <PressPage  epk_id={match.params.epk_id} />
         }>
         </Route>
         <Route path='*'>
-          <Error userId={1} />
+          <Error accessDenied={false} notFound={true} epk_id={0}/>
         </Route>
       </Switch>
     </div>
