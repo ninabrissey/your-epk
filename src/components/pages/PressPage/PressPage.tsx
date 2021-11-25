@@ -15,7 +15,7 @@ import ContactDisplay from '../../Contact/ContactDisplay';
 import FilmTeamDisplay from '../../Filmteam/FilmTeamDisplay';
 import Footer from '../../Footer/Footer';
 
-const PressPage = ({ title, epk_id }: any) => {
+const PressPage = ({ epk_id }: any) => {
   const [epk, setEpk] = useState<FilmEPK>({} as FilmEPK);
   const [awards, setAwards] = useState<Array<Included>>([]);
   const [presses, setPresses] = useState<Array<Included>>([]);

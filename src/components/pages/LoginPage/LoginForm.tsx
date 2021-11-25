@@ -21,7 +21,7 @@ const LoginForm = () => {
     
     postUserData('https://epk-be.herokuapp.com/api/v1/sessions', currentUser)
     .then(res => {
-			const cookie: any = Cookies.set('csrf-token', res.data.attributes.csrf_token)
+			Cookies.set('csrf-token', res.data.attributes.csrf_token)
 			setHasCookie(true)
 			setError('')
 		})
@@ -86,29 +86,3 @@ const LoginForm = () => {
 
 
 export default LoginForm;
-
-
-// import { useState } from 'react';
-// import { UserData } from '../../../types';
-// import LoginForm from './LoginForm';
-// import RegisterForm from './RegisterForm';
-
-// const LoginPage = () => {
-//   const [isLoggingIn, setIsLoggingIn] = useState<boolean>(true)
-//   const [isRegistering, setIsRegistering] = useState<boolean>(true)
-
-//   return (
-//     <section>
-//       {!isRegistering && isLoggingIn && <div>
-//         <p>Thank you for registering with Your EPK</p>
-//         <p>Please login to go to your new account</p>
-//       </div>}
-//       {/* {!isRegistering && !isLoggingIn && <RegisterForm setIsRegistering={setIsRegistering} setIsLoggingIn={setIsLoggingIn} />}
-//       {isRegistering && isLoggingIn && <LoginForm />}
-//       {!isRegistering && isLoggingIn && <LoginForm />} */}
-//     </section>
-//   )
-// }
-
-
-// export default LoginPage;
