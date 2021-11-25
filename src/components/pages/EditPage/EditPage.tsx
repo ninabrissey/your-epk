@@ -11,8 +11,6 @@ import Error from '../../Error/Error';
 import SynopsisContainer from '../../Synopsis/SynopsisContainer';
 import FilmDetailsContainer from '../../FilmDetails/FilmDetailsContainer';
 import TaglinesContainer from '../../Taglines/TaglinesContainer';
-// import ImagesContainer from '../../Images/ImagesContainer';
-// import ImagesForm from '../../Images/ImagesForm';
 import FilmTeamContainer from '../../Filmteam/FilmTeamContainer';
 import Cookies from 'js-cookie';
 
@@ -96,8 +94,6 @@ const EditPage = ({ epk_id }: any) => {
                   epk_id={epk_id}
                 />
               </div>
-              {/* <ImagesContainer epk_id={epk_id} images={images} /> */}
-              {/* <ImagesForm /> */}
               <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
               {/* <div className="container-wrapper"> */}
               <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
