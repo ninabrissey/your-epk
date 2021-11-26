@@ -2,8 +2,6 @@
 @import '../../styles/mixins';
 
 .awards-press-container {
-  // width: 100%;
-  // margin: 5vh 0;
   grid-column-start: 1;
   grid-column-end: 4;
 
@@ -14,6 +12,10 @@
   .awards-press-edit-btn {
     top: -5vh;
     left: 70vw;
+  }
+
+  section {
+    width: 75vw;
   }
 }
 
@@ -37,9 +39,6 @@
   justify-content: center;
   height: 278px;
   width: 278px;
-  // justify-content: space-evenly;
-  // height: 225px;
-  // width: 17vw;
   color: whitesmoke;
   text-align: center;
   opacity: 0.95;
@@ -81,14 +80,46 @@
 
 .awards-press-form-wrapper {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  #awards-or-press-label {
+    height: 9vh;
+  }
 }
 
 .press-awards-form {
+  width: 75vw;
+  padding-top: 3vh;
   display: flex;
-  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+
+  label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 75vw;
+  }
 }
 
+.type-select-form-wrapper {
+  width: 12%;
+}
+
+.award-form-wrapper,
+.press-form-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+  width: 80%;
+
+  button {
+    width: 150px;
+  }
+}
 
 // @media screen and (max-width: 1100px) {
 //   .award-press-display {
