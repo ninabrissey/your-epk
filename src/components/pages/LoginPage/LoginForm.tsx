@@ -5,7 +5,6 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import Cookies from 'js-cookie';
-import logoImage from '../../../images/logo_image.png';
 import logoBackground from '../../../images/logo_background2.png';
 
 const LoginForm = () => {
@@ -36,8 +35,6 @@ const LoginForm = () => {
     <form className='login-container'>
 			<img src={logoBackground} alt='' />
 			<h1>Welcome to <span>Your EPK</span> A platform to build your own electronic press kit</h1>
-			{/* <h1>Login to make it happen</h1> */}
-			{/* <img className='login-img' src={logoImage} alt='' /> */}
 			<div className='login-form-wrapper'>
 			{!hasCookie &&	
 				<FormControl sx={{ m: 1, minWidth: 120 }}>
