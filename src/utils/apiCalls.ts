@@ -6,7 +6,6 @@ const cookie: any = Cookies.get('csrf-token')
 
 export const postData = (url: string, data: object) => {
   const cookie: any = Cookies.get('csrf-token')
-  console.log('cookie in postdata', cookie)
 
   return fetch(url, {
     method: 'POST',
@@ -80,7 +79,13 @@ export const putData = (data: any, checksum: string, directUploadURL: any) => {
 
 export const getArrayData = (type: string, epkID: string) => {
   return fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${epkID}/${type}`)
-    .then(res => res.json())
+    .then(res => {
+      if (res.ok) {
+        return res.json()
+      } else {
+        return Promise.reject(res.status)
+      }
+    })
 }
 
 export const postUserData = (url: string, data: object) => {
