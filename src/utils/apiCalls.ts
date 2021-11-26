@@ -1,4 +1,3 @@
-import { FilmEPK } from "../types";
 import Cookies from 'js-cookie';
 
 const cookie: any = Cookies.get('csrf-token')
@@ -6,7 +5,6 @@ const cookie: any = Cookies.get('csrf-token')
 
 export const postData = (url: string, data: object) => {
   const cookie: any = Cookies.get('csrf-token')
-  console.log('cookie in postdata', cookie)
 
   return fetch(url, {
     method: 'POST',
@@ -61,10 +59,15 @@ export const getUser = () => {
   })
 }
 
-
 export const getEPK = (epkID: string) => {
   return fetch(`https://epk-be.herokuapp.com/api/v1/film_epk/${epkID}`)
-    .then(res => res.json())
+    .then(res => {
+      if (res.ok) {
+        return res.json()
+      } else {
+        return Promise.reject(res.status)
+      }
+    })
 }
 
 export const putData = (data: any, checksum: string, directUploadURL: any) => {

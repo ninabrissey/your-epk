@@ -18,6 +18,11 @@ const FilmDetailsForm = ({
   const [company, setCompany] = useState<string>('');
   const [website, setWebsite] = useState<string>('');
 
+  useEffect(() => {
+    checkFormData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filmEPK]);
+
   const handleSubmit = () => {
     const currentFilmDetails = {
       genre: genre,
@@ -56,10 +61,6 @@ const FilmDetailsForm = ({
       setWebsite(filmEPK.attributes.website);
     }
   };
-
-  useEffect(() => {
-    checkFormData();
-  }, [filmEPK]);
 
   return (
     <form className="film-details-form">

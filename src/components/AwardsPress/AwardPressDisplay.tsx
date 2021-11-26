@@ -19,6 +19,8 @@ const AwardPressDisplay = ({ awards, presses, isEditing, removeCard }: APProps) 
     const press = makePresses();
     const combined = orderAwardsPress(award, press)
     setCombined(combined)
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [awards, presses, isEditing])
 
   const makeAwards = () => {

@@ -1,0 +1,12 @@
+@import '../../styles/mixins';
+
+.no-edit-error {
+  @include flexCenterColumn
+}
+
+.error-btns {
+  display: flex;
+  justify-content: space-between;
+  width: 40vw;
+  padding: 2vw;
+}

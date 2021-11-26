@@ -10,7 +10,7 @@ const Navigation = ({ onEdit, onLogin, epk_id, title }: any) => {
       </Link>
       {onEdit && <div className='menu'>
         <Link to={`/dashboard`}>Home</Link>
-        <Link to={`/${epk_id}/${title}`}>Press Kit</Link>
+        <Link to={`/presskit/${epk_id}/${title}`}>Press Kit</Link>
       </div>}
       {onLogin && <div className='menu'>
         <Link to={`/dashboard`}>Home</Link>
