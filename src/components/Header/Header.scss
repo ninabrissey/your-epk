@@ -40,6 +40,12 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+
+	h2 {
+    @include sectionTitleFormat;
+    margin: 0 auto;
+    padding: 15px;
+  }
 }
 
 .header-info-container {
