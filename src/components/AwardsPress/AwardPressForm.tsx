@@ -125,11 +125,11 @@ const AwardPressForm = ({
                 required
               />
               <Button
-                style={{
-                  background: '#ec5f27',
-                  height: '57px',
-                  marginRight: '3%',
-                }}
+                // style={{
+                //   background: '#ec5f27',
+                //   height: '57px',
+                //   marginRight: '3%',
+                // }}
                 variant="text"
                 onClick={(e) => submitAndClear('awards', newAward, e)}
               >
@@ -174,11 +174,11 @@ const AwardPressForm = ({
                 required
               />
               <Button
-                style={{
-                  background: '#ec5f27',
-                  height: '57px',
-                  marginRight: '3%',
-                }}
+                // style={{
+                //   background: '#ec5f27',
+                //   height: '57px',
+                //   marginRight: '3%',
+                // }}
                 variant="text"
                 onClick={(e) => submitAndClear('presses', newPress, e)}
               >
@@ -187,13 +187,16 @@ const AwardPressForm = ({
             </>
           )}
 
-          <Button
-            style={{ background: '#ec5f27', height: '57px', width: '150px' }}
-            variant="text"
-            onClick={() => setIsEditting(!isEditting)}
-          >
-            done editting
-          </Button>
+          <FormControl>
+            <Button
+              // style={{ background: '#ec5f27', height: '57px', width: '150px' }}
+              variant="text"
+              onClick={() => setIsEditting(!isEditting)}
+            >
+              done editting
+            </Button>
+          </FormControl>  
+
         </div>
       </FormControl>
     </section>
