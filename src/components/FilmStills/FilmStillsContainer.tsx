@@ -1,37 +1,58 @@
 import { useState, useEffect } from 'react';
 import { postData, getArrayData } from '../../utils/apiCalls';
 // import { Included, Image } from '../../types';
-import { Image } from '../../types';
+import { Included } from '../../types';
 import FilmStillsDisplay from './FilmStillsDisplay';
 import FilmStillsForm from './FilmStillsForm';
 import Fab from '@mui/material/Fab';
 import EditIcon from '@mui/icons-material/Edit';
 
-const FilmStillsContainer = (epk_id: any) => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [filmStills, setFilmStills] = useState<Image[] | []>([]);
+const FilmStillsContainer = ({ epk_id }: any) => {
+  const [isEditing, setIsEditing] = useState(true);
+  const [filmStills, setFilmStills] = useState<Included[] | []>([]);
   const [error, setError] = useState<any>('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const getFilmStills = async () => {
+    setLoading(true);
+    try {
+      const data = await getArrayData('film_stills', epk_id);
+      setFilmStills(data.data);
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+    }
+  };
 
   useEffect(() => {
-    getArrayData('film_stills', epk_id);
+    getFilmStills();
   }, []);
 
+  const removeFilmMember = (id: string) => {
+    const updatedStills = filmStills.filter((still) => still.id !== id);
+    setFilmStills(updatedStills);
+  };
+
   return (
-    <section>
+    <section className="film-team-container">
       <h2>Film Stills</h2>
 
       {!isEditing && (
         <Fab
           size="small"
           aria-label="edit"
-          onClick={() => setIsEditing(true)}
-          className="awards-press-edit-btn"
+          onClick={() => setIsEditing(!isEditing)}
+          className="film-crew-edit-btn"
         >
           <EditIcon />
         </Fab>
       )}
-      <FilmStillsDisplay filmStills={filmStills} epk_id={epk_id} />
+      <FilmStillsDisplay
+        filmStills={filmStills}
+        epk_id={epk_id}
+        removeFilmMember={removeFilmMember}
+        isEditing={isEditing}
+      />
       {isEditing && (
         <FilmStillsForm
           isEditing={isEditing}
