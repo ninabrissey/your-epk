@@ -29,6 +29,7 @@ const PressPage = ({ epk_id }: any) => {
         setEpk(info.data);
         setAwards(filterIncluded(info.included, 'award'));
         setPresses(filterIncluded(info.included, 'press'));
+        setAllCrew(filterIncluded(info.included, 'film_fam'))
         setIsLoading(false);
       })
         .catch(err => setError(err))
