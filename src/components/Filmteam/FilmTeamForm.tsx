@@ -49,11 +49,6 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew } : any) => {
 
       <form className="film-team-img-form">
         <div>
-          {/* <label 
-            htmlFor="FilmCrewImageInput" className='image-upload-btn'
-            >Upload Image
-          </label>
-          <span id="file-chosen">No file chosen</span> */}
           <input
             // hidden
             className="image-upload-btn"
@@ -61,12 +56,6 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew } : any) => {
             type="file"
             accept="image/*"
           />
-          {/* <button
-            onClick={(event) => {
-              handleImageSubmit(event);
-            }}
-            >Save
-          </button> */}
         </div>
       </form>
 
@@ -113,7 +102,6 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew } : any) => {
       <FormControl>
         <Button 
           className='done-editing-btn'
-          // className='film-team-done-btn'
           variant="text" 
           onClick={() => setIsEditing(false)}
           >done editing
