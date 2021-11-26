@@ -51,7 +51,7 @@ const RegisterForm = ({ setIsRegistering, setIsLoggingIn } : any) => {
 	}
 
   return (
-    <form className='login-container'>
+    <form className='login-container register-container'>
 			<FormControl sx={{ m: 1, minWidth: 120 }}>
 				<TextField
 					id='outlined-basic'
