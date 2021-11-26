@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import Cookies from 'js-cookie';
-import logoBackground from '../../../images/logo_background2.png';
+import logoBackground from '../../../images/logo_image.png';
 
 const LoginForm = () => {
   const [email, setEmail] = useState<string>('')

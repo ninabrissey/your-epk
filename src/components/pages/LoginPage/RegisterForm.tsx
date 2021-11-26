@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import { postData } from '../../../utils/apiCalls';
-import logoBackground from '../../../images/logo_background2.png';
+import logoBackground from '../../../images/logo_image.png';
 
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState<string>('')
