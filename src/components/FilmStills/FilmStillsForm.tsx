@@ -3,7 +3,7 @@ import { postData } from '../../utils/apiCalls';
 import {
   getPresignedUrl,
   putToAWS,
-  postFilmMemberToDatabase,
+  postStillOrTeamToDB,
 } from '../../awsS3/helperFunctions';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
@@ -24,31 +24,26 @@ const FilmStillsForm = ({
   setFilmStills,
   isEditing,
 }: IFilmStillsForm) => {
-  const [people, setPeople] = useState<string>('');
   const [description, setDescription] = useState<string>('');
 
-  const postFilmFam = (filmStill: object) => {
-    postData('https://epk-be.herokuapp.com/api/v1/film_stills', filmStill).then(
-      (data: any) => {
-        console.log('data in form POST: ', data);
+  const postFilmStill = (filmStill: object) => {
+    postData('https://epk-be.herokuapp.com/api/v1/film_stills', filmStill)
+      .then((data: any) => {
         handleImageSubmit(data.data.id).then((data) =>
           setFilmStills([...filmStills, data.data])
         );
-      }
-    );
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleTextSubmit = (event: any) => {
     event.preventDefault();
 
     let filmStill = {
-      film_stills: {
-        people: people,
-        description: description,
-        film_epk_id: epk_id,
-      },
+      description: description,
+      film_epk_id: epk_id,
     };
-    postFilmFam(filmStill);
+    postFilmStill(filmStill);
   };
 
   const handleImageSubmit = async (filmStillID: any) => {
@@ -58,10 +53,11 @@ const FilmStillsForm = ({
       const presignedFileParams = await getPresignedUrl(input);
       console.log('presignedFileParams: ', presignedFileParams);
       const awsRes = await putToAWS(presignedFileParams, input);
-      const data: any = await postFilmMemberToDatabase(
+      const data: any = await postStillOrTeamToDB(
+        'film_still_id',
         presignedFileParams,
         filmStillID,
-        'head_shots'
+        'film_still_images'
       );
       return data;
     }
@@ -81,17 +77,6 @@ const FilmStillsForm = ({
       </form>
 
       <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <TextField
-          id="outlined-basic"
-          label="Role"
-          variant="outlined"
-          size="small"
-          margin="dense"
-          type="text"
-          name="role"
-          value={people}
-          onChange={(e) => setPeople(e.target.value)}
-        />
         <TextField
           id="outlined-basic"
           label="Description"
