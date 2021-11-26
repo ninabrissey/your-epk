@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { postUserData } from '../../../utils/apiCalls';
 import { Link } from 'react-router-dom';
-import { UserData } from '../../../types';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
@@ -9,7 +8,7 @@ import Cookies from 'js-cookie';
 import logoImage from '../../../images/logo_image.png';
 import logoBackground from '../../../images/logo_background2.png';
 
-const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
+const LoginForm = () => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
 	const [hasCookie, setHasCookie] = useState<boolean>(false)
@@ -23,7 +22,7 @@ const LoginForm = ({ setCurrUser, setIsRegistering, setIsLoggingIn } : any) => {
     
     postUserData('https://epk-be.herokuapp.com/api/v1/sessions', currentUser)
     .then(res => {
-			const cookie: any = Cookies.set('csrf-token', res.data.attributes.csrf_token)
+			Cookies.set('csrf-token', res.data.attributes.csrf_token)
 			setHasCookie(true)
 			setError('')
 		})

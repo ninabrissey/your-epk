@@ -13,6 +13,8 @@ const HeaderImgDisplay = ({ filmEPK, epk_id }: IHeaderImg) => {
 	useEffect(() => {
 		getEPK(epk_id)
 			.then(data => setImage(data.data.attributes.header_image_url))
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	},[])
 
 	return (

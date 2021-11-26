@@ -29,7 +29,7 @@ export const fileCheckSum = async (file: any) => {
 //********** STEP 1 **********//
 
 export const getPresignedUrl = async (image: any) => {
-  const file = await fileToData(image)
+  await fileToData(image)
 
   const sum = await fileCheckSum(image)
 

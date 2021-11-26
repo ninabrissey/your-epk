@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { patchData, getEPK } from '../../../utils/apiCalls';
 import { FilmEPK, Included } from '../../../types';
 import AwardsPressContainer from '../../AwardsPress/AwardsPressContainer';
@@ -10,9 +11,8 @@ import Error from '../../Error/Error';
 import SynopsisContainer from '../../Synopsis/SynopsisContainer';
 import FilmDetailsContainer from '../../FilmDetails/FilmDetailsContainer';
 import TaglinesContainer from '../../Taglines/TaglinesContainer';
-// import ImagesContainer from '../../Images/ImagesContainer';
-// import ImagesForm from '../../Images/ImagesForm';
 import FilmTeamContainer from '../../Filmteam/FilmTeamContainer';
+import Cookies from 'js-cookie';
 
 const EditPage = ({ epk_id }: any) => {
   const [error, setError] = useState<any>('');
@@ -20,6 +20,22 @@ const EditPage = ({ epk_id }: any) => {
   const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
   const [title, setTitle] = useState('');
   const [included, setIncluded] = useState<Array<Included>>([]);
+  const [hasAccess, setHasAccess] = useState<boolean>(true)
+
+  useEffect(() => {
+    setLoading(true);
+    getFilmData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [epk_id]);
+
+  useEffect(() => {
+    const cookie = Cookies.get('csrf-token');
+
+    if (!cookie) {
+      setHasAccess(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const getFilmData = () => {
     getEPK(epk_id)
@@ -31,11 +47,6 @@ const EditPage = ({ epk_id }: any) => {
       })
       .catch((err) => setError(err));
   };
-
-  useEffect(() => {
-    setLoading(true);
-    getFilmData();
-  }, [epk_id]);
 
   const addFilmInfo = (filmInfo: object) => {
     patchData(filmInfo, epk_id).then((data) => {
@@ -49,7 +60,10 @@ const EditPage = ({ epk_id }: any) => {
 
   return (
     <div>
-      {error && <Error />}
+      {!hasAccess && (
+        <Redirect to={`/no-edit-access/${epk_id}`} />
+      )}
+      {error && <Error accessDenied={false} notFound={true} epk_id={0}/>}
       {loading ? (
         <p>Loading</p>
       ) : (
@@ -80,8 +94,6 @@ const EditPage = ({ epk_id }: any) => {
                   epk_id={epk_id}
                 />
               </div>
-              {/* <ImagesContainer epk_id={epk_id} images={images} /> */}
-              {/* <ImagesForm /> */}
               <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
               {/* <div className="container-wrapper"> */}
               <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />

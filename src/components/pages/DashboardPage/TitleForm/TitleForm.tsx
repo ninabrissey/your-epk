@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import { postData } from "../../../../utils/apiCalls";
-import { Link } from 'react-router-dom';
 import { FilmEPK } from '../../../../types';
 import './TitleForm.scss';
 
@@ -51,7 +50,7 @@ const TitleForm = ({ setAllFilms, allFilms }: IDashboard) => {
           >Create
           </Button>}
       </FormControl>
-      {error && <h3>{`Something went wrong. You may need to refresh the page`}</h3>}
+      {error && <h3>{`You will need to log-in to create Your EPKs`}</h3>}
     </div>
   )
 }

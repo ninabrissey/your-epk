@@ -1,5 +1,4 @@
-import { Press, Included } from '../../types';
-import laurel from './../../images/laurel.png';
+import { Included } from '../../types';
 import { deleteIncluded } from '../../utils/apiCalls';
 import Fab from '@mui/material/Fab';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';

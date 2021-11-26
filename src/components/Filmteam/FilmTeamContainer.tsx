@@ -20,6 +20,7 @@ const FilmTeamContainer = ({ filmEPK, epk_id, addFilmInfo, included } : IFilmTea
 
   useEffect(() => {
     setAllCrew((filterIncluded(included, 'film_fam')))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const removeFilmMember = (id : string) => {

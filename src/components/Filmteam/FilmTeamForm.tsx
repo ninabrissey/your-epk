@@ -38,7 +38,7 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew } : any) => {
     if (input.size > 0) {
       const presignedFileParams = await getPresignedUrl(input);
       console.log('presignedFileParams: ', presignedFileParams)
-      const awsRes = await putToAWS(presignedFileParams, input);
+      await putToAWS(presignedFileParams, input);
       const data: any = await postFilmMemberToDatabase(presignedFileParams, memberID, 'head_shots')
       return data
     }
