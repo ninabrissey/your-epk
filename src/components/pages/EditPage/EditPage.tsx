@@ -12,6 +12,7 @@ import SynopsisContainer from '../../Synopsis/SynopsisContainer';
 import FilmDetailsContainer from '../../FilmDetails/FilmDetailsContainer';
 import TaglinesContainer from '../../Taglines/TaglinesContainer';
 import FilmTeamContainer from '../../Filmteam/FilmTeamContainer';
+import Footer from '../../Footer/Footer';
 import Cookies from 'js-cookie';
 
 const EditPage = ({ epk_id }: any) => {
@@ -110,6 +111,7 @@ const EditPage = ({ epk_id }: any) => {
           </main>
         </div>
       )}
+      <Footer />
     </div>
   );
 };
