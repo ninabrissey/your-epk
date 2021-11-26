@@ -34,7 +34,10 @@ const LoginForm = () => {
   return (
     <form className='login-container'>
 			<img src={logoBackground} alt='' />
-			<h1>Welcome to <span>Your EPK</span> A platform to build your own electronic press kit</h1>
+			<div className='login-text-wrapper'>
+				<h1>Welcome to <span>Your EPK</span> </h1>
+				<h2>A platform to build your own electronic press kit</h2>
+			</div>
 			<div className='login-form-wrapper'>
 			{!hasCookie &&	
 				<FormControl sx={{ m: 1, minWidth: 120 }}>
