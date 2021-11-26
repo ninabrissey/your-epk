@@ -54,6 +54,9 @@ const RegisterForm = () => {
   return (
     <form className='register-container'>
 			<img src={logoBackground} alt='' />
+			<div className='register-text-wrapper'>
+				<h2>Please fill out the form to register and start building an EPK</h2>
+			</div>
 			<div className='register-wrapper'>
 				<FormControl sx={{ m: 1, minWidth: 120 }}>
 					<TextField
