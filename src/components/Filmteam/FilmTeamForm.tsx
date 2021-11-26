@@ -56,8 +56,8 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew } : any) => {
           <span id="file-chosen">No file chosen</span> */}
           <input
             // hidden
-            className="image-upload-btn-2"
-            id="FilmCrewImageInput"
+            className="image-upload-btn"
+            id="imageInput"
             type="file"
             accept="image/*"
           />
@@ -112,7 +112,8 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew } : any) => {
 
       <FormControl>
         <Button 
-          className='film-team-done-btn'
+          className='done-editing-btn'
+          // className='film-team-done-btn'
           variant="text" 
           onClick={() => setIsEditing(false)}
           >done editing
