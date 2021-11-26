@@ -77,9 +77,9 @@ export interface Award {
 }
 
 export interface Image {
-  film_epk_id: number;
   description: string;
-  link: string;
+  film_epk_id: number;
+  film_still_url: string
 }
 
 export interface FilmFams {
