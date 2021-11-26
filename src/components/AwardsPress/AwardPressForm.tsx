@@ -77,7 +77,7 @@ const AwardPressForm = ({
             <Select
               style={{
                 // width: '25%',
-                minWidth: '85px',
+                // minWidth: '85px',
                 // marginRight: '3%',
                 // padding: 0,
               }}
@@ -95,7 +95,6 @@ const AwardPressForm = ({
 
           {select === 'award' && (
             <div className='award-form-wrapper'>
-
               <TextField
                 // style={{ marginRight: '3%' }}
                 id="outlined-basic"
@@ -144,13 +143,11 @@ const AwardPressForm = ({
                   >save
                 </Button>
               </FormControl>
-
             </div>
           )}
 
           {select === 'press' && (
             <div className='press-form-wrapper'>
-
               <TextField
                 // style={{ marginRight: '3%' }}
                 id="outlined-basic"
@@ -199,7 +196,6 @@ const AwardPressForm = ({
                   >save
                 </Button>
               </FormControl>
-
             </div>
           )}
 
@@ -209,8 +205,7 @@ const AwardPressForm = ({
               // style={{ background: '#ec5f27', height: '57px', width: '150px' }}
               variant="text"
               onClick={() => setIsEditting(!isEditting)}
-            >
-              done editting
+              >done editting
             </Button>
           </FormControl>  
 
