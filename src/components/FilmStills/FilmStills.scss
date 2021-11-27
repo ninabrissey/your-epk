@@ -8,6 +8,19 @@
   gap: 1.5em;
   padding-top: 3%;
   width: 70vw;
+
+  margin: auto;
+  // width: 70vw;
+  display: grid;
+  justify-content: center;
+  // grid-template-columns: repeat(3, 1fr);
+  // grid-gap: 15px;
+  // gap: 15px;
+  // grid-template-columns: repeat(2, 1fr);
+  // grid-gap: 1.5em;
+  // gap: 1.5em;
+  // padding-top: 3%;
+  // width: 70vw;
 }
 
 .film-stills-card {
@@ -16,4 +29,47 @@
   flex-direction: column;
   height: 23vw;
   text-align: center;
+
+  // position: relative;
+  // display: flex;
+  // flex-direction: column;
+  // height: 23vw;
+  // text-align: center;
+}
+
+
+.still-img-wrapper {
+  z-index: 0;
+  position: absolute;
+  object-fit: cover;
+  height: 81%;
+  width: 100%;
+
+  img {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+.still-info-wrapper {
+  z-index: 10;
+  height: 19%;
+  width: 96.25%;
+  align-self: center;
+  padding: 2%;
+  text-align: left;
+  position: absolute;
+  background-color: whitesmoke;
+  bottom: -5vh;
+}
+
+.film-team-form {
+  justify-content: space-evenly;
+}
+
+.add-film-still-btn {
+  width: 150px;
 }

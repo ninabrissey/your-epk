@@ -62,70 +62,63 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew }: any) => {
     <section className="film-team-form">
       <form className="film-team-img-form">
         <div>
-          {/* <label 
-            htmlFor="FilmCrewImageInput" className='image-upload-btn'
-            >Upload Image
-          </label>
-          <span id="file-chosen">No file chosen</span> */}
           <input
-            // hidden
-            className="image-upload-btn-2"
-            id="FilmCrewImageInput"
+            className="image-upload-btn"
+            id="imageInput"
             type="file"
             accept="image/*"
           />
-          {/* <button
-            onClick={(event) => {
-              handleImageSubmit(event);
-            }}
-            >Save
-          </button> */}
         </div>
       </form>
 
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
+      <FormControl sx={{ m: 1, minWidth: 120 }} className='film-team-text-form'>
+      	<TextField
+					id="outlined-basic"
+					label="Name"
+					variant="outlined"
+					size="small"
+					margin="dense"
+					type="text"
+					name="name"
+					value={name}
+					onChange={(e) => setName(e.target.value)}
+          required
+				/>
         <TextField
-          id="outlined-basic"
-          label="Name"
-          variant="outlined"
-          size="small"
-          margin="dense"
-          type="text"
-          name="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+					id="outlined-basic"
+					label="Role"
+					variant="outlined"
+					size="small"
+					margin="dense"
+					type="text"
+					name="role"
+					value={role}
+					onChange={(e) => setRole(e.target.value)}
+          required
+				/>
         <TextField
-          id="outlined-basic"
-          label="Role"
-          variant="outlined"
-          size="small"
-          margin="dense"
-          type="text"
-          name="role"
-          value={role}
-          onChange={(e) => setRole(e.target.value)}
-        />
-        <TextField
-          id="outlined-basic"
-          label="Description"
-          variant="outlined"
-          size="small"
-          margin="dense"
-          type="text"
-          name="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <Button variant="text" onClick={handleTextSubmit}>
-          add film crew
-        </Button>
-      </FormControl>
+					id="outlined-basic"
+					label="Description"
+					variant="outlined"
+					size="small"
+					margin="dense"
+					type="text"
+					name="description"
+					value={description}
+					onChange={(e) => setDescription(e.target.value)}
+				/>
+				<Button 
+          className='add-film-crew-btn'
+          variant="text" 
+          onClick={handleTextSubmit}
+          >add film crew
+				</Button>
+			</FormControl>
 
       <FormControl>
-        <Button
-          className="film-team-done-btn"
-          variant="text"
+        <Button 
+          className='done-editing-btn'
+          variant="text" 
           onClick={() => setIsEditing(false)}
         >
           done editing

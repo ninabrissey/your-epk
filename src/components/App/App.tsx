@@ -21,6 +21,7 @@ function App() {
           <LoginForm />
         </Route>
         <Route exact path={`/register`}>
+          <Navigation onLogin={true}/>
           <RegisterForm />  
         </Route>
         <Route exact path={`/dashboard`}>

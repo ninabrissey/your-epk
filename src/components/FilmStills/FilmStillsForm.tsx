@@ -66,11 +66,11 @@ const FilmStillsForm = ({
   };
 
   return (
-    <section className="film-team-form">
+    <section className="film-team-form film-stills-form">
       <form className="film-team-img-form">
         <div>
           <input
-            className="image-upload-btn-2"
+            className="image-upload-btn"
             id="filmStillInput"
             type="file"
             accept="image/*"
@@ -90,8 +90,11 @@ const FilmStillsForm = ({
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <Button variant="text" onClick={handleTextSubmit}>
-          add still
+        <Button 
+          className="add-film-still-btn"
+          variant="text" 
+          onClick={handleTextSubmit}
+          >add still
         </Button>
       </FormControl>
 

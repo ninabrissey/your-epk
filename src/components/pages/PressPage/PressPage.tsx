@@ -32,6 +32,7 @@ const PressPage = ({ epk_id }: any) => {
         setEpk(info.data);
         setAwards(filterIncluded(info.included, 'award'));
         setPresses(filterIncluded(info.included, 'press'));
+        setAllCrew(filterIncluded(info.included, 'film_fam'))
         setIsLoading(false);
       })
       .catch((err) => setError(err));
@@ -106,11 +107,6 @@ const PressPage = ({ epk_id }: any) => {
               <TaglinesDisplay filmEPK={epk} />
             </div>
 
-            <div className="film-details-display">
-              <h2>Film Details</h2>
-              <FilmDetailsDisplay filmEPK={epk} />
-            </div>
-
             <div className="film-team-display">
               <h2>Film Crew</h2>
               <FilmTeamDisplay
@@ -119,6 +115,12 @@ const PressPage = ({ epk_id }: any) => {
                 isEditing={null}
               />
             </div>
+
+            <div className="film-details-display">
+              <h2>Film Details</h2>
+              <FilmDetailsDisplay filmEPK={epk} />
+            </div>
+
           </div>
         </section>
       )}

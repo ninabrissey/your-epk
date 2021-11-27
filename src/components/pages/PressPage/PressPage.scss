@@ -59,7 +59,8 @@
 // PRESS AND AWARDS SECTION
 .press-award-display {
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 5;
+  padding-top: 2vh;
 
   h2 {
     @include sectionTitleFormat;
@@ -83,6 +84,7 @@
 .synopsis-press {
   grid-column-start: 1;
   grid-column-end: 3;
+  padding-top: 4vh;
 
   h2 {
     @include sectionTitleFormat;
@@ -91,7 +93,6 @@
   .synopsis-display {
     @include contentSizePress;
     font-size: $primary-font-size;
-    // line-height: normal;
     width: 95%;
   }
 }
@@ -100,6 +101,7 @@
 .film-poster-display {
   grid-column-start: 3;
   grid-column-end: 5;
+  padding-top: 4vh;
 }
 
 .press-poster-wrapper {
@@ -107,21 +109,9 @@
   width: $primary-width;
   object-fit: cover;
 
-  // .poster {
-  //   padding-top: 6vh;
-  // }
-}
-
-// FILM POSTER SECTION
-.press-poster-wrapper {
-  height: 100%;
-  width: $primary-width;
-  object-fit: cover;
-}
-
-.film-poster-display {
-  grid-column-start: 3;
-  grid-column-end: 5;
+  .poster {
+    padding-top: 6vh;  
+  }
 }
 
 // TAGLINES SECTION
@@ -156,6 +146,7 @@
 .film-details-display {
   grid-column-start: 1;
   grid-column-end: 5;
+  padding-top: 4vh;
 
   h2 {
     @include sectionTitleFormat;
@@ -182,12 +173,14 @@
 
   h2 {
     @include sectionTitleFormat;
+    padding: 3vh 0;
   }
 }
 
 .film-stills-display {
   grid-column-start: 1;
   grid-column-end: 5;
+  padding-top: 4vh;
 
   h2 {
     @include sectionTitleFormat;

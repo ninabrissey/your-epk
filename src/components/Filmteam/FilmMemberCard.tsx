@@ -29,13 +29,13 @@ const FilmMemberCard = ({
         <p>{role}</p>
         <p>{description}</p>
       </div>
-      {isEditing && (
-        <div className="delete-btn">
+      {isEditing && 
+        <div className='film-member-delete-btn'>
           <Fab size="small" aria-label="delete">
             <DeleteOutlineIcon onClick={deleteFilmMember} />
           </Fab>
         </div>
-      )}
+      }
     </article>
   );
 };
