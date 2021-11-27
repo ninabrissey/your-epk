@@ -38,12 +38,14 @@ const FilmStillsForm = ({
 
   const handleTextSubmit = (event: any) => {
     event.preventDefault();
-
-    let filmStill = {
-      description: description,
-      film_epk_id: epk_id,
-    };
-    postFilmStill(filmStill);
+    const input = document.querySelector<any>('#filmStillInput').files[0];
+    if (description && input !== undefined) {
+      let filmStill = {
+        description: description,
+        film_epk_id: epk_id,
+      };
+      postFilmStill(filmStill);
+    }
   };
 
   const handleImageSubmit = async (filmStillID: any) => {
@@ -52,7 +54,7 @@ const FilmStillsForm = ({
     if (input.size > 0) {
       const presignedFileParams = await getPresignedUrl(input);
       console.log('presignedFileParams: ', presignedFileParams);
-      const awsRes = await putToAWS(presignedFileParams, input);
+      await putToAWS(presignedFileParams, input);
       const data: any = await postStillOrTeamToDB(
         'film_still_id',
         presignedFileParams,
