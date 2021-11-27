@@ -4,7 +4,6 @@
 .film-team-container {
   grid-column-start: 1;
   grid-column-end: 5;
-  // margin-bottom: 10vh;
 
   h2 {
     @include sectionTitleFormat;
@@ -71,15 +70,11 @@
   width: 22vw;
   text-align: center;
   opacity: 0.95;
-
   align-items: center;
 }
 
 .crew-img-wrapper {
   z-index: 0;
-  z-index: 0;
-  // height: 100%;
-  // width: 100%;
   position: absolute;
   object-fit: cover;
 
