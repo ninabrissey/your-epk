@@ -28,16 +28,18 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew }: any) => {
 
   const handleTextSubmit = (event: any) => {
     event.preventDefault();
-
-    let filmTeamMember = {
-      film_fam: {
-        first_name: name,
-        role: role,
-        description: description,
-        film_epk_id: epk_id,
-      },
-    };
-    postFilmFam(filmTeamMember);
+    const input = document.querySelector<any>('#FilmCrewImageInput').files[0];
+    if (name && input !== undefined) {
+      let filmTeamMember = {
+        film_fam: {
+          first_name: name,
+          role: role,
+          description: description,
+          film_epk_id: epk_id,
+        },
+      };
+      postFilmFam(filmTeamMember);
+    }
   };
 
   const handleImageSubmit = async (memberID: any) => {
