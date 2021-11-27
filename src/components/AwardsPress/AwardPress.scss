@@ -64,7 +64,7 @@
   z-index: 2;
   position: absolute;
   top: 10%;
-  left:0;
+  left: 0;
 }
 
 .award-text {
@@ -89,44 +89,44 @@
   width: 100%;
 }
 
+@media screen and (max-width: 1100px) {
+  .award-press-display {
+    grid-template-columns: repeat(2, 1fr);
+    // display: flex;
+    // font-size: 0;
+    // width: 70vw;
+    // overflow: scroll;
+    // white-space: nowrap;
+  }
+  // .press-card .award-press-card {
+  // height: 100%;
+  // width: 175px;
+  // min-width: 175px;
+  // background: whitesmoke;
+  // color: #605e59;
+  // }
+  // .laurel {
+  //   width: 25vw;
+  //   z-index: 2;
+  //   margin: 1vh;
+  //   margin-bottom: -23vh;
+  // }
+}
 
-// @media screen and (max-width: 1100px) {
-//   .award-press-display {
-//     display: flex;
-//     font-size: 0;
-//     width: 70vw;
-//     overflow: scroll;
-//     white-space: nowrap;
-//   }
-//   .press-card .award-press-card {
-//     height: 100%;
-//     width: 175px;
-//     min-width: 175px;
-//     // background: whitesmoke;
-//     // color: #605e59;
-//   }
-//   .laurel {
-//     width: 25vw;
-//     z-index: 2;
-//     margin: 1vh;
-//     margin-bottom: -23vh;
-//   }
-// }
-
-// @media screen and (max-width: 767px) {
-//   .award-press-display {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     font-size: 0;
-//     width: 90vw;
-//     overflow: scroll;
-//     white-space: nowrap;
-//   }
-//   .laurel {
-//     width: 30vw;
-//     z-index: 2;
-//     margin: 1vh;
-//     margin-bottom: -23vh;
-//   }
-// }
+@media screen and (max-width: 767px) {
+  .award-press-display {
+    display: flex;
+    // justify-content: center;
+    // align-items: center;
+    font-size: 0;
+    width: 90vw;
+    overflow: scroll;
+    // white-space: nowrap;
+  }
+  // .laurel {
+  //   width: 30vw;
+  //   z-index: 2;
+  //   margin: 1vh;
+  //   margin-bottom: -23vh;
+  // }
+}

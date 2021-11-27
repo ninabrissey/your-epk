@@ -108,7 +108,7 @@
   object-fit: cover;
 
   // .poster {
-  //   padding-top: 6vh;  
+  //   padding-top: 6vh;
   // }
 }
 
@@ -185,6 +185,14 @@
   }
 }
 
+.film-stills-display {
+  grid-column-start: 1;
+  grid-column-end: 5;
+
+  h2 {
+    @include sectionTitleFormat;
+  }
+}
 
 @media screen and (max-width: 767px) {
   .press-page-below-header {

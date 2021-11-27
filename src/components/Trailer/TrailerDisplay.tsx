@@ -13,7 +13,6 @@ const TrailerDisplay = ({ filmEPK }: ITrailer) => {
             className="iframe"
             title="Embedded YouTube Video"
             src={`https://www.youtube.com/embed/${filmEPK.attributes.trailer}`}
-            // src={`https://www.youtube.com/embed/fXbp6gF5Xxo`}
             frameBorder="0"
             allowFullScreen
           />

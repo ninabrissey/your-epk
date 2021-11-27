@@ -6,7 +6,6 @@
 @import '../components/Synopsis/synopsis.scss';
 @import '../components/FilmDetails/FilmDetails.scss';
 @import '../components/Taglines/Taglines.scss';
-@import '../components/Images/Images.scss';
 @import '../components/AwardsPress/AwardPress.scss';
 @import '../components/Navigation/Navigation.scss';
 @import '../components/pages/EditPage/EditPage.scss';
@@ -14,17 +13,18 @@
 @import '../components/Footer/Footer.scss';
 @import '../components/pages/LoginPage/LoginPage.scss';
 @import '../components//Filmteam/FilmTeam.scss';
+@import '../components//FilmStills/FilmStills.scss';
 
 body {
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-		sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	background-color: #ffffff;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
