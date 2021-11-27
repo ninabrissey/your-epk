@@ -184,6 +184,14 @@
   }
 }
 
+.film-stills-display {
+  grid-column-start: 1;
+  grid-column-end: 5;
+
+  h2 {
+    @include sectionTitleFormat;
+  }
+}
 
 @media screen and (max-width: 767px) {
   .press-page-below-header {

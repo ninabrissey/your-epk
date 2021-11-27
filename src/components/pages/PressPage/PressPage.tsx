@@ -9,16 +9,19 @@ import TaglinesDisplay from '../../Taglines/TaglinesDisplay';
 import { filterIncluded } from '../../../utils/cleanData';
 import { FilmEPK, Included } from '../../../types';
 import { useEffect, useState } from 'react';
-import { getEPK } from '../../../utils/apiCalls';
+import { getEPK, getArrayData } from '../../../utils/apiCalls';
 import { Redirect } from 'react-router-dom';
 import ContactDisplay from '../../Contact/ContactDisplay';
 import FilmTeamDisplay from '../../Filmteam/FilmTeamDisplay';
 import Footer from '../../Footer/Footer';
+import FilmStillsDisplay from '../../FilmStills/FilmStillsDisplay';
 
 const PressPage = ({ epk_id }: any) => {
   const [epk, setEpk] = useState<FilmEPK>({} as FilmEPK);
   const [awards, setAwards] = useState<Array<Included>>([]);
   const [presses, setPresses] = useState<Array<Included>>([]);
+  const [filmStills, setFilmStills] = useState<Array<Included>>([]);
+
   const [allCrew, setAllCrew] = useState<Array<Included>>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
@@ -32,16 +35,20 @@ const PressPage = ({ epk_id }: any) => {
         setAllCrew(filterIncluded(info.included, 'film_fam'))
         setIsLoading(false);
       })
-        .catch(err => setError(err))
+      .catch((err) => setError(err));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    getArrayData('film_stills', epk_id).then((data) =>
+      setFilmStills(data.data)
+    );
+  }, []);
+
   return (
     <div>
-      {error && (
-        <Redirect to={`/not-found/${epk_id}`} />
-      )}
+      {error && <Redirect to={`/not-found/${epk_id}`} />}
       {isLoading ? (
         <p>Loading...</p>
       ) : (
@@ -63,7 +70,12 @@ const PressPage = ({ epk_id }: any) => {
           <div className="press-page-below-header">
             <div className="press-award-display">
               <h2>Articles and Awards</h2>
-              <AwardPressDisplay awards={awards} presses={presses} isEditing={false} removeCard={null}/>
+              <AwardPressDisplay
+                awards={awards}
+                presses={presses}
+                isEditing={false}
+                removeCard={null}
+              />
             </div>
 
             <div className="trailer-display">
@@ -80,6 +92,16 @@ const PressPage = ({ epk_id }: any) => {
               <FilmPosterDisplay filmEPK={epk} epk_id={epk_id} />
             </div>
 
+            <div className="film-stills-display">
+              <h2>Film Stills</h2>
+              <FilmStillsDisplay
+                filmStills={filmStills}
+                epk_id={epk_id}
+                removeFilmMember={null}
+                isEditing={false}
+              />
+            </div>
+
             <div className="tagline-press">
               <h2>Tagline and Logline</h2>
               <TaglinesDisplay filmEPK={epk} />
@@ -90,10 +112,13 @@ const PressPage = ({ epk_id }: any) => {
               <FilmDetailsDisplay filmEPK={epk} />
             </div>
 
-
             <div className="film-team-display">
               <h2>Film Crew</h2>
-              <FilmTeamDisplay allCrew={allCrew} removeFilmMember={null} isEditing={null} />
+              <FilmTeamDisplay
+                allCrew={allCrew}
+                removeFilmMember={null}
+                isEditing={null}
+              />
             </div>
           </div>
         </section>

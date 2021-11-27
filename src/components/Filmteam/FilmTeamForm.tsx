@@ -1,24 +1,32 @@
 import { useState } from 'react';
 import { postData } from '../../utils/apiCalls';
-import { getPresignedUrl, putToAWS, postFilmMemberToDatabase } from '../../awsS3/helperFunctions';
+import {
+  getPresignedUrl,
+  putToAWS,
+  postStillOrTeamToDB,
+} from '../../awsS3/helperFunctions';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew } : any) => {
-  const [name, setName] = useState<string>('')
-  const [role, setRole] = useState<string>('')
-  const [description, setDescription] = useState<string>('')
+const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew }: any) => {
+  const [name, setName] = useState<string>('');
+  const [role, setRole] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
 
-  const postFilmFam = (filmTeamMember : object) => {
-    postData('https://epk-be.herokuapp.com/api/v1/film_fams', filmTeamMember)
-    .then((data : any) => {
-      console.log('data in form POST: ', data)
-      handleImageSubmit(data.data.id).then(data => setAllCrew([data.data, ...allCrew]))
-    })
-  }
+  const postFilmFam = (filmTeamMember: object) => {
+    postData(
+      'https://epk-be.herokuapp.com/api/v1/film_fams',
+      filmTeamMember
+    ).then((data: any) => {
+      console.log('data in form POST: ', data);
+      handleImageSubmit(data.data.id).then((data) =>
+        setAllCrew([data.data, ...allCrew])
+      );
+    });
+  };
 
-  const handleTextSubmit = (event : any) => {
+  const handleTextSubmit = (event: any) => {
     event.preventDefault();
 
     let filmTeamMember = {
@@ -26,27 +34,30 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew } : any) => {
         first_name: name,
         role: role,
         description: description,
-        film_epk_id: epk_id  
-      }
-    }
-    postFilmFam(filmTeamMember)
-  }
+        film_epk_id: epk_id,
+      },
+    };
+    postFilmFam(filmTeamMember);
+  };
 
-  const handleImageSubmit = async (memberID : any) => {
-		const input = document.querySelector<any>('#FilmCrewImageInput').files[0];
+  const handleImageSubmit = async (memberID: any) => {
+    const input = document.querySelector<any>('#FilmCrewImageInput').files[0];
 
     if (input.size > 0) {
       const presignedFileParams = await getPresignedUrl(input);
-      console.log('presignedFileParams: ', presignedFileParams)
-      await putToAWS(presignedFileParams, input);
-      const data: any = await postFilmMemberToDatabase(presignedFileParams, memberID, 'head_shots')
-      return data
+      const awsRes = await putToAWS(presignedFileParams, input);
+      const data: any = await postStillOrTeamToDB(
+        'film_fam_id',
+        presignedFileParams,
+        memberID,
+        'head_shots'
+      );
+      return data;
     }
-	}
+  };
 
   return (
     <section className="film-team-form">
-
       <form className="film-team-img-form">
         <div>
           <input
@@ -107,14 +118,12 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew } : any) => {
           className='done-editing-btn'
           variant="text" 
           onClick={() => setIsEditing(false)}
-          >done editing
-				</Button>
-			</FormControl>
-
+        >
+          done editing
+        </Button>
+      </FormControl>
     </section>
-  )
-}
-
+  );
+};
 
 export default FilmTeamForm;
-

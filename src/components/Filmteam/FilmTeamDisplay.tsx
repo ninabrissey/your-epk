@@ -6,11 +6,14 @@ interface IFilmTeamDisplay {
   removeFilmMember: any;
   isEditing: any;
 }
-const FilmTeamDisplay = ({ allCrew, removeFilmMember, isEditing } : IFilmTeamDisplay) => {
-
-  const searchAllCrew = allCrew.map((crewMember : Included) => {
-    return ( 
-      <FilmMemberCard 
+const FilmTeamDisplay = ({
+  allCrew,
+  removeFilmMember,
+  isEditing,
+}: IFilmTeamDisplay) => {
+  const searchAllCrew = allCrew.map((crewMember: Included) => {
+    return (
+      <FilmMemberCard
         key={crewMember.id}
         id={crewMember.id}
         name={crewMember.attributes.first_name}
@@ -20,15 +23,10 @@ const FilmTeamDisplay = ({ allCrew, removeFilmMember, isEditing } : IFilmTeamDis
         removeFilmMember={removeFilmMember}
         isEditing={isEditing}
       />
-    )
-  })
+    );
+  });
 
-  return (
-    <section className='all-crew-wrapper'>
-      {searchAllCrew}
-    </section>
-  )
-}
-
+  return <section className="all-crew-wrapper">{searchAllCrew}</section>;
+};
 
 export default FilmTeamDisplay;

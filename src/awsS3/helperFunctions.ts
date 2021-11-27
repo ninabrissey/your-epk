@@ -91,7 +91,7 @@ export const postToDatabase = async (fileParams: any, epk: any, endpoint: string
 
 //********** STEP 3 FOR FILM TEAM & FILM STILLS **********//
 
-export const postFilmMemberToDatabase = async (fileParams: any, filmMember: any, endpoint: string) => {
+export const postStillOrTeamToDB = async (keyID: any, fileParams: any, filmMember: any, endpoint: string) => {
   const cookie: any = Cookies.get('csrf-token')
 
   let usersPostOptions: any = {
@@ -104,7 +104,7 @@ export const postFilmMemberToDatabase = async (fileParams: any, filmMember: any,
     },
     credentials: 'include',
     body: JSON.stringify({
-      film_fam_id: filmMember,
+      [keyID] : filmMember, 
       blob_signed_id: fileParams.blob_signed_id,
     }),
   }

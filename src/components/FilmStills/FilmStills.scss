@@ -1,0 +1,19 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.stills-display-container {
+  @include marginWidthContainers;
+  @include gridDisplayCards;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5em;
+  padding-top: 3%;
+  width: 70vw;
+}
+
+.film-stills-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 23vw;
+  text-align: center;
+}

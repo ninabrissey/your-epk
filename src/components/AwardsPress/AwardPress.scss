@@ -68,7 +68,7 @@
   z-index: 2;
   position: absolute;
   top: 10%;
-  left:0;
+  left: 0;
 }
 
 .award-text {
@@ -131,6 +131,8 @@
     // font-size: 0;
     width: 70vw;
     white-space: nowrap;
+
+    // grid-template-columns: repeat(2, 1fr);
   }
 
   .press-card, 
@@ -162,6 +164,10 @@
     align-items: center;
     overflow: scroll;
     padding: 0 5vw;
+
+    // font-size: 0;
+    // width: 90vw;
+    // overflow: scroll;
   }
 
   .award-elements {

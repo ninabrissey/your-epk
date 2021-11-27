@@ -11,6 +11,7 @@ import Error from '../../Error/Error';
 import SynopsisContainer from '../../Synopsis/SynopsisContainer';
 import FilmDetailsContainer from '../../FilmDetails/FilmDetailsContainer';
 import TaglinesContainer from '../../Taglines/TaglinesContainer';
+import FilmStillsContainer from '../../FilmStills/FilmStillsContainer';
 import FilmTeamContainer from '../../Filmteam/FilmTeamContainer';
 import Footer from '../../Footer/Footer';
 import Cookies from 'js-cookie';
@@ -21,7 +22,7 @@ const EditPage = ({ epk_id }: any) => {
   const [film, setFilm] = useState<FilmEPK>({} as FilmEPK);
   const [title, setTitle] = useState('');
   const [included, setIncluded] = useState<Array<Included>>([]);
-  const [hasAccess, setHasAccess] = useState<boolean>(true)
+  const [hasAccess, setHasAccess] = useState<boolean>(true);
 
   useEffect(() => {
     setLoading(true);
@@ -61,10 +62,8 @@ const EditPage = ({ epk_id }: any) => {
 
   return (
     <div>
-      {!hasAccess && (
-        <Redirect to={`/no-edit-access/${epk_id}`} />
-      )}
-      {error && <Error accessDenied={false} notFound={true} epk_id={0}/>}
+      {!hasAccess && <Redirect to={`/no-edit-access/${epk_id}`} />}
+      {error && <Error accessDenied={false} notFound={true} epk_id={0} />}
       {loading ? (
         <p>Loading</p>
       ) : (
@@ -95,18 +94,18 @@ const EditPage = ({ epk_id }: any) => {
                   epk_id={epk_id}
                 />
               </div>
+              <FilmStillsContainer epk_id={epk_id} />
               <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
               {/* <div className="container-wrapper"> */}
               <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
               {/* </div> */}
 
-              <FilmTeamContainer 
-                filmEPK={film} 
-                epk_id={epk_id} 
-                addFilmInfo={addFilmInfo} 
+              <FilmTeamContainer
+                filmEPK={film}
+                epk_id={epk_id}
+                addFilmInfo={addFilmInfo}
                 included={included}
               />
-              
             </div>
           </main>
         </div>
