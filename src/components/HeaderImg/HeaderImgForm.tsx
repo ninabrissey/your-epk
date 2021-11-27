@@ -13,7 +13,7 @@ const HeaderImgForm = ({ setIsEditing, isEditing, filmEPK }: any) => {
     if (headerFile.size > 0) {
       makeAWSpost();
     }
-		// console.log('headerFile',headerFile)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
   }, [headerFile])
 
 	const handleSubmit = async (event: any) => {
@@ -32,8 +32,8 @@ const HeaderImgForm = ({ setIsEditing, isEditing, filmEPK }: any) => {
 
 	const makeAWSpost = async () => {
 		const presignedFileParams = await getPresignedUrl(headerFile);
-		const awsRes = await putToAWS(presignedFileParams, headerFile);
-		const data: any = await postToDatabase(
+		await putToAWS(presignedFileParams, headerFile);
+		await postToDatabase(
 			presignedFileParams,
 			filmEPK,
 			'header_images'

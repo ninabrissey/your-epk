@@ -7,39 +7,36 @@ import SynopsisDisplay from '../../Synopsis/SynopsisDisplay';
 import FilmDetailsDisplay from '../../FilmDetails/FilmDetailsDisplay';
 import TaglinesDisplay from '../../Taglines/TaglinesDisplay';
 import { filterIncluded } from '../../../utils/cleanData';
-import {
-  FilmEPK,
-  EPKData,
-  Award,
-  Press,
-  Image,
-  Included,
-} from '../../../types';
+import { FilmEPK, Included } from '../../../types';
 import { useEffect, useState } from 'react';
 import { getEPK, getArrayData } from '../../../utils/apiCalls';
+import { Redirect } from 'react-router-dom';
 import ContactDisplay from '../../Contact/ContactDisplay';
 import FilmTeamDisplay from '../../Filmteam/FilmTeamDisplay';
 import Footer from '../../Footer/Footer';
 import FilmStillsDisplay from '../../FilmStills/FilmStillsDisplay';
 
-const PressPage = ({ title, epk_id }: any) => {
+const PressPage = ({ epk_id }: any) => {
   const [epk, setEpk] = useState<FilmEPK>({} as FilmEPK);
   const [awards, setAwards] = useState<Array<Included>>([]);
   const [presses, setPresses] = useState<Array<Included>>([]);
   const [filmStills, setFilmStills] = useState<Array<Included>>([]);
+
   const [allCrew, setAllCrew] = useState<Array<Included>>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string>('');
 
   useEffect(() => {
-    setIsLoading(true);
-    getEPK(epk_id).then((info: any) => {
-      setEpk(info.data);
-      setAwards(filterIncluded(info.included, 'award'));
-      console.log(info, 'in the press page useEffect');
-      setPresses(filterIncluded(info.included, 'press'));
-      setAllCrew(filterIncluded(info.included, 'film_fam'));
-      setIsLoading(false);
-    });
+    getEPK(epk_id)
+      .then((info: any) => {
+        setEpk(info.data);
+        setAwards(filterIncluded(info.included, 'award'));
+        setPresses(filterIncluded(info.included, 'press'));
+        setIsLoading(false);
+      })
+      .catch((err) => setError(err));
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -50,6 +47,7 @@ const PressPage = ({ title, epk_id }: any) => {
 
   return (
     <div>
+      {error && <Redirect to={`/not-found/${epk_id}`} />}
       {isLoading ? (
         <p>Loading...</p>
       ) : (

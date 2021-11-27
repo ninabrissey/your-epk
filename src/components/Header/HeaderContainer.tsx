@@ -13,7 +13,7 @@ interface IHeader {
 	isPressPage: boolean;
 }
 
-const HeaderContainer = ({ filmEPK, addFilmInfo, epk_id,isPressPage }: IHeader) => {
+const HeaderContainer = ({ filmEPK, addFilmInfo, epk_id, isPressPage }: IHeader) => {
 	const [isEditing, setIsEditing] = useState<boolean>(true);
 
 	return (
