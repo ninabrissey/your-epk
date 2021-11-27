@@ -50,7 +50,6 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew } : any) => {
       <form className="film-team-img-form">
         <div>
           <input
-            // hidden
             className="image-upload-btn"
             id="imageInput"
             type="file"
@@ -59,7 +58,7 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew } : any) => {
         </div>
       </form>
 
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
+      <FormControl sx={{ m: 1, minWidth: 120 }} className='film-team-text-form'>
       	<TextField
 					id="outlined-basic"
 					label="Name"
@@ -70,6 +69,7 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew } : any) => {
 					name="name"
 					value={name}
 					onChange={(e) => setName(e.target.value)}
+          required
 				/>
         <TextField
 					id="outlined-basic"
@@ -81,6 +81,7 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew } : any) => {
 					name="role"
 					value={role}
 					onChange={(e) => setRole(e.target.value)}
+          required
 				/>
         <TextField
 					id="outlined-basic"
@@ -93,7 +94,9 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew } : any) => {
 					value={description}
 					onChange={(e) => setDescription(e.target.value)}
 				/>
-				<Button variant="text" 
+				<Button 
+          className='add-film-crew-btn'
+          variant="text" 
           onClick={handleTextSubmit}
           >add film crew
 				</Button>
