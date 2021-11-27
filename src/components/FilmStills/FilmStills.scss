@@ -1,45 +1,19 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.image-display-container {
+.stills-display-container {
   @include marginWidthContainers;
   @include gridDisplayCards;
   grid-template-columns: repeat(2, 1fr);
+  gap: 1.5em;
   padding-top: 3%;
+  width: 70vw;
 }
 
-.image-card {
-  @include flexCenterColumn;
-  width: 500px;
+.film-stills-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 23vw;
+  text-align: center;
 }
-
-.image-container {
-  width: 500px;
-}
-
-.image {
-  object-fit: cover;
-  width: 500px;
-}
-
-.images-form-input {
-  font: inherit;
-  letter-spacing: inherit;
-  padding: 4px 0 5px;
-  border: 2px solid black;
-  box-sizing: content-box;
-  background: none;
-  height: 1.4375em;
-  margin: 0;
-  -webkit-tap-highlight-color: transparent;
-  display: block;
-  min-width: 0;
-  width: 100%;
-  -webkit-animation-name: mui-auto-fill-cancel;
-  animation-name: mui-auto-fill-cancel;
-  -webkit-animation-duration: 10ms;
-  animation-duration: 10ms;
-  padding: 16.5px 14px;
-}
-
-//the mui stuff will need to be adjusted
