@@ -17,20 +17,21 @@ import {
 } from '../../../types';
 import { useEffect, useState } from 'react';
 import { getEPK, getArrayData } from '../../../utils/apiCalls';
-import ImagesDisplay from '../../FilmStills/FilmStillsDisplay';
 import ContactDisplay from '../../Contact/ContactDisplay';
 import FilmTeamDisplay from '../../Filmteam/FilmTeamDisplay';
 import Footer from '../../Footer/Footer';
+import FilmStillsDisplay from '../../FilmStills/FilmStillsDisplay';
 
 const PressPage = ({ title, epk_id }: any) => {
   const [epk, setEpk] = useState<FilmEPK>({} as FilmEPK);
   const [awards, setAwards] = useState<Array<Included>>([]);
   const [presses, setPresses] = useState<Array<Included>>([]);
-  // const [currentImages, setImages] = useState<Image[] | []>([]);
+  const [filmStills, setFilmStills] = useState<Array<Included>>([]);
   const [allCrew, setAllCrew] = useState<Array<Included>>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    setIsLoading(true);
     getEPK(epk_id).then((info: any) => {
       setEpk(info.data);
       setAwards(filterIncluded(info.included, 'award'));
@@ -39,6 +40,12 @@ const PressPage = ({ title, epk_id }: any) => {
       setAllCrew(filterIncluded(info.included, 'film_fam'));
       setIsLoading(false);
     });
+  }, []);
+
+  useEffect(() => {
+    getArrayData('film_stills', epk_id).then((data) =>
+      setFilmStills(data.data)
+    );
   }, []);
 
   return (
@@ -86,6 +93,16 @@ const PressPage = ({ title, epk_id }: any) => {
               <FilmPosterDisplay filmEPK={epk} epk_id={epk_id} />
             </div>
 
+            <div className="film-stills-display">
+              <h2>Film Stills</h2>
+              <FilmStillsDisplay
+                filmStills={filmStills}
+                epk_id={epk_id}
+                removeFilmMember={null}
+                isEditing={false}
+              />
+            </div>
+
             <div className="tagline-press">
               <h2>Tagline and Logline</h2>
               <TaglinesDisplay filmEPK={epk} />
@@ -96,10 +113,13 @@ const PressPage = ({ title, epk_id }: any) => {
               <FilmDetailsDisplay filmEPK={epk} />
             </div>
 
-
             <div className="film-team-display">
               <h2>Film Crew</h2>
-              <FilmTeamDisplay allCrew={allCrew} removeFilmMember={null} isEditing={null} />
+              <FilmTeamDisplay
+                allCrew={allCrew}
+                removeFilmMember={null}
+                isEditing={null}
+              />
             </div>
           </div>
         </section>
