@@ -19,7 +19,7 @@ const FilmStillsDisplay = ({
     );
   });
 
-  return <div className="all-crew-wrapper">{filmsStillCards}</div>;
+  return <div className="stills-display-container">{filmsStillCards}</div>;
 };
 
 export default FilmStillsDisplay;
