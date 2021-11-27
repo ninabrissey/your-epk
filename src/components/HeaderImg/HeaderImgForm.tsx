@@ -4,6 +4,8 @@ import {
 	putToAWS,
 	postToDatabase,
 } from '../../awsS3/helperFunctions';
+import FormControl from '@mui/material/FormControl';
+import Button from '@mui/material/Button';
 
 
 const HeaderImgForm = ({ setIsEditing, isEditing, filmEPK }: any) => {
@@ -43,22 +45,42 @@ const HeaderImgForm = ({ setIsEditing, isEditing, filmEPK }: any) => {
 	return (
 		<form>
 			<div className="header-img-form">
-				<h2>Choose an image you'd like to go here</h2>
+				<h2>Film Cover Photo</h2>
+				{/* <h2>Choose an image you'd like to go here</h2> */}
 				<input
+					className='image-upload-btn'
 					id="header-input"
 					type="file"
 					accept="image/*"
 				/>
-				<button
+				{/* <button
 					onClick={(event) => {
 						handleSubmit(event);
 					}}
 					>Save
-				</button>
-				<button
+				</button> */}
+				{/* <button
 					onClick={(event) => handleImg(event)}
 					>Done editing
-				</button>
+				</button> */}
+
+			<FormControl>
+          <Button 
+            className='film-team-done-btn'
+            variant="text" 
+            onClick={(event) => handleSubmit(event)}
+            >save
+          </Button>
+        </FormControl>
+
+        <FormControl>
+          <Button 
+            className='film-team-done-btn'
+            variant="text" 
+            onClick={(event) => handleImg(event)}
+            >done editing
+          </Button>
+        </FormControl>
 			</div>
 		</form>
 	);

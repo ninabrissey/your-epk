@@ -8,6 +8,7 @@
   background-color: whitesmoke;
   grid-column-start: 1;
   grid-column-end: 5;
+  padding: 2vh 0;
 
   h2 {
     @include sectionTitleFormat;
@@ -32,6 +33,11 @@
     display: flex;
     flex-direction: column;
   }
+
+  // button {
+  //   width: $btn-width;
+  //   align-self: center;
+  // }
 }
 
 .taglines-section {

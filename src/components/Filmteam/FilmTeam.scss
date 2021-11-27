@@ -4,14 +4,11 @@
 .film-team-container {
   grid-column-start: 1;
   grid-column-end: 5;
-  background-color: whitesmoke;
-  margin-bottom: 10vh;
 
   h2 {
     @include sectionTitleFormat;
-    // width: 75vw;
     margin: auto;
-    padding: 15px;
+    padding: 3vh 15px;
 	}
 }
 
@@ -20,83 +17,69 @@
   left: 70vw;
 }
 
-
 .film-team-form {
   padding: 4vh 0;
-  width: 80%;
+  width: 58vw;
   margin: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 
   div {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
   }
+
+  .add-film-crew-btn {
+    width: 150px;
+  }
 }
 
 .film-team-img-form {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-.film-team-done-btn {
-  margin: 2vh;
+.film-team-text-form {
+  width: 75vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
-
-// .image-upload-btn {
-//   background: transparent;
-//   border-radius: 0.3rem;
-//   cursor: pointer;
-//   padding: 10.5px 14px;
-//   border: 1px solid #bababa;
-//   color: #585858;
-//   width: 200px;
-// }
-
-.image-upload-btn-2::file-selector-button {
-  background: transparent;
-  border-radius: 0.3rem;
-  cursor: pointer;
-  padding: 10.5px 14px;
-  border: 1px solid #bababa;
-  color: #585858;
-  width: 200px;
-}
-
-#FilmCrewImageInput {
-  font-size: 1em;
-}
-
 
 .all-crew-wrapper {
-  @include gridDisplayCards;
+  // @include gridDisplayCards;
   @include marginWidthContainers;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
   justify-items: center;
+  grid-row-gap: 20px;
 }
 
-
 .crew-member-card {
-  // height: 17vh;
-  // width: 17vw;
   position: relative;
   display: flex;
   flex-direction: column;
-  // align-items: center;
-  // justify-content: space-evenly;
-  height: 23vw;
-  width: 23vw;
-  // padding: 10%;
+  height: 22vw;
+  width: 22vw;
   text-align: center;
   opacity: 0.95;
+  align-items: center;
 }
 
 .crew-img-wrapper {
   z-index: 0;
-  z-index: 0;
-  height: 100%;
-  width: 100%;
   position: absolute;
   object-fit: cover;
+
+  height: 81%;
+  width: 85%;
 
   img {
     height: 100%;
@@ -107,16 +90,26 @@
 
 .crew-info-wrapper {
   z-index: 10;
-  width: 96%;
+  height: 19%;
+  // width: 96%;
   align-self: center;
   padding: 2%;
   text-align: left;
   position: absolute;
-  top: 70%;
+  // top: 70%;
   background-color: whitesmoke;
+
+  bottom: 0;
+  width: 81%;
 }
 
 
 .crew-name {
   font-weight: 700;
+}
+
+.film-member-delete-btn {
+  position: absolute;
+  top: -10px;
+  right: 10px;
 }

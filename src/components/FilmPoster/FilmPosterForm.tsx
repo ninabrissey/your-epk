@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getPresignedUrl, putToAWS, postToDatabase } from '../../awsS3/helperFunctions';
+import FormControl from '@mui/material/FormControl';
+import Button from '@mui/material/Button';
 
 
 const FilmPosterDisplay = ({ filmEPK, setIsEditing, isEditing }: any) => {
@@ -36,10 +38,35 @@ const FilmPosterDisplay = ({ filmEPK, setIsEditing, isEditing }: any) => {
     <div className='poster-form-wrapper'>
       <h2>Film Poster</h2>
       <form className='film-poster-form'>
-        <input id='test-input' type="file" accept="image/*" />
+        <input 
+          className='image-upload-btn'
+          id='test-input' 
+          type="file" 
+          accept="image/*" 
+        />
         {reminder && <p>Must choose a file to save</p>}
-        <button onClick={(event) => { handleSubmit(event) }}>Save</button>
-        <button onClick={() => setIsEditing(!isEditing)} >Done editing</button>
+        {/* <button onClick={(event) => { handleSubmit(event) }}>Save</button> */}
+        {/* <button onClick={() => setIsEditing(!isEditing)} >Done editing</button> */}
+
+
+        <FormControl>
+          <Button 
+            className='film-team-done-btn'
+            variant="text" 
+            onClick={(event) => handleSubmit(event)}
+            >save
+          </Button>
+        </FormControl>
+
+        <FormControl>
+          <Button 
+            className='done-editing-btn'
+            // className='film-team-done-btn'
+            variant="text" 
+            onClick={() => setIsEditing(!isEditing)}
+            >done editing
+          </Button>
+        </FormControl>
       </form>
     </div>
   )

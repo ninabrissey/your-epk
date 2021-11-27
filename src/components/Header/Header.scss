@@ -20,7 +20,7 @@
 	left: 60vw;
 	z-index: 10;
 	top: 1vh;
-	left: 26vw;
+	left: 12.5vw;
 }
 
 .header-form {
@@ -40,6 +40,12 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+
+	h2 {
+    @include sectionTitleFormat;
+    margin: 0 auto;
+    padding: 15px;
+  }
 }
 
 .header-info-container {

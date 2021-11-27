@@ -13,6 +13,7 @@ import FilmDetailsContainer from '../../FilmDetails/FilmDetailsContainer';
 import TaglinesContainer from '../../Taglines/TaglinesContainer';
 import FilmStillsContainer from '../../FilmStills/FilmStillsContainer';
 import FilmTeamContainer from '../../Filmteam/FilmTeamContainer';
+import Footer from '../../Footer/Footer';
 import Cookies from 'js-cookie';
 
 const EditPage = ({ epk_id }: any) => {
@@ -76,6 +77,7 @@ const EditPage = ({ epk_id }: any) => {
               epk_id={epk_id}
               isPressPage={false}
             />
+
             <div className="edit-page-below-header">
               {film.id && (
                 <AwardsPressContainer
@@ -84,7 +86,9 @@ const EditPage = ({ epk_id }: any) => {
                   included={included}
                 />
               )}
+
               <TrailerContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+
               <div className="container-wrapper">
                 <SynopsisContainer filmEPK={film} addFilmInfo={addFilmInfo} />
                 <FilmPosterContainer
@@ -93,11 +97,10 @@ const EditPage = ({ epk_id }: any) => {
                   epk_id={epk_id}
                 />
               </div>
+
               <FilmStillsContainer epk_id={epk_id} />
+
               <TaglinesContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-              {/* <div className="container-wrapper"> */}
-              <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-              {/* </div> */}
 
               <FilmTeamContainer
                 filmEPK={film}
@@ -105,10 +108,14 @@ const EditPage = ({ epk_id }: any) => {
                 addFilmInfo={addFilmInfo}
                 included={included}
               />
+
+              <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
+
             </div>
           </main>
         </div>
       )}
+      <Footer />
     </div>
   );
 };

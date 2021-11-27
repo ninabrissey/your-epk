@@ -28,3 +28,27 @@ body {
 a {
   text-decoration: none;
 }
+
+
+button {
+	width: $btn-width;
+	align-self: center;
+}
+
+
+// IMAGE UPLOAD BUTTONS
+.image-upload-btn::file-selector-button {
+  background: transparent;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  padding: 10.5px 14px;
+  border: 1px solid #bababa;
+  color: #585858;
+  width: 200px;
+}
+
+#imageInput,
+#header-input,
+#test-input {
+  font-size: 1em;
+}

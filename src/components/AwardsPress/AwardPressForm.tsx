@@ -70,29 +70,33 @@ const AwardPressForm = ({
     <section className="awards-press-form-wrapper">
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <div className="press-awards-form">
-          <InputLabel id="award-or-press">type</InputLabel>
-          <Select
-            style={{
-              width: '20%',
-              minWidth: '85px',
-              marginRight: '3%',
-              padding: 0,
-            }}
-            labelId="award-or-press"
-            id="award-or-press"
-            label="select type"
-            name="Select"
-            value={select}
-            onChange={(e) => setSelect(e.target.value)}
-          >
-            <MenuItem value={'award'}>award</MenuItem>
-            <MenuItem value={'press'}>press</MenuItem>
-          </Select>
+
+          <FormControl className='type-select-form-wrapper'>
+            <InputLabel id="award-or-press-label">type</InputLabel>
+
+            <Select
+              style={{
+                // width: '25%',
+                // minWidth: '85px',
+                // marginRight: '3%',
+                // padding: 0,
+              }}
+              labelId="award-or-press-label"
+              id="award-or-press"
+              label="select type"
+              name="Select"
+              value={select}
+              onChange={(e) => setSelect(e.target.value)}
+            >
+              <MenuItem value={'award'}>award</MenuItem>
+              <MenuItem value={'press'}>press</MenuItem>
+            </Select>
+          </FormControl>
 
           {select === 'award' && (
-            <>
+            <div className='award-form-wrapper'>
               <TextField
-                style={{ marginRight: '3%' }}
+                // style={{ marginRight: '3%' }}
                 id="outlined-basic"
                 name="festival"
                 label="festival"
@@ -102,8 +106,9 @@ const AwardPressForm = ({
                 helperText="festival required"
                 required
               />
+
               <TextField
-                style={{ marginRight: '3%' }}
+                // style={{ marginRight: '3%' }}
                 id="outlined-basic"
                 name="award type"
                 label="award type"
@@ -113,8 +118,9 @@ const AwardPressForm = ({
                 helperText="award type required"
                 required
               />
+
               <TextField
-                style={{ marginRight: '3%' }}
+                // style={{ marginRight: '3%' }}
                 id="outlined-basic"
                 name="year"
                 label="year"
@@ -124,24 +130,26 @@ const AwardPressForm = ({
                 helperText="year required"
                 required
               />
-              <Button
-                style={{
-                  background: '#ec5f27',
-                  height: '57px',
-                  marginRight: '3%',
-                }}
-                variant="text"
-                onClick={(e) => submitAndClear('awards', newAward, e)}
-              >
-                save
-              </Button>
-            </>
+
+              <FormControl>
+                <Button
+                  // style={{
+                  //   background: '#ec5f27',
+                  //   height: '57px',
+                  //   marginRight: '3%',
+                  // }}
+                  variant="text"
+                  onClick={(e) => submitAndClear('awards', newAward, e)}
+                  >save
+                </Button>
+              </FormControl>
+            </div>
           )}
 
           {select === 'press' && (
-            <>
+            <div className='press-form-wrapper'>
               <TextField
-                style={{ marginRight: '3%' }}
+                // style={{ marginRight: '3%' }}
                 id="outlined-basic"
                 name="publication"
                 label="publication"
@@ -151,8 +159,9 @@ const AwardPressForm = ({
                 helperText="publication required"
                 required
               />
+
               <TextField
-                style={{ marginRight: '3%' }}
+                // style={{ marginRight: '3%' }}
                 id="outlined-basic"
                 name="link"
                 label="link"
@@ -162,8 +171,9 @@ const AwardPressForm = ({
                 helperText="link required"
                 required
               />
+              
               <TextField
-                style={{ marginRight: '3%' }}
+                // style={{ marginRight: '3%' }}
                 id="outlined-basic"
                 name="description"
                 label="description"
@@ -173,27 +183,32 @@ const AwardPressForm = ({
                 helperText="description/quote required"
                 required
               />
-              <Button
-                style={{
-                  background: '#ec5f27',
-                  height: '57px',
-                  marginRight: '3%',
-                }}
-                variant="text"
-                onClick={(e) => submitAndClear('presses', newPress, e)}
-              >
-                save
-              </Button>
-            </>
+
+              <FormControl>
+                <Button
+                  // style={{
+                  //   background: '#ec5f27',
+                  //   height: '57px',
+                  //   marginRight: '3%',
+                  // }}
+                  variant="text"
+                  onClick={(e) => submitAndClear('presses', newPress, e)}
+                  >save
+                </Button>
+              </FormControl>
+            </div>
           )}
 
-          <Button
-            style={{ background: '#ec5f27', height: '57px', width: '150px' }}
-            variant="text"
-            onClick={() => setIsEditting(!isEditting)}
-          >
-            done editting
-          </Button>
+          <FormControl>
+            <Button
+              className='done-editing-btn'
+              // style={{ background: '#ec5f27', height: '57px', width: '150px' }}
+              variant="text"
+              onClick={() => setIsEditting(!isEditting)}
+              >done editting
+            </Button>
+          </FormControl>  
+
         </div>
       </FormControl>
     </section>
