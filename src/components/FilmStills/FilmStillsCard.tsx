@@ -17,7 +17,7 @@ const FilmStillsCard = ({
   };
 
   return (
-    <article className="crew-member-card">
+    <article className="film-stills-card">
       <div className="crew-img-wrapper">
         <img src={filmStill.attributes.film_still_url} alt="" />
         <div className="crew-info-wrapper">
