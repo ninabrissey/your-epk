@@ -59,7 +59,7 @@
 // PRESS AND AWARDS SECTION
 .press-award-display {
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 5;
 
   h2 {
     @include sectionTitleFormat;
@@ -91,7 +91,6 @@
   .synopsis-display {
     @include contentSizePress;
     font-size: $primary-font-size;
-    // line-height: normal;
     width: 95%;
   }
 }
