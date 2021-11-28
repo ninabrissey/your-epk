@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { postData, getArrayData } from '../../utils/apiCalls';
-// import { Included, Image } from '../../types';
+import { getArrayData } from '../../utils/apiCalls';
 import { Included } from '../../types';
 import FilmStillsDisplay from './FilmStillsDisplay';
 import FilmStillsForm from './FilmStillsForm';
@@ -26,6 +25,7 @@ const FilmStillsContainer = ({ epk_id }: any) => {
 
   useEffect(() => {
     getFilmStills();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const removeFilmMember = (id: string) => {
