@@ -18,7 +18,6 @@ const Dashboard = () => {
         setAllFilms(data.included);
       })
       .catch((err) => {
-        console.log('error', err)
         setUserError(`Error ${err}`)
       });
   }, []);
