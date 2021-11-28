@@ -1,36 +1,32 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { getPresignedUrl, putToAWS, postToDatabase } from '../../awsS3/helperFunctions';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
 
 const FilmPosterDisplay = ({ filmEPK, setIsEditing, isEditing }: any) => {
-  const [filmPoster, setFilmPoster] = useState<any>({});
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [reminder, setReminder] = useState<boolean>(false)
-
-  useEffect(() => {
-    if (filmPoster.size > 0) {
-      makeAWSpost();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filmPoster])
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     const input = document.querySelector<any>('#test-input').files[0]
 
-    if (input) {
+    if (!input) {
+			setReminder(true)
+		} else {
+			setIsLoading(true)
       setReminder(false)
-      setFilmPoster(input) 
-    } else {
-      setReminder(true)
-
-    }
+			makeAWSpost(input).then(res => {
+				setIsLoading(false)
+				setIsEditing(!isEditing)
+			})
+		}
   }
 
-  const makeAWSpost = async () => {
-    const presignedFileParams = await getPresignedUrl(filmPoster)
-    await putToAWS(presignedFileParams, filmPoster)
+  const makeAWSpost = async (file: any) => {
+    const presignedFileParams = await getPresignedUrl(file)
+    await putToAWS(presignedFileParams, file)
     await postToDatabase(presignedFileParams, filmEPK, 'movie_posters')
   }
 
@@ -44,10 +40,8 @@ const FilmPosterDisplay = ({ filmEPK, setIsEditing, isEditing }: any) => {
           type="file" 
           accept="image/*" 
         />
+        {isLoading && <p>Saving image...</p>}
         {reminder && <p>Must choose a file to save</p>}
-        {/* <button onClick={(event) => { handleSubmit(event) }}>Save</button> */}
-        {/* <button onClick={() => setIsEditing(!isEditing)} >Done editing</button> */}
-
 
         <FormControl>
           <Button 
@@ -61,7 +55,6 @@ const FilmPosterDisplay = ({ filmEPK, setIsEditing, isEditing }: any) => {
         <FormControl>
           <Button 
             className='done-editing-btn'
-            // className='film-team-done-btn'
             variant="text" 
             onClick={() => setIsEditing(!isEditing)}
             >done editing
