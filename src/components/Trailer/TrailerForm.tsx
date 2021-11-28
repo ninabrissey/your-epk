@@ -17,6 +17,7 @@ const TrailerForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
 
   useEffect(() => {
     checkFormData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filmEPK]);
 
   const handleSubmit = () => {
