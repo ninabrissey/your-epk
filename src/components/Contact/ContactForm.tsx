@@ -11,32 +11,12 @@ const ContactForm = ({ filmEPK, addFilmInfo, setIsEditing }: any) => {
 	const [website, setWebsite] = useState<string>('');
 
 	const checkFormData = () => {
-		// if (filmEPK?.attributes) {
-			// setName(filmEPK.attributes.contact_name);
-			// setPhoneNum(filmEPK.attributes.contact_number);
-			// setEmail(filmEPK.attributes.contact_email);
-			// setCompany(filmEPK.attributes.company_name);
-			// setWebsite(filmEPK.attributes.website);
-			if (filmEPK.attributes.contact_name) {
-				setName(filmEPK.attributes.contact_name);
-			}
-			
-			if (filmEPK.attributes.contact_number) {
-				setPhoneNum(filmEPK.attributes.contact_number);
-			}
+		filmEPK.attributes.contact_name ? setName(filmEPK.attributes.contact_name) : setName('')
+	  filmEPK.attributes.contact_number ? setPhoneNum(filmEPK.attributes.contact_number) : setPhoneNum('')
+		filmEPK.attributes.contact_email ? setEmail(filmEPK.attributes.contact_email) : setEmail('')
+		filmEPK.attributes.company_name ? setCompany(filmEPK.attributes.company_name) : setCompany('')
+		filmEPK.attributes.website ? setWebsite(filmEPK.attributes.website) : setWebsite('')
 
-			if (filmEPK.attributes.contact_email) {
-				setEmail(filmEPK.attributes.contact_email);
-			}
-
-			if (filmEPK.attributes.company_name) {
-				setCompany(filmEPK.attributes.company_name);
-			}
-
-			if (filmEPK.attributes.website) {
-				setWebsite(filmEPK.attributes.website);
-			}
-		// }
 	};
 
 	useEffect(() => {
@@ -54,14 +34,6 @@ const ContactForm = ({ filmEPK, addFilmInfo, setIsEditing }: any) => {
 		addFilmInfo(currentContact);
 		setIsEditing(false);
 	};
-
-	// const clearForm = () => {
-	// 	setName('');
-	// 	setPhoneNum('');
-	// 	setEmail('');
-	// 	setCompany('');
-	// 	setWebsite('');
-	// };
 
 	return (
 		<section className="contact-form">
