@@ -20,9 +20,9 @@ const HeaderImgForm = ({ setIsEditing, isEditing, filmEPK }: any) => {
 			setReminder(true)
 		} else {
 			setIsLoading(true)
+			setReminder(false)
 			makeAWSpost(input).then(res => {
 				setIsLoading(false)
-				setReminder(false)
 				setIsEditing(!isEditing)
 			})
 		}
@@ -49,21 +49,21 @@ const HeaderImgForm = ({ setIsEditing, isEditing, filmEPK }: any) => {
 					type="file"
 					accept="image/*"
 				/>
-			{/* <FormControl>
+			<FormControl>
           <Button 
             className='film-team-done-btn'
             variant="text" 
-            onClick={(event) => handleSubmit(event)}
+            onClick={(event) => handleImg(event)}
             >save
           </Button>
-        </FormControl> */}
+        </FormControl>
 				{isLoading && <p>Saving image...</p>}
 				{reminder &&  <p>Please select an image</p>}
         <FormControl>
           <Button 
             className='film-team-done-btn'
             variant="text" 
-            onClick={(event) => handleImg(event)}
+            onClick={(event) => setIsEditing(!isEditing)}
             >done editing
           </Button>
         </FormControl>
