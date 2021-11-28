@@ -44,6 +44,7 @@ const PressPage = ({ epk_id }: any) => {
     getArrayData('film_stills', epk_id).then((data) =>
       setFilmStills(data.data)
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -112,7 +113,7 @@ const PressPage = ({ epk_id }: any) => {
               <FilmTeamDisplay
                 allCrew={allCrew}
                 removeFilmMember={null}
-                isEditing={null}
+                isEditing={false}
               />
             </div>
 
