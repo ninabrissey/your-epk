@@ -8,7 +8,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import { filterIncluded } from '../../utils/cleanData';
 
 interface APContainerProps {
-  addFilmInfo: any;
+  addFilmInfo: (filmInfo: object) => void;
   epk_id: string;
   included: Included[];
 }
@@ -42,7 +42,7 @@ const AwardsPressContainer = ({
     }
   };
 
-  const postAwardsPress = async (endpoint: any, newItem: any) => {
+  const postAwardsPress = async (endpoint: string, newItem: object) => {
     setError('');
     setIsLoading(true);
     try {

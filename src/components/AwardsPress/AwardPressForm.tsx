@@ -11,11 +11,11 @@ import './AwardPress.scss';
 // import { createTheme, ThemeProvider } from '@mui/system';
 
 interface IAwardPressForm {
-  addFilmInfo: any;
-  setIsEditting: any;
+  addFilmInfo: (filmInfo: object) => void;
+  setIsEditting: React.Dispatch<React.SetStateAction<boolean>>;
   isEditting: boolean;
   epk_id: string;
-  postAwardsPress: any;
+  postAwardsPress: (endpoint: string, newItem: object) => Promise<void>;
 }
 
 const AwardPressForm = ({
@@ -50,7 +50,7 @@ const AwardPressForm = ({
     },
   };
 
-  const submitAndClear = (endpoint: string, newItem: any, e: any) => {
+  const submitAndClear = (endpoint: string, newItem: object, e: any) => {
     e.preventDefault();
     if (
       (newAward.award.name && newAward.award.year) ||
