@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
 	getPresignedUrl,
 	putToAWS,
@@ -63,7 +63,7 @@ const HeaderImgForm = ({ setIsEditing, isEditing, filmEPK }: any) => {
           <Button 
             className='film-team-done-btn'
             variant="text" 
-            onClick={(event) => setIsEditing(!isEditing)}
+            onClick={() => setIsEditing(!isEditing)}
             >done editing
           </Button>
         </FormControl>
