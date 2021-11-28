@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import FilmStillsCard from './FilmStillsCard';
 
 const FilmStillsDisplay = ({
