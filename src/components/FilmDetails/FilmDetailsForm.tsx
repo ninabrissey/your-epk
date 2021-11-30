@@ -39,16 +39,31 @@ const FilmDetailsForm = ({
   };
 
   const checkFormData = () => {
-      filmEPK.attributes.genre ? setGenre(filmEPK.attributes.genre) : setGenre('')
-      filmEPK.attributes.country ? setCountry(filmEPK.attributes.country) : setCountry('')
-      filmEPK.attributes.release_year ? setReleaseYear(filmEPK.attributes.release_year) : setReleaseYear('')
-      filmEPK.attributes.run_time ? setRuntime(filmEPK.attributes.run_time) : setRuntime('')
-      filmEPK.attributes.language ? setLanguage(filmEPK.attributes.language) : setLanguage('')
-      filmEPK.attributes.budget ? setBudget(filmEPK.attributes.budget) : setBudget('')
-      filmEPK.attributes.production_company ? setCompany(filmEPK.attributes.production_company) : setCompany('')
-      filmEPK.attributes.website ? setWebsite(filmEPK.attributes.website) : setWebsite('')
-    }
-
+    filmEPK.attributes.genre
+      ? setGenre(filmEPK.attributes.genre)
+      : setGenre('');
+    filmEPK.attributes.country
+      ? setCountry(filmEPK.attributes.country)
+      : setCountry('');
+    filmEPK.attributes.release_year
+      ? setReleaseYear(filmEPK.attributes.release_year)
+      : setReleaseYear('');
+    filmEPK.attributes.run_time
+      ? setRuntime(filmEPK.attributes.run_time)
+      : setRuntime('');
+    filmEPK.attributes.language
+      ? setLanguage(filmEPK.attributes.language)
+      : setLanguage('');
+    filmEPK.attributes.budget
+      ? setBudget(filmEPK.attributes.budget)
+      : setBudget('');
+    filmEPK.attributes.production_company
+      ? setCompany(filmEPK.attributes.production_company)
+      : setCompany('');
+    filmEPK.attributes.website
+      ? setWebsite(filmEPK.attributes.website)
+      : setWebsite('');
+  };
 
   return (
     <form className="film-details-form">
