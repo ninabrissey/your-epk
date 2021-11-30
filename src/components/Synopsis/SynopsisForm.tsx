@@ -23,7 +23,7 @@ const SynopsisForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
   };
 
   const checkFormData = () => {
-    setSynopsis(filmEPK.attributes.synopsis);
+    filmEPK.attributes.synopsis ? setSynopsis(filmEPK.attributes.synopsis) : setSynopsis('');
   };
 
   return (

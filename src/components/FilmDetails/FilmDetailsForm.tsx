@@ -38,33 +38,20 @@ const FilmDetailsForm = ({
     setIsEditing(!isEditing);
   };
 
-  const clearForms = () => {
-    setGenre('');
-    setCountry('');
-    setReleaseYear('');
-    setRuntime('');
-    setLanguage('');
-    setBudget('');
-    setCompany('');
-    setWebsite('');
-  };
-
   const checkFormData = () => {
-    if (filmEPK?.attributes) {
-      setGenre(filmEPK.attributes.genre);
-      setCountry(filmEPK.attributes.country);
-      setReleaseYear(filmEPK.attributes.release_year);
-      setRuntime(filmEPK.attributes.run_time);
-      setLanguage(filmEPK.attributes.language);
-      setBudget(filmEPK.attributes.budget);
-      setCompany(filmEPK.attributes.production_company);
-      setWebsite(filmEPK.attributes.website);
+      filmEPK.attributes.genre ? setGenre(filmEPK.attributes.genre) : setGenre('')
+      filmEPK.attributes.country ? setCountry(filmEPK.attributes.country) : setCountry('')
+      filmEPK.attributes.release_year ? setReleaseYear(filmEPK.attributes.release_year) : setReleaseYear('')
+      filmEPK.attributes.run_time ? setRuntime(filmEPK.attributes.run_time) : setRuntime('')
+      filmEPK.attributes.language ? setLanguage(filmEPK.attributes.language) : setLanguage('')
+      filmEPK.attributes.budget ? setBudget(filmEPK.attributes.budget) : setBudget('')
+      filmEPK.attributes.production_company ? setCompany(filmEPK.attributes.production_company) : setCompany('')
+      filmEPK.attributes.website ? setWebsite(filmEPK.attributes.website) : setWebsite('')
     }
-  };
+
 
   return (
     <form className="film-details-form">
-      {/* <p>I am the film details form</p> */}
       <div>
         <FormControl sx={{ m: 1, minWidth: 120 }} className="form-section">
           <TextField

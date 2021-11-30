@@ -4,8 +4,15 @@ import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
 const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
-  const [tagline, setTagline] = useState<string>(filmEPK.attributes.tagline);
-  const [logline, setLogline] = useState<string>(filmEPK.attributes.logline);
+  const [tagline, setTagline] = useState<string>('');
+  const [logline, setLogline] = useState<string>('');
+
+  useEffect(() => {
+    if (filmEPK?.attributes) {
+      checkFormData();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filmEPK]);
 
   const handleSubmit = () => {
     const currentTaglines = {
@@ -17,16 +24,9 @@ const TaglinesForm = ({ addFilmInfo, setIsEditing, filmEPK }: any) => {
   };
 
   const checkFormData = () => {
-    setTagline(filmEPK.attributes.tag_line);
-    setLogline(filmEPK.attributes.log_line);
+    filmEPK.attributes.tag_line ? setTagline(filmEPK.attributes.tag_line) : setTagline('')
+    filmEPK.attributes.log_line ? setLogline(filmEPK.attributes.log_line) : setLogline('')
   };
-
-  useEffect(() => {
-    if (filmEPK?.attributes) {
-      checkFormData();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filmEPK]);
 
   return (
     <form className="taglines-form-wrapper">

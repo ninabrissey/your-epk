@@ -19,7 +19,7 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew }: any) => {
       'https://epk-be.herokuapp.com/api/v1/film_fams',
       filmTeamMember
     ).then((data: any) => {
-      console.log('data in form POST: ', data);
+      // console.log('data in form POST: ', data);
       handleImageSubmit(data.data.id).then((data) =>
         setAllCrew([data.data, ...allCrew])
       );
@@ -47,7 +47,7 @@ const FilmTeamForm = ({ epk_id, setIsEditing, allCrew, setAllCrew }: any) => {
 
     if (input.size > 0) {
       const presignedFileParams = await getPresignedUrl(input);
-      const awsRes = await putToAWS(presignedFileParams, input);
+      await putToAWS(presignedFileParams, input);
       const data: any = await postStillOrTeamToDB(
         'film_fam_id',
         presignedFileParams,

@@ -4,7 +4,7 @@ import FilmMemberCard from './FilmMemberCard';
 interface IFilmTeamDisplay {
   allCrew: Included[];
   removeFilmMember: any;
-  isEditing: any;
+  isEditing: boolean;
 }
 const FilmTeamDisplay = ({
   allCrew,
