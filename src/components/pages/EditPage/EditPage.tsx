@@ -110,7 +110,6 @@ const EditPage = ({ epk_id }: any) => {
               />
 
               <FilmDetailsContainer filmEPK={film} addFilmInfo={addFilmInfo} />
-
             </div>
           </main>
         </div>
