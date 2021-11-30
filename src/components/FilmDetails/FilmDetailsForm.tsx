@@ -32,7 +32,6 @@ const FilmDetailsForm = ({
       language: language,
       budget: budget,
       production_company: company,
-      // website: website.includes('https://') ? website : `https://${website}`,
       website: website,
     };
     addFilmInfo(currentFilmDetails);
