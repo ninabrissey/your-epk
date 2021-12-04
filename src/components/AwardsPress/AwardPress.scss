@@ -4,7 +4,7 @@
 .awards-press-container {
   grid-column-start: 1;
   grid-column-end: 5;
-  
+
   h2 {
     @include sectionTitleFormat;
   }
@@ -135,7 +135,7 @@
     // grid-template-columns: repeat(2, 1fr);
   }
 
-  .press-card, 
+  .press-card,
   .award-press-card {
     height: 100%;
     width: 22vw;
