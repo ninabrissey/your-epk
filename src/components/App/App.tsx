@@ -14,6 +14,9 @@ function App() {
         <Route exact path="/">
           <Redirect to={`/login`} />
         </Route>
+        <Route exact path="/dashboard/1">
+          <Redirect to={`/login`} />
+        </Route>
         <Route exact path={`/login`}>
           <Navigation onLogin={true} />
           <LoginForm />
