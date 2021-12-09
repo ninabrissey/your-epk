@@ -41,6 +41,7 @@ const FilmDetailsDisplay = ({ filmEPK }: IFilmDetails) => {
             <span>Website: </span>
             <a
               href={
+                filmEPK.attributes.website &&
                 filmEPK.attributes.website.includes('https://')
                   ? filmEPK.attributes.website
                   : `https://${filmEPK.attributes.website}`

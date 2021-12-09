@@ -24,6 +24,7 @@ const ContactDisplay = ({ filmEPK }: IContactDisplay) => {
             <span>website: </span>
             <a
               href={
+                filmEPK.attributes.website &&
                 filmEPK.attributes.website.includes('https://')
                   ? filmEPK.attributes.website
                   : `https://${filmEPK.attributes.website}`
